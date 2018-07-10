@@ -14,8 +14,10 @@ class Pemakalah extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listAll_pemakalah();
 
-		$dataHalaman = array(   
+		$dataHalaman = array(  
+		  'query' =>$query,
           'da' => $kue   
         );
 

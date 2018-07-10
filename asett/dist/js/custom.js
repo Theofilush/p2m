@@ -2030,11 +2030,53 @@ if (typeof NProgress != 'undefined') {
 			        ]
 				});
 				$('#datatableku').DataTable({
-					 'lengthChange': false,
-					 'columnDefs': [			            
-			            { width: '10%', targets: 1 }
-			        ],
-					 'fixedColumns': true  
+					'columnDefs': [			            
+						{ width: '22%', targets: 1 },
+						{ width: '41%', targets: 2 },
+						{ width: '22%', targets: 3 },
+						{ width: '6%', targets: 4 },
+						{ width: '5%', targets: 5 }						
+				]
+				});
+				$('#datatableku2').DataTable({
+					'columnDefs': [			            
+						{ width: '20%', targets: 1 },
+						{ width: '35%', targets: 2 },
+						{ width: '24%', targets: 3 },
+						{ width: '6%', targets: 4 },
+						{ width: '5%', targets: 5 },				
+						{ width: '5%', targets: 6 }
+				]
+				});
+				$('#datatableku3').DataTable({
+					'columnDefs': [			            
+						{ width: '22%', targets: 1 },
+						{ width: '32%', targets: 2 },
+						{ width: '26%', targets: 3 },
+						{ width: '6%', targets: 4 },
+						{ width: '5%', targets: 5 },				
+						{ width: '5%', targets: 6 }
+				]
+				});
+				$('#datatableku4').DataTable({
+					'columnDefs': [			            
+						{ width: '22%', targets: 1 },
+						{ width: '32%', targets: 2 },
+						{ width: '26%', targets: 3 },
+						{ width: '6%', targets: 4 },
+						{ width: '5%', targets: 5 },				
+						{ width: '5%', targets: 6 }
+				]
+				});
+				$('#datatableku-dana').DataTable({
+					'columnDefs': [			            
+						{ width: '25%', targets: 1 },
+						{ width: '22%', targets: 2 },
+						{ width: '22%', targets: 3 },
+						{ width: '17%', targets: 4 },
+						{ width: '5%', targets: 5 },				
+						{ width: '5%', targets: 6 }
+				]
 				});
 
 				$('#datatable-scroller').DataTable({

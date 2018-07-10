@@ -14,52 +14,52 @@
                       </div>
                     </div>
           
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                    <table id="datatableku4" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
-                          <th>First name</th>
-                          <th>Last name</th>
-                          <th>Position</th>
-                          <th>Office</th>                          
+                          <th>No.</th>
+                          <th>Nama Dosen</th>
+                          <th>Luaran</th>                        
+                          <th>Deskripsi Singkat</th>
+                          <th>Berkas Pendukung</th>                          
+                          <th>Edit</th>
+                          <th>Valid</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        $no = 1; 
+                        foreach($query as $row){                   
+                        ?> 
                         <tr>
-                          <td>Tiger</td>
-                          <td>Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>                        
+                          <td><?php echo $no++ ?></td>
+                          <td><b><?php echo $row->nama_dosen; ?></b><br>
+                            NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                           
+                          </td>
+                          <td>
+                            <b><?php echo $row->judul_luaran; ?></b><br>
+                            Jenis Luaran :&nbsp;<span class="font_color_blue"><b><?php echo $row->jenis_luaran; ?></b></span><br>
+                          </td>
+                          <td>                           
+                          <?php echo $row->deskripsi; ?>
+                          </td>                          
+                          <td>
+                          	<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
+                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
+                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
+                          </td>                          
+                          <td>
+                          	<button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 
+                          </td>
+                          <td>
+                          	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 
+                      	   </td>                         
                         </tr>
-                        <tr>
-                          <td>Garrett</td>
-                          <td>Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                        </tr>
-                        <tr>
-                          <td>Ashton</td>
-                          <td>Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>                         
-                        </tr>
-                        <tr>
-                          <td>Cedric</td>
-                          <td>Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>                         
-                        </tr>
-                        <tr>
-                          <td>Airi</td>
-                          <td>Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>                        
-                        </tr>
-                        <tr>
-                          <td>Brielle</td>
-                          <td>Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                        </tr>                       
+                        <?php
+                         }
+                        ?>
                       </tbody>
                     </table>
           

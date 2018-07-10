@@ -14,15 +14,14 @@
                       </div>
                     </div>
           
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <table id="datatableku" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Judul</th>
-                          <th>Penulis Publikasi</th>
-                          <th>Jurnal</th>
-                          <th>Berkas</th>
-                          <th>Edit</th>
+                          <th>Nama Dosen</th>
+                          <th>Judul</th>                        
+                          <th>Buku</th>
+                          <th>Edit</th>                          
                           <th>Valid</th>
                         </tr>
                       </thead>
@@ -33,28 +32,15 @@
                         ?> 
                         <tr>
                           <td><?php echo $no++ ?></td>
+                          <td><b><?php echo $row->nama_dosen; ?></b><br>
+                            NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>
+                          </td>
                           <td><b><?php echo $row->judul; ?></b></td>
-                          <td>
-                            <ul class="titiknya">
-                              <li>
-                                  <?php echo $row->penulis_publikasi; ?>    
-                              </li>
-                            </ul>
-                          </td>
-                          <td>
-                            <b><?php echo $row->nama_jurnal; ?></b><br>
-                            ISSN :&nbsp;<span class="font_color_blue">2090-4274</span><br>
-                            Volume :&nbsp;<span class="font_color_blue"> <?php echo $row->volume; ?> </span><br>
-                            Nomor :&nbsp;<span class="font_color_blue"> <?php echo $row->nomor; ?> </span><br>
-                            Halaman :&nbsp;<span class="font_color_blue"><?php echo $row->halaman_awal; ?> s/d <?php echo $row->halaman_akhir; ?></span><br>
-                            URL :&nbsp;<span class="font_color_blue"><?php echo $row->url; ?></span><br>
-                          </td>
-                          <td>
-                          	<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
-                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
-                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
-                          </td>
+                          <td>                           
+                            Penerbit :&nbsp;<span class="font_color_blue"><b><?php echo $row->penerbit; ?></b></span><br>
+                            ISBN :&nbsp;<span class="font_color_blue"> <?php echo $row->isbn; ?> </span><br>
+                            Jml. Halaman :&nbsp;<span class="font_color_blue"> <?php echo $row->jumlah_halaman; ?> </span><br>                            
+                          </td>                          
                           <td>
                           	<button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
                           	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 

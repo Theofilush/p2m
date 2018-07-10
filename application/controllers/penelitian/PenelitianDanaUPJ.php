@@ -14,8 +14,10 @@ class PenelitianDanaUPJ extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-
-		$dataHalaman = array(   		
+		$query = $this->M_dokumen->listAll_dana_upj();
+ 
+		$dataHalaman = array(   
+		  'query'=>$query,
           'da' => $kue   
         );
 
