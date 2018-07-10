@@ -2019,7 +2019,23 @@ if (typeof NProgress != 'undefined') {
 				  keys: true
 				});
 
-				$('#datatable-responsive').DataTable();
+				$('#datatable-responsive').DataTable({
+					'columnDefs': [			            
+			            { width: '33%', targets: 1 },
+			            { width: '20%', targets: 2 },
+			            { width: '26%', targets: 3 },
+			            { width: '6%', targets: 4 },
+			            { width: '5%', targets: 5 },
+			            { width: '6%', targets: 6 }
+			        ]
+				});
+				$('#datatableku').DataTable({
+					 'lengthChange': false,
+					 'columnDefs': [			            
+			            { width: '10%', targets: 1 }
+			        ],
+					 'fixedColumns': true  
+				});
 
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",

@@ -14,6 +14,11 @@
     <script src="<?php echo base_url() ?>asett/dist/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins//fastclick/lib/fastclick.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!--<script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>-->
     <script src="<?php echo base_url() ?>asett/plugins/iCheck/icheck.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
 	

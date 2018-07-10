@@ -11,13 +11,15 @@
 
     <link href="<?php echo base_url() ?>asett/dist/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asett/plugins/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!--<link href="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">-->
     <link href="<?php echo base_url() ?>asett/plugins/iCheck/skins/all.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asett/plugins/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>asett/dist/css/custom.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -35,7 +37,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Administrator </h2>
+                <h2><?php echo  $bubi; ?> </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -46,25 +48,27 @@
               <div class="menu_section">
                 <h3>Dokumen</h3>
                 <ul class="nav side-menu">
-                  <li class="active"><a><i class="fa fa-home"></i> Beranda</a></li>
-                  <li><a><i class="fa fa-edit"></i> Formulir <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="<?php echo site_url() ?>dashboard"><i class="fa fa-home"></i>Beranda</a></li>
+                  <li><a><i class="fa fa-edit"></i>SumberDaya Penelitian <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">Formulir Umum</a></li>
+                      <li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ">Sumber Dana UPJ</a></li>
+                      <li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaNonUPJ">Sumber Dana non-UPJ</a></li>
+                      <li><a href="<?php echo site_url() ?>penelitian/ssgrant">Search and Share Grant</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Konten <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i>Publikasi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">Konten dan Event</a></li>
-                      <li><a href="media_gallery.html">Galeri</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/PublikasiJurnal">Publikasi Jurnal</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/Bukuajar">Buku Ajar/Teks</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/Pemakalah">Pemakalah Forum Ilmiah</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/HakKekayaanIntelektual">Hak Kekayaan Intelektual (HKI)</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/LuaranLain">Luaran Lain</a></li>
                     </ul>
-                  </li>
-                  
-                  <li><a><i class="fa fa-bar-chart-o"></i> Unduh </a>
-                  </li>
-                  <li><a><i class="fa fa-clone"></i>Penelitian <span class="fa fa-chevron-down"></span></a>
+                  </li>                
+                  <li><a><i class="fa fa-clone"></i>SumberDaya Pengabdian<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Jurnal 1</a></li>
-                      <li><a href="fixed_footer.html">Jurnal 2</a></li>
+                      <li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaUPJ">Sumber Dana UPJ</a></li>
+                      <li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaNonUPJ">Sumber Dana non UPJ</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -93,7 +97,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="<?php echo base_url() ?>asett/images/user2.png" alt="">Administrator
+                    <img src="<?php echo base_url() ?>asett/images/user2.png" alt=""><?php echo  $bubi; ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -104,7 +108,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Lock Out</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>
