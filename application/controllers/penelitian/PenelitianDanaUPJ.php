@@ -9,7 +9,7 @@ class PenelitianDanaUPJ extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			redirect(site_url("login"));
 		} 
-	}
+	} 
 	public function index()
 	{
 		$usan = $this->session->userdata('nama');

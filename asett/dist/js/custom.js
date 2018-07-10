@@ -2078,7 +2078,16 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 6 }
 				]
 				});
-
+				$('#datatableku-dana-non').DataTable({
+					'columnDefs': [			            
+						{ width: '25%', targets: 1 },
+						{ width: '22%', targets: 2 },
+						{ width: '22%', targets: 3 },
+						{ width: '17%', targets: 4 },
+						{ width: '5%', targets: 5 },				
+						{ width: '5%', targets: 6 }
+				]
+				});
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",
 				  deferRender: true,

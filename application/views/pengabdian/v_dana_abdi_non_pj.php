@@ -4,10 +4,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
-                      <h4 class="">Penelitian Universitas Pembangunan Jaya</h4>                    
-                      <a href="#" class="btn btn-default">Jurnal Internasional</a> 
-                      <a href="#" class="btn btn-default">Jurnal Naional Terakreditasi</a> 
-                      <a href="#" class="btn btn-default">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>                  
+                      <h4 class="">Pengabdian Sumber Dana non-Universitas Pembangunan Jaya</h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -17,52 +14,63 @@
                       </div>
                     </div>
           
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                    <table id="datatable-dana-non" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
-                          <th>First name</th>
-                          <th>Last name</th>
-                          <th>Position</th>
-                          <th>Office</th>                          
+                          <th>No.</th>
+                          <th>Judul</th>                          
+                          <th>Pesornil</th>
+                          <th>Penelitian</th>
+                          <th>Dana</th>
+                          <th>Tahun Penelitian</th>
+                          <th>Berkas</th>
+                          <th>Edit</th>                          
+                          <th>Valid</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php
+                        $no = 1; 
+                        foreach($query as $row){                   
+                        ?> 
                         <tr>
-                          <td>Tiger</td>
-                          <td>Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>                        
+                          <td><?php echo $no++ ?></td>
+                          <td><b><?php echo $row->judul; ?></b></td>
+                          <td>
+                            Ketua :&nbsp;<span class="font_color_blue"><?php echo $row->ketua_peneliti; ?></span><br>
+                            Anggota 1 :&nbsp;<span class="font_color_blue"> <?php echo $row->anggota_peneliti_1; ?> </span><br>
+                            Anggota 2 :&nbsp;<span class="font_color_blue"> <?php echo $row->anggota_peneliti_2; ?> </span><br>
+                          </td>
+                          <td>                            
+                            -
+                          </td>
+                          <td>
+                          Sumber Dana :&nbsp;<span class="font_color_blue"><?php echo $row->sumber_dana; ?></span><br>
+                          Besaran Dana :&nbsp;<span class="font_color_blue"><?php echo $row->besaran_dana; ?></span><br>
+                          </td>
+                          <td>                            
+                            <b><?php echo $row->tahun_penelitian; ?></b><br>                          	
+                          </td>
+                          <td>
+                          <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
+                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
+                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
+                              <?php echo $row->file; ?></b>
+                          	
+                          </td>
+                          <td>
+                          <button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 
+                          
+                      	   </td>
+                          <td>
+                            <span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?>
+                          </td>
                         </tr>
-                        <tr>
-                          <td>Garrett</td>
-                          <td>Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                        </tr>
-                        <tr>
-                          <td>Ashton</td>
-                          <td>Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>                         
-                        </tr>
-                        <tr>
-                          <td>Cedric</td>
-                          <td>Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>                         
-                        </tr>
-                        <tr>
-                          <td>Airi</td>
-                          <td>Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>                        
-                        </tr>
-                        <tr>
-                          <td>Brielle</td>
-                          <td>Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                        </tr>                       
+                        <?php
+                         }
+                        ?>
                       </tbody>
                     </table>
           

@@ -28,6 +28,14 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->dana_upj);
         return $query->result();
     } 
+    function listAll_dana_non2_upj(){
+        $query = $this->db->get($this->dana_non_upj);
+        return $query->result();
+    } 
+    function listAll_dana2_upj(){
+        $query = $this->db->get($this->dana_upj);
+        return $query->result();
+    } 
     function listAll_hki(){
         $query = $this->db->get($this->hki);
         return $query->result();
