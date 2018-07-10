@@ -2080,10 +2080,10 @@ if (typeof NProgress != 'undefined') {
 				});
 				$('#datatableku-dana-non').DataTable({
 					'columnDefs': [			            
-						{ width: '25%', targets: 1 },
+						{ width: '23%', targets: 1 },
 						{ width: '22%', targets: 2 },
 						{ width: '22%', targets: 3 },
-						{ width: '17%', targets: 4 },
+						{ width: '19%', targets: 4 },
 						{ width: '5%', targets: 5 },				
 						{ width: '5%', targets: 6 }
 				]
