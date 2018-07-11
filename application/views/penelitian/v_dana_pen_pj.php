@@ -13,7 +13,7 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="http://localhost/docen/list/AddDocument" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewPenelitianUPJ" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
            

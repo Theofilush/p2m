@@ -22,7 +22,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h4>Dana yang dimiliki Universitas Pembangunan Jaya</h4>
+                    <h4>Data yang dimiliki Universitas Pembangunan Jaya</h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
