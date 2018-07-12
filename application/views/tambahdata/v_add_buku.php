@@ -40,21 +40,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Judul
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="nama_jurnal">ISBN
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">ISBN
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input type="text" id="isbn" name="isbn" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="jumlah" class="control-label col-md-2 col-sm-2 col-xs-12">Jumlah Halaman</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jumlah Halaman</label>
                                     <div class="col-md-1 col-sm-1 col-xs-12">
                                     <input id="jumlah" name="jumlah" class="form-control col-md-1 col-xs-12" type="text" required="required">
                                     </div>

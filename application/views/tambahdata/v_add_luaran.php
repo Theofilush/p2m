@@ -40,21 +40,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Judul Luaran
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Luaran
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="jenis">Jenis
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Deskripsi Singkat
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>

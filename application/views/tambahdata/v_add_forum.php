@@ -48,21 +48,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Judul Makalah
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Makalah
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="nama_jurnal">Nama Forum
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Forum
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input type="text" id="nama_forum" name="nama_forum" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="issn" class="control-label col-md-2 col-sm-2 col-xs-12">Institusi Penyelenggara</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Institusi Penyelenggara</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input id="institusi" name="institusi" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
