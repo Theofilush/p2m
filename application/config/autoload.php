@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','form','tanggal');
+$autoload['helper'] = array('url','form','tanggal','login_bcrypt');
 
 /*
 | -------------------------------------------------------------------
