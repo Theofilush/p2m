@@ -10,7 +10,7 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewBukuAjar" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewBukuAjar" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
           
@@ -34,6 +34,22 @@
                           <td><?php echo $no++ ?></td>
                           <td><b><?php echo $row->nama_dosen; ?></b><br>
                             NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>
+                            <?php
+                                if($row->nama_dosen1 !== NULL){
+                                ?>         
+                                    <b><?php echo $row->nama_dosen1; ?></b><br>
+                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                    
+                                <?php
+                                  }
+                                ?>     
+                                <?php
+                                if($row->nama_dosen2 !== NULL){
+                                ?>         
+                                     <b><?php echo $row->nama_dosen2; ?></b><br>
+                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                   
+                                <?php
+                                  }
+                                ?>   
                           </td>
                           <td><b><?php echo $row->judul; ?></b></td>
                           <td>                           

@@ -25,4 +25,5 @@ class PublikasiJurnal extends CI_Controller {
 		$this->load->view('publikasi/v_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
+	
 }

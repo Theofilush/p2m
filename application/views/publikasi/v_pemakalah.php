@@ -13,7 +13,7 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewForumIlmiah" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewForumIlmiah" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
           
@@ -37,8 +37,24 @@
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><b><?php echo $row->nama_dosen; ?></b><br>
-                            NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>
-                            Status :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span>
+                            NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                           
+                            <?php
+                                if($row->nama_dosen1 !== NULL){
+                                ?>         
+                                    <b><?php echo $row->nama_dosen1; ?></b><br>
+                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                    
+                                <?php
+                                  }
+                                ?>     
+                                <?php
+                                if($row->nama_dosen2 !== NULL){
+                                ?>         
+                                     <b><?php echo $row->nama_dosen2; ?></b><br>
+                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                   
+                                <?php
+                                  }
+                                ?>   
+                                 Status :&nbsp;<span class="font_color_blue"><?php echo $row->status_pemakalah; ?></span>
                           </td>
                           <td>
                             <b><?php echo $row->judul_makalah; ?></b><br>
@@ -48,15 +64,13 @@
                             Institusi  :&nbsp;<span class="font_color_blue"><b><?php echo $row->institusi_penyelenggara; ?></b></span><br>
                             Tgl. :&nbsp;<span class="font_color_blue"> <?php echo $row->waktu_pelakasana_awal; ?> s/d  <?php echo $row->waktu_pelakasana_akhir; ?></span><br>
                             Tempat :&nbsp;<span class="font_color_blue"> <?php echo $row->tempat_pelaksana; ?> </span><br>                            
-                          </td>                          
-                          <td>
+                          </td>                        
                           <td>
                           	<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                           	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
                           	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
                             <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
-                          </td>
-                          </td>
+                          </td>                         
                           <td>
                           	<button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
                           	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 

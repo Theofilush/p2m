@@ -17,8 +17,49 @@ class NewLuaranLain extends CI_Controller {
           'da' => $kue,         
         );          
 		$this->load->view('dashboard/v_header',$data_profil);
-		$this->load->view('tambahdata/v_add_publikasi');
+		$this->load->view('tambahdata/v_add_luaran');
 		$this->load->view('dashboard/v_footer');
 	}
-  
+	public function savedok(){     
+		if($this->input->post('btnUpload') == "Upload"){					
+					$_tahun = $this->input->post('tahun', TRUE);
+					$_judul = $this->input->post('judul', TRUE);				
+					$_jenis = $this->input->post('jenis', TRUE);
+					$_deskripsi = $this->input->post('deskripsi', TRUE);
+					$_nama_dosen = $this->input->post('penulis', TRUE);
+					$_anggota1 = $this->input->post('anggota1', TRUE);
+					$_anggota2 = $this->input->post('anggota2', TRUE);
+
+					if(($_anggota1 === "") && ($_anggota2 !== "")){
+						$_anggota1 =$this->input->post('anggota2', TRUE);
+						$_anggota2= NULL;
+					}elseif($_anggota1 == ""){
+						$_anggota1 = NULL;
+					}
+					if($_anggota2 == ""){
+						$_anggota2 = NULL;
+					}
+							// $count=count($_kel_dok);
+								//for ($i=0; $i <=$count-1 ; $i++) {}				
+					$data = array(										
+						'tahun_pelaksanaan' =>  $_tahun,
+						'judul_luaran' =>  $_judul,
+						'jenis_luaran' =>  $_jenis,
+						'deskripsi' =>  $_deskripsi,
+						'nama_dosen' =>  $_nama_dosen,
+						'nama_dosen1' =>  $_anggota1,
+						'nama_dosen2' =>  $_anggota2
+								);       
+									$query= $this->M_dokumen->simpanDok_luaran($data);
+							if ($query) {
+									redirect(site_url('publikasi/luaranlain'));
+								//print_r($stan);
+							}
+							else{
+									redirect(base_url('publikasi/luaranlain'));
+							}
+		}
+					
+	}
+
 }

@@ -9,7 +9,7 @@
         </footer>
         <!-- /footer content -->
       </div>
-
+      <span id="demo-form2" style="display:none;"></span>
     <script src="<?php echo base_url() ?>asett/dist/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins//fastclick/lib/fastclick.js"></script>

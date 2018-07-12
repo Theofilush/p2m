@@ -12,7 +12,9 @@ class Login extends CI_Controller {
 		if($this->session->userdata('status') == "login"){
 			redirect(site_url("dashboard"));
 		}
-	}
+	} //$this->load->library('user_agent');
+	//redirect($this->agent->referrer());
+	//redirect(echo site_url('user_agent'));
 
 	function aksi_login(){
 		$username = $this->input->post('username');

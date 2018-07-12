@@ -13,15 +13,15 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewPublikasiJurnal" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>
+                        <a href="<?php echo site_url() ?>databaru/NewPublikasiJurnal" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>
                       </div>
                     </div>
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Penulis Publikasi</th>
-                          <th>Judul</th>                          
+                          <th>Judul</th>
+                          <th>Penulis Publikasi</th>                          
                           <th>Jurnal</th>
                           <th>Berkas</th>
                           <th>Edit</th>
@@ -41,6 +41,24 @@
                               <li>
                                   <?php echo $row->penulis_publikasi; ?>    
                               </li>
+                              <?php
+                                if($row->penulis_anggota1 !== NULL){
+                                ?>         
+                                    <li>
+                                      <?php echo $row->penulis_anggota1; ?>
+                                    </li>
+                                <?php
+                                  }
+                                ?>     
+                                <?php
+                                if($row->penulis_anggota2 !== NULL){
+                                ?>         
+                                    <li>
+                                      <?php echo $row->penulis_anggota2; ?>
+                                    </li>
+                                <?php
+                                  }
+                                ?>                          
                             </ul>
                           </td>
                           <td>

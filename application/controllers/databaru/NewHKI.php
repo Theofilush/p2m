@@ -17,7 +17,7 @@ class NewHKI extends CI_Controller {
           'da' => $kue,         
         );          
 		$this->load->view('dashboard/v_header',$data_profil);
-		$this->load->view('tambahdata/v_add_publikasi');
+		$this->load->view('tambahdata/v_add_hki'); 
 		$this->load->view('dashboard/v_footer');
 	}
   
