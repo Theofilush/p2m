@@ -21,9 +21,9 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Judul</th>                          
+                          <th>Judul Pengabdian Masyarakat</th>                          
                           <th>Personil</th>
-                          <th>Penelitian</th>
+                          <th>Pengabdian</th>
                           <th>Dana</th>
                           <th>Tahun Penelitian</th>
                           <th>Berkas</th>
