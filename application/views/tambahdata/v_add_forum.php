@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota2
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text">
