@@ -4,7 +4,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
-                      <h4 class="">Penelitian  Sumber Dana Universitas Pembangunan Jaya</h4>
+                      <h4 class="">Penelitian Sumber Dana Universitas Pembangunan Jaya</h4>
                       <a href="#" class="btn btn-default">Jurnal Internasional</a> 
                       <a href="#" class="btn btn-default">Jurnal Naional Terakreditasi</a> 
                       <a href="#" class="btn btn-default">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>                  
@@ -16,8 +16,8 @@
                         <a href="<?php echo site_url() ?>databaru/NewPenelitianUPJ" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
-           
-                    <table id="datatable-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+
+                    <table id="datatableku-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>No.</th>

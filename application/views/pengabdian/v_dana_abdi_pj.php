@@ -17,7 +17,7 @@
                       </div>
                     </div>
            
-                    <table id="datatable-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
+                    <table id="datatableku-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>No.</th>
