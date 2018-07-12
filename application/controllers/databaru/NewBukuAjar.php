@@ -21,17 +21,12 @@ class NewBukuAjar extends CI_Controller {
 		$this->load->view('dashboard/v_footer');
 	}
 	public function savedok(){     
-		if($this->input->post('btnUpload') == "Upload"){
-					$_tingkat = $this->input->post('tingkat', TRUE);
-					$_tahun_publikasi = $this->input->post('tahun_publikasi', TRUE);
+		if($this->input->post('btnUpload') == "Upload"){				
+					$_tahun_penerbitan = $this->input->post('tahun_penerbitan', TRUE);
 					$_judul = $this->input->post('judul', TRUE);
-					$_nama_jurnal = $this->input->post('nama_jurnal', TRUE);
-					$_issn = $this->input->post('issn', TRUE);
-					$_volume = $this->input->post('volume', TRUE);
-					$_nomor = $this->input->post('nomor', TRUE);
-					$_halaman_awal = $this->input->post('halaman_awal', TRUE);
-					$_halaman_akhir = $this->input->post('halaman_akhir', TRUE);
-					$_url = $this->input->post('url', TRUE);
+					$_isbn = $this->input->post('isbn', TRUE);
+					$_jumlah = $this->input->post('jumlah', TRUE);
+					$_penerbit = $this->input->post('penerbit', TRUE);
 					$_penulis = $this->input->post('penulis', TRUE);
 					$_anggota1 = $this->input->post('anggota1', TRUE);
 					$_anggota2 = $this->input->post('anggota2', TRUE);
@@ -48,19 +43,14 @@ class NewBukuAjar extends CI_Controller {
 							// $count=count($_kel_dok);
 								//for ($i=0; $i <=$count-1 ; $i++) {}				
 					$data = array(
-						'cakupan_publikasi' => $_tingkat,
-						'tahun_penerbitan' =>  $_tahun_publikasi,
+						'tahun_penerbitan' =>  $_tahun_penerbitan,
 						'judul' =>  $_judul,
-						'nama_jurnal' =>  $_nama_jurnal,
-						'issn' =>  $_issn,
-						'volume' =>  $_volume,
-						'nomor' =>  $_nomor,
-						'halaman_awal' =>  $_halaman_awal,
-						'halaman_akhir' =>  $_halaman_akhir,
-						'url' =>  $_url,
-						'penulis_publikasi' =>  $_penulis,
-						'penulis_anggota1' =>  $_anggota1,
-						'penulis_anggota2' =>  $_anggota2
+						'isbn' =>  $_isbn,
+						'jumlah_halaman' =>  $_jumlah,
+						'penerbit' =>  $_penerbit,
+						'nama_dosen' =>  $_penulis,
+						'nama_dosen1' =>  $_anggota1,
+						'nama_dosen2' =>  $_anggota2
 					);       
 					$query= $this->M_dokumen->simpanDok_buku($data);
 					if ($query) {
