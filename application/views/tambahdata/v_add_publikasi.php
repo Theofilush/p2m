@@ -70,7 +70,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="volume" id="volume" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="volume" id="volume" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">

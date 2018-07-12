@@ -29,7 +29,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open_multipart('databaru/newpublikasijurnal/savedok',$atribut);
+                                        echo form_open_multipart('databaru/newhki/savedok',$atribut);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                
                                 <div class="form-group">
@@ -40,56 +40,31 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Judul
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="judul">Judul HKI
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="nama_jurnal">Nama Jurnal
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12" for="nama_jurnal">Jenis
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="nama_jurnal" name="nama_jurnal" required="required" class="form-control col-md-7 col-xs-12">
+                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="issn" class="control-label col-md-2 col-sm-2 col-xs-12">ISSN</label>
+                                    <label for="issn" class="control-label col-md-2 col-sm-2 col-xs-12">No. Pendaftaran</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="issn" name="issn" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="no_daftar" name="no_daftar" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="volume" id="volume" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="status" id="status" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="nomor" id="nomor" class=" form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Halaman
-                                    </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-12">
-                                     <input name="halaman_awal" id="halaman_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12" style="text-align:center"> s/d </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-12">
-                                     <input name="halaman_akhir" id="halaman_akhir" class=" form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>
+                                </div>                               
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Penulis Publikasi *
@@ -116,7 +91,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                        
                                     
-                                    <a href="<?php echo base_url() ?>publikasi/PublikasiJurnal" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
+                                    <a href="<?php echo base_url() ?>publikasi/HakKekayaanIntelektual" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
 								    <button class="btn btn-primary" type="reset">Reset</button>
                                     <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
                                     </div>
