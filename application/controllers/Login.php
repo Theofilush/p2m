@@ -15,6 +15,13 @@ class Login extends CI_Controller {
 	} //$this->load->library('user_agent');
 	//redirect($this->agent->referrer());
 	//redirect(echo site_url('user_agent'));
+	//untuk membuat user baru kan harus register maka jgn lupa pake script ini 
+	/*public function reg(){
+		$data = array('nama' => $this->input->post('nama') ,
+		'email'=> $this->input->post('email'),
+		'password'=>get_hash($this->input->post('password')));
+return $this->db->insert('login',$data);
+}*/
 
 	function aksi_login(){
 		$username = $this->input->post('username');

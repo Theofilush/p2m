@@ -74,6 +74,31 @@ class M_dokumen extends CI_Model{
     function simpanDok_luaran($data){
         return $this->db->insert($this->luaran_lain, $data);
     }  
-
+    
+    function tampil_tahun(){ //query untuk menampilkan tahun pada form input
+        $query = $this->db->query('SELECT * FROM tahun ORDER BY tahun ASC ');
+        return $query->result();
+    }
+    function tampil_cakupan(){ //query untuk menampilkan cakupan pada form input data publikasi
+        $query = $this->db->query('SELECT * FROM cakupan_publikasi_jurnal ');
+        return $query->result();
+    }
+    function tampil_cakupan2(){ //query untuk menampilkan cakupan pada form input data forum ilmiah internasional
+        $query = $this->db->query('SELECT * FROM cakupan_forum_ilmiah ');
+        return $query->result();
+    }
+    function status_pemakalah(){ //query untuk menampilkan status pemakalah pada form input data status forum ilmiah internasional
+        $query = $this->db->query('SELECT * FROM status_pemakalah ');
+        return $query->result();
+    }
+    function tampil_jenishki(){ //query untuk menampilkan Jenis HKI pada form input data HKI
+        $query = $this->db->query('SELECT * FROM jenis_hki ');
+        return $query->result();
+    }
+    function tampil_statushki(){ //query untuk menampilkan Status HKI pada form input data HKI
+        $query = $this->db->query('SELECT * FROM status_hki ORDER BY status_hki DESC');
+        return $query->result();
+    }
+    
 }
 ?>

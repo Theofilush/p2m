@@ -35,22 +35,39 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="tahun_publikasi" id="tahun_publikasi" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $row){
+											?>  
+											<option><?php echo $row->tahun; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul HKI
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
+                                            <?php 
+												foreach($jenis_karya as $row){
+											?>  
+											<option><?php echo $row->jenis_hki; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -61,10 +78,24 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Status</label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="status" id="status" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="status">
+                                            <?php 
+												foreach($status_karya as $row){
+											?>  
+											<option><?php echo $row->status_hki; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
-                                </div>                               
+                                </div>  
+                                <div class="form-group" id="nomor_hki">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">No. HKI</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="no_hki" id="no_hki" class="form-control col-md-7 col-xs-12" type="text">
+                                    </div>
+                                </div>                              
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen *

@@ -12,9 +12,15 @@ class NewHKI extends CI_Controller {
 
 	public function index(){
       $usan = $this->session->userdata('nama');
-      $kue = $this->M_login->hak_ak($usan); 
+	  $kue = $this->M_login->hak_ak($usan); 
+	  $query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 	  
+	  $jenis_karya = $this->M_dokumen->tampil_jenishki();
+	  $status_karya = $this->M_dokumen->tampil_statushki();
         $data_profil = array(           
-          'da' => $kue,         
+		  'da' => $kue,
+		  'tampil_tahun'=> $query_tampil_tahun,
+		  'jenis_karya'=> $jenis_karya,
+		  'status_karya' => $status_karya
         );          
 		$this->load->view('dashboard/v_header',$data_profil);
 		$this->load->view('tambahdata/v_add_hki'); 
@@ -26,7 +32,8 @@ class NewHKI extends CI_Controller {
 					$_judul = $this->input->post('judul', TRUE);
 					$_jenis = $this->input->post('jenis', TRUE);
 					$_no_daftar = $this->input->post('no_daftar', TRUE);
-					$_status = $this->input->post('status', TRUE);					
+					$_status = $this->input->post('status', TRUE);
+					$_no_hki = $this->input->post('no_hki', TRUE);	
 					$_penulis = $this->input->post('penulis', TRUE);
 					$_anggota1 = $this->input->post('anggota1', TRUE);
 					$_anggota2 = $this->input->post('anggota2', TRUE);
@@ -41,12 +48,13 @@ class NewHKI extends CI_Controller {
 						$_anggota2 = NULL;
 					}
 							// $count=count($_kel_dok);
-								//for ($i=0; $i <=$count-1 ; $i++) {}				
+								//for ($i=0; $i <=$count-1 ; $i++) {}
 					$data = array(
 						'tahun_pelaksanaan' =>  $_tahun,
 						'judul_hki' =>  $_judul,
 						'jenis_hki' =>  $_jenis,
-						'status_hki' =>  $_status,						
+						'status_hki' =>  $_status,
+						'no_hki' =>  $_no_hki,
 						'nama_dosen' =>  $_penulis,
 						'nama_dosen1' =>  $_anggota1,
 						'nama_dosen2' =>  $_anggota2

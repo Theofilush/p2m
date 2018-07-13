@@ -36,22 +36,39 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Data Publikasi Tingkat
                                     </label>
-                                    <div class="col-md-7 col-sm- col-xs-12">
-                                    <input name="tingkat" id="tingkat" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-7 col-sm- col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Cakupan" name="tingkat">
+                                            <?php 
+												foreach($cakupan2 as $row){
+											?>  
+											<option><?php echo $row->cakupan_forum_ilmiah; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="tahun_publikasi" id="tahun_publikasi" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $row){
+											?>  
+											<option><?php echo $row->tahun; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Makalah
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -70,12 +87,22 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Waktu Pelaksanaan
                                     </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                     <input name="waktu_awal" id="waktu_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-2 col-sm-2 col-xs-5">                                     
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input name="waktu_awal" type="text" class="form-control pull-right" id="kalenderku1">
+                                        </div>                       
                                     </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12" style="text-align:center"> s/d </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                     <input name="waktu_akhir" id="waktu_akhir" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <label class="control-label col-md-1 col-sm-1 col-xs-2" style="text-align:center"> s/d </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-5">                                     
+                                     <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input name="waktu_akhir" type="text" class="form-control pull-right" id="kalenderku2">
+                                        </div>    
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,8 +115,16 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Status
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="status" id="status" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Status" name="status">
+                                            <?php 
+												foreach($status_speaker as $row){
+											?>  
+											<option><?php echo $row->status_pemakalah; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

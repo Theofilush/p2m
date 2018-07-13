@@ -21,7 +21,21 @@
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>-->
     <script src="<?php echo base_url() ?>asett/plugins/parsleyjs/dist/parsley.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/iCheck/icheck.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/select2/dist/js/select2.full.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
-	
+  <script>
+    $('.select2_ok').select2();
+    $('#kalenderku1').datepicker({
+      autoclose: true,
+      format: "yyyy-mm-dd",
+      orientation: 'auto bottom'
+    })
+    $('#kalenderku2').datepicker({
+      autoclose: true,
+      format: "yyyy-mm-dd",
+      orientation: 'auto bottom'
+    })
+  </script>
   </body>
 </html>

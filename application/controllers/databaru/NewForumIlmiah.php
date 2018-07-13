@@ -12,9 +12,15 @@ class NewForumIlmiah extends CI_Controller {
     
 	public function index(){
       $usan = $this->session->userdata('nama');
-      $kue = $this->M_login->hak_ak($usan); 
+	  $kue = $this->M_login->hak_ak($usan); 
+	  $query_tampil_tahun = $this->M_dokumen->tampil_tahun();
+	  $cakupan2 =  $this->M_dokumen->tampil_cakupan2();
+	  $status = $this->M_dokumen->status_pemakalah();
         $data_profil = array(           
-          'da' => $kue,         
+		  'da' => $kue, 
+		  'tampil_tahun'=> $query_tampil_tahun,
+		  'cakupan2'=> $cakupan2,
+		  'status_speaker'=> $status
         );          
 		$this->load->view('dashboard/v_header',$data_profil);
 		$this->load->view('tambahdata/v_add_forum');

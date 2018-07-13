@@ -34,24 +34,41 @@
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Data Publikasi Tingkat
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Publikasi
                                     </label>
-                                    <div class="col-md-7 col-sm- col-xs-12">
-                                    <input name="tingkat" id="tingkat" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-5 col-sm-5 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="tingkat">
+                                            <?php 
+												foreach($cakupan as $row){
+											?>  
+											<option><?php echo $row->cakupan_publikasi; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Publikasi
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="tahun_publikasi" id="tahun_publikasi" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $row){
+											?>  
+											<option><?php echo $row->tahun; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -64,31 +81,31 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">ISSN</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="issn" name="issn" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="issn" name="issn" maxlength="30" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="volume" id="volume" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="volume" id="volume" maxlength="20" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="nomor" id="nomor" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="nomor" id="nomor" maxlength="10" class=" form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Halaman
                                     </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-12">
-                                     <input name="halaman_awal" id="halaman_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-1 col-sm-1 col-xs-3">
+                                     <input name="halaman_awal" maxlength="5" id="halaman_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-12" style="text-align:center"> s/d </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-12">
-                                     <input name="halaman_akhir" id="halaman_akhir" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align:center"> s/d </label>
+                                    <div class="col-md-1 col-sm-1 col-xs-3">
+                                     <input name="halaman_akhir" maxlength="5" id="halaman_akhir" class=" form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">

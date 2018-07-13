@@ -5,9 +5,9 @@
                 <div class="x_panel">
                   <div class="x_title">
                       <h4 class="">Publikasi Jurnal</h4>
-                      <a href="#" class="btn btn-default">Jurnal Internasional</a> 
-                      <a href="#" class="btn btn-default">Jurnal Naional Terakreditasi</a>
-                      <a href="#" class="btn btn-default">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>
+                      <a href="#" class="btn btn-default btn-sm">Jurnal Internasional</a> 
+                      <a href="#" class="btn btn-default btn-sm">Jurnal Naional Terakreditasi</a>
+                      <a href="#" class="btn btn-default btn-sm" style="word-wrap: break-word;">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
