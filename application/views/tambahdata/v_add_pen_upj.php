@@ -44,7 +44,7 @@
 											<option><?php echo $row->tahun; ?></option>                      
 											<?php
 												 }
-											?>   
+											?>
 									</select>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -79,6 +79,7 @@
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="upload" id="upload" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input type="file" class="form-control" name="upload" id="upload" accept="application/pdf" required />
                                     </div>
                                 </div>                                
                                 <div class="form-group">
