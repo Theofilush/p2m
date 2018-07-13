@@ -35,8 +35,17 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="tahun" id="tahun" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $row){
+											?>  
+											<option><?php echo $row->tahun; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -49,15 +58,23 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
+                                            <?php 
+												foreach($jenis_luaran as $row){
+											?>  
+											<option><?php echo $row->jenis_luaran; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:50px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

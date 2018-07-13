@@ -98,7 +98,10 @@ class M_dokumen extends CI_Model{
     function tampil_statushki(){ //query untuk menampilkan Status HKI pada form input data HKI
         $query = $this->db->query('SELECT * FROM status_hki ORDER BY status_hki DESC');
         return $query->result();
-    }
-    
+    }    
+    function tampil_jenis_luaran(){ //query untuk menampilkan Jenis Luaran pada form input data Luaran Lain
+        $query = $this->db->query('SELECT * FROM jenis_luaran_lain ');
+        return $query->result();
+    }    
 }
 ?>

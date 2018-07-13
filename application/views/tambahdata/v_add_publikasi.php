@@ -44,7 +44,7 @@
 											<option><?php echo $row->cakupan_publikasi; ?></option>                      
 											<?php
 												 }
-											?>   
+											?> 
 									</select>
                                     </div>
                                 </div>

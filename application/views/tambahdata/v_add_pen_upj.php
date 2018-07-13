@@ -35,8 +35,17 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Kegiatan
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="tahun_kegiatan" id="tahun_kegiatan" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_kegiatan">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $row){
+											?>  
+											<option><?php echo $row->tahun; ?></option>                      
+											<?php
+												 }
+											?>   
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">
