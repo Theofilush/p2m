@@ -24,11 +24,20 @@ class NewPenelitianNonUPJ extends CI_Controller {
 	}
   public function savedok(){     
 		if($this->input->post('btnUpload') == "Upload"){
+			$config['upload_path'] = './fileupload/';
+			$config['allowed_types'] = 'pdf';
+			$this->load->library('upload', $config);                
+			if ( ! $this->upload->do_upload('filepdf')){
+			  	$error = array('error' => $this->upload->display_errors());			
+			}
+			else{
+				 $data = array('upload_data' => $this->upload->data());                              
+			}
 					$_tahun_kegiatan = $this->input->post('tahun_kegiatan', TRUE);
 					$_judul = $this->input->post('judul', TRUE);
 					$_sumber_dana = $this->input->post('sumber_dana', TRUE);
 					$_besaran_dana = $this->input->post('besaran_dana', TRUE);				
-					$_upload = $this->input->post('upload', TRUE);
+					$_upload = $this->upload->data('file_name');
 					$_penulis = $this->input->post('penulis', TRUE);
 					$_anggota1 = $this->input->post('anggota1', TRUE);
 					$_anggota2 = $this->input->post('anggota2', TRUE);

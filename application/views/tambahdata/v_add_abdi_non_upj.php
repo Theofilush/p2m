@@ -71,9 +71,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Upload Berkas
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="upload" id="upload" class=" form-control col-md-7 col-xs-12" required="required" type="text">
-                                    <input type="file" class="form-control" name="upload" id="upload" accept="application/pdf" required />
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
                                     </div>
                                 </div>                                
                                 <div class="ln_solid"></div>

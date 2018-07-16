@@ -52,16 +52,15 @@
                             <b><?php echo $row->tahun_penelitian; ?></b><br>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
-                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
-                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
-                              <?php echo $row->file; ?></b>
+                          <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
+                          	<a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs">                                                        
+                               <i class="fa fa-fw fa-file-text"></i>                            
+                            </a> 
                           	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 
+                          <button type="button" class="btn btn-gray btn-xs"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button> 
                           
                       	   </td>
                           <td>

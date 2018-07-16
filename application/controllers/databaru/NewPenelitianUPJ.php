@@ -24,16 +24,25 @@ class NewPenelitianUPJ extends CI_Controller {
 	}
 	public function savedok(){     
 		if($this->input->post('btnUpload') == "Upload"){
-					$_tahun_kegiatan = $this->input->post('tahun_kegiatan', TRUE);
-					$_judul = $this->input->post('judul', TRUE);
-					$_jenis = $this->input->post('jenis', TRUE);
-					$_dana_usulan = $this->input->post('dana_usulan', TRUE);
-					$_dana_setujui = $this->input->post('dana_setujui', TRUE);
-					$_upload = $this->input->post('upload', TRUE);
-					$_skema = $this->input->post('skema', TRUE);				
-					$_penulis = $this->input->post('penulis', TRUE);
-					$_anggota1 = $this->input->post('anggota1', TRUE);
-					$_anggota2 = $this->input->post('anggota2', TRUE);
+			$config['upload_path'] = './fileupload/';
+			$config['allowed_types'] = 'pdf';
+			$this->load->library('upload', $config);                
+			if ( ! $this->upload->do_upload('filepdf')){
+			  	$error = array('error' => $this->upload->display_errors());			
+			}
+			else{
+				 $data = array('upload_data' => $this->upload->data());                              
+			}
+			$_tahun_kegiatan = $this->input->post('tahun_kegiatan', TRUE);
+			$_judul = $this->input->post('judul', TRUE);
+			$_jenis = $this->input->post('jenis', TRUE);
+			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
+			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
+			$_upload = $this->upload->data('file_name');
+			$_skema = $this->input->post('skema', TRUE);				
+			$_penulis = $this->input->post('penulis', TRUE);
+			$_anggota1 = $this->input->post('anggota1', TRUE);
+			$_anggota2 = $this->input->post('anggota2', TRUE);
 
 					if(($_anggota1 === "") && ($_anggota2 !== "")){
 						$_anggota1 =$this->input->post('anggota2', TRUE);
@@ -51,8 +60,8 @@ class NewPenelitianUPJ extends CI_Controller {
 						'judul_penelitian' =>  $_judul,
 						'jenis_penelitian' =>  $_jenis,
 						'dana_usulan' =>  $_dana_usulan,
-						'dana_disetujui' =>  $_dana_setujui,
-						'file' =>  $_upload,
+						'dana_disetujui' =>  $_dana_setujui,						
+						'file'=> $_upload,
 						'skema_penelitian' =>  $_skema,
 						'ketua_peneliti' =>  $_penulis,
 						'anggota_peneliti_1' =>  $_anggota1,

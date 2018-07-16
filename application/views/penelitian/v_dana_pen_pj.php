@@ -55,17 +55,14 @@
                             <b><?php echo $row->tahun_hibah; ?></b><br>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
-                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
-                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
-                              <?php echo $row->file; ?></b>
-                          	
+                          <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs">                                                        
+                               <i class="fa fa-fw fa-file-text"></i>                            
+                          </a>
                           </td>
                           <td>
-                          <button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 
-                          
+                            <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-pencil"></span></button>                            
+                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>                           
                       	   </td>
                           <td>
                             <span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?>
@@ -81,4 +78,26 @@
                 </div>
               </div>
           </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+          <h4>Text in a modal</h4>
+          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
