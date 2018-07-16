@@ -61,8 +61,8 @@
                           </a>
                           </td>
                           <td>
-                            <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-pencil"></span></button>                            
-                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>                           
+                            <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-pencil"></span></button>                                                        
+                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
                       	   </td>
                           <td>
                             <span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?>
@@ -80,24 +80,120 @@
           </div>
 </div>
 
-
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+       <?php
+          foreach ($query as $rou) {                   
+        ?>
+        
+<div class="modal fade bs-example-modal-lg" id="modal-edit<?php echo $rou->kode_penelitan;?>" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          <h4 class="modal-title" id="myModalLabel">Publikasi Jurnal <?php echo $rou->judul_penelitian;?></h4>
       </div>
       <div class="modal-body">
-          <h4>Text in a modal</h4>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-          <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                <?php
+                                    $atribut = array(
+                                            'class' => 'form-horizontal form-label-left',
+                                            'data-parsley-validate' => '',
+                                            'id'=>'demo-form2'
+                                    );                                        
+                                        echo form_open('penelitian/penelitiandanaupj/updatedatanya',$atribut);
+                                ?>
+                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Kegiatan
+                                    </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
+                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_kegiatan">
+                                            <option><?php echo Date('Y');?></option>
+                                            <?php 
+												foreach($tampil_tahun as $rou){
+											?>  
+											<option><?php echo $rou->tahun; ?></option>                      
+											<?php
+												 }
+											?>
+									</select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12"  value="<?php echo $rou->jenis_penelitian; ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Usulan</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Disetujui</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="skema" id="skema" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text">
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                        
+                                    
+                                    <a href="<?php echo base_url() ?>penelitian/PenelitianDanaUPJ" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
+								                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
+                                    </div>
+                                </div>
+                                <?php
+                                    echo form_close();
+                                ?>
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save changes</button>
       </div>
+      
     </div>
   </div>
 </div>
+<?php
+              }              
+           ?>

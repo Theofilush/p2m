@@ -14,9 +14,13 @@ class NewPenelitianUPJ extends CI_Controller {
       $usan = $this->session->userdata('nama');
       $kue = $this->M_login->hak_ak($usan); 	  
 	  $query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 	  
+	  $query_tampil_jenis = $this->M_dokumen->tampil_jenis_penelitian(); 	
+	  $query_tampil_skema = $this->M_dokumen->tampil_skema_penelitian(); 	
         $data_profil = array(           
 		  'da' => $kue,         
 		  'tampil_tahun'=> $query_tampil_tahun,
+		  'tampil_jenis'=> $query_tampil_jenis,
+		  'tampil_skema'=>$query_tampil_skema
         );          
 		$this->load->view('dashboard/v_header',$data_profil);
 		$this->load->view('tambahdata/v_add_pen_upj');

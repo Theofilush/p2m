@@ -102,6 +102,20 @@ class M_dokumen extends CI_Model{
     function tampil_jenis_luaran(){ //query untuk menampilkan Jenis Luaran pada form input data Luaran Lain
         $query = $this->db->query('SELECT * FROM jenis_luaran_lain ');
         return $query->result();
-    }    
+    }   
+    function tampil_jenis_penelitian(){ //query untuk menampilkan Jenis Penelitian pada form input dana yg bersumber UPJ
+        $query = $this->db->query('SELECT * FROM jenis_penelitian ');
+        return $query->result();
+    }  
+    function tampil_skema_penelitian(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
+        $query = $this->db->query('SELECT * FROM skema_penelitian ');
+        return $query->result();
+    }
+    function UpdateDok_publikasi($data,$id){
+        $this->db->where('id',$id);
+        $hasil = $this->db->update($this->tabel,$data);
+        return $hasil; 
+  }
+
 }
 ?>
