@@ -61,7 +61,7 @@
                           </a>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-primary btn-xs btnnomargin"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-pencil"></span></button>                           
                           	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
                           
                       	   </td>
