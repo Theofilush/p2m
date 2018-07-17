@@ -45,24 +45,37 @@ class PublikasiJurnal extends CI_Controller {
 			$_penulis = $this->input->post('penulis', TRUE);
 			$_anggota1 = $this->input->post('anggota1', TRUE);
 			$_anggota2 = $this->input->post('anggota2', TRUE);
-
+			$id = $this->input->post('id', TRUE);
+			if(($_anggota1 === "") && ($_anggota2 !== "")){
+				$_anggota1 =$this->input->post('anggota2', TRUE);
+				$_anggota2= NULL;
+			}elseif($_anggota1 == ""){
+				$_anggota1 = NULL;
+			}
+			if($_anggota2 == ""){
+				$_anggota2 = NULL;
+			}
           
               $data = array(
-                'tahun_hibah' =>  $_tahun_kegiatan,
-				'judul_penelitian' =>  $_judul,
-				'jenis_penelitian' =>  $_jenis,
-				'dana_usulan' =>  $_dana_usulan,
-				'dana_disetujui' =>  $_dana_setujui,										
-				'skema_penelitian' =>  $_skema,
-				'ketua_peneliti' =>  $_penulis,
-				'anggota_peneliti_1' =>  $_anggota1,
-				'anggota_peneliti_2' =>  $_anggota2
+				'cakupan_publikasi' => $_tingkat,
+				'tahun_penerbitan' =>  $_tahun_publikasi,
+				'judul' =>  $_judul,
+				'nama_jurnal' =>  $_nama_jurnal,
+				'issn' =>  $_issn,
+				'volume' =>  $_volume,
+				'nomor' =>  $_nomor,
+				'halaman_awal' =>  $_halaman_awal,
+				'halaman_akhir' =>  $_halaman_akhir,
+				'url' =>  $_url,
+				'penulis_publikasi' =>  $_penulis,
+				'penulis_anggota1' =>  $_anggota1,
+				'penulis_anggota2' =>  $_anggota2
               );              
               $query= $this->M_dokumen->UpdateDok_publikasi($data,$id);
            
          
           if ($query) {
-            redirect(site_url("login"));
+            redirect("publikasi/publikasijurnal");
           }
           else{
             $this->session->set_flashdata('notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">

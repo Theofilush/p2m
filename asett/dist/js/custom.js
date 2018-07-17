@@ -2026,7 +2026,7 @@ if (typeof NProgress != 'undefined') {
 			            { width: '20%', targets: 2 },
 			            { width: '26%', targets: 3 },
 			            { width: '6%', targets: 4 },
-			            { width: '5%', targets: 5 },
+			            { width: '7%', targets: 5 },
 			            { width: '6%', targets: 6 }
 			        ]
 				});
@@ -2073,20 +2073,22 @@ if (typeof NProgress != 'undefined') {
 					'columnDefs': [			            
 						{ width: '25%', targets: 1 },
 						{ width: '22%', targets: 2 },
-						{ width: '22%', targets: 3 },
+						{ width: '18%', targets: 3 },
 						{ width: '17%', targets: 4 },
 						{ width: '5%', targets: 5 },				
-						{ width: '5%', targets: 6 }
+						{ width: '5%', targets: 6 },
+						{ width: '7%', targets: 7 }
 				]
 				});
 				$('#datatableku-dana-non').DataTable({
 					'columnDefs': [			            
 						{ width: '23%', targets: 1 },
 						{ width: '22%', targets: 2 },
-						{ width: '22%', targets: 3 },
+						{ width: '18%', targets: 3 },
 						{ width: '19%', targets: 4 },
 						{ width: '5%', targets: 5 },				
-						{ width: '5%', targets: 6 }
+						{ width: '5%', targets: 6 },
+						{ width: '8%', targets: 7 },
 				]
 				});
 				$('#datatable-scroller').DataTable({

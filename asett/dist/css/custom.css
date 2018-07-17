@@ -4280,3 +4280,6 @@ a.link_url:hover{
 	text-decoration: underline;
 	color: #032146;
 }
+.btnnomargin{
+    margin-right: 0px ;
+}

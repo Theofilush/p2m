@@ -112,8 +112,8 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function UpdateDok_publikasi($data,$id){
-        $this->db->where('id',$id);
-        $hasil = $this->db->update($this->tabel,$data);
+        $this->db->where('id_publikasi',$id);
+        $hasil = $this->db->update($this->publikasi_jurnal,$data);
         return $hasil; 
   }
 

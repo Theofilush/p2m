@@ -55,14 +55,14 @@
                             <b><?php echo $row->tahun_hibah; ?></b><br>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          <a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs">                                                        
+                          <button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin">                                                        
                                <i class="fa fa-fw fa-file-text"></i>                            
                           </a>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-gray btn-xs"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button> 
+                          <button type="button" class="btn btn-primary btn-xs btnnomargin"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
                           
                       	   </td>
                           <td>

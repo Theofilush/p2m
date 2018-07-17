@@ -63,21 +63,21 @@
                           </td>
                           <td>
                             <b><?php echo $row->nama_jurnal; ?></b><br>
-                            ISSN :&nbsp;<span class="font_color_blue">2090-4274</span><br>
+                            ISSN :&nbsp;<span class="font_color_blue"><?php echo $row->issn; ?></span><br>
                             Volume :&nbsp;<span class="font_color_blue"> <?php echo $row->volume; ?> </span><br>
                             Nomor :&nbsp;<span class="font_color_blue"> <?php echo $row->nomor; ?> </span><br>
                             Halaman :&nbsp;<span class="font_color_blue"><?php echo $row->halaman_awal; ?> s/d <?php echo $row->halaman_akhir; ?></span><br>
                             URL :&nbsp;<span class="font_color_blue"><a href="<?php echo $row->url; ?>" class="link_url"> <?php echo $row->url; ?></a></span><br>
                           </td>
                           <td>
-                          	<button type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
-                          	<a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs">                                                        
+                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
+                          	<a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin">                                                        
                                <i class="fa fa-fw fa-file-text"></i>                            
                           </a>
                           </td>
                           <td>                          	
-                            <button type="button" class="btn btn-primary btn-xs"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button> 
+                            <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
                           </td>
                           <td>
                           	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 
@@ -104,7 +104,7 @@
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Publikasi Jurnal <?php echo $rou->id_publikasi;?></h4>
+          <h4 class="modal-title" id="myModalLabel">Publikasi Jurnal</h4>
       </div>
       <div class="modal-body">
                                 <?php
@@ -125,18 +125,18 @@
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="tingkat">
                                             <?php 
                                           foreach($cakupan as $row){
-                                        ?>                                        
-                                        <option <?php if ($row->id_cakupan =='Jurnal Internasional'){
-                                                  echo 'selected'; 
-                                                }elseif ($row->id_cakupan =='Jurnal Naional Terakreditasi'){
-                                                  echo 'selected'; 
-                                                }elseif ($row->id_cakupan =='Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)'){
-                                                  echo 'selected'; 
-                                                }
-                                                echo '>'.$row->cakupan_publikasi;
-                                                ?> 
+                                        ?>                                                                           
                                         </option>                      
-                                                                 
+                                        <option <?php if (($rou->cakupan_publikasi =='Jurnal Internasional') && ($row->cakupan_publikasi =='Jurnal Internasional')) {
+                                            echo 'selected'; 
+                                          }elseif (($rou->cakupan_publikasi =='Jurnal Naional Terakreditasi') && ($row->cakupan_publikasi =='Jurnal Naional Terakreditasi')) {
+                                            echo 'selected'; 
+                                          }elseif (($rou->cakupan_publikasi =='Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)') && ($row->cakupan_publikasi =='Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)')) {
+                                            echo 'selected'; 
+                                          } 
+                                          echo '>'.$row->cakupan_publikasi;
+                                          ?> 
+                                        </option>                   
                                         <?php
                                           }
                                         ?> 
