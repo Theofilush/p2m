@@ -63,7 +63,7 @@
                           <td>
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-pencil"></span></button>                                                        
                           	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button>
-                      	   </td>
+                      	   </td> 
                           <td>
                             <span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?>
                           </td>
@@ -90,7 +90,7 @@
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Publikasi Jurnal <?php echo $rou->judul_penelitian;?></h4>
+          <h4 class="modal-title" id="myModalLabel">Penelitian Sumber Dana Universitas Pembangunan Jaya</h4>
       </div>
       <div class="modal-body">
                                 <?php
@@ -99,7 +99,8 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('penelitian/penelitiandanaupj/updatedatanya',$atribut);
+                                        echo form_open('penelitian/PenelitianDanaUPJ/updatedok',$atribut);
+                                        echo form_hidden('id',$rou->kode_penelitan);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
                                 <div class="form-group">
@@ -122,75 +123,92 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_penelitian; ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
+                                    </label> 
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">                                       
+                                            <?php 
+                                          foreach($tampil_skema as $row){
+                                        ?>                          
+                                        <option <?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
+                                            echo 'selected'; 
+                                          }elseif (($rou->skema_penelitian =='Penelitian Terapan') && ($row->skema =='Penelitian Terapan')) {
+                                            echo 'selected'; 
+                                          }
+                                          echo '>'.$row->skema;
+                                          ?> 
+                                        </option>                   
+                                        <?php
+                                          }
+                                        ?> 
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12"  value="<?php echo $rou->jenis_penelitian; ?>">
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis">  
+                                    <option><?php echo $rou->jenis_penelitian; ?></option>                                        
+                                    <?php 
+                                            foreach($tampil_jenis as $r){ 
+                                          ?>  
+                                          <option><?php echo $r->jenis_penelitian; ?></option>                      
+                                          <?php
+                                            }
+                                          ?>                                           
+                                        
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Usulan</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->dana_usulan; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Disetujui</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->dana_disetujui; ?>">
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="skema" id="skema" class="form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>
+                                </div>                               
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->ketua_peneliti; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->anggota_peneliti_1; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->anggota_peneliti_2; ?>">
                                     </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                        
-                                    
-                                    <a href="<?php echo base_url() ?>penelitian/PenelitianDanaUPJ" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
-								                    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
-                                    </div>
-                                </div>
-                                <?php
-                                    echo form_close();
-                                ?>
+                                </div>                             
+                               
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button class="btn btn-primary" type="reset">Reset</button>
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
       </div>
-      
+      <?php
+          echo form_close();
+      ?>
     </div>
   </div>
 </div>

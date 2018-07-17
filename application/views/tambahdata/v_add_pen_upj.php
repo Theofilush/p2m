@@ -56,12 +56,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
+                                    </label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">                                   
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">
+                                            <?php 
+												foreach($tampil_skema as $skemaa){
+											?>  
+											<option><?php echo $skemaa->skema; ?></option>                      
+											<?php
+												 }
+											?>
+									</select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="jenis">                                            
                                             <?php 
-												foreach($tampil_jenis as $r){
+												foreach($tampil_jenis as $r){ 
 											?>  
 											<option><?php echo $r->jenis_penelitian; ?></option>                      
 											<?php
@@ -88,22 +103,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                   
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">
-                                            <?php 
-												foreach($tampil_skema as $skemaa){
-											?>  
-											<option><?php echo $skemaa->skema; ?></option>                      
-											<?php
-												 }
-											?>
-									</select>
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *

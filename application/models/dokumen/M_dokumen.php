@@ -93,7 +93,7 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function tampil_jenishki(){ //query untuk menampilkan Jenis HKI pada form input data HKI
-        $query = $this->db->query('SELECT * FROM jenis_hki ');
+        $query = $this->db->query('SELECT * FROM jenis_hki ORDER BY id_jenis ASC');
         return $query->result();
     }
     function tampil_statushki(){ //query untuk menampilkan Status HKI pada form input data HKI
@@ -105,7 +105,7 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }   
     function tampil_jenis_penelitian(){ //query untuk menampilkan Jenis Penelitian pada form input dana yg bersumber UPJ
-        $query = $this->db->query('SELECT * FROM jenis_penelitian ');
+        $query = $this->db->query('SELECT * FROM jenis_penelitian ORDER BY id_jenis_ini ASC');
         return $query->result();
     }  
     function tampil_skema_penelitian(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
