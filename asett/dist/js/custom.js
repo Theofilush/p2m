@@ -2055,7 +2055,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '32%', targets: 2 },
 						{ width: '26%', targets: 3 },
 						{ width: '6%', targets: 4 },
-						{ width: '5%', targets: 5 },				
+						{ width: '7%', targets: 5 },				
 						{ width: '5%', targets: 6 }
 				]
 				});
@@ -2065,7 +2065,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '32%', targets: 2 },
 						{ width: '26%', targets: 3 },
 						{ width: '6%', targets: 4 },
-						{ width: '5%', targets: 5 },				
+						{ width: '7%', targets: 5 },				
 						{ width: '5%', targets: 6 }
 				]
 				});

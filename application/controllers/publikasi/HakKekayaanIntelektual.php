@@ -14,15 +14,64 @@ class HakKekayaanIntelektual extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_hki();
-
+		$query = $this->M_dokumen->listAll_hki();		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$jenis_karya = $this->M_dokumen->tampil_jenishki();
+		$status_karya = $this->M_dokumen->tampil_statushki();
+		  
 		$dataHalaman = array(   
 		  'query'=>$query,
-          'da' => $kue   
+		  'da' => $kue,
+		  'tampil_tahun'=> $query_tampil_tahun,		  
+		  'jenis_karya'=> $jenis_karya,
+		  'status_karya' => $status_karya
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_hki');
 		$this->load->view('dashboard/v_footer');
 	}
+	public function updatedok(){
+        if ($this->input->post('btnUpload') == "Upload") {
+			$_tahun = $this->input->post('tahun_publikasi', TRUE);
+			$_judul = $this->input->post('judul', TRUE);
+			$_jenis = $this->input->post('jenis', TRUE);
+			$_no_daftar = $this->input->post('no_daftar', TRUE);
+			$_status = $this->input->post('status', TRUE);
+			$_no_hki = $this->input->post('no_hki', TRUE);	
+			$_penulis = $this->input->post('penulis', TRUE);
+			$_anggota1 = $this->input->post('anggota1', TRUE);
+			$_anggota2 = $this->input->post('anggota2', TRUE);
+			$id = $this->input->post('id', TRUE);
+			if(($_anggota1 === "") && ($_anggota2 !== "")){
+				$_anggota1 =$this->input->post('anggota2', TRUE);
+				$_anggota2= NULL;
+			}elseif($_anggota1 == ""){
+				$_anggota1 = NULL;
+			}
+			if($_anggota2 == ""){
+				$_anggota2 = NULL;
+			}
+          
+              $data = array(
+				'tahun_pelaksanaan' =>  $_tahun,
+				'judul_hki' =>  $_judul,
+				'jenis_hki' =>  $_jenis,
+				'status_hki' =>  $_status,
+				'no_hki' =>  $_no_hki,
+				'nama_dosen' =>  $_penulis,
+				'nama_dosen1' =>  $_anggota1,
+				'nama_dosen2' =>  $_anggota2
+              );              
+              $query= $this->M_dokumen->updateDok_hki($data,$id);
+           
+         
+          if ($query) {
+            redirect("publikasi/HakKekayaanIntelektual");
+          }
+          else{
+            redirect("publikasi/HakKekayaanIntelektual");
+          }
+        }
+    } 
 }

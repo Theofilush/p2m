@@ -230,12 +230,12 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->penulis_anggota2; ?>">
                                     </div>
-                                </div>
-                                <div class="ln_solid"></div>                                                                                              
-								                    <button class="btn btn-primary pull-right" type="reset">Reset</button>                 
+                                </div>                                                                       
+								                                
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary" type="reset">Reset</button>   
           <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
       </div>
       <?php
