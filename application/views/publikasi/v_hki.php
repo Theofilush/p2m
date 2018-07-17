@@ -62,14 +62,14 @@
                             No. HKI :&nbsp;<span class="font_color_blue"> <?php echo $row->no_hki; ?> </span><br>
                           </td>                          
                           <td>
-                          	<button type="button" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          	<button type="button" class="btn btn-danger"><i class="fa fa-fw fa-file-text"></i></button> 
+                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></button> 
                           	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
                             <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
                           </td>                          
                           <td>
-                          	<button type="button" class="btn btn-gray"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button> 
+                          	<button type="button" class="btn btn-primary btn-xs btnnomargin"><span class="glyphicon glyphicon-pencil"></span></button> 
+                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
                           </td>
                           <td>
                           	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 

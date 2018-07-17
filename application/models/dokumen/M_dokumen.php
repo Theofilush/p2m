@@ -10,6 +10,7 @@ class M_dokumen extends CI_Model{
     var $forum_ilmiah= 't_forum_ilmiah'; 
     var $hki= 't_hki'; 
     var $luaran_lain= 't_luaran_lain'; 
+    //tampilkan data di halaman dashboard
     function listAll_publikasi(){
         $query = $this->db->get($this->publikasi_jurnal);
         return $query->result();
@@ -46,7 +47,7 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->luaran_lain);
         return $query->result();
     }   
-    
+    //untuk menambahkan /insert data ke database
     public function simpanDok_publikasi($data){
         return $this->db->insert($this->publikasi_jurnal, $data);
     } 
@@ -74,7 +75,7 @@ class M_dokumen extends CI_Model{
     function simpanDok_luaran($data){
         return $this->db->insert($this->luaran_lain, $data);
     }  
-    
+    //untuk menampilkan data ke halaman edit ataupun tambah
     function tampil_tahun(){ //query untuk menampilkan tahun pada form input
         $query = $this->db->query('SELECT * FROM tahun ORDER BY tahun ASC ');
         return $query->result();
@@ -111,11 +112,52 @@ class M_dokumen extends CI_Model{
         $query = $this->db->query('SELECT * FROM skema_penelitian ');
         return $query->result();
     }
-    function UpdateDok_publikasi($data,$id){
+    //untuk mengupdate /memperbarui data yang sudah ada
+    function updateDok_publikasi($data,$id){
         $this->db->where('id_publikasi',$id);
         $hasil = $this->db->update($this->publikasi_jurnal,$data);
         return $hasil; 
-  }
+    }
+    function updateDok_buku($data,$id){
+        $this->db->where('id_buku_ajar',$id);
+        $hasil = $this->db->update($this->buku_ajar,$data);
+        return $hasil; 
+    }
+    function updateDok_pemakalah($data,$id){
+        $this->db->where('id_perumi',$id);
+        $hasil = $this->db->update($this->forum_ilmiah,$data);
+        return $hasil; 
+    }
+    function updateDok_dana_non_upj($data,$id){
+        $this->db->where('kode_penelitian',$id);
+        $hasil = $this->db->update($this->dana_non_upj,$data);
+        return $hasil; 
+    }
+    function updateDok_dana_upj($data,$id){
+        $this->db->where('kode_penelitan',$id);
+        $hasil = $this->db->update($this->dana_upj,$data);
+        return $hasil; 
+    }
+    function updateDok_dana_non2_upj($data,$id){
+        $this->db->where('kode_penelitan',$id);
+        $hasil = $this->db->update($this->dana_non2_upj,$data);
+        return $hasil; 
+    }
+    function updateDok_dana2_upj($data,$id){
+        $this->db->where('kode_penelitan',$id);
+        $hasil = $this->db->update($this->dana2_upj,$data);
+        return $hasil; 
+    }
+    function updateDok_hki($data,$id){
+        $this->db->where('id_hki',$id);
+        $hasil = $this->db->update($this->hki,$data);
+        return $hasil; 
+    }
+    function updateDok_luaran($data,$id){
+        $this->db->where('id_luaran',$id);
+        $hasil = $this->db->update($this->luaran_lain,$data);
+        return $hasil; 
+    }
 
 }
 ?>

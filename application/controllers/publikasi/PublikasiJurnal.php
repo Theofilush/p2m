@@ -30,7 +30,7 @@ class PublikasiJurnal extends CI_Controller {
 		$this->load->view('publikasi/v_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
-	public function savedok(){
+	public function updatedok(){
         if ($this->input->post('btnUpload') == "Upload") {
 			$_tingkat = $this->input->post('tingkat', TRUE);
 			$_tahun_publikasi = $this->input->post('tahun_publikasi', TRUE);
@@ -71,19 +71,14 @@ class PublikasiJurnal extends CI_Controller {
 				'penulis_anggota1' =>  $_anggota1,
 				'penulis_anggota2' =>  $_anggota2
               );              
-              $query= $this->M_dokumen->UpdateDok_publikasi($data,$id);
+              $query= $this->M_dokumen->updateDok_publikasi($data,$id);
            
          
           if ($query) {
             redirect("publikasi/publikasijurnal");
           }
           else{
-            $this->session->set_flashdata('notification_password', '<div class="col-xs-5 alert alert-danger alert-dismissible pull-right">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <p><i class="icon fa fa-ban"></i> Password konfirmasi tidak cocok!</p>
-                
-                  </div>');
-            redirect(site_url("login"));
+            redirect("publikasi/publikasijurnal");
           }
         }
     } 

@@ -2033,9 +2033,9 @@ if (typeof NProgress != 'undefined') {
 				$('#datatableku').DataTable({
 					'columnDefs': [			            
 						{ width: '22%', targets: 1 },
-						{ width: '41%', targets: 2 },
+						{ width: '40%', targets: 2 },
 						{ width: '22%', targets: 3 },
-						{ width: '6%', targets: 4 },
+						{ width: '8%', targets: 4 },
 						{ width: '5%', targets: 5 }						
 				]
 				});
@@ -2045,7 +2045,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '35%', targets: 2 },
 						{ width: '24%', targets: 3 },
 						{ width: '6%', targets: 4 },
-						{ width: '5%', targets: 5 },				
+						{ width: '7%', targets: 5 },				
 						{ width: '5%', targets: 6 }
 				]
 				});

@@ -110,11 +110,12 @@
                                 <?php
                                     echo form_close();
                                 ?>
+                           
                             </div>
                             </div>
                         </div>
-                    </div>
-				</div>
+                    </div><!--penutup row-->
+				</div><!--penutuk x_content -->
                   
             </div>
         </div>

@@ -94,7 +94,7 @@
           </div>
 </div>
 
-<?php
+ <?php
           foreach ($query as $rou) {                   
         ?>
         
@@ -113,7 +113,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('publikasi/publikasijurnal/savedok',$atribut);
+                                        echo form_open('publikasi/publikasijurnal/updatedok',$atribut);
                                         echo form_hidden('id',$rou->id_publikasi);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
@@ -125,8 +125,7 @@
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="tingkat">
                                             <?php 
                                           foreach($cakupan as $row){
-                                        ?>                                                                           
-                                        </option>                      
+                                        ?>                          
                                         <option <?php if (($rou->cakupan_publikasi =='Jurnal Internasional') && ($row->cakupan_publikasi =='Jurnal Internasional')) {
                                             echo 'selected'; 
                                           }elseif (($rou->cakupan_publikasi =='Jurnal Naional Terakreditasi') && ($row->cakupan_publikasi =='Jurnal Naional Terakreditasi')) {
@@ -233,10 +232,7 @@
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>                                                                                              
-								                    <button class="btn btn-primary pull-right" type="reset">Reset</button>
-                                   
-
-                                
+								                    <button class="btn btn-primary pull-right" type="reset">Reset</button>                 
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
