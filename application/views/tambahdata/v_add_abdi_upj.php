@@ -55,6 +55,7 @@
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Pengabdian Masyarakat
                                     </label>
@@ -80,14 +81,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
                                     </div>
-                                </div>                                
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="skema" id="skema" class="form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>
+                                </div>                                                              
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *
