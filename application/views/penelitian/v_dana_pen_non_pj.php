@@ -60,7 +60,7 @@
                           </td>
                           <td>                          
                           <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitian;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
+                          <a href="<?php echo base_url(); ?>penelitian/PenelitianDanaNonUPJ/deletedok/<?php echo $row->kode_penelitian; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                           
                       	   </td>
                           <td>

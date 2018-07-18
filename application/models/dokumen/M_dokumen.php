@@ -181,19 +181,19 @@ class M_dokumen extends CI_Model{
         $this->db->delete($this->forum_ilmiah);
     }
     function deleteDok_dana_non_upj($id){
-        $this->db->where('kode_penelitan', $id);
+        $this->db->where('kode_penelitian', $id);
         $this->db->delete($this->dana_non_upj);
     }
     function deleteDok_dana_upj($id){
-        $this->db->where('kode_penelitian', $id);
+        $this->db->where('kode_penelitan', $id);
         $this->db->delete($this->dana_upj);
     }
     function deleteDok_dana_non2_upj($id){
-        $this->db->where('kode_penelitan', $id);
+        $this->db->where('kode_penelitian', $id);
         $this->db->delete($this->dana_non2_upj);
     }
     function deleteDok_dana2_upj($id){
-        $this->db->where('kode_penelitian', $id);
+        $this->db->where('kode_penelitan', $id);
         $this->db->delete($this->dana2_upj);
     }
     function deleteDok_hki($id){

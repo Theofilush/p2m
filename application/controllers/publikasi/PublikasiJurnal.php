@@ -81,11 +81,10 @@ class PublikasiJurnal extends CI_Controller {
           }
         }
 	} 
-	public function deletedok($id){
-		$where = array('id_publikasi' => $id);
+	public function deletedok($id){		
 		$this->M_dokumen->deleteDok_publikasi($id);
 		redirect('publikasi/publikasijurnal');
 	}
-
+ 
 }
 

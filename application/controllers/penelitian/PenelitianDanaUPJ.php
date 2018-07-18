@@ -75,6 +75,10 @@ class PenelitianDanaUPJ extends CI_Controller {
 				redirect("penelitian/PenelitianDanaUPJ");
 			}
 		}
+	}
+	public function deletedok($id){
+		$this->M_dokumen->deleteDok_dana_upj($id);
+		redirect('penelitian/PenelitianDanaUPJ');
 	} 
 
 }

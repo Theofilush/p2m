@@ -70,7 +70,6 @@ class LuaranLain extends CI_Controller {
         }
 	} 
 	public function deletedok($id){
-		$where = array('id_publikasi' => $id);
 		$this->M_dokumen->deleteDok_luaran($id);
 		redirect('publikasi/LuaranLain');
 	}

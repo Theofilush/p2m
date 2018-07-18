@@ -66,5 +66,9 @@ class PengabdianDanaNonUPJ extends CI_Controller {
             redirect("pengabdian/PengabdianDanaNonUPJ");
           }
         }
-    } 
+	} 
+	public function deletedok($id){		
+		$this->M_dokumen->deleteDok_dana_non2_upj($id);
+		redirect('pengabdian/PengabdianDanaNonUPJ');
+	}
 }

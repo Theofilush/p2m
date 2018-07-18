@@ -17,7 +17,6 @@ class PengabdianDanaUPJ extends CI_Controller {
 		$query = $this->M_dokumen->listAll_dana2_upj();
 		$query_tampilJenis = $this->M_dokumen->tampil_jenis_pengabdian();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
- 
 
 		$dataHalaman = array(   
 		  'query'=>$query,
@@ -72,5 +71,9 @@ class PengabdianDanaUPJ extends CI_Controller {
             redirect("pengabdian/PengabdianDanaUPJ");
           }
         }
-    } 
+	}
+	public function deletedok($id){		
+		$this->M_dokumen->deleteDok_dana2_upj($id);
+		redirect('pengabdian/PengabdianDanaUPJ');
+	} 
 }
