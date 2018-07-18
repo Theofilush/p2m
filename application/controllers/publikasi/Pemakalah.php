@@ -80,6 +80,11 @@ class Pemakalah extends CI_Controller {
             redirect("publikasi/pemakalah");
           }
         }
-    } 
+	} 
+	public function deletedok($id){
+		$where = array('id_perumi' => $id);
+		$this->M_dokumen->deleteDok_pemakalah($id);
+		redirect('publikasi/Pemakalah');
+	}
 
 }

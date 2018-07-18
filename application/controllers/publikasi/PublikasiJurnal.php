@@ -14,8 +14,7 @@ class PublikasiJurnal extends CI_Controller {
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_publikasi();
-		
+		$query = $this->M_dokumen->listAll_publikasi();		
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$cakupan =  $this->M_dokumen->tampil_cakupan(); 
 

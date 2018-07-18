@@ -61,11 +61,11 @@ class NewHKI extends CI_Controller {
 						);       
 					$query= $this->M_dokumen->simpanDok_hki($data);
 					if ($query) {
-						redirect(site_url('publikasi/LuaranLain'));
+						redirect(site_url('publikasi/HakKekayaanIntelektual'));
 						//print_r($stan);
 					}
 					else{
-						redirect(base_url('publikasi/LuaranLain'));
+						redirect(base_url('publikasi/HakKekayaanIntelektual'));
 					}
 		}								
 	}

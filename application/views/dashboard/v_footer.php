@@ -1,4 +1,4 @@
-      </div>
+      </div>      
 
         <!-- footer content -->
         <footer>
@@ -36,6 +36,15 @@
       format: "yyyy-mm-dd",
       orientation: 'auto bottom'
     })
+    function doconfirm()
+    {
+        job=confirm("Are you sure to delete permanently?");
+        if(job!=true)
+        {
+            return false;
+        }
+    }
+
   </script>
   </body>
 </html>

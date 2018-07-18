@@ -110,13 +110,13 @@
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_kegiatan">
                                             <option><?php echo Date('Y');?></option>
                                             <?php 
-												foreach($tampil_tahun as $rou){
-											?>  
-											<option><?php echo $rou->tahun; ?></option>                      
-											<?php
-												 }
-											?>
-									</select>
+                                          foreach($tampil_tahun as $r){
+                                        ?>
+                                        <option><?php echo $r->tahun; ?></option>                      
+                                        <?php
+                                          }
+                                        ?>
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="form-group">

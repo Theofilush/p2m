@@ -20,7 +20,7 @@
                           <th>No.</th>
                           <th>Judul</th>                          
                           <th>Personil</th>
-                          <th>Penelitian</th>
+                          <th>Pengabdian</th>
                           <th>Dana</th>
                           <th>Tahun Penelitian</th>
                           <th>Berkas</th>
@@ -42,7 +42,7 @@
                             Anggota 2 :&nbsp;<span class="font_color_blue"> <?php echo $row->anggota_peneliti_2; ?> </span><br>
                           </td>
                           <td>                            
-                            -
+                          -
                           </td>
                           <td>
                           Sumber Dana :&nbsp;<span class="font_color_blue"><?php echo $row->sumber_dana; ?></span><br>

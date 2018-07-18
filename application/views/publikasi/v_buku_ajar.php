@@ -59,7 +59,7 @@
                           </td>                          
                           <td>                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_buku_ajar;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
+                            <a href="<?php echo base_url(); ?>publikasi/BukuAjar/deletedok/<?php echo $row->id_buku_ajar; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
                           </td>
                           <td>
                           	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 

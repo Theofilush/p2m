@@ -69,5 +69,11 @@ class BukuAjar extends CI_Controller {
             redirect("publikasi/bukuajar");
           }
         }
-    } 
+	}
+	
+	public function deletedok($id){
+		$where = array('id_buku_ajar' => $id);
+		$this->M_dokumen->deleteDok_buku($id);
+		redirect('publikasi/BukuAjar');
+	}
 }

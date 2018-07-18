@@ -75,7 +75,7 @@
                           </td>
                           <td>                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                            <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin"><i class="glyphicon glyphicon-remove  "></i></a>                          	
+                            <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                           </td>
                           <td>
                           	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 

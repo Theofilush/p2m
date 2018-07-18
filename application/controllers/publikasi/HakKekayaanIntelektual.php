@@ -73,5 +73,10 @@ class HakKekayaanIntelektual extends CI_Controller {
             redirect("publikasi/HakKekayaanIntelektual");
           }
         }
-    } 
+	}
+	public function deletedok($id){
+		$where = array('id_hki' => $id);
+		$this->M_dokumen->deleteDok_hki($id);
+		redirect('publikasi/HakKekayaanIntelektual');
+	} 
 }

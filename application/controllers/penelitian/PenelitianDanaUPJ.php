@@ -17,12 +17,15 @@ class PenelitianDanaUPJ extends CI_Controller {
 		$query = $this->M_dokumen->listAll_dana_upj();
 		$query_tampil_jenis = $this->M_dokumen->tampil_jenis_penelitian(); 
 		$query_tampil_skema = $this->M_dokumen->tampil_skema_penelitian(); 
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+
  
 		$dataHalaman = array(   
-		  'query'=>$query,
+		  'query'=>$query, 
           'da' => $kue,	
-			 'tampil_skema'=>$query_tampil_skema,	 
-				 'tampil_jenis'=> $query_tampil_jenis
+		  'tampil_skema'=>$query_tampil_skema,
+		  'tampil_tahun'=> $query_tampil_tahun,
+		  'tampil_jenis'=> $query_tampil_jenis
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

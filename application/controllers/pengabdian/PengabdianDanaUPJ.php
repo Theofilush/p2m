@@ -15,11 +15,14 @@ class PengabdianDanaUPJ extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_dana2_upj();
-		$query_tampilJenis = $this->M_dokumen->tampil_jenis_pengabdian(); 
+		$query_tampilJenis = $this->M_dokumen->tampil_jenis_pengabdian();
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+ 
 
 		$dataHalaman = array(   
 		  'query'=>$query,
 		  'da' => $kue ,
+		  'tampil_tahun'=> $query_tampil_tahun,
 		  'tampil_jenis'=> $query_tampilJenis 
         );
 
