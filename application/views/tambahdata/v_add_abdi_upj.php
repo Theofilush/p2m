@@ -12,7 +12,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                             <div class="x_title">
-                                <h2>Penelitian Sumber Dana Universitas Pembangunan Jaya</h2>
+                                <h2>Pengabdian Sumber Dana Universitas Pembangunan Jaya</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>                                
@@ -59,8 +59,16 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Pengabdian Masyarakat
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">                                    
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis">                                          
+                                            <?php 
+												foreach($tampil_jenis as $hai){
+											?>  
+											<option><?php echo $hai->jenis_pengabdian; ?></option>                      
+											<?php
+												 }
+											?>
+									</select>
                                     </div>
                                 </div>
                                 <div class="form-group">

@@ -125,33 +125,40 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Pengabdian Masyarakat
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_penelitian; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Pengabdian Masyarakat
                                     </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="jenis" name="jenis" required="required" class="form-control col-md-7 col-xs-12">
+                                    <div class="col-md-4 col-sm-4 col-xs-12">                                   
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis">                                          
+                                        <?php 
+                                          foreach($tampil_jenis as $hai){
+                                        ?>                          
+                                        <option <?php if (($rou->jenis_penelitian =='IPTEK bagi Kewirausahaan') && ($hai->jenis_pengabdian =='IPTEK bagi Kewirausahaan')) {
+                                            echo 'selected'; 
+                                          }elseif (($rou->jenis_penelitian =='IPTEK bagi Masyarakat') && ($hai->jenis_pengabdian =='IPTEK bagi Masyarakat')) {
+                                            echo 'selected'; 
+                                          }
+                                          echo '>'.$hai->jenis_pengabdian;
+                                          ?> 
+                                        <?php
+                                          }
+                                        ?>                                         
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Usulan</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->dana_usulan; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Disetujui</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text">
-                                    </div>
-                                </div>                               
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="skema" id="skema" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->dana_disetujui; ?>">
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
@@ -159,32 +166,23 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->ketua_peneliti; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->anggota_peneliti_1; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->anggota_peneliti_2; ?>">
                                     </div>
-                                </div> 
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                        
-                                    
-                                    <a href="<?php echo base_url() ?>pengabdian/PengabdianDanaUPJ" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
-								    <button class="btn btn-primary" type="reset">Reset</button>
-                                    <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
-                                    </div>
-                                </div>                                                              
+                                </div>                                                                                          
 								                                
       </div>
       <div class="modal-footer">

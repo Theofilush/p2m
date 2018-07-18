@@ -71,13 +71,11 @@
                           </td>
                           <td>
                           	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
-                          	<a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin">                                                        
-                               <i class="fa fa-fw fa-file-text"></i>                            
-                          </a>
+                          	<a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                           </td>
                           <td>                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><span class="glyphicon glyphicon-remove"></span></button> 
+                            <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin"><i class="glyphicon glyphicon-remove  "></i></a>                          	
                           </td>
                           <td>
                           	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 

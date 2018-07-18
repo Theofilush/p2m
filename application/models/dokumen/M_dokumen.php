@@ -77,39 +77,48 @@ class M_dokumen extends CI_Model{
     }  
     //untuk menampilkan data ke halaman edit ataupun tambah
     function tampil_tahun(){ //query untuk menampilkan tahun pada form input
-        $query = $this->db->query('SELECT * FROM tahun ORDER BY tahun ASC ');
+        $this->db->order_by('tahun', 'ASC');
+        $query = $this->db->get('tahun'); 
         return $query->result();
     }
     function tampil_cakupan(){ //query untuk menampilkan cakupan pada form input data publikasi
-        $query = $this->db->query('SELECT * FROM cakupan_publikasi_jurnal ');
+        $query = $this->db->get('cakupan_publikasi_jurnal'); 
         return $query->result();
     }
     function tampil_cakupan2(){ //query untuk menampilkan cakupan pada form input data forum ilmiah internasional
-        $query = $this->db->query('SELECT * FROM cakupan_forum_ilmiah ');
+        $query = $this->db->get('cakupan_forum_ilmiah'); 
         return $query->result();
     }
     function status_pemakalah(){ //query untuk menampilkan status pemakalah pada form input data status forum ilmiah internasional
-        $query = $this->db->query('SELECT * FROM status_pemakalah ');
+        $query = $this->db->get('status_pemakalah'); 
         return $query->result();
     }
     function tampil_jenishki(){ //query untuk menampilkan Jenis HKI pada form input data HKI
-        $query = $this->db->query('SELECT * FROM jenis_hki ORDER BY id_jenis ASC');
+        $this->db->order_by('id_jenis', 'ASC');
+        $query = $this->db->get('jenis_hki');     
         return $query->result();
     }
     function tampil_statushki(){ //query untuk menampilkan Status HKI pada form input data HKI
-        $query = $this->db->query('SELECT * FROM status_hki ORDER BY status_hki DESC');
+        $this->db->order_by('status_hki', 'DESC');
+        $query = $this->db->get('status_hki');          
         return $query->result();
     }    
     function tampil_jenis_luaran(){ //query untuk menampilkan Jenis Luaran pada form input data Luaran Lain
-        $query = $this->db->query('SELECT * FROM jenis_luaran_lain ');
+        $query = $this->db->get('jenis_luaran_lain'); 
         return $query->result();
     }   
     function tampil_jenis_penelitian(){ //query untuk menampilkan Jenis Penelitian pada form input dana yg bersumber UPJ
-        $query = $this->db->query('SELECT * FROM jenis_penelitian ORDER BY id_jenis_ini ASC');
+        $this->db->order_by('id_jenis_ini', 'ASC');
+        $query = $this->db->get('jenis_penelitian');          
         return $query->result();
     }  
-    function tampil_skema_penelitian(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
-        $query = $this->db->query('SELECT * FROM skema_penelitian ');
+    function tampil_skema_penelitian(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ        
+        $query = $this->db->get('skema_penelitian');        
+        return $query->result();
+    }
+    function tampil_jenis_pengabdian(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
+        $this->db->order_by('id_jenis', 'ASC');
+        $query = $this->db->get('jenis_pengabdian');        
         return $query->result();
     }
     //untuk mengupdate /memperbarui data yang sudah ada
@@ -139,7 +148,7 @@ class M_dokumen extends CI_Model{
         return $hasil; 
     }
     function updateDok_dana_non2_upj($data,$id){
-        $this->db->where('kode_penelitan',$id);
+        $this->db->where('kode_penelitian',$id);
         $hasil = $this->db->update($this->dana_non2_upj,$data);
         return $hasil; 
     }
@@ -158,6 +167,42 @@ class M_dokumen extends CI_Model{
         $hasil = $this->db->update($this->luaran_lain,$data);
         return $hasil; 
     }
-
+    //untuk mengdelete data sesuai pemilik data
+    function deleteDok_publikasi($id){
+        $this->db->where('id_publikasi', $id);
+        $this->db->delete($this->publikasi_jurnal);
+    }
+    function deleteDok_buku($id){
+        $this->db->where('id_buku_ajar', $id);
+        $this->db->delete($this->buku_ajar);
+    }
+    function deleteDok_pemakalah($id){
+        $this->db->where('id_perumi', $id);
+        $this->db->delete($this->forum_ilmiah);
+    }
+    function deleteDok_dana_non_upj($id){
+        $this->db->where('kode_penelitan', $id);
+        $this->db->delete($this->dana_non_upj);
+    }
+    function deleteDok_dana_upj($id){
+        $this->db->where('kode_penelitian', $id);
+        $this->db->delete($this->dana_upj);
+    }
+    function deleteDok_dana_non2_upj($id){
+        $this->db->where('kode_penelitan', $id);
+        $this->db->delete($this->dana_non2_upj);
+    }
+    function deleteDok_dana2_upj($id){
+        $this->db->where('kode_penelitian', $id);
+        $this->db->delete($this->dana2_upj);
+    }
+    function deleteDok_hki($id){
+        $this->db->where('id_hki', $id);
+        $this->db->delete($this->hki);
+    }
+    function deleteDok_luaran($id){
+        $this->db->where('id_luaran', $id);
+        $this->db->delete($this->luaran_lain);
+    }
 }
 ?>

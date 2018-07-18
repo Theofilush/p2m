@@ -95,7 +95,7 @@ if (!function_exists('hari')) {
 /**
  * Fungsi untuk membuat tanggal dalam format bahasa indonesia
  * @param void
- * @return string format tanggal sekarang (contoh: 22 Desember 2016)
+ * @return string format tanggal sekarang (contoh:Senin, 22 Desember 2016)
  */
 if (!function_exists('tanggal')) {
     function tanggal() {
