@@ -113,7 +113,7 @@
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
-                                            <option><?php echo Date('Y');?></option>
+                                    <option selected><?php echo $rou->tahun_pelaksanaan; ?></option> 
                                             <?php 
 												foreach($tampil_tahun as $row){
 											?>  
