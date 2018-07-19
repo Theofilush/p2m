@@ -53,7 +53,7 @@
                           </td>
                           <td>
                             <button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
-                            <a href="<?php echo base_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin">                                                        
+                            <a href="<?php echo base_url().'fileupload/penelitian_non_upj/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin">                                                        
                                <i class="fa fa-fw fa-file-text"></i>                            
                             </a>
                           	

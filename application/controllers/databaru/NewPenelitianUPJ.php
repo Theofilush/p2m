@@ -28,7 +28,7 @@ class NewPenelitianUPJ extends CI_Controller {
 	}
 	public function savedok(){     
 		if($this->input->post('btnUpload') == "Upload"){
-			$config['upload_path'] = './fileupload/';
+			$config['upload_path'] = './fileupload/penelitian_upj/';
 			$config['allowed_types'] = 'pdf';
 			$this->load->library('upload', $config);                
 			if ( ! $this->upload->do_upload('filepdf')){
