@@ -124,48 +124,39 @@ class M_dokumen extends CI_Model{
     //untuk mengupdate /memperbarui data yang sudah ada
     function updateDok_publikasi($data,$id){
         $this->db->where('id_publikasi',$id);
-        $hasil = $this->db->update($this->publikasi_jurnal,$data);
-        return $hasil; 
+        return $this->db->update($this->publikasi_jurnal,$data);
     }
     function updateDok_buku($data,$id){
         $this->db->where('id_buku_ajar',$id);
-        $hasil = $this->db->update($this->buku_ajar,$data);
-        return $hasil; 
+        return $this->db->update($this->buku_ajar,$data);
     }
     function updateDok_pemakalah($data,$id){
         $this->db->where('id_perumi',$id);
-        $hasil = $this->db->update($this->forum_ilmiah,$data);
-        return $hasil; 
+        return $this->db->update($this->forum_ilmiah,$data);
     }
     function updateDok_dana_non_upj($data,$id){
         $this->db->where('kode_penelitian',$id);
-        $hasil = $this->db->update($this->dana_non_upj,$data);
-        return $hasil; 
+        return $this->db->update($this->dana_non_upj,$data);
     }
     function updateDok_dana_upj($data,$id){
         $this->db->where('kode_penelitan',$id);
-        $hasil = $this->db->update($this->dana_upj,$data);
-        return $hasil; 
+        return $this->db->update($this->dana_upj,$data);
     }
     function updateDok_dana_non2_upj($data,$id){
         $this->db->where('kode_penelitian',$id);
-        $hasil = $this->db->update($this->dana_non2_upj,$data);
-        return $hasil; 
+        return $this->db->update($this->dana_non2_upj,$data);
     }
     function updateDok_dana2_upj($data,$id){
         $this->db->where('kode_penelitan',$id);
-        $hasil = $this->db->update($this->dana2_upj,$data);
-        return $hasil; 
+        return $this->db->update($this->dana2_upj,$data);
     }
     function updateDok_hki($data,$id){
         $this->db->where('id_hki',$id);
-        $hasil = $this->db->update($this->hki,$data);
-        return $hasil; 
+        return $this->db->update($this->hki,$data);
     }
     function updateDok_luaran($data,$id){
         $this->db->where('id_luaran',$id);
-        $hasil = $this->db->update($this->luaran_lain,$data);
-        return $hasil; 
+        return $this->db->update($this->luaran_lain,$data);
     }
     //untuk mengdelete data sesuai pemilik data
     function deleteDok_publikasi($id){
@@ -203,6 +194,52 @@ class M_dokumen extends CI_Model{
     function deleteDok_luaran($id){
         $this->db->where('id_luaran', $id);
         $this->db->delete($this->luaran_lain);
+    }
+    //untuk melakukan validasi dokumen
+    function validasi_publikasi($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('id_publikasi',$id);
+        return $this->db->update($this->publikasi_jurnal);
+    }
+    function validasi_buku($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('id_buku_ajar',$id);
+        return $this->db->update($this->buku_ajar);
+    }
+    function validasi_pemakalah($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('id_perumi',$id);
+        return $this->db->update($this->forum_ilmiah);
+    }
+    function validasi_dana_non_upj($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non_upj);
+    }
+    function validasi_dana_upj($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana_upj);
+    }
+    function validasi_dana_non2_upj($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non2_upj);
+    }
+    function validasi_dana2_upj($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana2_upj);
+    }
+    function validasi_hki($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('id_hki',$id);
+        return $this->db->update($this->hki);
+    }
+    function validasi_luaran($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('id_luaran',$id);
+        return $this->db->update($this->luaran_lain);
     }
 }
 ?>

@@ -85,5 +85,15 @@ class Pemakalah extends CI_Controller {
 		$this->M_dokumen->deleteDok_pemakalah($id);
 		redirect('publikasi/Pemakalah');
 	}
-
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_pemakalah($id);        
+		if ($query) {
+		  redirect("publikasi/pemakalah");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("publikasi/pemakalah");
+		}
+	  }
+	  
 }

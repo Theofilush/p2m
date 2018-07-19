@@ -73,4 +73,15 @@ class LuaranLain extends CI_Controller {
 		$this->M_dokumen->deleteDok_luaran($id);
 		redirect('publikasi/LuaranLain');
 	}
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_luaran($id);        
+		if ($query) {
+		  redirect("publikasi/LuaranLain");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("publikasi/LuaranLain");
+		}
+ 	} 
+
 }

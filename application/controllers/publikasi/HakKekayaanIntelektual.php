@@ -78,4 +78,15 @@ class HakKekayaanIntelektual extends CI_Controller {
 		$this->M_dokumen->deleteDok_hki($id);
 		redirect('publikasi/HakKekayaanIntelektual');
 	} 
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_hki($id);        
+		if ($query) {
+		  redirect("publikasi/HakKekayaanIntelektual");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("publikasi/HakKekayaanIntelektual");
+		}
+    } 
+
 }

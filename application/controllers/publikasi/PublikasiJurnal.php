@@ -10,7 +10,7 @@ class PublikasiJurnal extends CI_Controller {
 			redirect(site_url("login"));
 		} 
 	}
-	public function index()
+	public function index() 
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
@@ -24,9 +24,11 @@ class PublikasiJurnal extends CI_Controller {
 		  'tampil_tahun'=> $query_tampil_tahun,
 		  'cakupan'=> $cakupan
         );
-
+		$datacontent = array( 
+			'da' => $kue
+		  );
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('publikasi/v_publikasi');
+		$this->load->view('publikasi/v_publikasi',$datacontent);
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
@@ -77,6 +79,7 @@ class PublikasiJurnal extends CI_Controller {
             redirect("publikasi/publikasijurnal");
           }
           else{
+			$this->session->set_flashdata('notification', 'Gagal Melakukan Update');	
             redirect("publikasi/publikasijurnal");
           }
         }
@@ -85,6 +88,16 @@ class PublikasiJurnal extends CI_Controller {
 		$this->M_dokumen->deleteDok_publikasi($id);
 		redirect('publikasi/publikasijurnal');
 	}
+	public function validasi($id){            
+          $query= $this->M_dokumen->validasi_publikasi($id);        
+          if ($query) {
+            redirect("publikasi/publikasijurnal");
+          }
+          else{
+			$this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+            redirect("publikasi/publikasijurnal");
+          }
+	} 
  
 }
 

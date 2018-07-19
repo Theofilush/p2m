@@ -75,4 +75,15 @@ class BukuAjar extends CI_Controller {
 		$this->M_dokumen->deleteDok_buku($id);
 		redirect('publikasi/BukuAjar');
 	}
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_buku($id);        
+		if ($query) {
+		  redirect("publikasi/BukuAjar");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("publikasi/BukuAjar");
+		}
+ 	} 
+
 }

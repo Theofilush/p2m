@@ -72,4 +72,15 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 		$this->M_dokumen->deleteDok_dana_non_upj($id);
 		redirect('penelitian/PenelitianDanaNonUPJ');
 	}
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_dana_non_upj($id);        
+		if ($query) {
+		  redirect("penelitian/PenelitianDanaNonUPJ");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("penelitian/PenelitianDanaNonUPJ");
+		}
+  } 
+
 }

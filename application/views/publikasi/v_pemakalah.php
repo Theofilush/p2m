@@ -1,5 +1,5 @@
-<div class="right_col" role="main">
-          
+<?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
+<div class="right_col" role="main">          
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
@@ -75,9 +75,17 @@
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
                             <a href="<?php echo base_url(); ?>publikasi/Pemakalah/deletedok/<?php echo $row->id_perumi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>                             
                           </td>
-                          <td>
-                          	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 
-                      	   </td>                         
+                          <td class="ketengah">
+                          <span class="font_color_green"><?php echo $row->valid; ?></span>                        
+                          <?php
+                            if($buba === 'administrator' && ($row->valid == NULL)){
+                            ?>
+                            <br>
+                            <a href="<?php echo site_url(); ?>publikasi/Pemakalah/validasi/<?php echo $row->id_perumi; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                            <?php
+                              }
+                            ?>
+                      	   </td>                            
                         </tr>
                         <?php
                          }

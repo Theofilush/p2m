@@ -76,4 +76,15 @@ class PengabdianDanaUPJ extends CI_Controller {
 		$this->M_dokumen->deleteDok_dana2_upj($id);
 		redirect('pengabdian/PengabdianDanaUPJ');
 	} 
+	public function validasi($id){            
+		$query= $this->M_dokumen->validasi_dana2_upj($id);        
+		if ($query) {
+		  redirect("pengabdian/PengabdianDanaUPJ");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
+		  redirect("pengabdian/PengabdianDanaUPJ");
+		}
+  } 
+
 }
