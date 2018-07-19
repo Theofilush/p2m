@@ -30,17 +30,16 @@ return $this->db->insert('login',$data);
 			'username' => $username
 			//'password' => md5($password),
 			);
-		$cek = $this->m_login->cek_login("t_login",$where)->num_rows();
+		$cek = $this->m_login->cek_login("t_login",$username)->num_rows();
 		if($cek > 0){
 
-			$db=$this->m_login->cek_login("t_login",$where)->row();
+			$db=$this->m_login->cek_login("t_login",$username)->row();
 			if(hash_verified($password ,$db->password)) 
 			{
 			   $data_session = array(
 				'nama' => $username,
 				'status' => "login"
 				);
- 
 				$this->session->set_userdata($data_session);	
 				redirect(site_url("dashboard"),'refresh');				
 			}
@@ -48,10 +47,6 @@ return $this->db->insert('login',$data);
 				$this->session->set_flashdata('notification','Maaf Password Salah.');
 				redirect('','refresh');
 			}
-
-
-
-
 			/*$data_session = array(
 				'nama' => $username,
 				'status' => "login"

@@ -78,7 +78,15 @@
                             <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                           </td>
                           <td>
-                          	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?> 
+                          <?php
+                            if($buba == 'administrator'){
+                            ?>         
+                            <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/<?php echo $row->id_publikasi; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                            <?php
+                              }
+                            ?>
+                          	<span class="font_color_green"><?php echo $row->valid; ?></span><?php echo $row->valid; ?>
+                            <a href="<?php echo base_url(); ?>publikasi/PublikasiJurnal/<?php echo $row->id_publikasi; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                       	   </td>                         
                         </tr>
                         <?php
