@@ -57,9 +57,9 @@
                             ISBN :&nbsp;<span class="font_color_blue"> <?php echo $row->isbn; ?> </span><br>
                             Jml. Halaman :&nbsp;<span class="font_color_blue"> <?php echo $row->jumlah_halaman; ?> </span><br>                            
                           </td>                          
-                          <td>                          	
+                          <td class="ketengah">                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_buku_ajar;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                            <a href="<?php echo base_url(); ?>publikasi/BukuAjar/deletedok/<?php echo $row->id_buku_ajar; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
+                            <a href="<?php echo site_url(); ?>publikasi/BukuAjar/deletedok/<?php echo $row->id_buku_ajar; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
                           </td>
                           <td class="ketengah">
                           <span class="font_color_green"><?php echo $row->valid; ?></span>                        

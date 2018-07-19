@@ -25,7 +25,8 @@
               <h2>Sorry but we couldn't find this page</h2>
               <p>This page you are looking for does not exist <!--<a href="#">Report this?</a>-->
               </p>
-              <p>Maaf halaman yang Anda cari tidak ditemukan</p>              
+              <p>Maaf halaman yang Anda cari tidak ditemukan</p>    <br>
+                <a href="<?php echo site_url() ?>dashboard"  style="color:#fff;"><h3> kembali ke Dashboard</h3></a>
             </div>
           </div>
         </div>

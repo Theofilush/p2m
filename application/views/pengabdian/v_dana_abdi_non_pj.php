@@ -53,14 +53,14 @@
                           </td>
                           <td>
                           <button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
-                          	<a href="<?php echo base_url().'fileupload/pengabdian_non_upj/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin">                                                        
+                          	<a href="<?php echo site_url().'fileupload/pengabdian_non_upj/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin">                                                        
                                <i class="fa fa-fw fa-file-text"></i>                            
                             </a> 
                           	
                           </td>
                           <td>
                           <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitian;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          <a href="<?php echo base_url(); ?>pengabdian/PengabdianDanaNonUPJ/deletedok/<?php echo $row->kode_penelitian; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                          <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaNonUPJ/deletedok/<?php echo $row->kode_penelitian; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                       	   </td>
                            <td class="ketengah">
                           <span class="font_color_green"><?php echo $row->valid; ?></span>                        

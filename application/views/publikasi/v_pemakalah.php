@@ -65,15 +65,23 @@
                             Tgl. :&nbsp;<span class="font_color_blue"> <?php echo $row->waktu_pelakasana_awal; ?> s/d  <?php echo $row->waktu_pelakasana_akhir; ?></span><br>
                             Tempat :&nbsp;<span class="font_color_blue"> <?php echo $row->tempat_pelaksana; ?> </span><br>                            
                           </td>                        
-                          <td>
+                          <td class="ketengah">
                           	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          	<button type="button" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></button> 
-                          	<!--<input type="image" src="<?php echo base_url() ?>asett/images/icon/upload.png"> 
-                            <input type="image" src="<?php echo base_url() ?>asett/images/icon/pdf.png">-->
+                          	<?php
+                            if(($row->file == NULL) || ($row->file == "")){
+                            ?>                                
+                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-default btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <?php
+                            }else if(($row->file != NULL) || ($row->file != "") ){
+                                ?>
+                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <?php
+                            }
+                            ?>
                           </td>                         
-                          <td>                          	
+                          <td class="ketengah">                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                            <a href="<?php echo base_url(); ?>publikasi/Pemakalah/deletedok/<?php echo $row->id_perumi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>                             
+                            <a href="<?php echo site_url(); ?>publikasi/Pemakalah/deletedok/<?php echo $row->id_perumi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>                             
                           </td>
                           <td class="ketengah">
                           <span class="font_color_green"><?php echo $row->valid; ?></span>                        

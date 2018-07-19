@@ -122,7 +122,7 @@
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                        
                                     
-                                    <a href="<?php echo base_url() ?>publikasi/HakKekayaanIntelektual" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
+                                    <a href="<?php echo site_url() ?>publikasi/HakKekayaanIntelektual" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</a>
 								    <button class="btn btn-primary" type="reset">Reset</button>
                                     <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
                                     </div>

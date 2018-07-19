@@ -69,11 +69,21 @@
                             Halaman :&nbsp;<span class="font_color_blue"><?php echo $row->halaman_awal; ?> s/d <?php echo $row->halaman_akhir; ?></span><br>
                             URL :&nbsp;<span class="font_color_blue"><a href="<?php echo $row->url; ?>" class="link_url"> <?php echo $row->url; ?></a></span><br>
                           </td>
-                          <td>
-                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
-                          	<a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-warning btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                          <td class="ketengah">                          
+                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>
+                            <?php
+                            if(($row->file == NULL) || ($row->file == "")){
+                            ?>                                
+                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-default btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <?php
+                            }else if(($row->file != NULL) || ($row->file != "") ){
+                                ?>
+                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <?php
+                            }
+                            ?>
                           </td>
-                          <td>                          	
+                          <td class="ketengah">                          	
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
                             <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                           </td>
