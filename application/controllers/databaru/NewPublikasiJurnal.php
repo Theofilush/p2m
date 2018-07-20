@@ -6,7 +6,7 @@ class NewPublikasiJurnal extends CI_Controller {
 	function __construct(){
     parent::__construct();      
     	if($this->session->userdata('status') != "login"){
-      		redirect(base_url("login"));
+      		redirect(site_url("login"));
     	} 	 
     } 
     
@@ -72,7 +72,7 @@ class NewPublikasiJurnal extends CI_Controller {
             //print_r($stan);
            }
            else{
-              redirect(base_url('publikasi/publikasijurnal'));
+              redirect(site_url('publikasi/publikasijurnal'));
            }
       }
             

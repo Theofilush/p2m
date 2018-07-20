@@ -64,7 +64,12 @@
                           	<?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
-                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-default btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <button class="btn btn-default btn-xs btnnomargin source" onclick="new PNotify({
+                                  title: 'Terjadi Kesalahan !',
+                                  text: 'Berkas Pendukung belum diunggah !',
+                                  type: 'error',
+                                  styling: 'bootstrap3'
+                              });"><i class="fa fa-fw fa-file-text"></i></button>
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>

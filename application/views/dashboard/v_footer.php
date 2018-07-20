@@ -19,6 +19,8 @@
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!--<script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>-->
+    <script src="<?php echo base_url() ?>asett/plugins/pnotify/dist/pnotify.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins//pnotify/dist/pnotify.buttons.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/parsleyjs/dist/parsley.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/iCheck/icheck.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/select2/dist/js/select2.full.min.js"></script>

@@ -32,7 +32,6 @@ return $this->db->insert('login',$data);
 			);
 		$cek = $this->m_login->cek_login("t_login",$username)->num_rows();
 		if($cek > 0){
-
 			$db=$this->m_login->cek_login("t_login",$username)->row();
 			if(hash_verified($password ,$db->password)) 
 			{

@@ -57,9 +57,22 @@
                           </td>
                           <td>
                           <button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                          <a href="<?php echo site_url().'fileupload/penelitian_upj/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin">                                                        
-                               <i class="fa fa-fw fa-file-text"></i>                            
-                          </a>
+                          <?php
+                            if(($row->file == NULL) || ($row->file == "")){
+                            ?>                                                                
+                              <button class="btn btn-default btn-xs btnnomargin source" onclick="new PNotify({
+                                  title: 'Terjadi Kesalahan !',
+                                  text: 'Berkas Pendukung belum diunggah !',
+                                  type: 'error',
+                                  styling: 'bootstrap3'
+                              });"><i class="fa fa-fw fa-file-text"></i></button>
+                                <?php
+                            }else if(($row->file != NULL) || ($row->file != "") ){
+                                ?>
+                                <a href="<?php echo site_url().'fileupload/penelitian_upj/'.$row->file?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <?php
+                            }
+                            ?>
                           </td>
                           <td>
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-pencil"></span></button>                                                        

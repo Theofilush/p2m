@@ -9,8 +9,7 @@
     <title>Universitas Pembangunan Jaya </title>
 
     <link href="<?php echo base_url() ?>asett/dist/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>asett/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>asett/dist/font-awesome/css/font-awesome.min.css" rel="stylesheet">    
     <link href="<?php echo base_url() ?>asett/dist/css/custom.css" rel="stylesheet">
   </head>
 
@@ -26,7 +25,10 @@
               <p>This page you are looking for does not exist <!--<a href="#">Report this?</a>-->
               </p>
               <p>Maaf halaman yang Anda cari tidak ditemukan</p>    <br>
-                <a href="<?php echo site_url() ?>dashboard"  style="color:#fff;"><h3> kembali ke Dashboard</h3></a>
+                <button type="button" onclick="window.history.back()" class="btn btn-info btn-sm"><i class="fa fa-arrow-left"></i> Kembali ke Halaman Sebelumnya</button>
+                <a type="button" href="<?php echo site_url() ?>dashboard" class="btn btn-info btn-sm"><i class="fa fa-home"></i> Kembali ke Dashboard</a>
+                <!--<button type="button" onClick="history.go(-1);"><span ></span> Kembali</button>
+                <button type="button" onClick="window.history.back();"><span ></span> Kembali</button>-->                
             </div>
           </div>
         </div>
@@ -37,8 +39,6 @@
 
     <script src="<?php echo base_url() ?>asett/dist/jquery/jquery.min.js"></script>
   	<script src="<?php echo base_url() ?>asett/dist/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url() ?>asett/plugins/fastclick/lib/fastclick.js"></script>
-    <script src="<?php echo base_url() ?>asett/plugins/nprogress/nprogress.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
   </body>
 </html>
