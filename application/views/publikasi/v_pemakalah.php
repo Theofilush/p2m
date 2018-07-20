@@ -4,7 +4,8 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
-                      <h4 class="">Pemakalah Forum Ilmiah</h4>
+                    <p ><?php echo $this->session->flashdata('notification')?></p>  
+                      <h4 class="">Pemakalah Forum Ilmiah</h4>                      
                       <a href="#" class="btn btn-default">Tingkat Internasional</a> 
                       <a href="#" class="btn btn-default">Tingkat Naional</a> 
                       <a href="#" class="btn btn-default">Regional</a>                  
@@ -16,7 +17,6 @@
                         <a href="<?php echo site_url() ?>databaru/NewForumIlmiah" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
-          
                     <table id="datatableku2" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
@@ -64,9 +64,9 @@
                             Institusi  :&nbsp;<span class="font_color_blue"><b><?php echo $row->institusi_penyelenggara; ?></b></span><br>
                             Tgl. :&nbsp;<span class="font_color_blue"> <?php echo $row->waktu_pelakasana_awal; ?> s/d  <?php echo $row->waktu_pelakasana_akhir; ?></span><br>
                             Tempat :&nbsp;<span class="font_color_blue"> <?php echo $row->tempat_pelaksana; ?> </span><br>                            
-                          </td>                        
+                          </td>
                           <td class="ketengah">
-                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                           	<?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
@@ -74,7 +74,7 @@
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <a href="<?php echo site_url().'fileupload/pemakalah/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                 <?php
                             }
                             ?>
@@ -110,7 +110,7 @@
           foreach ($query as $rou) {                   
         ?>
         
-<div class="modal fade bs-example-modal-lg" id="modal-edit<?php echo $rou->id_perumi;?>" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modal-edit<?php echo $rou->id_perumi;?>" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -127,10 +127,7 @@
                                     );                                        
                                         echo form_open('publikasi/pemakalah/updatedok',$atribut);
                                         echo form_hidden('id',$rou->id_perumi);
-                                ?>
-                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
-                                
-                                
+                                ?>     
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Data Publikasi Tingkat
                                     </label>
@@ -276,6 +273,44 @@
   </div>
 </div>
 <?php
+  }              
+?>
+
+ <?php
+    foreach ($query as $rou) {                   
+  ?>        
+<div class="modal fade" id="modal-upload<?php echo $rou->id_perumi;?>" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Pemakalah Forum Ilmiah</h4>
+      </div>
+      <div class="modal-body">
+                                <?php
+                                    $atribut = array(
+                                            'class' => 'form-horizontal form-label-left',
+                                            'data-parsley-validate' => '',
+                                            'id'=>'demo-form2'
+                                    );                                        
+                                        echo form_open_multipart('publikasi/Pemakalah/uploaddok/',$atribut);
+                                        echo form_hidden('id',$rou->id_perumi);
+                                ?>                                                             
+                                <div class="form-group">
+                                 <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Unggah</button>
+      </div>
+      <?php
+                echo form_close();
+      ?>
+    </div>
+  </div>
+</div>
+<?php
               }              
            ?>
-</div>

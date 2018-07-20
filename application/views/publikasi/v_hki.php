@@ -4,13 +4,14 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
+                  <?php echo $this->session->flashdata('notification')?>  
                       <h4 class="">Hak Kekayaan Intelektual (HKI)</h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewHKI" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewHKI" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>
                       </div>
                     </div>
           
@@ -62,7 +63,7 @@
                             No. HKI :&nbsp;<span class="font_color_blue"> <?php echo $row->no_hki; ?> </span><br>
                           </td>                          
                           <td class="ketengah">
-                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_hki;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                             <?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
@@ -70,7 +71,7 @@
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <a href="<?php echo site_url().'fileupload/hki/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                 <?php
                             }
                             ?>
@@ -235,5 +236,44 @@
   </div>
 </div>
 <?php
-              }              
-           ?>
+  }              
+?>
+
+ <?php
+    foreach ($query as $rou) {                   
+  ?>        
+<div class="modal fade" id="modal-upload<?php echo $rou->id_hki;?>" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Hak Kekayaan Intelektual (HKI)</h4>
+      </div>
+      <div class="modal-body">
+                                <?php
+                                    $atribut = array(
+                                            'class' => 'form-horizontal form-label-left',
+                                            'data-parsley-validate' => '',
+                                            'id'=>'demo-form2'
+                                    );                                        
+                                        echo form_open_multipart('publikasi/HakKekayaanIntelektual/uploaddok/',$atribut);
+                                        echo form_hidden('id',$rou->id_hki);
+                                ?>                                                             
+                                <div class="form-group">
+                                 <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Unggah</button>
+      </div>
+      <?php
+        echo form_close();
+      ?>
+    </div>
+  </div>
+</div>
+<?php
+  }
+?>

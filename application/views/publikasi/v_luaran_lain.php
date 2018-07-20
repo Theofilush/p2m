@@ -4,6 +4,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
+                  <p ><?php echo $this->session->flashdata('notification')?></p>  
                       <h4 class="">Luaran Lain</h4>
                     <div class="clearfix"></div>
                   </div>
@@ -60,7 +61,7 @@
                           <?php echo $row->deskripsi; ?>
                           </td>                          
                           <td class="ketengah">
-                          	<button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_luaran;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                           	<?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
@@ -68,7 +69,7 @@
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <a href="<?php echo site_url().'fileupload/luaranlain/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                 <?php
                             }
                             ?>
@@ -131,14 +132,14 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">
                                     <option selected><?php echo $rou->tahun_pelaksanaan; ?></option> 
-                                            <?php 
-												foreach($tampil_tahun as $row){
-											?>  
-											<option><?php echo $row->tahun; ?></option>                      
-											<?php
-												 }
-											?>   
-									</select>
+                                      <?php 
+                                        foreach($tampil_tahun as $row){
+                                      ?>  
+                                      <option><?php echo $row->tahun; ?></option>
+                                      <?php
+                                        }
+                                      ?>   
+                                  </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -192,8 +193,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->nama_dosen2; ?>">
                                     </div>
-                                </div>                                                               
-								                               
+                                </div>
       </div>
       <div class="modal-footer">              
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -207,5 +207,43 @@
   </div>
 </div>
 <?php
-              }              
-           ?>
+  }              
+?>
+ <?php
+    foreach ($query as $rou) {                   
+  ?>        
+<div class="modal fade" id="modal-upload<?php echo $rou->id_luaran;?>" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Luaran Lain</h4>
+      </div>
+      <div class="modal-body">
+                                <?php
+                                    $atribut = array(
+                                            'class' => 'form-horizontal form-label-left',
+                                            'data-parsley-validate' => '',
+                                            'id'=>'demo-form2'
+                                    );                                        
+                                        echo form_open_multipart('publikasi/LuaranLain/uploaddok/',$atribut);
+                                        echo form_hidden('id',$rou->id_luaran);
+                                ?>                                                             
+                                <div class="form-group">
+                                 <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Unggah</button>
+      </div>
+      <?php
+                echo form_close();
+      ?>
+    </div>
+  </div>
+</div>
+<?php
+  }
+?>

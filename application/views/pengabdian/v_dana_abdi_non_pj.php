@@ -4,6 +4,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
+                  <?php echo $this->session->flashdata('notification')?>
                       <h4 class="">Pengabdian Sumber Dana non-Universitas Pembangunan Jaya</h4>
                     <div class="clearfix"></div>
                   </div>
@@ -52,7 +53,7 @@
                             <b><?php echo $row->tahun_penelitian; ?></b><br>                          	
                           </td>
                           <td>
-                          <button type="button" class="btn btn-success btn-xs btnnomargin"><span class="glyphicon glyphicon-cloud-upload"></span></button>                           	
+                          <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->kode_penelitian;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                           <?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                                                
@@ -188,5 +189,43 @@
   </div>
 </div>
 <?php
-              }              
-           ?>
+  }              
+?>
+ <?php
+    foreach ($query as $rou) {                   
+  ?>        
+<div class="modal fade" id="modal-upload<?php echo $rou->kode_penelitian;?>" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Pengabdian Sumber Dana non-Universitas Pembangunan Jaya</h4>
+      </div>
+      <div class="modal-body">
+                                <?php
+                                    $atribut = array(
+                                            'class' => 'form-horizontal form-label-left',
+                                            'data-parsley-validate' => '',
+                                            'id'=>'demo-form2'
+                                    );                                        
+                                        echo form_open_multipart('pengabdian/PengabdianDanaNonUPJ/uploaddok/',$atribut);
+                                        echo form_hidden('id',$rou->kode_penelitian);
+                                ?>                                                             
+                                <div class="form-group">
+                                 <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Unggah</button>
+      </div>
+      <?php
+                echo form_close();
+      ?>
+    </div>
+  </div>
+</div>
+<?php
+  }
+?>

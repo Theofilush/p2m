@@ -247,5 +247,40 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_publikasi',$id);
         return $this->db->update($this->publikasi_jurnal);
     }
+    function uploadDok_pemakalah($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('id_perumi',$id);
+        return $this->db->update($this->forum_ilmiah);
+    }
+    function uploadDok_dana_non_upj($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non_upj);
+    }
+    function uploadDok_dana_upj($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana_upj);
+    }
+    function uploadDok_dana_non2_upj($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non2_upj);
+    }
+    function uploadDok_dana2_upj($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana2_upj);
+    }
+    function uploadDok_hki($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('id_hki',$id);
+        return $this->db->update($this->hki);
+    }
+    function uploadDok_luaran($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('id_luaran',$id);
+        return $this->db->update($this->luaran_lain);
+    }
 }
 ?>

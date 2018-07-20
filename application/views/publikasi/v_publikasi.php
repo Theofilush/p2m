@@ -4,8 +4,8 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
+                    <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <h4 class="">Publikasi Jurnal</h4>
-                      <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <a href="#" class="btn btn-default btn-sm">Jurnal Internasional</a> 
                       <a href=="#" class="btn btn-default btn-sm">Jurnal Naional Terakreditasi</a>
                       <a href="#" class="btn btn-default btn-sm" style="word-wrap: break-word;">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>
@@ -299,5 +299,5 @@
   </div>
 </div>
 <?php
-              }              
-           ?>
+  }
+?>
