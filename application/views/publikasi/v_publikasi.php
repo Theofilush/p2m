@@ -5,6 +5,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                       <h4 class="">Publikasi Jurnal</h4>
+                      <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <a href="#" class="btn btn-default btn-sm">Jurnal Internasional</a> 
                       <a href=="#" class="btn btn-default btn-sm">Jurnal Naional Terakreditasi</a>
                       <a href="#" class="btn btn-default btn-sm" style="word-wrap: break-word;">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>
@@ -74,12 +75,7 @@
                             <?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                                                
-                              <button class="btn btn-default btn-xs btnnomargin source" onclick="new PNotify({
-                                  title: 'Terjadi Kesalahan !',
-                                  text: 'Berkas Pendukung belum diunggah !',
-                                  type: 'error',
-                                  styling: 'bootstrap3'
-                              });"><i class="fa fa-fw fa-file-text"></i></button>
+                              <button class="btn btn-default btn-xs btnnomargin source" id="show-pnotify"><i class="fa fa-fw fa-file-text"></i></button>
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
@@ -285,11 +281,11 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('publikasi/publikasijurnal/updatedok',$atribut);
+                                        echo form_open_multipart('publikasi/publikasijurnal/uploaddok/',$atribut);
                                         echo form_hidden('id',$rou->id_publikasi);
                                 ?>                                                             
                                 <div class="form-group">
-                                <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                 <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
                                 </div>
       </div>
       <div class="modal-footer">

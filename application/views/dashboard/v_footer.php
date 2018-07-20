@@ -46,7 +46,19 @@
             return false;
         }
     }
+    $(document).ready(function(){
+    $("#show-pnotify").on('click', function() {
 
+            
+            new PNotify({
+                                  title: 'Terjadi Kesalahan !',
+                                  text: 'Berkas Pendukung belum diunggah !',
+                                  type: 'error',
+                                  delay: 5000,
+                                  styling: 'bootstrap3'
+                              });  
+    });
+    });
   </script>
   </body>
 </html>

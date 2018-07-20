@@ -241,5 +241,11 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_luaran',$id);
         return $this->db->update($this->luaran_lain);
     }
+    //untuk melakukan upload dokumen pada sub-menu publikasi
+    function uploadDok_publikasi($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('id_publikasi',$id);
+        return $this->db->update($this->publikasi_jurnal);
+    }
 }
 ?>

@@ -22,7 +22,8 @@ class PublikasiJurnal extends CI_Controller {
 		  'query' =>  $query,
 		  'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,
-		  'cakupan'=> $cakupan
+		  'cakupan'=> $cakupan,
+		  'error'=> ''
         );
 		$datacontent = array( 
 			'da' => $kue
@@ -72,9 +73,7 @@ class PublikasiJurnal extends CI_Controller {
 				'penulis_anggota1' =>  $_anggota1,
 				'penulis_anggota2' =>  $_anggota2
               );              
-              $query= $this->M_dokumen->updateDok_publikasi($data,$id);
-           
-         
+          $query= $this->M_dokumen->updateDok_publikasi($data,$id);
           if ($query) {
             redirect("publikasi/publikasijurnal");
           }
@@ -98,6 +97,33 @@ class PublikasiJurnal extends CI_Controller {
             redirect("publikasi/publikasijurnal");
           }
 	} 
+	public function uploaddok(){     
+		if($this->input->post('btnUpload') == "Upload"){
+			$config['upload_path'] = './fileupload/publikasi_jurnal/';
+			$config['allowed_types'] = 'pdf';
+			$this->load->library('upload', $config);                
+			if ( ! $this->upload->do_upload('filepdf')){
+				$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade in pull-right" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+				</button>
+				<strong>Gagal Melakukan Upload!</strong> 
+			  </div>');
+				$error = array('error' => $this->upload->display_errors());							
+			}
+			else{
+				$data = array('upload_data' => $this->upload->data());                
+			}			
+			$id = $this->input->post('id', TRUE);
+			$_upload = $this->upload->data('file_name');
+					$query= $this->M_dokumen->uploadDok_publikasi($_upload,$id);
+					if ($query) {
+						redirect(site_url('publikasi/publikasijurnal'));
+					}
+					else{
+						redirect(base_url('publikasi/publikasijurnal'),$error);
+					}
+		}					
+	}
  
 }
 

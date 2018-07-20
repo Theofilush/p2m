@@ -53,7 +53,6 @@ class PenelitianDanaUPJ extends CI_Controller {
 			if($_anggota2 == ""){
 				$_anggota2 = NULL;
 			}
-			
 					$data = array(
 						'tahun_hibah' =>  $_tahun_kegiatan,
 						'judul_penelitian' =>  $_judul,
@@ -66,8 +65,6 @@ class PenelitianDanaUPJ extends CI_Controller {
 						'anggota_peneliti_2' =>  $_anggota2
 					);              
 					$query= $this->M_dokumen->updateDok_dana_upj($data,$id);
-			 
-		 
 			if ($query) {
 				redirect("penelitian/PenelitianDanaUPJ");
 			}
