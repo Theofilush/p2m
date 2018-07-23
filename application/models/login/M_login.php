@@ -12,7 +12,15 @@ class M_login extends CI_Model{
     	$this->db->where("NIDN='$usan' OR email='$usan'");
     	$hasil=$this->db->get('t_login');
     	return $hasil->result();    	
-  }
+	}
+  	public function simpanUser($data){//function untuk menyimpan pengguna baru yg melakukan signup
+		return $this->db->insert('t_login', $data);
+	}
+	function tampil_prodi(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
+        $this->db->order_by('id_program', 'ASC');
+        $query = $this->db->get('program_studi');        
+        return $query->result();
+    }
 }
 
 ?>
