@@ -1,4 +1,5 @@
 <?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
+<?php foreach($query as $row){$ko =$row->penulis_publikasi;}?>
 <div class="right_col" role="main">          
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -6,12 +7,13 @@
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <h4 class="">Publikasi Jurnal</h4>
-                      <a href="#" class="btn btn-default btn-sm">Jurnal Internasional</a> 
-                      <a href=="#" class="btn btn-default btn-sm">Jurnal Naional Terakreditasi</a>
-                      <a href="#" class="btn btn-default btn-sm" style="word-wrap: break-word;">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>
+                      <button class="btn btn-default btn-sm" id="reset">Reset</button>
+                      <button class="btn btn-default btn-sm" id="dragId1">Jurnal Internasional</button>
+                      <button class="btn btn-default btn-sm" id="dragId2">Jurnal Nasional Terakreditasi</button>
+                      <button class="btn btn-default btn-sm" id="dragId3">Jurnal Nasional Tidak Terakreditasi (Mempunyai ISSN)</button>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
+                  <div class="x_content"> 
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
                         <a href="<?php echo site_url() ?>databaru/NewPublikasiJurnal" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>
@@ -36,12 +38,15 @@
                         ?> 
                         <tr>
                           <td><?php echo $no++ ?></td>
-                          <td><b><?php echo $row->judul; ?></b></td>
+                          <td>
+                              <b><?php echo $row->judul; ?></b>
+                              <b hidden><?php echo $row->cakupan_publikasi;?></b><br>
+                          </td>
                           <td>
                             <ul class="titiknya">
                               <li>
-                                  <?php echo $row->penulis_publikasi; ?>    
-                              </li>
+                                  <?php echo $row->penulis_publikasi;  ?> 
+                              </li>                              
                               <?php
                                 if($row->penulis_anggota1 !== NULL){
                                 ?>         
@@ -63,7 +68,7 @@
                             </ul>
                           </td>
                           <td>
-                            <b><?php echo $row->nama_jurnal; ?></b><br>
+                            <b><?php echo $row->nama_jurnal; ?></b><br>                             
                             ISSN :&nbsp;<span class="font_color_blue"><?php echo $row->issn; ?></span><br>
                             Volume :&nbsp;<span class="font_color_blue"> <?php echo $row->volume; ?> </span><br>
                             Nomor :&nbsp;<span class="font_color_blue"> <?php echo $row->nomor; ?> </span><br>
@@ -75,11 +80,19 @@
                             <?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                                                
-                              <button class="btn btn-default btn-xs btnnomargin source" id="show-pnotify"><i class="fa fa-fw fa-file-text"></i></button>
+                              <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                                new PNotify({
+                                    title: 'Terjadi Kesalahan !',
+                                    text: 'Berkas Pendukung belum diunggah !',
+                                    type: 'error',
+                                    delay: 5000,
+                                    styling: 'bootstrap3'
+                                  });  
+                              "><i class="fa fa-fw fa-file-text"></i></button>
                                 <?php
-                            }else if(($row->file != NULL) || ($row->file != "") ){
+                            }else if(($row->file !== NULL) || ($row->file !== "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <a href="<?php echo site_url().'fileupload/publikasi_jurnal/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                 <?php
                             }
                             ?>

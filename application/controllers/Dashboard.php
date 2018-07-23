@@ -14,10 +14,10 @@ class Dashboard extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-
-		$dataHalaman = array(   
-		
-          'da' => $kue   
+		$total=$this->M_dokumen->totaldok_publikasi(); 
+		$dataHalaman = array(   		
+		  'da' => $kue,
+		  'totalcount'=>$total
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

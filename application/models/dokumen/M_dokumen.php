@@ -47,6 +47,11 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->luaran_lain);
         return $query->result();
     }   
+    //function yg digunakan untuk menghitung keseluruhan total dokumen
+    function totaldok_publikasi(){
+        $query = $this->db->query('SELECT COUNT(*) AS ma FROM t_publikasi_jurnal');
+        return $query->result();
+    } 
     //untuk menambahkan /insert data ke database
     public function simpanDok_publikasi($data){
         return $this->db->insert($this->publikasi_jurnal, $data);

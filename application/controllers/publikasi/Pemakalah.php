@@ -100,21 +100,21 @@ class Pemakalah extends CI_Controller {
 			$config['upload_path'] = './fileupload/pemakalah/';
 			$config['allowed_types'] = 'pdf';
 			$this->load->library('upload', $config);                
-			$id = $this->input->post('id', TRUE);
-			$_upload = $this->upload->data('file_name');
 			if ( ! $this->upload->do_upload('filepdf')){
 				$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade in pull-right" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
 				</button>
 				<strong>Gagal Melakukan Upload!</strong> 
-			  </div>');
+				</div>');
 				$error = array('error' => $this->upload->display_errors());							
 			}
 			else{
 				$data = array('upload_data' => $this->upload->data());                
-				$query= $this->M_dokumen->uploadDok_pemakalah($_upload,$id);
 			}			
-					if ($query) {
+			$id = $this->input->post('id', TRUE);
+			$_upload = $this->upload->data('file_name');
+			$query= $this->M_dokumen->uploadDok_pemakalah($_upload,$id);
+			if ($query) {
 						redirect(site_url('publikasi/pemakalah'));
 					}
 					else{

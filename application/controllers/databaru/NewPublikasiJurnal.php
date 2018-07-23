@@ -59,6 +59,7 @@ class NewPublikasiJurnal extends CI_Controller {
 				'issn' =>  $_issn,
 				'volume' =>  $_volume,
 				'nomor' =>  $_nomor,
+				'file'=> NULL,
 				'halaman_awal' =>  $_halaman_awal,
 				'halaman_akhir' =>  $_halaman_akhir,
 				'url' =>  $_url,

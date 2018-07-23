@@ -6,9 +6,10 @@
                   <div class="x_title">
                     <?php echo $this->session->flashdata('notification')?>
                       <h4 class="">Pengabdian  Sumber Dana Universitas Pembangunan Jaya</h4>
-                      <a href="#" class="btn btn-default">Jurnal Internasional</a> 
-                      <a href="#" class="btn btn-default">Jurnal Naional Terakreditasi</a> 
-                      <a href="#" class="btn btn-default">Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)</a>                  
+                      <!--<button class="btn btn-default btn-sm" id="reset">Reset</button>
+                      <button class="btn btn-default btn-sm" id="dragId7">Jurnal Internasional</button>
+                      <button class="btn btn-default btn-sm" id="dragId8">Jurnal Nasional Terakreditasi</button>
+                      <button class="btn btn-default btn-sm" id="dragId9">Jurnal Nasional Tidak Terakreditasi (Mempunyai ISSN)</button>-->
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -60,7 +61,15 @@
                           <?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                                                
-                              <button class="btn btn-default btn-xs btnnomargin source" id="show-pnotify"><i class="fa fa-fw fa-file-text"></i></button>
+                              <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                              new PNotify({
+                                  title: 'Terjadi Kesalahan !',
+                                  text: 'Berkas Pendukung belum diunggah !',
+                                  type: 'error',
+                                  delay: 5000,
+                                  styling: 'bootstrap3'
+                                });  
+                              "><i class="fa fa-fw fa-file-text"></i></button>
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>

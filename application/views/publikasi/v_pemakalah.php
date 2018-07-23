@@ -5,10 +5,11 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>  
-                      <h4 class="">Pemakalah Forum Ilmiah</h4>                      
-                      <a href="#" class="btn btn-default">Tingkat Internasional</a> 
-                      <a href="#" class="btn btn-default">Tingkat Naional</a> 
-                      <a href="#" class="btn btn-default">Regional</a>                  
+                      <h4 class="">Pemakalah Forum Ilmiah</h4>          
+                      <button class="btn btn-default btn-sm" id="reset2">Reset</button>
+                      <button class="btn btn-default btn-sm" id="dragId4">Tingkat Internasional</button>
+                      <button class="btn btn-default btn-sm" id="dragId5">Tingkat Nasional</button>
+                      <button class="btn btn-default btn-sm" id="dragId6">Regional</button>          
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -55,6 +56,7 @@
                                   }
                                 ?>   
                                  Status :&nbsp;<span class="font_color_blue"><?php echo $row->status_pemakalah; ?></span>
+                                 <b hidden><?php echo $row->cakupan_forum_ilmiah;?></b><br>
                           </td>
                           <td>
                             <b><?php echo $row->judul_makalah; ?></b><br>
@@ -70,7 +72,15 @@
                           	<?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
-                                <button class="btn btn-default btn-xs btnnomargin source" id="show-pnotify"><i class="fa fa-fw fa-file-text"></i></button>
+                                <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                              new PNotify({
+                                  title: 'Terjadi Kesalahan !',
+                                  text: 'Berkas Pendukung belum diunggah !',
+                                  type: 'error',
+                                  delay: 5000,
+                                  styling: 'bootstrap3'
+                                });  
+                              "><i class="fa fa-fw fa-file-text"></i></button>
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>

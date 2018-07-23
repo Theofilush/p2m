@@ -2020,7 +2020,7 @@ if (typeof NProgress != 'undefined') {
 				  keys: true
 				});
 
-				$('#datatable-responsive').DataTable({
+				var table1 = $('#datatable-responsive').DataTable({
 					'columnDefs': [			            
 			            { width: '33%', targets: 1 },
 			            { width: '20%', targets: 2 },
@@ -2030,7 +2030,7 @@ if (typeof NProgress != 'undefined') {
 			            { width: '6%', targets: 6 }
 			        ]
 				});
-				$('#datatableku').DataTable({
+				var table2 = $('#datatableku').DataTable({
 					'columnDefs': [			            
 						{ width: '22%', targets: 1 },
 						{ width: '40%', targets: 2 },
@@ -2039,7 +2039,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 5 }						
 				]
 				});
-				$('#datatableku2').DataTable({
+				var table3 = $('#datatableku2').DataTable({
 					'columnDefs': [			            
 						{ width: '20%', targets: 1 },
 						{ width: '35%', targets: 2 },
@@ -2049,7 +2049,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 6 }
 				]
 				});
-				$('#datatableku3').DataTable({
+				var table4 = $('#datatableku3').DataTable({
 					'columnDefs': [			            
 						{ width: '22%', targets: 1 },
 						{ width: '32%', targets: 2 },
@@ -2059,7 +2059,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 6 }
 				]
 				});
-				$('#datatableku4').DataTable({
+				var table5 = $('#datatableku4').DataTable({
 					'columnDefs': [			            
 						{ width: '22%', targets: 1 },
 						{ width: '32%', targets: 2 },
@@ -2069,7 +2069,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 6 }
 				]
 				});
-				$('#datatableku-dana').DataTable({
+				var table6 = $('#datatableku-dana').DataTable({
 					'columnDefs': [			            
 						{ width: '25%', targets: 1 },
 						{ width: '22%', targets: 2 },
@@ -2080,7 +2080,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '7%', targets: 7 }
 				]
 				});
-				$('#datatableku-dana-non').DataTable({
+				var table7 = $('#datatableku-dana-non').DataTable({
 					'columnDefs': [			            
 						{ width: '23%', targets: 1 },
 						{ width: '22%', targets: 2 },
@@ -2091,6 +2091,50 @@ if (typeof NProgress != 'undefined') {
 						{ width: '8%', targets: 7 },
 				]
 				});
+
+
+    $('#dragId1').on('click', function () {
+            table1.search("Jurnal Internasional").draw();
+        });
+    $('#dragId2').on('click', function () {
+            table1.search("terakreditasii").draw();
+    });
+    $('#dragId3').on('click', function () {
+        table1.search("(Mempunyai ISSN)").draw();
+    });
+    $('#dragId4').on('click', function () {
+        table3.search("Tingkat Internasional").draw();
+    });
+    $('#dragId5').on('click', function () {
+        table3.search("Tingkat Nasionall").draw();
+    });
+    $('#dragId6').on('click', function () {
+        table3.search("Regional").draw();
+		});
+		$('#dragId7').on('click', function () {
+				table6.search("Tingkat Internasional").draw();
+		});
+		$('#dragId8').on('click', function () {
+				table6.search("Tingkat Nasionall").draw();
+		});
+		$('#dragId9').on('click', function () {
+				table6.search("Regional").draw();
+		});
+		$('#dragId10').on('click', function () {
+				table3.search("Tingkat Internasional").draw();
+		});
+		$('#dragId11').on('click', function () {
+				table3.search("Tingkat Nasionall").draw();
+		});
+		$('#dragId12').on('click', function () {
+				table3.search("Regional").draw();
+		});
+    $('#reset').click(function(){ //button reset event click
+        table.search("").draw();  //just reload table
+		});
+		$('#reset2').click(function(){ //button reset event click
+			table3.search("").draw();  //just reload table
+	});
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",
 				  deferRender: true,

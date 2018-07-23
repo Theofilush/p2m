@@ -87,8 +87,6 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 			$config['upload_path'] = './fileupload/penelitian_non_upj/';
 			$config['allowed_types'] = 'pdf';
 			$this->load->library('upload', $config);                
-			$id = $this->input->post('id', TRUE);
-			$_upload = $this->upload->data('file_name');
 			if ( ! $this->upload->do_upload('filepdf')){
 				$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade in pull-right" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
@@ -99,8 +97,10 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 			}
 			else{
 				$data = array('upload_data' => $this->upload->data());                
-				$query= $this->M_dokumen->uploadDok_dana_non_upj($_upload,$id);
 			}			
+			$id = $this->input->post('id', TRUE);
+			$_upload = $this->upload->data('file_name');
+			$query= $this->M_dokumen->uploadDok_dana_non_upj($_upload,$id);
 					if ($query) {
 						redirect(site_url('penelitian/PenelitianDanaNonUPJ'));
 					}
