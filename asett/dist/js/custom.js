@@ -2090,8 +2090,7 @@ if (typeof NProgress != 'undefined') {
 						{ width: '5%', targets: 6 },
 						{ width: '8%', targets: 7 },
 				]
-				});
-
+				}); 
 
     $('#dragId1').on('click', function () {
             table1.search("Jurnal Internasional").draw();
@@ -2130,7 +2129,7 @@ if (typeof NProgress != 'undefined') {
 				table3.search("Regional").draw();
 		});
     $('#reset').click(function(){ //button reset event click
-        table.search("").draw();  //just reload table
+        table1.search("").draw();  //just reload table
 		});
 		$('#reset2').click(function(){ //button reset event click
 			table3.search("").draw();  //just reload table

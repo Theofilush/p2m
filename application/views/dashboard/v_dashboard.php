@@ -31,7 +31,7 @@
               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                  <div class="count"><?php echo $this->db->count_all('t_dana_non_upj'); ?></div>
+                  <div class="count"><?php echo $this->db->count_all('t_dana_upj'); ?></div>
                   <h3>Penelitian UPJ</h3>
                   <p>Data penelitian yang didanai oleh UPJ </p>
                 </div>
@@ -39,7 +39,7 @@
               <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                  <div class="count"><?php echo $this->db->count_all('t_hki'); ?></div>
+                  <div class="count"><?php echo $this->db->count_all('t_dana_non_upj'); ?></div>
                   <h3>Penelitian Non UPJ</h3>
                   <p>Data penelitian dana diluar UPJ</p>
                 </div>
@@ -100,16 +100,10 @@
                   <p>Data Publikasi Jurnal</p>
                 </div>
               </div>
-                   
-              
-
                     </div>
                   </div>
                 </div>
               </div>
-
-
-              
           </div>
 
           

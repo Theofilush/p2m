@@ -43,7 +43,7 @@ class NewPengabdianNonUPJ extends CI_Controller {
 					$_anggota2 = $this->input->post('anggota2', TRUE);
 
 					if(($_anggota1 === "") && ($_anggota2 !== "")){
-						$_anggota1 =$this->input->post('anggota2', TRUE);
+						$_anggota1 =$_anggota2;
 						$_anggota2= NULL;
 					}elseif($_anggota1 == ""){
 						$_anggota1 = NULL;

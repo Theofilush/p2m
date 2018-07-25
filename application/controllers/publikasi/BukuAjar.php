@@ -16,12 +16,14 @@ class BukuAjar extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_buku();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$query_tampil_nidn = $this->M_dokumen->tampil_nidn(); 
 
 		$dataHalaman = array(   
 		  'query'=> $query,
           'da' => $kue,
-		  'tampil_tahun'=> $query_tampil_tahun, 
-        );
+			'tampil_tahun'=> $query_tampil_tahun, 
+			'tampil_nidn'=>$query_tampil_nidn,
+    );
  
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_buku_ajar');
@@ -40,7 +42,7 @@ class BukuAjar extends CI_Controller {
 			$_anggota2 = $this->input->post('anggota2', TRUE);
 			$id = $this->input->post('id', TRUE);
 			if(($_anggota1 === "") && ($_anggota2 !== "")){
-				$_anggota1 =$this->input->post('anggota2', TRUE);
+				$_anggota1 =$_anggota2;
 				$_anggota2= NULL;
 			}elseif($_anggota1 == ""){
 				$_anggota1 = NULL;
@@ -85,5 +87,24 @@ class BukuAjar extends CI_Controller {
 		  redirect("publikasi/BukuAjar");
 		}
  	} 
+	 function cek_status_user(){
+				$_nidn = $this->input->post('penulis', TRUE);         
+        $hasil_penulis = $this->M_login->cek_nidn($_nidn); 
+        if(count($hasil_penulis)!=0){
+          # kalau value $hasil_username tidak 0
+									# echo 1 untuk pertanda username sudah ada pada db  
+						$data = $this->db->query("SELECT username FROM t_login where NIDN = ".$_nidn);
+           foreach ($data->result_array() as $roe) {
+                echo $roe['username'];                
+					 }  
+					 //$kkk="5";
+                       // echo $kkk; 
+        }else IF (count($hasil_penulis)==0) {
+                  # kalu value $hasil_username = 0
+                  # echo 2 untuk pertanda username belum ada pada db
+            echo "1";
+				}    
+				
+		}
 
 }

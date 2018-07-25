@@ -30,12 +30,12 @@ class NewLuaranLain extends CI_Controller {
 					$_judul = $this->input->post('judul', TRUE);				
 					$_jenis = $this->input->post('jenis', TRUE);
 					$_deskripsi = $this->input->post('deskripsi', TRUE);
-					$_nama_dosen = $this->input->post('penulis', TRUE);
-					$_anggota1 = $this->input->post('anggota1', TRUE);
-					$_anggota2 = $this->input->post('anggota2', TRUE);
+					$_nama_dosen = $this->input->post('pesan_penulis', TRUE);
+					$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+					$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 
 					if(($_anggota1 === "") && ($_anggota2 !== "")){
-						$_anggota1 =$this->input->post('anggota2', TRUE);
+						$_anggota1 =$_anggota2;
 						$_anggota2= NULL;
 					}elseif($_anggota1 == ""){
 						$_anggota1 = NULL;

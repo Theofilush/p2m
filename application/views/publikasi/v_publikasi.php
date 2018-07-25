@@ -1,5 +1,4 @@
 <?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
-<?php foreach($query as $row){$ko =$row->penulis_publikasi;}?>
 <div class="right_col" role="main">          
           <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -7,10 +6,12 @@
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <h4 class="">Publikasi Jurnal</h4>
+                      <div class=" hidden-xs hidden-sm col-md-12">
                       <button class="btn btn-default btn-sm" id="reset">Reset</button>
                       <button class="btn btn-default btn-sm" id="dragId1">Jurnal Internasional</button>
                       <button class="btn btn-default btn-sm" id="dragId2">Jurnal Nasional Terakreditasi</button>
                       <button class="btn btn-default btn-sm" id="dragId3">Jurnal Nasional Tidak Terakreditasi (Mempunyai ISSN)</button>
+                      </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content"> 
@@ -64,7 +65,16 @@
                                     </li>
                                 <?php
                                   }
-                                ?>                          
+                                ?>  
+                                <?php
+                                if($row->penulis_non_dosen !== NULL){
+                                ?>         
+                                    <li>
+                                      <?php echo $row->penulis_non_dosen; ?>
+                                    </li>
+                                <?php
+                                  }
+                                ?>                               
                             </ul>
                           </td>
                           <td>

@@ -38,12 +38,20 @@
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td><b><?php echo $row->nama_dosen; ?></b><br>
-                            NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                           
+                            NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_forum_ilmiah JOIN t_login ON t_login.username=t_forum_ilmiah.nama_dosen WHERE id_perumi='.$row->id_perumi);
+                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+                                      echo $nidn1['NIDN'];                
+                                     } 
+                                    ?></span><br>                           
                             <?php
                                 if($row->nama_dosen1 !== NULL){
                                 ?>         
                                     <b><?php echo $row->nama_dosen1; ?></b><br>
-                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                    
+                                    NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_forum_ilmiah JOIN t_login ON t_login.username=t_forum_ilmiah.nama_dosen1 WHERE id_perumi='.$row->id_perumi);
+                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+                                      echo $nidn1['NIDN'];                
+                                     } 
+                                    ?></span><br>                                    
                                 <?php
                                   }
                                 ?>     
@@ -51,7 +59,11 @@
                                 if($row->nama_dosen2 !== NULL){
                                 ?>         
                                      <b><?php echo $row->nama_dosen2; ?></b><br>
-                                    NIDN :&nbsp;<span class="font_color_blue">XXX-XXX-XXX-XXXX-X</span><br>                                   
+                                    NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_forum_ilmiah JOIN t_login ON t_login.username=t_forum_ilmiah.nama_dosen2 WHERE id_perumi='.$row->id_perumi);
+                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+                                      echo $nidn1['NIDN'];                
+                                     } 
+                                    ?></span><br>                                   
                                 <?php
                                   }
                                 ?>   

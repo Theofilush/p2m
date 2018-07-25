@@ -69,7 +69,7 @@
                 <input type="email" name="email" class="form-control" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="text" name="username" class="form-control" placeholder="Username" required="" />
+                <input type="text" name="username" id="username" class="form-control" placeholder="Nama Lengkap" required=""  onblur="perbesar()"/>
               </div>
               <div>
                 
@@ -114,5 +114,11 @@
         </div>
       </div>
     </div>
+    <script>
+function perbesar() {
+    var x = document.getElementById("username");
+    x.value = x.value.toUpperCase();
+}
+</script>
   </body>
 </html>

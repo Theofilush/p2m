@@ -36,19 +36,23 @@ class NewPublikasiJurnal extends CI_Controller {
 			$_halaman_awal = $this->input->post('halaman_awal', TRUE);
 			$_halaman_akhir = $this->input->post('halaman_akhir', TRUE);
 			$_url = $this->input->post('url', TRUE);
-			$_penulis = $this->input->post('penulis', TRUE);
-			$_anggota1 = $this->input->post('anggota1', TRUE);
-			$_anggota2 = $this->input->post('anggota2', TRUE);
+			$_penulis = $this->input->post('pesan_penulis', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
+			$_anggota3 = $this->input->post('nondosen', TRUE);
 
 			if(($_anggota1 === "") && ($_anggota2 !== "")){
-				$_anggota1 =$this->input->post('anggota2', TRUE);
+				$_anggota1 =$_anggota2;
 				$_anggota2= NULL;
 			}elseif($_anggota1 == ""){
 				$_anggota1 = NULL;
 			}
 			if($_anggota2 == ""){
 				$_anggota2 = NULL;
-			}
+			} 
+			if($_anggota3 == ""){
+				$_anggota3 = NULL;
+			} 
            // $count=count($_kel_dok);
             //for ($i=0; $i <=$count-1 ; $i++) {}				
 			$data = array(
@@ -65,7 +69,8 @@ class NewPublikasiJurnal extends CI_Controller {
 				'url' =>  $_url,
 				'penulis_publikasi' =>  $_penulis,
 				'penulis_anggota1' =>  $_anggota1,
-				'penulis_anggota2' =>  $_anggota2
+				'penulis_anggota2' =>  $_anggota2,
+				'penulis_non_dosen' =>  $_anggota3				
             );       
               $query= $this->M_dokumen->simpanDok_publikasi($data);
            if ($query) {

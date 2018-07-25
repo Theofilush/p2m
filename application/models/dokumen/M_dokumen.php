@@ -10,13 +10,21 @@ class M_dokumen extends CI_Model{
     var $forum_ilmiah= 't_forum_ilmiah'; 
     var $hki= 't_hki'; 
     var $luaran_lain= 't_luaran_lain'; 
+    var $dt_login= 't_login';
     //tampilkan data di halaman dashboard
     function listAll_publikasi(){
         $query = $this->db->get($this->publikasi_jurnal);
         return $query->result();
     } 
     function listAll_buku(){
-        $query = $this->db->get($this->buku_ajar);
+       // $query = $this->db->get($this->buku_ajar);
+        //return $query->result();
+        //$query = $this->db->query('SELECT * FROM t_buku_ajar JOIN t_login ON t_login.username=t_buku_ajar.nama_dosen ');
+        //return $query->result();
+        $this->db->select('*');
+        $this->db->from($this->buku_ajar);
+        $this->db->join($this->dt_login, 't_login.username = t_buku_ajar.nama_dosen','left');
+        $query = $this->db->get();
         return $query->result();
     } 
     function listAll_pemakalah(){
@@ -126,6 +134,12 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get('jenis_pengabdian');        
         return $query->result();
     }
+    function tampil_nidn(){ //query untuk menampilkan skema Penelitian pada form input dana yg bersumber UPJ
+        $this->db->order_by('id_jenis', 'ASC');
+        $query = $this->db->get('jenis_pengabdian');        
+        return $query->result();
+    }
+    
     //untuk mengupdate /memperbarui data yang sudah ada
     function updateDok_publikasi($data,$id){
         $this->db->where('id_publikasi',$id);

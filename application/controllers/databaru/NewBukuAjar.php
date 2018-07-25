@@ -29,12 +29,12 @@ class NewBukuAjar extends CI_Controller {
 					$_isbn = $this->input->post('isbn', TRUE);
 					$_jumlah = $this->input->post('jumlah', TRUE);
 					$_penerbit = $this->input->post('penerbit', TRUE);
-					$_penulis = $this->input->post('penulis', TRUE);
-					$_anggota1 = $this->input->post('anggota1', TRUE);
-					$_anggota2 = $this->input->post('anggota2', TRUE);
+					$_penulis = $this->input->post('pesan_penulis', TRUE); 
+					$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+					$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 
 					if(($_anggota1 === "") && ($_anggota2 !== "")){
-						$_anggota1 =$this->input->post('anggota2', TRUE);
+						$_anggota1 =$_anggota2;
 						$_anggota2= NULL;
 					}elseif($_anggota1 == ""){
 						$_anggota1 = NULL;
