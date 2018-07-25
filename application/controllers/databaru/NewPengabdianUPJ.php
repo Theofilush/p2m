@@ -41,9 +41,9 @@ class NewPengabdianUPJ extends CI_Controller {
 					$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 					$_dana_setujui = $this->input->post('dana_setujui', TRUE);
 					$_upload = $this->upload->data('file_name');				
-					$_penulis = $this->input->post('penulis', TRUE);
-					$_anggota1 = $this->input->post('anggota1', TRUE);
-					$_anggota2 = $this->input->post('anggota2', TRUE);
+					$_penulis = $this->input->post('pesan_penulis', TRUE);
+					$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+					$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 
 					if(($_anggota1 === "") && ($_anggota2 !== "")){
 						$_anggota1 =$_anggota2;

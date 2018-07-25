@@ -91,27 +91,37 @@
                                     </div>
                                 </div>                                                              
                                 <div class="ln_solid"></div>
+                                <h4>Personil Dosen</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Ketua Peneliti *
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="penulis" id="penulis" class="form-control col-md-7 col-xs-12" maxlength="10" required="required" type="text" onkeyup='cek_nidn()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama *</label>                                    
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis" id="pesan_penulis" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="anggota1" id="anggota1" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn2()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis2" id="pesan_penulis2" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="anggota2" id="anggota2" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn3()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>                                    
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis3" id="pesan_penulis3" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
