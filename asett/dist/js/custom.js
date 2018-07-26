@@ -2019,7 +2019,12 @@ if (typeof NProgress != 'undefined') {
 				$('#datatable-keytable').DataTable({
 				  keys: true
 				});
-
+				$('#datatable-user').DataTable({
+					'columnDefs': [			            
+									{ width: '2%', targets: 0 },			           
+									{ width: '17%', targets: 1 }
+			        ]
+				});
 				var table1 = $('#datatable-responsive').DataTable({
 					'columnDefs': [			            
 			            { width: '33%', targets: 1 },

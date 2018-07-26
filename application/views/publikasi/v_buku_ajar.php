@@ -4,6 +4,7 @@
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="x_panel">
                   <div class="x_title">
+                  <?php echo $this->session->flashdata('notification')?>
                       <h4 class="">Buku Ajar/Teks</h4>
                     <div class="clearfix"></div>
                   </div>
