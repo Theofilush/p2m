@@ -74,6 +74,13 @@
                       <li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaNonUPJ">Sumber Dana non UPJ</a></li>
                     </ul>
                   </li>
+                  <?php
+                    if($buba == 'administrator'){
+                  ?>
+                   <li><a href="<?php echo site_url() ?>users"><i class="fa fa-users"></i>Manajemen User</a></li>
+                  <?php
+                    }
+                  ?>
                 </ul>
               </div>           
             </div>

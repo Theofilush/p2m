@@ -101,9 +101,15 @@
                             }
                             ?>
                           </td>                         
-                          <td class="ketengah">                          	
+                          <td class="ketengah">  
+                          <?php
+                            if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+                            ?>
                             <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
                             <a href="<?php echo site_url(); ?>publikasi/Pemakalah/deletedok/<?php echo $row->id_perumi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>                             
+                            <?php
+                              }
+                            ?>                         	                            
                           </td>
                           <td class="ketengah">
                           <span class="font_color_green"><?php echo $row->valid; ?></span>                        
@@ -263,35 +269,56 @@
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="penulis" id="penulis" class="form-control col-md-7 col-xs-12" maxlength="10" required="required" type="text" onkeyup='cek_nidn()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama *</label>                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis" id="pesan_penulis" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen * </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
+                                        <option><?php echo $rou->nama_dosen; ?></option>
+                                            <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>                                   
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="anggota1" id="anggota1" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn2()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis2" id="pesan_penulis2" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>                                
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 1" name="pesan_penulis2">
+                                          <option><?php echo $rou->nama_dosen1; ?></option>
+                                            <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>     
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="anggota2" id="anggota2" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn3()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis3" id="pesan_penulis3" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
-                                </div>       
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>                                  
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 2" name="pesan_penulis3">                                            
+                                        <option><?php echo $rou->nama_dosen2; ?></option>
+                                        <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>     
+                                </div>         
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

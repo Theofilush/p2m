@@ -18,13 +18,17 @@ class HakKekayaanIntelektual extends CI_Controller {
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$jenis_karya = $this->M_dokumen->tampil_jenishki();
 		$status_karya = $this->M_dokumen->tampil_statushki();
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
+
+			
 		  
 		$dataHalaman = array(   
 		  'query'=>$query,
 		  'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,		  
 		  'jenis_karya'=> $jenis_karya,
-		  'status_karya' => $status_karya
+			'status_karya' => $status_karya,
+			'tampil_dosen'=>$query_tampil_dosen
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

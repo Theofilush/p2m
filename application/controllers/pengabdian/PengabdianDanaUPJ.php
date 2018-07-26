@@ -17,12 +17,15 @@ class PengabdianDanaUPJ extends CI_Controller {
 		$query = $this->M_dokumen->listAll_dana2_upj();
 		$query_tampilJenis = $this->M_dokumen->tampil_jenis_pengabdian();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
 
+		
 		$dataHalaman = array(   
-		  'query'=>$query,
+			'query'=>$query,
 		  'da' => $kue ,
 		  'tampil_tahun'=> $query_tampil_tahun,
-		  'tampil_jenis'=> $query_tampilJenis 
+		  'tampil_jenis'=> $query_tampilJenis, 
+			'tampil_dosen'=>$query_tampil_dosen
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

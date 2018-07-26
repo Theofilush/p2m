@@ -17,12 +17,14 @@ class BukuAjar extends CI_Controller {
 		$query = $this->M_dokumen->listAll_buku();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$query_tampil_nidn = $this->M_dokumen->tampil_nidn(); 
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
 
 		$dataHalaman = array(   
 		  'query'=> $query,
           'da' => $kue,
 			'tampil_tahun'=> $query_tampil_tahun, 
 			'tampil_nidn'=>$query_tampil_nidn,
+			'tampil_dosen'=>$query_tampil_dosen
     );
  
 		$this->load->view('dashboard/v_header',$dataHalaman);

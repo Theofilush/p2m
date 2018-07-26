@@ -16,11 +16,14 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_dana_non2_upj();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
 
+		
 		$dataHalaman = array(  
-		  'query'=>$query, 
+			'query'=>$query, 
 		  'da' => $kue,
-		  'tampil_tahun'=> $query_tampil_tahun  
+		  'tampil_tahun'=> $query_tampil_tahun,
+			'tampil_dosen'=>$query_tampil_dosen
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

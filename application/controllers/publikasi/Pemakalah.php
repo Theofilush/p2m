@@ -18,13 +18,16 @@ class Pemakalah extends CI_Controller {
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun();
 		$cakupan2 =  $this->M_dokumen->tampil_cakupan2();
 		$status = $this->M_dokumen->status_pemakalah();
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen();
+
 
 		$dataHalaman = array(  
 		  'query' =>$query,
 		  'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,
 		  'cakupan2'=> $cakupan2,
-		  'status_speaker'=> $status
+		  'status_speaker'=> $status,
+		  'tampil_dosen'=>$query_tampil_dosen	
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

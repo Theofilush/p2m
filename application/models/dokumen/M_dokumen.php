@@ -139,6 +139,10 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get('jenis_pengabdian');        
         return $query->result();
     }
+    function tampil_dosen(){ //query untuk menampilkan list dosen pada seluruh form input        
+        $query = $this->db->get($this->dt_login);        
+        return $query->result();
+    }
     
     //untuk mengupdate /memperbarui data yang sudah ada
     function updateDok_publikasi($data,$id){
