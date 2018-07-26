@@ -44,11 +44,11 @@ class PublikasiJurnal extends CI_Controller {
 			$_halaman_awal = $this->input->post('halaman_awal', TRUE);
 			$_halaman_akhir = $this->input->post('halaman_akhir', TRUE);
 			$_url = $this->input->post('url', TRUE);
-			$_penulis = $this->input->post('penulis', TRUE);
-			$_anggota1 = $this->input->post('anggota1', TRUE);
-			$_anggota2 = $this->input->post('anggota2', TRUE);
+			$_penulis = $this->input->post('pesan_penulis', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 			$id = $this->input->post('id', TRUE);
-			if(($_anggota1 === "") && ($_anggota2 !== "")){
+			if(($_anggota1 == "") && ($_anggota2 != "")){
 				$_anggota1 =$_anggota2;
 				$_anggota2= NULL;
 			}elseif($_anggota1 == ""){

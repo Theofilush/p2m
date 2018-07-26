@@ -39,11 +39,11 @@ class HakKekayaanIntelektual extends CI_Controller {
 			$_no_daftar = $this->input->post('no_daftar', TRUE);
 			$_status = $this->input->post('status', TRUE);
 			$_no_hki = $this->input->post('no_hki', TRUE);	
-			$_penulis = $this->input->post('penulis', TRUE);
-			$_anggota1 = $this->input->post('anggota1', TRUE);
-			$_anggota2 = $this->input->post('anggota2', TRUE);
+			$_penulis = $this->input->post('pesan_penulis', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis3', TRUE);
+			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 			$id = $this->input->post('id', TRUE);
-			if(($_anggota1 === "") && ($_anggota2 !== "")){
+			if(($_anggota1 == "") && ($_anggota2 != "")){
 				$_anggota1 =$_anggota2;
 				$_anggota2= NULL;
 			}elseif($_anggota1 == ""){

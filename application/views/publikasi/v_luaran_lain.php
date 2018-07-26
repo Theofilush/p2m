@@ -41,7 +41,7 @@
                                      } 
                                     ?></span><br> 
                             <?php
-                                if($row->nama_dosen1 !== NULL){
+                                if($row->nama_dosen1 != NULL){
                                 ?>         
                                     <b><?php echo $row->nama_dosen1; ?></b><br>
                                     NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_luaran_lain JOIN t_login ON t_login.username=t_luaran_lain.nama_dosen1 WHERE id_luaran='.$row->id_luaran);
@@ -53,7 +53,7 @@
                                   }
                                 ?>     
                                 <?php
-                                if($row->nama_dosen2 !== NULL){
+                                if($row->nama_dosen2 != NULL){
                                 ?>         
                                      <b><?php echo $row->nama_dosen2; ?></b><br>
                                     NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_luaran_lain JOIN t_login ON t_login.username=t_luaran_lain.nama_dosen2 WHERE id_luaran='.$row->id_luaran);
@@ -101,7 +101,7 @@
                           <td class="ketengah">
                           <span class="font_color_green"><?php echo $row->valid; ?></span>                        
                           <?php
-                            if($buba === 'administrator' && ($row->valid == NULL)){
+                            if($buba == 'administrator' && ($row->valid == NULL)){
                             ?>
                             <br>
                             <a href="<?php echo site_url(); ?>publikasi/LuaranLain/validasi/<?php echo $row->id_luaran; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
@@ -193,27 +193,37 @@
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
+                                <h4>Personil Dosen</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen *
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="penulis" id="penulis" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->nama_dosen; ?>">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="penulis" id="penulis" class="form-control col-md-7 col-xs-12" maxlength="10" required="required" type="text" onkeyup='cek_nidn()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama *</label>                                    
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis" id="pesan_penulis" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota1" id="anggota1" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->nama_dosen1; ?>">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="anggota1" id="anggota1" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn2()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis2" id="pesan_penulis2" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="anggota2" id="anggota2" class=" form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->nama_dosen2; ?>">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>
+                                    <div class="col-md-2 col-sm-2 col-xs-12">
+                                        <input name="anggota2" id="anggota2" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn3()'>
+                                    </div>                                    
+                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>                                    
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                        <input name="pesan_penulis3" id="pesan_penulis3" class="form-control col-md-7 col-xs-12" type="text" readonly>
                                     </div>
-                                </div>
+                                </div>       
       </div>
       <div class="modal-footer">              
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

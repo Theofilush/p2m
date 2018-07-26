@@ -40,11 +40,11 @@ class PenelitianDanaUPJ extends CI_Controller {
 			$_jenis = $this->input->post('jenis', TRUE);
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
-			$_penulis = $this->input->post('penulis', TRUE);
-			$_anggota1 = $this->input->post('anggota1', TRUE);
-			$_anggota2 = $this->input->post('anggota2', TRUE);
+			$_penulis = $this->input->post('pesan_penulis', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
+			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 			$id = $this->input->post('id', TRUE);
-			if(($_anggota1 === "") && ($_anggota2 !== "")){
+			if(($_anggota1 == "") && ($_anggota2 != "")){
 				$_anggota1 =$_anggota2;
 				$_anggota2= NULL;
 			}elseif($_anggota1 == ""){

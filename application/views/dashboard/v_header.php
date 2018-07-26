@@ -29,7 +29,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="<?php echo base_url() ?>dashboard" class="site_title"><i class="fa fa-500px "></i> <span>LP2M</span></a>
+              <a href="<?php echo site_url() ?>dashboard" class="site_title"><i class="fa fa-500px "></i> <span>LP2M</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -106,12 +106,11 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
                     <li>
-                      <a href="javascript:;">                        
+                      <a href="<?php echo site_url('tos'); ?>">                        
                         <span>Help</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">Lock Out</a></li>
-                    <li><a href="<?php echo base_url('login/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo site_url('login/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>
