@@ -3,7 +3,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Copyright 2018 - <a href="http://upj.ac.id">Universitas Pembangunan Jaya</a> | All Rights Reserved
+            2018 - <a href="http://upj.ac.id">Universitas Pembangunan Jaya</a> | All Data Reserved
           </div>
           <div class="clearfix"></div>
         </footer>
