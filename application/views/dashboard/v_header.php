@@ -62,7 +62,7 @@
                   <li><a><i class="fa fa-desktop"></i>Publikasi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url() ?>publikasi/PublikasiJurnal">Publikasi Jurnal</a></li>
-                      <li><a href="<?php echo site_url() ?>publikasi/Bukuajar">Buku Ajar/Teks</a></li>
+                      <li><a href="<?php echo site_url() ?>publikasi/BukuAjar">Buku Ajar/Teks</a></li>
                       <li><a href="<?php echo site_url() ?>publikasi/Pemakalah">Pemakalah Forum Ilmiah</a></li>
                       <li><a href="<?php echo site_url() ?>publikasi/HakKekayaanIntelektual">Hak Kekayaan Intelektual (HKI)</a></li>
                       <li><a href="<?php echo site_url() ?>publikasi/LuaranLain">Luaran Lain</a></li>

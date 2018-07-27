@@ -11,7 +11,7 @@
                   <div class="x_content">
                     <div class="row">
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewLuaranlain" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewLuaranLain" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                     </div>
           

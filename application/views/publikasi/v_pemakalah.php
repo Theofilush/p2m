@@ -80,7 +80,10 @@
                             Tempat :&nbsp;<span class="font_color_blue"> <?php echo $row->tempat_pelaksana; ?> </span><br>                            
                           </td>
                           <td class="ketengah">
-                          <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
+                          <?php
+                            if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+                            ?>
+                            <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_perumi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                           	<?php
                             if(($row->file == NULL) || ($row->file == "")){
                             ?>                                
@@ -100,6 +103,10 @@
                                 <?php
                             }
                             ?>
+                            <?php
+                              }
+                            ?>
+                          
                           </td>                         
                           <td class="ketengah">  
                           <?php
