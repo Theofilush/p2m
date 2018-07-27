@@ -115,7 +115,7 @@ class Users extends CI_Controller {
 	}
 	
 	  public function deleteUser($id){
-		$this->M_pengguna->deleteUser($id);
-		redirect('users');
-	}
+			$this->M_pengguna->deleteUser($id);
+			redirect('users');
+		}
 }

@@ -153,7 +153,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('publikasi/pemakalah/updatedok',$atribut);
+                                        echo form_open('publikasi/Pemakalah/updatedok',$atribut);
                                         echo form_hidden('id',$rou->id_perumi);
                                 ?>     
                                 <div class="form-group">

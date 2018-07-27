@@ -74,11 +74,11 @@ class NewPublikasiJurnal extends CI_Controller {
             );       
               $query= $this->M_dokumen->simpanDok_publikasi($data);
            if ($query) {
-              redirect(site_url('publikasi/publikasijurnal'));
+              redirect(site_url('publikasi/PublikasiJurnal'));
             //print_r($stan);
            }
            else{
-              redirect(site_url('publikasi/publikasijurnal'));
+              redirect(site_url('publikasi/PublikasiJurnal'));
            }
       }
             

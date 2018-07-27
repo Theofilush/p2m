@@ -6,7 +6,7 @@ class NewPengabdianUPJ extends CI_Controller {
 	function __construct(){
     parent::__construct();      
     	if($this->session->userdata('status') != "login"){
-      		redirect(base_url("login"));
+      		redirect(site_url("login"));
     	}  	 
     }
      
@@ -73,7 +73,7 @@ class NewPengabdianUPJ extends CI_Controller {
 						//print_r($stan);
 					}
 					else{
-						redirect(base_url('pengabdian/PengabdianDanaUPJ'));
+						redirect(site_url('pengabdian/PengabdianDanaUPJ'));
 					}
 		}					
 	}

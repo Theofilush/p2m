@@ -77,10 +77,10 @@ class Pemakalah extends CI_Controller {
            
          
           if ($query) {
-            redirect("publikasi/pemakalah");
+            redirect("publikasi/Pemakalah");
           }
           else{
-            redirect("publikasi/pemakalah");
+            redirect("publikasi/Pemakalah");
           }
         }
 	} 
@@ -91,11 +91,11 @@ class Pemakalah extends CI_Controller {
 	public function validasi($id){            
 		$query= $this->M_dokumen->validasi_pemakalah($id);        
 		if ($query) {
-		  redirect("publikasi/pemakalah");
+		  redirect("publikasi/Pemakalah");
 		}
 		else{
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
-		  redirect("publikasi/pemakalah");
+		  redirect("publikasi/Pemakalah");
 		}
 	}
 	public function uploaddok(){     
@@ -118,10 +118,10 @@ class Pemakalah extends CI_Controller {
 			$_upload = $this->upload->data('file_name');
 			$query= $this->M_dokumen->uploadDok_pemakalah($_upload,$id);
 			if ($query) {
-						redirect(site_url('publikasi/pemakalah'));
+						redirect(site_url('publikasi/Pemakalah'));
 					}
 					else{
-						redirect(base_url('publikasi/pemakalah'));
+						redirect(base_url('publikasi/Pemakalah'));
 					}
 		}					
 	}

@@ -118,7 +118,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('publikasi/bukuajar/updatedok',$atribut);
+                                        echo form_open('publikasi/BukuAjar/updatedok',$atribut);
                                         echo form_hidden('id',$rou->id_buku_ajar);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->

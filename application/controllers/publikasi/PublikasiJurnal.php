@@ -77,26 +77,26 @@ class PublikasiJurnal extends CI_Controller {
               );              
           $query= $this->M_dokumen->updateDok_publikasi($data,$id);
           if ($query) {
-            redirect("publikasi/publikasijurnal");
+            redirect("publikasi/PublikasiJurnal");
           }
           else{
 			$this->session->set_flashdata('notification', 'Gagal Melakukan Update');	
-            redirect("publikasi/publikasijurnal");
+            redirect("publikasi/PublikasiJurnal");
           }
         }
 	} 
 	public function deletedok($id){		
 		$this->M_dokumen->deleteDok_publikasi($id);
-		redirect('publikasi/publikasijurnal');
+		redirect('publikasi/PublikasiJurnal');
 	}
 	public function validasi($id){            
           $query= $this->M_dokumen->validasi_publikasi($id);        
           if ($query) {
-            redirect("publikasi/publikasijurnal");
+            redirect("publikasi/PublikasiJurnal");
           }
           else{
 			$this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
-            redirect("publikasi/publikasijurnal");
+            redirect("publikasi/PublikasiJurnal");
           }
 	} 
 	public function uploaddok(){     
@@ -119,10 +119,10 @@ class PublikasiJurnal extends CI_Controller {
 			$_upload = $this->upload->data('file_name');
 			$query= $this->M_dokumen->uploadDok_publikasi($_upload,$id);
 					if ($query) {
-						redirect(site_url('publikasi/publikasijurnal'));
+						redirect(site_url('publikasi/PublikasiJurnal'));
 					}
 					else{
-						redirect(base_url('publikasi/publikasijurnal'));
+						redirect(base_url('publikasi/PublikasiJurnal'));
 					}
 		}					
 	}

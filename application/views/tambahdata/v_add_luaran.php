@@ -29,7 +29,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('databaru/newLuaranLain/savedok',$atribut);
+                                        echo form_open('databaru/NewLuaranLain/savedok',$atribut);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                                    
                                 <div class="form-group">

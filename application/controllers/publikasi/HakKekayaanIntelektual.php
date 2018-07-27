@@ -19,9 +19,6 @@ class HakKekayaanIntelektual extends CI_Controller {
 		$jenis_karya = $this->M_dokumen->tampil_jenishki();
 		$status_karya = $this->M_dokumen->tampil_statushki();
 		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
-
-			
-		  
 		$dataHalaman = array(   
 		  'query'=>$query,
 		  'da' => $kue,
@@ -112,7 +109,7 @@ class HakKekayaanIntelektual extends CI_Controller {
 						redirect(site_url('publikasi/HakKekayaanIntelektual'));
 					}
 					else{
-						redirect(base_url('publikasi/HakKekayaanIntelektual'));
+						redirect(site_url('publikasi/HakKekayaanIntelektual'));
 					}
 		}					
 	}

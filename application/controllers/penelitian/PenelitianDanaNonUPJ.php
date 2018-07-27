@@ -108,7 +108,7 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 						redirect(site_url('penelitian/PenelitianDanaNonUPJ'));
 					}
 					else{
-						redirect(base_url('penelitian/PenelitianDanaNonUPJ'));
+						redirect(site_url('penelitian/PenelitianDanaNonUPJ'));
 					}
 		}					
 	}

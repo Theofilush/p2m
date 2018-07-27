@@ -112,7 +112,7 @@ class PengabdianDanaUPJ extends CI_Controller {
 						redirect(site_url('pengabdian/PengabdianDanaUPJ'));
 					}
 					else{
-						redirect(base_url('pengabdian/PengabdianDanaUPJ'));
+						redirect(site_url('pengabdian/PengabdianDanaUPJ'));
 					}
 		}					
 	}

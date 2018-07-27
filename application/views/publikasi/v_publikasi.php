@@ -127,7 +127,7 @@
                             if($buba == 'administrator' && ($row->valid == NULL)){
                             ?>
                             <br>
-                            <a href="<?php echo site_url(); ?>publikasi/publikasijurnal/validasi/<?php echo $row->id_publikasi; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                            <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/validasi/<?php echo $row->id_publikasi; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                             <?php
                               }
                             ?>
@@ -162,7 +162,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('publikasi/publikasijurnal/updatedok',$atribut);
+                                        echo form_open('publikasi/PublikasiJurnal/updatedok',$atribut);
                                         echo form_hidden('id',$rou->id_publikasi);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
@@ -344,7 +344,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open_multipart('publikasi/publikasijurnal/uploaddok/',$atribut);
+                                        echo form_open_multipart('publikasi/PublikasiJurnal/uploaddok/',$atribut);
                                         echo form_hidden('id',$rou->id_publikasi);
                                 ?>                                                             
                                 <div class="form-group">

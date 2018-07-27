@@ -50,24 +50,21 @@ class LuaranLain extends CI_Controller {
 			if($_anggota2 == ""){
 				$_anggota2 = NULL;
 			}
-          
-              $data = array(
-				'tahun_pelaksanaan' =>  $_tahun,
+       $data = array(
+						'tahun_pelaksanaan' =>  $_tahun,
 						'judul_luaran' =>  $_judul,
 						'jenis_luaran' =>  $_jenis,
 						'deskripsi' =>  $_deskripsi,
 						'nama_dosen' =>  $_nama_dosen,
 						'nama_dosen1' =>  $_anggota1,
 						'nama_dosen2' =>  $_anggota2
-              );              
-              $query= $this->M_dokumen->updateDok_luaran($data,$id);
-           
-         
+      );              
+       $query= $this->M_dokumen->updateDok_luaran($data,$id);  
           if ($query) {
-            redirect("publikasi/luaranlain");
+            redirect("publikasi/LuaranLain");
           }
           else{
-            redirect("publikasi/luaranlain");
+            redirect("publikasi/LuaranLain");
           }
         }
 	} 
@@ -105,10 +102,10 @@ class LuaranLain extends CI_Controller {
 			$_upload = $this->upload->data('file_name');
 			$query= $this->M_dokumen->uploadDok_luaran($_upload,$id);
 					if ($query) {
-						redirect(site_url('publikasi/luaranlain'));
+						redirect(site_url('publikasi/LuaranLain'));
 					}
 					else{
-						redirect(base_url('publikasi/luaranlain'));
+						redirect(site_url('publikasi/LuaranLain'));
 					}
 		}					
 	}

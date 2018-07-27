@@ -17,8 +17,6 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 		$query = $this->M_dokumen->listAll_dana_non2_upj();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
-
-		
 		$dataHalaman = array(  
 			'query'=>$query, 
 		  'da' => $kue,
@@ -107,7 +105,7 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 						redirect(site_url('pengabdian/PengabdianDanaNonUPJ'));
 					}
 					else{
-						redirect(base_url('pengabdian/PengabdianDanaNonUPJ'));
+						redirect(site_url('pengabdian/PengabdianDanaNonUPJ'));
 					}
 		}					
 	}

@@ -67,10 +67,10 @@ class BukuAjar extends CI_Controller {
            
          
           if ($query) {
-            redirect("publikasi/bukuajar");
+            redirect("publikasi/BukuAjar");
           }
           else{           
-            redirect("publikasi/bukuajar");
+            redirect("publikasi/BukuAjar");
           }
         }
 	}

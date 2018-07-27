@@ -6,7 +6,7 @@ class NewLuaranLain extends CI_Controller {
 	function __construct(){
     parent::__construct();      
     	if($this->session->userdata('status') != "login"){
-      		redirect(base_url("login"));
+      		redirect(site_url("login"));
     	}  	 
     }
     
@@ -56,11 +56,11 @@ class NewLuaranLain extends CI_Controller {
 								);       
 									$query= $this->M_dokumen->simpanDok_luaran($data);
 							if ($query) {
-									redirect(site_url('publikasi/luaranlain'));
+									redirect(site_url('publikasi/LuaranLain'));
 								//print_r($stan);
 							}
 							else{
-									redirect(base_url('publikasi/luaranlain'));
+									redirect(site_url('publikasi/LuaranLain'));
 							}
 		}
 					
