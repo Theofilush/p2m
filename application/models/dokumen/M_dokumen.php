@@ -30,7 +30,7 @@ class M_dokumen extends CI_Model{
     function listAll_pemakalah(){
         $query = $this->db->get($this->forum_ilmiah);
         return $query->result();
-    } 
+    }
     function listAll_dana_non_upj(){
         $query = $this->db->get($this->dana_non_upj);
         return $query->result();

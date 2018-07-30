@@ -168,7 +168,7 @@ class PublikasiJurnal extends CI_Controller {
 		);
 
 		$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA PUBLIKASI JURNAL"); // Set kolom A1 dengan tulisan "DATA SISWA"
-		$excel->getActiveSheet()->mergeCells('A1:Q1'); // Set Merge Cell pada kolom A1 sampai E1
+		$excel->getActiveSheet()->mergeCells('A1:P1'); // Set Merge Cell pada kolom A1 sampai E1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); // Set font size 15 untuk kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); // Set text center untuk kolom A1
@@ -251,8 +251,8 @@ class PublikasiJurnal extends CI_Controller {
 			$excel->getActiveSheet()->getStyle('P'.$numrow)->applyFromArray($style_row);
 			
 			$excel->getActiveSheet()->getRowDimension($numrow)->setRowHeight(30);
-			$excel->getActiveSheet()->getStyle('D5')->getAlignment()->setWrapText(true);
-			$excel->getActiveSheet()->getStyle('O5')->getAlignment()->setWrapText(true);
+			$excel->getActiveSheet()->getStyle('D4:D999')->getAlignment()->setWrapText(true);
+			$excel->getActiveSheet()->getStyle('O4:O999')->getAlignment()->setWrapText(true);
 
 			$no++; // Tambah 1 setiap kali looping
 			$numrow++; // Tambah 1 setiap kali looping
@@ -263,10 +263,10 @@ class PublikasiJurnal extends CI_Controller {
 		$excel->getActiveSheet()->getColumnDimension('B')->setWidth(15); // Set width kolom B
 		$excel->getActiveSheet()->getColumnDimension('C')->setWidth(25); // Set width kolom C
 		$excel->getActiveSheet()->getColumnDimension('D')->setWidth(20); // Set width kolom D
-		$excel->getActiveSheet()->getColumnDimension('E')->setWidth(20); // Set width kolom E
-		$excel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
-		$excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
-		$excel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
+		$excel->getActiveSheet()->getColumnDimension('E')->setWidth(25); // Set width kolom E
+		$excel->getActiveSheet()->getColumnDimension('F')->setWidth(25);
+		$excel->getActiveSheet()->getColumnDimension('G')->setWidth(25);
+		$excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
 		$excel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
 		$excel->getActiveSheet()->getColumnDimension('J')->setWidth(6);
 		$excel->getActiveSheet()->getColumnDimension('K')->setWidth(6);
@@ -284,12 +284,12 @@ class PublikasiJurnal extends CI_Controller {
 		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 
 		// Set judul file excel nya
-		$excel->getActiveSheet(0)->setTitle("Laporan Data Publikasi Jurnal");
+		$excel->getActiveSheet(0)->setTitle("Laporan Data Luaran Lain");
 		$excel->setActiveSheetIndex(0);
 
 		// Proses file excel
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment; filename="Data Publikasi Jurnal.xlsx"'); // Set nama file excel nya
+		header('Content-Disposition: attachment; filename="Data Luaran Lain.xlsx"'); // Set nama file excel nya
 		header('Cache-Control: max-age=0');
 
 		$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');

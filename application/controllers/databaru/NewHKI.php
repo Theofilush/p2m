@@ -55,6 +55,7 @@ class NewHKI extends CI_Controller {
 						'jenis_hki' =>  $_jenis,
 						'status_hki' =>  $_status,
 						'no_hki' =>  $_no_hki,
+						'no_pendaftaran'=>$_no_daftar,
 						'nama_dosen' =>  $_penulis,
 						'nama_dosen1' =>  $_anggota1,
 						'nama_dosen2' =>  $_anggota2

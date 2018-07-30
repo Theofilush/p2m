@@ -126,10 +126,10 @@ class PenelitianDanaUPJ extends CI_Controller {
 		// Settingan awal fil excel
 		$excel->getProperties()->setCreator('LP2M UPJ')
 							   ->setLastModifiedBy('LP2M UPJ')
-							   ->setTitle("Data Publikasi")
-							   ->setSubject("Jurnal")
-							   ->setDescription("Laporan Semua Data Publikasi Jurnal")
-							   ->setKeywords("Data publikasi jurnal");
+							   ->setTitle("Data Penelitian UPJ")
+							   ->setSubject("Penelitian")
+							   ->setDescription("Laporan Semua Penelitian UPJ")
+							   ->setKeywords("Data Penelitian UPJ");
 
 		// Buat sebuah variabel untuk menampung pengaturan style dari header tabel
 		$style_col = array(
@@ -159,29 +159,24 @@ class PenelitianDanaUPJ extends CI_Controller {
 			)
 		);
 
-		$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA PUBLIKASI JURNAL"); // Set kolom A1 dengan tulisan "DATA SISWA"
-		$excel->getActiveSheet()->mergeCells('A1:Q1'); // Set Merge Cell pada kolom A1 sampai E1
+		$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA PENELITIAN SUMBER DANA UNIVERSITAS PEMBANGUNAN JAYA"); // Set kolom A1 dengan tulisan "DATA SISWA"
+		$excel->getActiveSheet()->mergeCells('A1:K1'); // Set Merge Cell pada kolom A1 sampai E1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); // Set font size 15 untuk kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); // Set text center untuk kolom A1
 
 		// Buat header tabel nya pada baris ke 3
 		$excel->setActiveSheetIndex(0)->setCellValue('A3', "NO"); // Set kolom A3 dengan tulisan "NO"
-		$excel->setActiveSheetIndex(0)->setCellValue('B3', "Tahun Penerbitan"); // Set kolom B3 dengan tulisan "NIS"
-		$excel->setActiveSheetIndex(0)->setCellValue('C3', "Judul"); // Set kolom C3 dengan tulisan "NAMA"
-		$excel->setActiveSheetIndex(0)->setCellValue('D3', "Nama Jurnal"); // Set kolom D3 dengan tulisan "JENIS KELAMIN"
-		$excel->setActiveSheetIndex(0)->setCellValue('E3', "Penulis"); // Set kolom E3 dengan tulisan "ALAMAT"
-		$excel->setActiveSheetIndex(0)->setCellValue('F3', "Penulis Anggota 1");
-		$excel->setActiveSheetIndex(0)->setCellValue('G3', "Penulis Anggota 2");
-		$excel->setActiveSheetIndex(0)->setCellValue('H3', "Penulis Non Dosen");
-		$excel->setActiveSheetIndex(0)->setCellValue('I3', "ISSN");
-		$excel->setActiveSheetIndex(0)->setCellValue('J3', "Volume");
-		$excel->setActiveSheetIndex(0)->setCellValue('K3', "Nomor");
-		$excel->setActiveSheetIndex(0)->setCellValue('L3', "Halaman Awal");
-		$excel->setActiveSheetIndex(0)->setCellValue('M3', "Halaman Akhir");
-		$excel->setActiveSheetIndex(0)->setCellValue('N3', "URL");
-		$excel->setActiveSheetIndex(0)->setCellValue('O3', "Cakupan Publikasi");
-		$excel->setActiveSheetIndex(0)->setCellValue('P3', "Valid");
+		$excel->setActiveSheetIndex(0)->setCellValue('B3', "Tahun Hibah"); // Set kolom B3 dengan tulisan "NIS"
+		$excel->setActiveSheetIndex(0)->setCellValue('C3', "Judul Penelitian"); // Set kolom C3 dengan tulisan "NAMA"
+		$excel->setActiveSheetIndex(0)->setCellValue('D3', "Jenis Penelitian"); // Set kolom D3 dengan tulisan "JENIS KELAMIN"
+		$excel->setActiveSheetIndex(0)->setCellValue('E3', "Dana Usulan"); // Set kolom E3 dengan tulisan "ALAMAT"
+		$excel->setActiveSheetIndex(0)->setCellValue('F3', "Dana Disetujui");
+		$excel->setActiveSheetIndex(0)->setCellValue('G3', "Skema Penelitian");
+		$excel->setActiveSheetIndex(0)->setCellValue('H3', "Ketua Peneliti");
+		$excel->setActiveSheetIndex(0)->setCellValue('I3', "Anggota Peneliti 1");
+		$excel->setActiveSheetIndex(0)->setCellValue('J3', "Anggota Peneliti 2");
+		$excel->setActiveSheetIndex(0)->setCellValue('K3', "Valid");
 
 		// Apply style header yang telah kita buat tadi ke masing-masing kolom header
 		$excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
@@ -194,35 +189,25 @@ class PenelitianDanaUPJ extends CI_Controller {
 		$excel->getActiveSheet()->getStyle('H3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('I3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('J3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('K3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('L3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('M3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('N3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('O3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('P3')->applyFromArray($style_col);		
+		$excel->getActiveSheet()->getStyle('K3')->applyFromArray($style_col);	
 
 		// Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
-		$dokumen = $this->M_dokumen->listAll_publikasi();	
+		$dokumen = $this->M_dokumen->listAll_dana_upj();	
 
 		$no = 1; // Untuk penomoran tabel, di awal set dengan 1
 		$numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
 		foreach($dokumen as $data){ // Lakukan looping pada variabel siswa
 			$excel->setActiveSheetIndex(0)->setCellValue('A'.$numrow, $no);
-			$excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->tahun_penerbitan);
-			$excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->judul);
-			$excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->nama_jurnal);
-			$excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->penulis_publikasi);
-			$excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->penulis_anggota1);
-			$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->penulis_anggota2);
-			$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->penulis_non_dosen);
-			$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->issn);
-			$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->volume);
-			$excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, $data->nomor);
-			$excel->setActiveSheetIndex(0)->setCellValue('L'.$numrow, $data->halaman_awal);
-			$excel->setActiveSheetIndex(0)->setCellValue('M'.$numrow, $data->halaman_akhir);
-			$excel->setActiveSheetIndex(0)->setCellValue('N'.$numrow, $data->url);
-			$excel->setActiveSheetIndex(0)->setCellValue('O'.$numrow, $data->cakupan_publikasi);
-			$excel->setActiveSheetIndex(0)->setCellValue('P'.$numrow, $data->valid);
+			$excel->setActiveSheetIndex(0)->setCellValue('B'.$numrow, $data->tahun_hibah);
+			$excel->setActiveSheetIndex(0)->setCellValue('C'.$numrow, $data->judul_penelitian);
+			$excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->jenis_penelitian);
+			$excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->dana_usulan);
+			$excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->dana_disetujui);
+			$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->skema_penelitian);
+			$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->ketua_peneliti);
+			$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->anggota_peneliti_1);
+			$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->anggota_peneliti_2);
+			$excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, $data->valid);
 			
 			// Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
 			$excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -236,11 +221,6 @@ class PenelitianDanaUPJ extends CI_Controller {
 			$excel->getActiveSheet()->getStyle('I'.$numrow)->applyFromArray($style_row);
 			$excel->getActiveSheet()->getStyle('J'.$numrow)->applyFromArray($style_row);
 			$excel->getActiveSheet()->getStyle('K'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('L'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('M'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('N'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('O'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('P'.$numrow)->applyFromArray($style_row);
 			
 			$excel->getActiveSheet()->getRowDimension($numrow)->setRowHeight(30);
 			$excel->getActiveSheet()->getStyle('D5')->getAlignment()->setWrapText(true);
@@ -253,20 +233,15 @@ class PenelitianDanaUPJ extends CI_Controller {
 		// Set width kolom
 		$excel->getActiveSheet()->getColumnDimension('A')->setWidth(5); // Set width kolom A
 		$excel->getActiveSheet()->getColumnDimension('B')->setWidth(15); // Set width kolom B
-		$excel->getActiveSheet()->getColumnDimension('C')->setWidth(25); // Set width kolom C
-		$excel->getActiveSheet()->getColumnDimension('D')->setWidth(20); // Set width kolom D
+		$excel->getActiveSheet()->getColumnDimension('C')->setWidth(50); // Set width kolom C
+		$excel->getActiveSheet()->getColumnDimension('D')->setWidth(25); // Set width kolom D
 		$excel->getActiveSheet()->getColumnDimension('E')->setWidth(20); // Set width kolom E
 		$excel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
 		$excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
-		$excel->getActiveSheet()->getColumnDimension('H')->setWidth(20);
-		$excel->getActiveSheet()->getColumnDimension('I')->setWidth(15);
-		$excel->getActiveSheet()->getColumnDimension('J')->setWidth(6);
-		$excel->getActiveSheet()->getColumnDimension('K')->setWidth(6);
-		$excel->getActiveSheet()->getColumnDimension('L')->setWidth(13);
-		$excel->getActiveSheet()->getColumnDimension('M')->setWidth(13);
-		$excel->getActiveSheet()->getColumnDimension('N')->setWidth(30);
-		$excel->getActiveSheet()->getColumnDimension('O')->setWidth(30);
-		$excel->getActiveSheet()->getColumnDimension('P')->setWidth(7);		
+		$excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
+		$excel->getActiveSheet()->getColumnDimension('I')->setWidth(25);
+		$excel->getActiveSheet()->getColumnDimension('J')->setWidth(25);
+		$excel->getActiveSheet()->getColumnDimension('K')->setWidth(6);	
 		
 		
 		// Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
@@ -276,12 +251,12 @@ class PenelitianDanaUPJ extends CI_Controller {
 		$excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_LANDSCAPE);
 
 		// Set judul file excel nya
-		$excel->getActiveSheet(0)->setTitle("Laporan Data Publikasi Jurnal");
+		$excel->getActiveSheet(0)->setTitle("Laporan Data Penelitian UPJ");
 		$excel->setActiveSheetIndex(0);
 
 		// Proses file excel
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment; filename="Data Publikasi Jurnal.xlsx"'); // Set nama file excel nya
+		header('Content-Disposition: attachment; filename="Data Penelitian UPJ.xlsx"'); // Set nama file excel nya
 		header('Cache-Control: max-age=0');
 
 		$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
