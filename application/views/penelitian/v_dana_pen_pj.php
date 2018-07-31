@@ -309,6 +309,7 @@
                                 ?>                                                             
                                 <div class="form-group">
                                  <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                 Ukuran file  maksimum 5 MB
                                 </div>
       </div>
       <div class="modal-footer">

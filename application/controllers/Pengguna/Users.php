@@ -51,9 +51,7 @@ class Users extends CI_Controller {
               $data = array(
                 'username' => $_username,
                 'email'=> $_email,
-                'password'=> $_password,                
-                'author'=> $_authorisasi,
-                'hak_akses'=>$hakakses
+                'password'=> get_hash($_password), 
               );              
               $query= $this->M_pengguna->simpanUpdateUser($data,$id);
             }

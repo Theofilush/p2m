@@ -93,6 +93,7 @@ class PengabdianDanaUPJ extends CI_Controller {
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/pengabdian_upj/';
 			$config['allowed_types'] = 'pdf';
+			$config['max_size'] = 5120;
 			$this->load->library('upload', $config);                
 			if ( ! $this->upload->do_upload('filepdf')){
 				$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade in pull-right" role="alert">

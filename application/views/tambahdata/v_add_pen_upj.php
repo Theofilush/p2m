@@ -102,6 +102,7 @@
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+                                    Ukuran file  maksimum 5 MB
                                     </div>
                                 </div>                                
                                 <div class="ln_solid"></div>

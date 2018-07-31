@@ -23,7 +23,7 @@
     <link href="<?php echo base_url() ?>asett/dist/css/custom.css" rel="stylesheet">
   </head>
 
-  <body class="nav-md"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
+  <body class="nav-md"><?php foreach($da as $row){$buba= $row->author;$bubi= $row->username;$bubc= $row->NIDN; }  ?>
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -111,7 +111,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="<?php echo site_url('pengguna/UbahPassword'); ?>"> Ubah Password</a></li>
                     <li>
                       <a href="<?php echo site_url('tos'); ?>">                        
                         <span>Help</span>
@@ -120,6 +120,7 @@
                     <li><a href="<?php echo site_url('login/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
+                
               </ul>
             </nav>
           </div>

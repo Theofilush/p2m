@@ -8,7 +8,7 @@ class M_pengguna extends CI_Model{
         $query = $this->db->get($this->dt_login);        
         return $query->result();
     }
-    function simpanUpdateUser($data,$id){
+    function simpanUpdateUser($data,$id){//query untuk menyimpan user baru pada halaman tambah users
         $this->db->where('id',$id);
         $hasil = $this->db->update($this->dt_login,$data);
         return $hasil; 
@@ -23,6 +23,11 @@ class M_pengguna extends CI_Model{
     function tampilprodi(){ //query untuk menampilkan list prodi pada halaman edit user
         $query = $this->db->get('program_studi');        
         return $query->result();
+    }
+    function simpanUpdatePass($data,$nidn){//query untuk menyimpan user baru pada halaman Ubah Password
+        $this->db->where('NIDN',$nidn);
+        $hasil = $this->db->update($this->dt_login,$data);
+        return $hasil; 
     }
 }
 ?>
