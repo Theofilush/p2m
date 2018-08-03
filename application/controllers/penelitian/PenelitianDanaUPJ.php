@@ -87,7 +87,17 @@ class PenelitianDanaUPJ extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
 		  redirect("penelitian/PenelitianDanaUPJ");
 		}
-	  } 
+	} 
+	public function tolakvalidasi($id){            
+		$query= $this->M_dokumen->toval_dana_upj($id);        
+		if ($query) {
+		  redirect("penelitian/PenelitianDanaUPJ");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
+		  redirect("penelitian/PenelitianDanaUPJ");
+		}
+	} 
 	  public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/penelitian_upj/';

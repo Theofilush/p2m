@@ -85,6 +85,16 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 		  redirect("penelitian/PenelitianDanaNonUPJ");
 		}
 	} 
+	public function tolakvalidasi($id){            
+		$query= $this->M_dokumen->toval_dana_non_upj($id);        
+		if ($query) {
+		  redirect("penelitian/PenelitianDanaNonUPJ");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
+		  redirect("penelitian/PenelitianDanaNonUPJ");
+		}
+	} 
 	public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/penelitian_non_upj/';

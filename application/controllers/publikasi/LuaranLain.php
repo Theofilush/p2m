@@ -82,6 +82,16 @@ class LuaranLain extends CI_Controller {
 		  redirect("publikasi/LuaranLain");
 		}
 	 } 
+	 public function tolakvalidasi($id){            
+		$query= $this->M_dokumen->toval_luaran($id);        
+		if ($query) {
+		  redirect("publikasi/LuaranLain");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
+		  redirect("publikasi/LuaranLain");
+		}
+	 } 
 	 public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/luaranlain/';

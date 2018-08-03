@@ -88,6 +88,16 @@ class BukuAjar extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
 		  redirect("publikasi/BukuAjar");
 		}
+	 } 
+	 public function tolakvalidasi($id){            
+		$query= $this->M_dokumen->toval_buku($id);        
+		if ($query) {
+		  redirect("publikasi/BukuAjar");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
+		  redirect("publikasi/BukuAjar");
+		}
  	} 
 	function cek_status_user(){
 				$_nidn = $this->input->post('penulis', TRUE);         

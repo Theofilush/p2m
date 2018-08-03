@@ -93,12 +93,20 @@
                             ?> 
                       	   </td>
                            <td class="ketengah">
-                          <span class="font_color_green"><?php echo $row->valid; ?></span>                        
-                          <?php
-                            if($buba == 'administrator' && ($row->valid == NULL)){
+                           <?php
+                            if($row->valid == "TIDAK") {
+                            echo '<span class="font_color_red">'.$row->valid.'</span>';                            
+                              } elseif ($row->valid == "YA" ) {
+                            echo '<span class="font_color_green">'.$row->valid.'</span>';                          
+                              }                            
+                            if($buba == 'administrator' && ($row->valid == NULL)) {
+                            ?>                            
+                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaNonUPJ/validasi/<?php echo $row->kode_penelitian; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaNonUPJ/tolakvalidasi/<?php echo $row->kode_penelitian; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+                            <?php
+                              } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
                             ?>
-                            <br>
-                            <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaNonUPJ/validasi/<?php echo $row->kode_penelitian; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaNonUPJ/validasi/<?php echo $row->kode_penelitian; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                             <?php
                               }
                             ?>

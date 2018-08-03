@@ -88,7 +88,17 @@ class PengabdianDanaUPJ extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
 		  redirect("pengabdian/PengabdianDanaUPJ");
 		}
-  } 
+	  } 
+	  public function tolakvalidasi($id){            
+		$query= $this->M_dokumen->toval_dana2_upj($id);        
+		if ($query) {
+		  redirect("pengabdian/PengabdianDanaUPJ");
+		}
+		else{
+		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
+		  redirect("pengabdian/PengabdianDanaUPJ");
+		}
+  	} 
 	public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/pengabdian_upj/';

@@ -4273,6 +4273,13 @@ td{
 .font_color_green{
     color: #27ae60;
 }
+.font_color_red{
+    color: #f83812;
+}
+.btn-hitam{
+    background-color:#000;
+    color:#fff;
+}
 a.link_url{	
 	color: blue;	
 }

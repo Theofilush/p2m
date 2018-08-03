@@ -264,6 +264,52 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_luaran',$id);
         return $this->db->update($this->luaran_lain);
     }
+     //untuk melakukan Penolakan validasi pada dokumen
+     function toval_publikasi($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('id_publikasi',$id);
+        return $this->db->update($this->publikasi_jurnal);
+    }
+    function toval_buku($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('id_buku_ajar',$id);
+        return $this->db->update($this->buku_ajar);
+    }
+    function toval_pemakalah($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('id_perumi',$id);
+        return $this->db->update($this->forum_ilmiah);
+    }
+    function toval_dana_non_upj($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non_upj);
+    }
+    function toval_dana_upj($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana_upj);
+    }
+    function toval_dana_non2_upj($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('kode_penelitian',$id);
+        return $this->db->update($this->dana_non2_upj);
+    }
+    function toval_dana2_upj($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->dana2_upj);
+    }
+    function toval_hki($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('id_hki',$id);
+        return $this->db->update($this->hki);
+    }
+    function toval_luaran($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('id_luaran',$id);
+        return $this->db->update($this->luaran_lain);
+    }
     //untuk melakukan upload dokumen pada sub-menu publikasi
     function uploadDok_publikasi($nama_file,$id){
         $this->db->set('file', $nama_file);
