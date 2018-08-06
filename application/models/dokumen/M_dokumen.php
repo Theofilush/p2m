@@ -55,11 +55,52 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->luaran_lain);
         return $query->result();
     }   
-    //function yg digunakan untuk menghitung keseluruhan total dokumen
-    function totaldok_publikasi(){
-        $query = $this->db->query('SELECT COUNT(*) AS ma FROM t_publikasi_jurnal');
+    //list yang digunakan untuk menampilkan data untuk di edit pada halaman edit
+    function listEdit_publikasi($id){
+        $this->db->where('id_publikasi',$id);
+        $hasil = $this->db->get($this->publikasi_jurnal);
+        return $hasil->result();
+    }
+    function listEdit_buku($id){
+        $this->db->where('id_buku_ajar',$id);        
+        $query = $this->db->get($this->buku_ajar);
         return $query->result();
     } 
+    function listEdit_pemakalah($id){
+        $this->db->where('id_perumi',$id);
+        $query = $this->db->get($this->forum_ilmiah);
+        return $query->result();
+    }
+    function listEdit_dana_non_upj($id){
+        $this->db->where('kode_penelitan',$id);
+        $query = $this->db->get($this->dana_non_upj);
+        return $query->result();
+    } 
+    function listEdit_dana_upj($id){
+        $this->db->where('kode_penelitan',$id);
+        $query = $this->db->get($this->dana_upj);
+        return $query->result();
+    } 
+    function listEdit_dana_non2_upj($id){
+        $this->db->where('kode_penelitian',$id);
+        $query = $this->db->get($this->dana_non2_upj);
+        return $query->result();
+    } 
+    function listEdit_dana2_upj($id){
+        $this->db->where('kode_penelitan',$id);        
+        $query = $this->db->get($this->dana2_upj);
+        return $query->result();
+    } 
+    function listEdit_hki($id){
+        $this->db->where('id_hki',$id);        
+        $query = $this->db->get($this->hki);
+        return $query->result();
+    } 
+    function listEdit_luaran($id){
+        $this->db->where('id_luaran',$id);
+        $query = $this->db->get($this->luaran_lain);
+        return $query->result();
+    }   
     //untuk menambahkan /insert data ke database
     public function simpanDok_publikasi($data){
         return $this->db->insert($this->publikasi_jurnal, $data);

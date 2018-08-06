@@ -14,24 +14,36 @@ class BukuAjar extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_buku();
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
-		$query_tampil_nidn = $this->M_dokumen->tampil_nidn(); 
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
+		$query = $this->M_dokumen->listAll_buku();		
 
 		$dataHalaman = array(   
 		  'query'=> $query,
-          'da' => $kue,
-			'tampil_tahun'=> $query_tampil_tahun, 
-			'tampil_nidn'=>$query_tampil_nidn,
-			'tampil_dosen'=>$query_tampil_dosen
+          'da' => $kue
     );
  
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_buku_ajar');
 		$this->load->view('dashboard/v_footer');
 	}
-
+	public function editdok($id) 
+	{ 
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$query_tampil_nidn = $this->M_dokumen->tampil_nidn(); 		
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
+		$dataHalaman = array( 
+			'query' =>  $query,
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,
+			'tampil_nidn'=>$query_tampil_nidn,
+			'tampil_dosen'=>$query_tampil_dosen
+        );
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('teditdata/v_edit_publikasi');
+		$this->load->view('dashboard/v_footer');
+	}
 	public function updatedok(){
         if ($this->input->post('btnUpload') == "Upload") {
 			$_tahun_penerbitan = $this->input->post('tahun_penerbitan', TRUE);

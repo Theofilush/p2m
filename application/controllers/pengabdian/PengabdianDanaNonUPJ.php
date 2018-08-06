@@ -15,17 +15,30 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_dana_non2_upj();
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
 		$dataHalaman = array(  
 			'query'=>$query, 
-		  'da' => $kue,
-		  'tampil_tahun'=> $query_tampil_tahun,
-			'tampil_dosen'=>$query_tampil_dosen
+		  'da' => $kue
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('pengabdian/v_dana_abdi_non_pj');
+		$this->load->view('dashboard/v_footer');
+	}
+	public function editdok($id) 
+	{ 
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
+		$dataHalaman = array( 
+			'query' =>  $query,
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,
+			'tampil_dosen'=>$query_tampil_dosen
+        );
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('teditdata/v_edit_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
@@ -91,7 +104,7 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
 		  redirect("pengabdian/PengabdianDanaNonUPJ");
 		}
-  	} 
+	  } 	 
 	public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/pengabdian_non_upj/';

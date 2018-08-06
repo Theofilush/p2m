@@ -15,23 +15,36 @@ class Pemakalah extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_pemakalah();
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun();
-		$cakupan2 =  $this->M_dokumen->tampil_cakupan2();
-		$status = $this->M_dokumen->status_pemakalah();
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen();
-
 
 		$dataHalaman = array(  
 		  'query' =>$query,
-		  'da' => $kue,
-		  'tampil_tahun'=> $query_tampil_tahun,
-		  'cakupan2'=> $cakupan2,
-		  'status_speaker'=> $status,
-		  'tampil_dosen'=>$query_tampil_dosen	
+		  'da' => $kue
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_pemakalah');
+		$this->load->view('dashboard/v_footer');
+	}
+	public function editdok($id) 
+	{ 
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$cakupan2 =  $this->M_dokumen->tampil_cakupan2();
+		$status = $this->M_dokumen->status_pemakalah();
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen();
+
+		$dataHalaman = array( 
+			'query' =>  $query,
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,
+			'cakupan2'=> $cakupan2,
+			'status_speaker'=> $status,
+			'tampil_dosen'=>$query_tampil_dosen
+        );
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('teditdata/v_edit_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){

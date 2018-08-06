@@ -20,16 +20,32 @@ class PublikasiJurnal extends CI_Controller {
 		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
 		$dataHalaman = array( 
 			'query' =>  $query,
-			'da' => $kue,
-			'tampil_tahun'=> $query_tampil_tahun,
-			'cakupan'=> $cakupan,
-			'tampil_dosen'=>$query_tampil_dosen
+			'da' => $kue			
         );
 		$datacontent = array( 
 			'da' => $kue
 		  );
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_publikasi',$datacontent);
+		$this->load->view('dashboard/v_footer');
+	}
+	public function editdok($id) 
+	{ 
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$cakupan =  $this->M_dokumen->tampil_cakupan(); 
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
+		$dataHalaman = array( 
+			'query' =>  $query,
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,
+			'cakupan'=> $cakupan,
+			'tampil_dosen'=>$query_tampil_dosen
+        );
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('teditdata/v_edit_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
@@ -106,7 +122,7 @@ class PublikasiJurnal extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
 		  redirect("publikasi/PublikasiJurnal");
 		}
-  } 
+  	} 
 	public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/publikasi_jurnal/';

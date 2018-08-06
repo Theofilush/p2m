@@ -88,39 +88,43 @@
                           </td>
                           <td class="ketengah">   
                             <?php
+                             if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                if($buba == 'administrator' || ($bubi ==  $row->penulis_publikasi || ($bubi ==  $row->penulis_anggota1) || ($bubi ==  $row->penulis_anggota2))){
-                            ?>  
-                             <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                            <?php
-                              if(($row->file == NULL) || ($row->file == "")){
-                            ?>                                                                
-                              <button class="btn btn-default btn-xs btnnomargin source" onclick="
-                                new PNotify({
-                                    title: 'Terjadi Kesalahan !',
-                                    text: 'Berkas Pendukung belum diunggah !',
-                                    type: 'error',
-                                    delay: 5000,
-                                    styling: 'bootstrap3'
-                                  });  
-                              "><i class="fa fa-fw fa-file-text"></i></button>
+                                ?>  
+                                <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                                 <?php
-                            }else if(($row->file != NULL) || ($row->file != "") ){
+                                  if(($row->file == NULL) || ($row->file == "")){
+                                ?>                                                                
+                                        <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                                          new PNotify({
+                                              title: 'Terjadi Kesalahan !',
+                                              text: 'Berkas Pendukung belum diunggah !',
+                                              type: 'error',
+                                              delay: 5000,
+                                              styling: 'bootstrap3'
+                                            });  
+                                        "><i class="fa fa-fw fa-file-text"></i></button>
+                                <?php
+                                  }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/publikasi_jurnal/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
-                                <?php
-                            }
+                                    <a href="<?php echo site_url().'fileupload/publikasi_jurnal/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                            <?php
+                                 }
+                                }
                               }
                             ?>                         	
                           </td>
                           <td class="ketengah">    
                           <?php
+                          if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->penulis_publikasi || ($bubi ==  $row->penulis_anggota1) || ($bubi ==  $row->penulis_anggota2))){
-                            ?>  
-                              <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
+                            ?>                                
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/editdok/<?php echo $row->id_publikasi; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
                               <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                             <?php
+                            }
                               }
-                            ?>                       	
+                            ?> 
                           </td>
                           <td class="ketengah">
                           <?php
@@ -152,189 +156,6 @@
               </div>
           </div>
 </div>
-
- <?php
-    foreach ($query as $rou) {                   
-  ?>        
-<div class="modal fade" id="modal-edit<?php echo $rou->id_publikasi;?>" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">Publikasi Jurnal</h4>
-      </div>
-      <div class="modal-body">
-                                <?php
-                                    $atribut = array(
-                                            'class' => 'form-horizontal form-label-left',
-                                            'data-parsley-validate' => '',
-                                            'id'=>'demo-form2'
-                                    );                                        
-                                        echo form_open('publikasi/PublikasiJurnal/updatedok',$atribut);
-                                        echo form_hidden('id',$rou->id_publikasi);
-                                ?>
-                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
-                                
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Publikasi
-                                    </label>
-                                    <div class="col-md-5 col-sm-5 col-xs-12">                                    
-                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="tingkat">
-                                            <?php 
-                                          foreach($cakupan as $row){
-                                        ?>                          
-                                        <option <?php if (($rou->cakupan_publikasi =='Jurnal Internasional') && ($row->cakupan_publikasi =='Jurnal Internasional')) {
-                                            echo 'selected'; 
-                                          }elseif (($rou->cakupan_publikasi =='Jurnal Naional Terakreditasi') && ($row->cakupan_publikasi =='Jurnal Naional Terakreditasi')) {
-                                            echo 'selected'; 
-                                          }elseif (($rou->cakupan_publikasi =='Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)') && ($row->cakupan_publikasi =='Jurnal Naional Tidak Terakreditasi (Mempunyai ISSN)')) {
-                                            echo 'selected'; 
-                                          } 
-                                          echo '>'.$row->cakupan_publikasi;
-                                          ?> 
-                                        </option>                   
-                                        <?php
-                                          }
-                                        ?> 
-                                    </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Publikasi
-                                    </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">                                    
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">                                            
-                                            <option selected><?php echo $rou->tahun_penerbitan; ?></option> 
-                                            <?php 
-                                        foreach($tampil_tahun as $row1){
-                                          ?>  
-                                          <option><?php echo $row1->tahun; ?></option> 
-                                      <?php
-                                        }
-                                      ?>   
-                                  </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul; ?></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Jurnal
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="text" id="nama_jurnal" name="nama_jurnal" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->nama_jurnal; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">ISSN</label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="issn" name="issn" maxlength="30" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->issn; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume</label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="volume" id="volume" maxlength="20" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->volume; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="nomor" id="nomor" maxlength="10" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->nomor; ?>"> 
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Halaman
-                                    </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-3">
-                                     <input name="halaman_awal" maxlength="5" id="halaman_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->halaman_awal; ?>">
-                                    </div>
-                                    <label class="control-label col-md-1 col-sm-1 col-xs-1" style="text-align:center"> s/d </label>
-                                    <div class="col-md-1 col-sm-1 col-xs-3">
-                                     <input name="halaman_akhir" maxlength="5" id="halaman_akhir" class=" form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->halaman_akhir; ?>">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->url; ?>">
-                                    </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                                <h4>Personil Dosen</h4>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen * </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
-                                        <option><?php echo $rou->penulis_publikasi; ?></option>
-                                            <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>                                   
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>                                
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 1" name="pesan_penulis2">
-                                          <option><?php echo $rou->penulis_anggota1; ?></option>
-                                            <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>     
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>                                  
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 2" name="pesan_penulis3">                                            
-                                        <option><?php echo $rou->penulis_anggota2; ?></option>
-                                        <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>     
-                                </div>          
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="reset">Reset</button>   
-          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
-      </div>
-      <?php
-                echo form_close();
-      ?>
-    </div>
-  </div>
-</div>
-<?php
-  }              
-?>
  <?php
     foreach ($query as $rou) {                   
   ?>        

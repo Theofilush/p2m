@@ -14,21 +14,34 @@ class LuaranLain extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_luaran();
-		$jenis = $this->M_dokumen->tampil_jenis_luaran(); 
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
+		$query = $this->M_dokumen->listAll_luaran();		
 		
 		$dataHalaman = array( 
-			'query'  =>$query,
-		  'da' => $kue,
-		  'tampil_tahun'=> $query_tampil_tahun,
-		  'jenis_luaran' =>  $jenis,
-			'tampil_dosen'=>$query_tampil_dosen		
+		  'query'  =>$query,
+		  'da' => $kue
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_luaran_lain');
+		$this->load->view('dashboard/v_footer');
+	}
+	public function editdok($id) 
+	{ 
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+		$jenis = $this->M_dokumen->tampil_jenis_luaran();
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
+		$dataHalaman = array( 
+			'query' =>  $query,
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,
+			'jenis_luaran' =>  $jenis,
+			'tampil_dosen'=>$query_tampil_dosen
+        );
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('teditdata/v_edit_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
