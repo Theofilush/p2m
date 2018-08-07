@@ -28,7 +28,7 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query = $this->M_dokumen->listEdit_dana_non2_upj($id);		
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
 		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
 		$dataHalaman = array( 
@@ -38,7 +38,7 @@ class PengabdianDanaNonUPJ extends CI_Controller {
 			'tampil_dosen'=>$query_tampil_dosen
         );
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('teditdata/v_edit_publikasi');
+		$this->load->view('teditdata/v_edit_abdi_non_upj');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){

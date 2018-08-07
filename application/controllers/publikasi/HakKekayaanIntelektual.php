@@ -29,7 +29,7 @@ class HakKekayaanIntelektual extends CI_Controller {
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query = $this->M_dokumen->listEdit_hki($id);		
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$jenis_karya = $this->M_dokumen->tampil_jenishki();
 		$status_karya = $this->M_dokumen->tampil_statushki();
@@ -43,7 +43,7 @@ class HakKekayaanIntelektual extends CI_Controller {
 			'tampil_dosen'=>$query_tampil_dosen
         );
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('teditdata/v_edit_publikasi');
+		$this->load->view('teditdata/v_edit_hki');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
@@ -55,7 +55,7 @@ class HakKekayaanIntelektual extends CI_Controller {
 			$_status = $this->input->post('status', TRUE);
 			$_no_hki = $this->input->post('no_hki', TRUE);	
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
-			$_anggota1 = $this->input->post('pesan_penulis3', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 			$id = $this->input->post('id', TRUE);
 			if(($_anggota1 == "") && ($_anggota2 != "")){

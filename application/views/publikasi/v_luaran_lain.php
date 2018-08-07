@@ -104,12 +104,12 @@
                           <?php
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
-                            ?>
-                            <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_luaran;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
+                            ?>                            
+                            <a href="<?php echo site_url(); ?>publikasi/LuaranLain/editdok/<?php echo $row->id_luaran; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
                           	<a href="<?php echo site_url(); ?>publikasi/LuaranLain/deletedok/<?php echo $row->id_luaran; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                             <?php
                               }}
-                            ?>                          	                            
+                            ?> 
                           </td>
                           <td class="ketengah">
                           <?php
@@ -143,144 +143,7 @@
           </div>
 </div>
 
- <?php
-          foreach ($query as $rou) {                   
-        ?>
-        
-<div class="modal fade bs-example-modal-lg" id="modal-edit<?php echo $rou->id_luaran;?>" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
-          </button>
-          <h4 class="modal-title" id="myModalLabel">Luaran Lain</h4>
-      </div>
-      <div class="modal-body">
-                                <?php
-                                    $atribut = array(
-                                            'class' => 'form-horizontal form-label-left',
-                                            'data-parsley-validate' => '',
-                                            'id'=>'demo-form2'
-                                    );                                        
-                                        echo form_open('publikasi/LuaranLain/updatedok',$atribut);
-                                        echo form_hidden('id',$rou->id_luaran);
-                                ?>
-                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
-                                
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">
-                                    <option selected><?php echo $rou->tahun_pelaksanaan; ?></option> 
-                                      <?php 
-                                        foreach($tampil_tahun as $row){
-                                      ?>  
-                                      <option><?php echo $row->tahun; ?></option>
-                                      <?php
-                                        }
-                                      ?>   
-                                  </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Luaran
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_luaran; ?></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
-                                    </label>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
-                                    <option><?php echo $rou->jenis_luaran; ?></option>      
-                                            <?php 
-                                          foreach($jenis_luaran as $row){
-                                        ?>  
-                                        <option><?php echo $row->jenis_luaran; ?></option>                      
-                                        <?php
-                                          }
-                                        ?>
-                                    </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->deskripsi; ?></textarea>
-                                    </div>
-                                </div>
-                                <div class="ln_solid"></div>
-                                <h4>Personil Dosen</h4>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen * </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
-                                        <option><?php echo $rou->nama_dosen; ?></option>
-                                            <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>                                   
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>                                
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 1" name="pesan_penulis2">
-                                          <option><?php echo $rou->nama_dosen1; ?></option>
-                                            <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>     
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>                                  
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
-                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 2" name="pesan_penulis3">                                            
-                                        <option><?php echo $rou->nama_dosen2; ?></option>
-                                        <?php 
-                                              foreach($tampil_dosen as $row){
-                                                if($row->author != "administrator"){
-                                            ?>  
-                                            <option><?php echo $row->username; ?></option>                      
-                                            <?php
-                                            }
-                                              }
-                                            ?>   
-                                        </select>
-                                    </div>     
-                                </div>       
-      </div>
-      <div class="modal-footer">              
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button class="btn btn-primary" type="reset">Reset</button> 
-          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
-      </div>
-      <?php
-                echo form_close();
-      ?>
-    </div>
-  </div>
-</div>
-<?php
-  }              
-?>
+ 
  <?php
     foreach ($query as $rou) {                   
   ?>        

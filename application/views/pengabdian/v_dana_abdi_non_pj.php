@@ -84,9 +84,9 @@
                           <?php
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
-                            ?>  
-                            <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitian;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
-                          <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaNonUPJ/deletedok/<?php echo $row->kode_penelitian; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                            ?>                              
+                            <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaNonUPJ/editdok/<?php echo $row->kode_penelitian; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
+                            <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaNonUPJ/deletedok/<?php echo $row->kode_penelitian; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                             <?php
                               }}
                             ?> 

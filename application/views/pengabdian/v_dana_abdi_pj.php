@@ -86,11 +86,11 @@
                           
                           </td>
                           <td>
-                          <?php
+                          <?php 
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
                             ?>                            
-                            <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-pencil"></span></button>                           
+                            <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaUPJ/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
                             <a href="<?php echo site_url(); ?>pengabdian/PengabdianDanaUPJ/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
                             <?php
                               }}
@@ -260,8 +260,7 @@
                                             ?>   
                                         </select>
                                     </div>     
-                                </div>    
-								                                
+                                </div>          
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -283,7 +282,7 @@
 <div class="modal fade" id="modal-upload<?php echo $rou->kode_penelitan;?>" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header"> 
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
           <h4 class="modal-title" id="myModalLabel">Pengabdian Sumber Dana Universitas Pembangunan Jaya</h4>

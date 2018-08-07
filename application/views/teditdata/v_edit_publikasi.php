@@ -132,6 +132,7 @@
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                        
                                         <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
                                         <option><?php echo $rou->penulis_publikasi; ?></option>
+                                        <option value="NULL">Tidak ada</option>
                                             <?php 
                                               foreach($tampil_dosen as $row){
                                                 if($row->author != "administrator"){

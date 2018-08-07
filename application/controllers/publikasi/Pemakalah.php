@@ -15,12 +15,10 @@ class Pemakalah extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_pemakalah();
-
 		$dataHalaman = array(  
 		  'query' =>$query,
 		  'da' => $kue
         );
-
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_pemakalah');
 		$this->load->view('dashboard/v_footer');
@@ -29,7 +27,7 @@ class Pemakalah extends CI_Controller {
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listEdit_publikasi($id);		
+		$query = $this->M_dokumen->listEdit_pemakalah($id);		
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$cakupan2 =  $this->M_dokumen->tampil_cakupan2();
 		$status = $this->M_dokumen->status_pemakalah();
@@ -44,7 +42,7 @@ class Pemakalah extends CI_Controller {
 			'tampil_dosen'=>$query_tampil_dosen
         );
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('teditdata/v_edit_publikasi');
+		$this->load->view('teditdata/v_edit_forum');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function updatedok(){
@@ -59,7 +57,7 @@ class Pemakalah extends CI_Controller {
 			$_tempat = $this->input->post('tempat', TRUE);
 			$_status = $this->input->post('status', TRUE);
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
-			$_anggota1 = $this->input->post('pesan_penulis3', TRUE);
+			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
 			$id = $this->input->post('id', TRUE);
 			if(($_anggota1 == "") && ($_anggota2 != "")){

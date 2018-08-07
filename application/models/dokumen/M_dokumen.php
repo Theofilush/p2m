@@ -72,7 +72,7 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function listEdit_dana_non_upj($id){
-        $this->db->where('kode_penelitan',$id);
+        $this->db->where('kode_penelitian',$id);
         $query = $this->db->get($this->dana_non_upj);
         return $query->result();
     } 

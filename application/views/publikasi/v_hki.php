@@ -108,8 +108,8 @@
                           <?php
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
-                            ?>
-                            <button type="button" class="btn btn-primary btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-edit<?php echo $row->id_hki;?>"><span class="glyphicon glyphicon-pencil"></span></button> 
+                            ?>                            
+                            <a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/editdok/<?php echo $row->id_hki; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
                           	<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/deletedok/<?php echo $row->id_hki; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                              <?php
                               }}

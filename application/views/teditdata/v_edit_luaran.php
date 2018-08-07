@@ -29,30 +29,33 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('databaru/NewLuaranLain/savedok',$atribut);
+                                        echo form_open('publikasi/LuaranLain/updatedok',$atribut);
+                                        foreach ($query as $rou) {    
+                                        echo form_hidden('id',$rou->id_luaran);
                                 ?>
-                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                                    
+                                <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
+                                
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">
-                                            <option><?php echo Date('Y');?></option>
-                                            <?php 
-												foreach($tampil_tahun as $row){
-											?>  
-											<option><?php echo $row->tahun; ?></option>                      
-											<?php
-												 }
-											?>   
-									</select>
+                                    <option selected><?php echo $rou->tahun_pelaksanaan; ?></option> 
+                                      <?php 
+                                        foreach($tampil_tahun as $row){
+                                      ?>  
+                                      <option><?php echo $row->tahun; ?></option>
+                                      <?php
+                                        }
+                                      ?>   
+                                  </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Luaran
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_luaran; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -60,65 +63,87 @@
                                     </label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
+                                    <option><?php echo $rou->jenis_luaran; ?></option>      
                                             <?php 
-												foreach($jenis_luaran as $row){
-											?>  
-											<option><?php echo $row->jenis_luaran; ?></option>                      
-											<?php
-												 }
-											?>   
-									</select>
+                                          foreach($jenis_luaran as $row){
+                                        ?>  
+                                        <option><?php echo $row->jenis_luaran; ?></option>                      
+                                        <?php
+                                          }
+                                        ?>
+                                    </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->deskripsi; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="penulis" id="penulis" class="form-control col-md-7 col-xs-12" maxlength="10" required="required" type="text" onkeyup='cek_nidn()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama *</label>                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis" id="pesan_penulis" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen * </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
+                                        <option><?php echo $rou->nama_dosen; ?></option>
+                                            <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>                                   
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="anggota1" id="anggota1" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn2()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis2" id="pesan_penulis2" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>                                
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 1" name="pesan_penulis2">
+                                          <option><?php echo $rou->nama_dosen1; ?></option>
+                                            <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>     
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>
-                                    <div class="col-md-2 col-sm-2 col-xs-12">
-                                        <input name="anggota2" id="anggota2" class="form-control col-md-7 col-xs-12" maxlength="10" type="text" onkeyup='cek_nidn3()'>
-                                    </div>                                    
-                                    <label class="control_label2 col-md-1 col-sm-1 col-xs-12">Nama </label>                                    
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                        <input name="pesan_penulis3" id="pesan_penulis3" class="form-control col-md-7 col-xs-12" type="text" readonly>
-                                    </div>
-                                </div>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>                                  
+                                    <div class="col-md-7 col-sm-7 col-xs-12">                                        
+                                        <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 2" name="pesan_penulis3">                                            
+                                        <option><?php echo $rou->nama_dosen2; ?></option>
+                                        <?php 
+                                              foreach($tampil_dosen as $row){
+                                                if($row->author != "administrator"){
+                                            ?>  
+                                            <option><?php echo $row->username; ?></option>                      
+                                            <?php
+                                            }
+                                              }
+                                            ?>   
+                                        </select>
+                                    </div>     
+                                </div>      
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">                                                                    
                                     <button type="button" onclick="window.history.back()" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Batal</button>
 								    <button class="btn btn-primary" type="reset">Reset</button>
                                     <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Submit</button>
                                     </div>
                                 </div>
-
                                 <?php
+                                        }
                                     echo form_close();
                                 ?>
                             </div>
