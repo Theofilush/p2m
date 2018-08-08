@@ -2096,26 +2096,46 @@ if (typeof NProgress != 'undefined') {
 						{ width: '8%', targets: 7 },
 				]
 				}); 
-
     $('#dragId1').on('click', function () {
-            table1.search("Jurnal Internasional").draw();
-        });
+      table1.search("Jurnal Internasional").draw();
+    });
     $('#dragId2').on('click', function () {
-            table1.search("terakreditasii").draw();
-    });
-    $('#dragId3').on('click', function () {
-        table1.search("(Mempunyai ISSN)").draw();
-    });
+      table1.search("terakreditasii").draw();
+		});
+		$('#dragId3').on('click', function () {
+			table1.search("(Mempunyai ISSN)").draw();
+		});
     $('#dragId4').on('click', function () {
-        table3.search("Tingkat Internasional").draw();
+			table3.search("Tingkat Internasional").draw();
     });
     $('#dragId5').on('click', function () {
-        table3.search("Tingkat Nasionall").draw();
+			table3.search("Tingkat Nasionall").draw();
     });
     $('#dragId6').on('click', function () {
         table3.search("Regional").draw();
+			});
+		$('#dragThn1').on('change', function () {
+			table1.search(this.value).draw();
 		});
-		$('#dragId7').on('click', function () {
+		$('#dragThn2').on('change', function () {
+			table3.search(this.value).draw();
+		});
+		$('#dragThn3').on('change', function () {
+			table5.search(this.value).draw();
+		});
+		$('#dragThn4').on('change', function () {
+			table4.search(this.value).draw();
+		});
+		$('#dragThn5').on('change', function () {
+			table2.search(this.value).draw();
+		});
+		$('#dragThn6').on('change', function () {
+			table6.search(this.value).draw();
+		});
+		$('#dragThn7').on('change', function () {
+			table7.search(this.value).draw();
+		});
+	/*	$('#dragId7').on('click', function () {
 				table6.search("Tingkat Internasional").draw();
 		});
 		$('#dragId8').on('click', function () {
@@ -2132,13 +2152,13 @@ if (typeof NProgress != 'undefined') {
 		});
 		$('#dragId12').on('click', function () {
 				table3.search("Regional").draw();
-		});
+		});*/
     $('#reset').click(function(){ //button reset event click
         table1.search("").draw();  //just reload table
-		});
+		});		
 		$('#reset2').click(function(){ //button reset event click
 			table3.search("").draw();  //just reload table
-	});
+		});
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",
 				  deferRender: true,
@@ -2325,7 +2345,28 @@ if (typeof NProgress != 'undefined') {
 			}
 			
 		};
-	   
+		/*var dengan_rupiah = document.getElementById('dana_usulana');
+    dengan_rupiah.addEventListener('keyup', function(e)
+    {
+        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
+    }); 
+		function formatRupiah(angka, prefix)
+    {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split    = number_string.split(','),
+            sisa     = split[0].length % 3,
+            rupiah     = split[0].substr(0, sisa),
+            ribuan     = split[0].substr(sisa).match(/\d{3}/gi);
+            
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+        
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }*/
+
 		
 	   
 	$(document).ready(function() {

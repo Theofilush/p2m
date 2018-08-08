@@ -6,6 +6,19 @@
                   <div class="x_title">
                   <p ><?php echo $this->session->flashdata('notification')?></p>  
                       <h4 class="">Luaran Lain</h4>
+                      <div class=" hidden-xs hidden-sm col-md-12">
+                      Urutkan : 
+                                  <select class="form-control select2_ok" style="width: 10%;" class="pull-right" data-placeholder="Pilih Tahun" id="dragThn3">                                            
+                                  <option></option>
+                                  <?php 
+                                    foreach($tampil_tahun as $row1){
+                                  ?>  
+                                      <option><?php echo $row1->tahun; ?></option> 
+                                  <?php
+                                    }
+                                  ?>   
+                                  </select>
+                    </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -69,6 +82,7 @@
                           <td>
                             <b><?php echo $row->judul_luaran; ?></b><br>
                             Jenis Luaran :&nbsp;<span class="font_color_blue"><b><?php echo $row->jenis_luaran; ?></b></span><br>
+                            <b hidden><?php echo $row->tahun_pelaksanaan;?></b><br>
                           </td>
                           <td>                           
                           <?php echo $row->deskripsi; ?>

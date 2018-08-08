@@ -7,10 +7,21 @@
                     <p ><?php echo $this->session->flashdata('notification')?></p>                                           
                       <h4 class="">Publikasi Jurnal</h4>
                       <div class=" hidden-xs hidden-sm col-md-12">
+                  Urutkan:
                       <button class="btn btn-default btn-sm" id="reset">Reset</button>
                       <button class="btn btn-default btn-sm" id="dragId1">Jurnal Internasional</button>
                       <button class="btn btn-default btn-sm" id="dragId2">Jurnal Nasional Terakreditasi</button>
-                      <button class="btn btn-default btn-sm" id="dragId3">Jurnal Nasional Tidak Terakreditasi (Mempunyai ISSN)</button>
+                      <button class="btn btn-default btn-sm" id="dragId3">Jurnal Nasional Tidak Terakreditasi (Mempunyai ISSN)</button> —&nbsp;
+                                  <select class="form-control select2_ok" style="width: 10%; height:10px;" class="pull-right" data-placeholder="Pilih Tahun" id="dragThn1">                                            
+                                  <option></option>
+                                  <?php 
+                                    foreach($tampil_tahun as $row1){
+                                  ?>  
+                                      <option><?php echo $row1->tahun; ?></option> 
+                                  <?php
+                                    }
+                                  ?>   
+                                  </select>
                       </div>
                     <div class="clearfix"></div>
                   </div>
@@ -41,8 +52,9 @@
                         <tr>
                           <td><?php echo $no++ ?></td>
                           <td>
-                              <b><?php echo $row->judul; ?></b>
+                              <b><?php echo $row->judul; ?></b><br>
                               <b hidden><?php echo $row->cakupan_publikasi;?></b><br>
+                              <b hidden><?php echo $row->tahun_penerbitan;?></b><br>
                           </td>
                           <td>
                             <ul class="titiknya">

@@ -75,7 +75,7 @@
                                     <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
                                     Ukuran file  maksimum 5 MB
                                     </div>
-                                </div>                                
+                                </div> 
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">

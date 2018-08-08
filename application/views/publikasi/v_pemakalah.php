@@ -5,11 +5,24 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>  
-                      <h4 class="">Pemakalah Forum Ilmiah</h4>          
+                      <h4 class="">Pemakalah Forum Ilmiah</h4>   
+                      <div class=" hidden-xs hidden-sm col-md-12">
+                      Urutkan:        
                       <button class="btn btn-default btn-sm" id="reset2">Reset</button>
                       <button class="btn btn-default btn-sm" id="dragId4">Tingkat Internasional</button>
                       <button class="btn btn-default btn-sm" id="dragId5">Tingkat Nasional</button>
-                      <button class="btn btn-default btn-sm" id="dragId6">Regional</button>          
+                      <button class="btn btn-default btn-sm" id="dragId6">Regional</button>    —&nbsp;    
+                      <select class="form-control select2_ok" style="width: 10%;" class="pull-right" data-placeholder="Pilih Tahun" id="dragThn2">                                            
+                                  <option></option>
+                                  <?php 
+                                    foreach($tampil_tahun as $row1){
+                                  ?>  
+                                      <option><?php echo $row1->tahun; ?></option> 
+                                  <?php
+                                    }
+                                  ?>   
+                                  </select>  
+                      </div> 
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -74,6 +87,7 @@
                           <td>
                             <b><?php echo $row->judul_makalah; ?></b><br>
                             Forum :&nbsp;<span class="font_color_blue"><?php echo $row->nama_forum; ?></span><br>
+                                 <b hidden><?php echo $row->tahun_pelaksanaan;?></b><br>
                           </td>
                           <td>                           
                             Institusi  :&nbsp;<span class="font_color_blue"><b><?php echo $row->institusi_penyelenggara; ?></b></span><br>

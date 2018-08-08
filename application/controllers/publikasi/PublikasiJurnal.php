@@ -15,12 +15,11 @@ class PublikasiJurnal extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_publikasi();		
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
-		$cakupan =  $this->M_dokumen->tampil_cakupan(); 
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 	
-		$dataHalaman = array( 
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
+		$dataHalaman = array(
 			'query' =>  $query,
-			'da' => $kue			
+			'da' => $kue,
+			'tampil_tahun'=> $query_tampil_tahun,	
         );
 		$datacontent = array( 
 			'da' => $kue

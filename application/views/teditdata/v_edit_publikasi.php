@@ -131,8 +131,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Dosen * </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                        
                                         <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Personil" name="pesan_penulis">                                            
-                                        <option><?php echo $rou->penulis_publikasi; ?></option>
-                                        <option value="NULL">Tidak ada</option>
+                                        <option><?php echo $rou->penulis_publikasi; ?></option>                                      
                                             <?php 
                                               foreach($tampil_dosen as $row){
                                                 if($row->author != "administrator"){
@@ -149,7 +148,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 1 </label>                                
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                        
                                         <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 1" name="pesan_penulis2">
-                                          <option><?php echo $rou->penulis_anggota1; ?></option>
+                                          <option><?php echo $rou->penulis_anggota1; ?></option>                                              
                                             <?php 
                                               foreach($tampil_dosen as $row){
                                                 if($row->author != "administrator"){
@@ -166,7 +165,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Anggota 2 </label>                                  
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                        
                                         <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Anggota 2" name="pesan_penulis3">                                            
-                                        <option><?php echo $rou->penulis_anggota2; ?></option>
+                                        <option><?php echo $rou->penulis_anggota2; ?></option>                                                                                
                                         <?php 
                                               foreach($tampil_dosen as $row){
                                                 if($row->author != "administrator"){

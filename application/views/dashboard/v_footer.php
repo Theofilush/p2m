@@ -27,7 +27,10 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
   <script>
-    $('.select2_ok').select2();
+    $('.select2_ok').select2({
+      placeholder: 'Your NULL value caption',
+      allowClear: true  
+    });
     $('#kalenderku1').datepicker({
       autoclose: true,
       format: "yyyy-mm-dd",
@@ -46,17 +49,7 @@
             return false;
         }
     }
-    $(document).ready(function(){
-      $("#show-pnotify").on('click', function() {       
-        new PNotify({
-          title: 'Terjadi Kesalahan !',
-          text: 'Berkas Pendukung belum diunggah !',
-          type: 'error',
-          delay: 5000,
-          styling: 'bootstrap3'
-        });  
-      });
-    });
+ 
     function cek_nidn(){
         //$("#pesan_username").hide();
         var nidn1 = $("#penulis").val();       

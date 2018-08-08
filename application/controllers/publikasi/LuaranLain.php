@@ -14,11 +14,13 @@ class LuaranLain extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_luaran();		
+		$query = $this->M_dokumen->listAll_luaran();	
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		
 		$dataHalaman = array( 
 		  'query'  =>$query,
-		  'da' => $kue
+		  'da' => $kue,
+		  'tampil_tahun'=> $query_tampil_tahun,	
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

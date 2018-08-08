@@ -15,9 +15,12 @@ class Pemakalah extends CI_Controller {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_pemakalah();
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
+
 		$dataHalaman = array(  
 		  'query' =>$query,
-		  'da' => $kue
+		  'da' => $kue,
+		  'tampil_tahun'=> $query_tampil_tahun,	
         );
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_pemakalah');
