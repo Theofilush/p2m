@@ -27,8 +27,7 @@ class LuaranLain extends CI_Controller {
 		$this->load->view('publikasi/v_luaran_lain');
 		$this->load->view('dashboard/v_footer');
 	}
-	public function editdok($id) 
-	{ 
+	public function editdok($id){ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listEdit_luaran($id);		
@@ -84,6 +83,10 @@ class LuaranLain extends CI_Controller {
         }
 	} 
 	public function deletedok($id){
+		$this->db->where('id_luaran', $id);
+        $query = $this->db->get('t_luaran_lain');
+        $row = $query->row();
+        unlink("./fileupload/luaranlain/$row->file");
 		$this->M_dokumen->deleteDok_luaran($id);
 		redirect('publikasi/LuaranLain');
 	}
@@ -97,7 +100,7 @@ class LuaranLain extends CI_Controller {
 		  redirect("publikasi/LuaranLain");
 		}
 	 } 
-	 public function tolakvalidasi($id){            
+	public function tolakvalidasi($id){
 		$query= $this->M_dokumen->toval_luaran($id);        
 		if ($query) {
 		  redirect("publikasi/LuaranLain");
@@ -106,7 +109,7 @@ class LuaranLain extends CI_Controller {
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
 		  redirect("publikasi/LuaranLain");
 		}
-	 } 
+	} 
 	 public function uploaddok(){     
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/luaranlain/';

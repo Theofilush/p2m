@@ -89,6 +89,10 @@ class PenelitianDanaUPJ extends CI_Controller {
 		}
 	}
 	public function deletedok($id){
+		$this->db->where('kode_penelitan', $id);
+        $query = $this->db->get('t_dana_upj');
+        $row = $query->row();
+        unlink("./fileupload/penelitian_upj/$row->file");
 		$this->M_dokumen->deleteDok_dana_upj($id);
 		redirect('penelitian/PenelitianDanaUPJ');
 	} 

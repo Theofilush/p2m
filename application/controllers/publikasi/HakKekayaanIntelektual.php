@@ -27,8 +27,7 @@ class HakKekayaanIntelektual extends CI_Controller {
 		$this->load->view('publikasi/v_hki');
 		$this->load->view('dashboard/v_footer');
 	}
-	public function editdok($id) 
-	{ 
+	public function editdok($id){
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listEdit_hki($id);		
@@ -90,6 +89,10 @@ class HakKekayaanIntelektual extends CI_Controller {
         }
 	}
 	public function deletedok($id){
+		$this->db->where('id_hki', $id);
+        $query = $this->db->get('t_hki');
+        $row = $query->row();
+        unlink("./fileupload/hki/$row->file");
 		$this->M_dokumen->deleteDok_hki($id);
 		redirect('publikasi/HakKekayaanIntelektual');
 	} 

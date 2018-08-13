@@ -131,7 +131,7 @@
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->penulis_publikasi || ($bubi ==  $row->penulis_anggota1) || ($bubi ==  $row->penulis_anggota2))){
                             ?>                                
-                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/editdok/<?php echo $row->id_publikasi; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/editdok/<?php echo $row->id_publikasi; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>                              
                               <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                             <?php
                             }

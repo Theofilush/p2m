@@ -99,6 +99,10 @@ class Pemakalah extends CI_Controller {
         }
 	} 
 	public function deletedok($id){
+		$this->db->where('id_perumi', $id);
+        $query = $this->db->get('t_forum_ilmiah');
+        $row = $query->row();
+        unlink("./fileupload/pemakalah/$row->file");
 		$this->M_dokumen->deleteDok_pemakalah($id);
 		redirect('publikasi/Pemakalah');
 	}

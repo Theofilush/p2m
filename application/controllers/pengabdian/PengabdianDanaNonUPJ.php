@@ -83,7 +83,11 @@ class PengabdianDanaNonUPJ extends CI_Controller {
           }
         }
 	} 
-	public function deletedok($id){		
+	public function deletedok($id){	
+		$this->db->where('kode_penelitian', $id);
+        $query = $this->db->get('t_dana_non2_upj');
+        $row = $query->row();
+        unlink("./fileupload/pengabdian_non_upj/$row->file");	
 		$this->M_dokumen->deleteDok_dana_non2_upj($id);
 		redirect('pengabdian/PengabdianDanaNonUPJ');
 	}
