@@ -25,7 +25,18 @@
     <script src="<?php echo base_url() ?>asett/plugins/iCheck/icheck.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/select2/dist/js/select2.full.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
+    <?php
+        foreach($tampil_prodi as $dat){            
+            $kd[] = $dat->kode_prodi;            
+        }
+      ?>
+      <?php
+        foreach($tampil_prodi as $dat){            
+            $aaaa[] = $dat->kode_prodi;            
+        }
+      ?>
   <script>
     $('.select2_ok').select2({
       placeholder: 'Your NULL value caption',
@@ -142,6 +153,163 @@
             });
         }            
     }
+
+    if ($('#lineCharta').length ){			
+      var ctx = document.getElementById("lineCharta");
+      var lineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: <?php echo json_encode($kd);?>,
+        datasets: [{
+          label: "Penelitian",
+          backgroundColor: "rgba(38, 185, 154, 0.31)",
+          borderColor: "rgba(38, 185, 154, 0.7)",
+          pointBorderColor: "rgba(38, 185, 154, 0.7)",
+          pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointBorderWidth: 1,
+          data: [31, 74, 6, 39, 20, 85, 70]
+        }, {
+          label: "Pengabdian",
+          backgroundColor: "rgba(3, 88, 106, 0.3)",
+          borderColor: "rgba(3, 88, 106, 0.70)",
+          pointBorderColor: "rgba(3, 88, 106, 0.70)",
+          pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(151,187,205,1)",
+          pointBorderWidth: 1,
+          data: [82, 23, 66, 9, 99, 4, 2]
+        },  {
+          label: "Publikasi",    
+          backgroundColor: "rgba(106, 59, 2, 0.3)",
+          borderColor: "rgba(106, 59, 2, 0.70)",
+          pointBorderColor: "rgba(106, 59, 2, 0.70)",
+          pointBackgroundColor: "rgba(106, 59, 2, 0.70)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(151,187,205,1)",
+          pointBorderWidth: 1,      
+          data: [30, 14, 7, 70, 6, 7, 50]
+        }]
+      },
+					options: {
+						legend: {
+							display: true
+						}
+					}
+      });
+  
+    }
+    if ($('#mybarCharta').length ){ 			  
+			  var ctx = document.getElementById("mybarCharta");
+			  var mybarChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+				  labels: <?php echo json_encode($kd);?>,
+				  datasets: [{
+					label: '# of Votes',
+					backgroundColor: "#26B99A",
+					data: [51, 30, 40, 28, 92, 50, 45]
+				  }]
+				},
+
+				options: {
+				  scales: {
+					yAxes: [{
+					  ticks: {
+						beginAtZero: true
+					  }
+					}]
+				  }
+				}
+			  });			  
+      } 
+      
+      if ($('#mybarChartb').length ){ 			  
+			  var ctx = document.getElementById("mybarChartb");
+			  var mybarChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+				  labels: <?php echo json_encode($kd);?>,
+				  datasets: [{
+            label: 'pengetesan',
+            backgroundColor: "#26B99A",
+            data: [51, 30, 40, 28, 92, 50, 45,2,2,2]
+				  }]
+				},
+        options:{
+          scales:{
+              xAxes: [{
+                  display: true //this will remove all the x-axis grid lines
+              }]
+         },
+          legend: {
+            display: false
+          }				  
+        }
+			  });			  
+      } 
+      if ($('#mybarChartc').length ){ 			  
+			  var ctx = document.getElementById("mybarChartc");        
+			  var mybarChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+				  labels: <?php echo json_encode($kd);?>,
+				  datasets: [{
+					label: '# of Votes',
+					backgroundColor: "#26B99A",
+					data: [51, 30, 40, 28, 92, 50, 45]
+				  }]
+				},
+
+				options: {
+				  scales: {
+					yAxes: [{
+					  ticks: {
+						beginAtZero: true
+					  }
+					}]
+				  }
+				}
+			  });			  
+      }
+      
+      if ($('#canvasDoughnuta').length ){ 			  
+        var ctx = document.getElementById("canvasDoughnuta");
+        //Chart.defaults.global.legend.position = 'left';
+        //Chart.defaults.global.legend.position = "left";
+			  var datap = {
+          labels: ["Dark Grey","Purple Color","Gray Color","Green Color","Blue Color"],
+          datasets: [{
+            data: [120, 50, 140, 180, 100],
+            backgroundColor: [
+            "#455C73",
+            "#9B59B6",
+            "#BDC3C7",
+            "#26B99A",
+            "#3498DB"
+            ],
+            hoverBackgroundColor: [
+            "#34495E",
+            "#B370CF",
+            "#CFD4D8",
+            "#36CAAB",
+            "#49A9EA"
+            ]
+          }]
+        };
+			  var canvasDoughnut = new Chart(ctx, {
+          type: 'doughnut',
+          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+          data: datap,
+          options: {
+            legend: {
+              display: true
+            }
+				  }
+			  });
+        
+			}  
   </script>
   </body>
 </html>

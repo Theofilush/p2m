@@ -22,7 +22,18 @@ class M_login extends CI_Model{
                 $this->db->order_by('id_program', 'ASC');
                 $query = $this->db->get('program_studi');        
                 return $query->result();
-	}
+	}	
+	function get_prodi(){
+		 //   $query = $this->db->query("SELECT merk,SUM(stok) AS stok FROM barang GROUP BY merk");
+		$this->db->order_by('id_program', 'ASC');
+                $query = $this->db->get('program_studi');     
+		if($query->num_rows() > 0){
+			foreach($query->result() as $data){
+		    		$hasil[] = $data;
+			}
+		return $hasil;
+	    	}
+	}	 
         function cek_nidn($nidn){     
                 $this->db->where("NIDN", $nidn);		
 		$query = $this->db->get("t_login");
