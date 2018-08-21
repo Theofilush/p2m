@@ -392,5 +392,46 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_luaran',$id);
         return $this->db->update($this->luaran_lain);
     }
+    //menghitung total 1 tabel pada publikasi untuk digabungka ke grafik
+    function hitung_publikasi(){
+        $this->db->select('prodi,COUNT(*) as total_jurnal');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->publikasi_jurnal, 't_login.username = t_publikasi_jurnal.penulis_publikasi','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();
+    }
+    function hitung_pemakalah(){
+        $this->db->select('prodi,COUNT(*) as total_makalah');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->forum_ilmiah, 't_login.username = t_forum_ilmiah.nama_dosen','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();        
+    }
+    function hitung_buku(){
+        $this->db->select('prodi,COUNT(*) as total_buku');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->buku_ajar, 't_login.username = t_buku_ajar.nama_dosen','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_hki(){
+        $this->db->select('prodi,COUNT(*) as total_hki');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->hki, 't_login.username = t_hki.nama_dosen','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();
+    }
+    function hitung_luaran(){
+        $this->db->select('prodi,COUNT(*) as total_luaran');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->luaran_lain, 't_login.username = t_luaran_lain.nama_dosen','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
 }
 ?>

@@ -31,7 +31,18 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Welcome, <?php echo  $profile;?> </h2>
-                    <h4 class="pull-right"><?php echo tanggal();?></h4>
+                    <h4 class="pull-right"><?php echo tanggal();?></h4><br><br>
+                  <?php 
+                  foreach($total as $row){
+                    ?>
+                    <h5><?php echo $row; ?></h5>
+                     <?php 
+                    } foreach($jumlah_publikasi as $rowa){
+                      ?>
+                      <h5><?php echo $rowa->prodi; ?></h5>
+                      <?php
+                    }
+                     ?>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -51,7 +62,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Penelitian<small>Sessions</small></h2>
+                    <h2>Data Penelitian </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -77,7 +88,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Pengabdian<small>Sessions</small></h2>
+                    <h2>Data Pengabdian </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -103,7 +114,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Publikasi<small>Sessions</small></h2>
+                    <h2>Data Publikasi </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -129,7 +140,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Top 5 Prodi<small>Sessions</small></h2>
+                    <h2>Top 5 Prodi </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
