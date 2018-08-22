@@ -4,22 +4,22 @@
           <div class="row tile_count" style="margin-bottom:0;text-align:center;">
           <div>
             <div class="col-md-offset-2  col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+              <span class="count_top"><i class="fa fa-user"></i> Total Penelitian</span>
               <div class="count">2500</div>
               <span class="count_bottom"><i class="green">4% </i> From last Week</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
+              <span class="count_top"><i class="fa fa-clock-o"></i> Total Pengabdian</span>
               <div class="count">123.50</div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
+              <span class="count_top"><i class="fa fa-user"></i> Total Publikasi</span>
               <div class="count green">2,500</div>
               <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
+              <span class="count_top"><i class="fa fa-user"></i> Total Dosen</span>
               <div class="count">4,567</div>
               <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
             </div>
@@ -31,25 +31,14 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Welcome, <?php echo  $profile;?> </h2>
-                    <h4 class="pull-right"><?php echo tanggal();?></h4><br><br>
-                  <?php 
-                  foreach($total as $row){
-                    ?>
-                    <h5><?php echo $row; ?></h5>
-                     <?php 
-                    } foreach($jumlah_publikasi as $rowa){
-                      ?>
-                      <h5><?php echo $rowa->prodi; ?></h5>
-                      <?php
-                    }
-                     ?>
+                    <h4 class="pull-right"><?php echo tanggal();?></h4>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                       <h4>Please don't forget to logout after finish your work. Thanks... :)</h4>
                     </div>
-                    <div class"row">
+                    <div class="row">
                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                       <canvas id="lineCharta"  width="300" height="100"></canvas>
                       </div>

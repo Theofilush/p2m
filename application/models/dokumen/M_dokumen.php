@@ -433,5 +433,59 @@ class M_dokumen extends CI_Model{
         $this->db->order_by('prodi', 'ASC'); 
         return $this->db->get()->result();   
     }
+    //menghitung total 1 tabel pada PENELITIAN DAN PENGABDIAN untuk digabungka ke grafik
+    function hitung_dana_upj(){
+        $this->db->select('prodi,COUNT(*) as total_penelitian');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_upj, 't_login.username = t_dana_upj.kode_penelitan','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_dana_non_upj(){
+        $this->db->select('prodi,COUNT(*) as total_penelitian_non');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_non_upj, 't_login.username = t_dana_non_upj.kode_penelitian','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_dana2_upj(){
+        $this->db->select('prodi,COUNT(*) as total_pengabdian');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana2_upj, 't_login.username =  t_dana2_upj.ketua_peneliti','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_dana_non2_upj(){
+        $this->db->select('prodi,COUNT(*) as total_pengabdian_non');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_non2_upj, 't_login.username = t_dana_non2_upj.ketua_peneliti','RIGHT');
+        $this->db->group_by('prodi'); 
+        $this->db->order_by('prodi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    
+    function update_jumlah($data,$id){
+        $this->db->where('no',$id);
+        return $this->db->update('t_total_semua',$data);
+    }
+    function tampil_top_5(){ //query untuk menampilkan tabel t_total_semua(untuk menampung var top 5)
+        $this->db->order_by('jumlah', 'DESC');
+        $this->db->limit(5);
+        $query = $this->db->get('t_total_Semua'); 
+        return $query->result();
+    }
+    function tampil_jumlah_top_5(){ //query untuk menampilkan total penjumlahan dari 5 teratas
+        $this->db->select('SUM(jumlah) as creditTotal');
+        //$this->db->order_by('jumlah', 'DESC');
+        //$this->db->limit(5);
+        //$this->db->where('no BETWEEN 1 AND 5');
+        $this->db->from('(SELECT jumlah FROM `t_total_semua` ORDER BY jumlah DESC LIMIT 5) AS subo');
+        $query = $this->db->get(); 
+        return $query->result();
+    }
+   
 }
 ?>

@@ -28,13 +28,15 @@
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
     <?php
-        foreach($tampil_prodi as $dat){            
+        foreach($tampil_prodi as $dat){   //menambpilkan kode prodi pada grafil 2, 3, dan 4         
             $kd[] = $dat->kode_prodi;            
         }
-      ?>
-      <?php
         foreach($tampil_tahun as $dat){            
             $thn[] = $dat->tahun;            
+        }
+        foreach($top_five as $rowb){ //menampilkan jumlah dan nama prodi dari 5 teratas
+            $top5[] =  $rowb->jumlah;
+            $top5prodi[] = $rowb->prodi;
         }
       ?>
   <script>
@@ -217,7 +219,10 @@
 						beginAtZero: true
 					  }
 					}]
-				  }
+				  },
+          legend: {
+            display: false
+          }	
 				}
 			  });			  
       } 
@@ -253,9 +258,9 @@
 				data: {
 				  labels: <?php echo json_encode($kd);?>,
 				  datasets: [{
-					label: '# of Votes',
-					backgroundColor: "#26B99A",
-					data: [51, 30, 40, 28, 92, 50, 45]
+            label: '# of Votes',
+            backgroundColor: "#26B99A",
+            data: [51, 30, 40, 28, 92, 50, 45]
 				  }]
 				},
 
@@ -266,7 +271,10 @@
 						beginAtZero: true
 					  }
 					}]
-				  }
+				  },
+          legend: {
+            display: false
+          }
 				}
 			  });			  
       }
@@ -276,9 +284,9 @@
         //Chart.defaults.global.legend.position = 'left';
         //Chart.defaults.global.legend.position = "left";
 			  var datap = {
-          labels: ["Akuntansi","Manajemen","Hukum","Ekonomi","Sosial"],
+          labels: <?php echo json_encode($top5prodi);?>,
           datasets: [{
-            data: [150, 120, 110, 105, 90],
+            data: <?php echo json_encode($top5);?>,
             backgroundColor: [
             "#455C73",
             "#9B59B6",
@@ -302,6 +310,15 @@
           options: {
             legend: {
               display: true
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var label = data.labels[tooltipItem.index];
+                  var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                   return label + ':' + val + ' (' + (val /<?php foreach($jumba as $rowa){echo $rowa->creditTotal;} ?> * 100).toFixed(2) + '%)';
+                }
+              }
             }
 				  }
 			  });

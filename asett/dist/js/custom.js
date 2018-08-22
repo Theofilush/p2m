@@ -2023,7 +2023,8 @@ if (typeof NProgress != 'undefined') {
 					'columnDefs': [			            
 									{ width: '2%', targets: 0 },			           
 									{ width: '17%', targets: 1 }
-			        ]
+							],
+					'iDisplayLength': 100
 				});
 				var table1 = $('#datatable-responsive').DataTable({
 					'columnDefs': [			            
