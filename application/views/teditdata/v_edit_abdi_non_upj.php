@@ -22,7 +22,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="x_content">
-                                <br />
+                                <br/>
                                 <?php
                                     $atribut = array(
                                             'class' => 'form-horizontal form-label-left',

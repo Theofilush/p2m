@@ -28,8 +28,14 @@
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
     <?php
+        foreach ($g1abdi as $data) {
+          $g1abd[] = $data;
+        }
+        foreach ($g1liti as $data2) { 
+          $g1lit[] = $data2;
+        }
         foreach($tampil_prodi as $dat){   //menambpilkan kode prodi pada grafil 2, 3, dan 4         
-            $kd[] = $dat->kode_prodi;            
+            $kd[] = $dat->kode_prodi;
         }
         foreach($tampil_tahun as $dat){            
             $thn[] = $dat->tahun;            
@@ -37,6 +43,15 @@
         foreach($top_five as $rowb){ //menampilkan jumlah dan nama prodi dari 5 teratas
             $top5[] =  $rowb->jumlah;
             $top5prodi[] = $rowb->prodi;
+        }
+        foreach($total_publikasi as $rowc){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_jurnal[] = $rowc;
+        }
+        foreach($total_penelitian as $rowd){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_penelitiana[] = $rowd;
+        }
+        foreach($total_pengabdiana as $rowe){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_pengabdianaa[] = $rowe;
         }
       ?>
   <script>
@@ -169,7 +184,7 @@
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(220,220,220,1)",
           pointBorderWidth: 1,
-          data: [31, 34, 36, 39, 35, 42, 30]
+          data: <?php echo json_encode($g1lit);?>
         }, {
           label: "Pengabdian",
           backgroundColor: "rgba(3, 88, 106, 0.3)",
@@ -179,7 +194,7 @@
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(151,187,205,1)",
           pointBorderWidth: 1,
-          data: [2, 12, 16, 29, 30, 34, 42]
+          data: <?php echo json_encode($g1abd);?>
         },  {
           label: "Publikasi",    
           backgroundColor: "rgba(106, 59, 2, 0.3)",
@@ -189,10 +204,17 @@
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(151,187,205,1)",
           pointBorderWidth: 1,      
-          data: [10, 14, 27, 30, 36, 47, 50]
+          data: <?php echo json_encode($g1publi);?>
         }]
       },
 					options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
 						legend: {
 							display: true
 						}
@@ -206,9 +228,9 @@
 				data: {
 				  labels: <?php echo json_encode($kd);?>,
 				  datasets: [{
-					label: '# of Votes',
+					label: 'Jumlah ',
 					backgroundColor: "#26B99A",
-					data: [51, 30, 40, 28, 92, 50, 45]
+					data: <?php echo json_encode($total_penelitiana);?>
 				  }]
 				},
 
@@ -234,15 +256,20 @@
 				data: {
 				  labels: <?php echo json_encode($kd);?>,
 				  datasets: [{
-            label: 'pengetesan',
+            label: 'Jumlah ',
             backgroundColor: "#26B99A",
-            data: [51, 30, 40, 28, 92, 50, 45,2,2,2]
+            data: <?php echo json_encode($total_pengabdianaa);?>
 				  }]
 				},
         options:{
           scales:{
               xAxes: [{
                   display: true //this will remove all the x-axis grid lines
+              }],
+              yAxes: [{
+                ticks: {
+                beginAtZero: true
+                }
               }]
          },
           legend: {
@@ -258,9 +285,9 @@
 				data: {
 				  labels: <?php echo json_encode($kd);?>,
 				  datasets: [{
-            label: '# of Votes',
+            label: 'Jumlah  ',
             backgroundColor: "#26B99A",
-            data: [51, 30, 40, 28, 92, 50, 45]
+            data: <?php echo json_encode($total_jurnal);?>
 				  }]
 				},
 

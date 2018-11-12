@@ -4298,3 +4298,9 @@ a.link_url:hover{
     margin-bottom: 0;
     text-align: left;
 }
+.tile-stats .hoverku{
+    color: #73879C;
+}
+.tile-stats .hoverku:hover{
+    color: #000;
+}

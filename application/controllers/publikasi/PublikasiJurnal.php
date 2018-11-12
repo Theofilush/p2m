@@ -28,7 +28,7 @@ class PublikasiJurnal extends CI_Controller {
 		$this->load->view('publikasi/v_publikasi',$datacontent);
 		$this->load->view('dashboard/v_footer');
 	}
-	public function editdok($id) 
+	public function editdok($id)
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 

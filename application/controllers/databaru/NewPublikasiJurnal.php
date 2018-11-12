@@ -43,7 +43,7 @@ class NewPublikasiJurnal extends CI_Controller {
 
 			if(($_anggota1 === "") && ($_anggota2 !== "")){
 				$_anggota1 =$_anggota2;
-				$_anggota2= NULL;
+				$_anggota2= NULL; 
 			}elseif($_anggota1 == ""){
 				$_anggota1 = NULL;
 			}

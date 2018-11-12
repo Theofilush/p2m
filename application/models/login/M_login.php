@@ -25,7 +25,8 @@ class M_login extends CI_Model{
 	}	
 	function get_prodi(){
 		 //   $query = $this->db->query("SELECT merk,SUM(stok) AS stok FROM barang GROUP BY merk");
-		$this->db->order_by('id_program', 'ASC');
+		//$this->db->order_by('id_program', 'ASC');
+		$this->db->order_by('program_studi', 'ASC');
                 $query = $this->db->get('program_studi');     
 		if($query->num_rows() > 0){
 			foreach($query->result() as $data){

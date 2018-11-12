@@ -9,6 +9,7 @@ class Dashboard extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			redirect(site_url("login"));
 		} 
+		$this->load->model('dokumen/M_chart');		
 	}
 	public function index()
 	{
@@ -16,6 +17,51 @@ class Dashboard extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan); 
 		$tampil_prodi = $this->M_login->get_prodi();
 		$tampil_tahun = $this->M_dokumen->tampil_tahun();
+		//menghitung keseluruhan data pengabdian dan dimasukan ke total publikasi di halaman dashboard paling atas
+		$raise_abdi=$this->db->count_all('t_dana2_upj');
+		$raise_abdinon=$this->db->count_all('t_dana_non2_upj');
+	$jml_raise_abdi = $raise_abdi +$raise_abdinon;
+		$raise_liti=$this->db->count_all('t_dana_upj');
+		$raise_litinon=$this->db->count_all('t_dana_non_upj');
+	$jml_raise_liti = $raise_liti +$raise_litinon;
+		$raise_jurnal=$this->db->count_all('t_publikasi_jurnal');
+		$raise_buku=$this->db->count_all('t_buku_ajar');
+		$raise_forum=$this->db->count_all('t_forum_ilmiah');
+		$raise_hki=$this->db->count_all('t_hki');
+		$raise_luaran=$this->db->count_all('t_luaran_lain');
+	$jml_raise_publi = $raise_jurnal + $raise_buku + $raise_forum + $raise_hki + $raise_luaran;
+
+		//untuk membuat perhitungan dan membuat garis line pada dashboard grafik 1
+		$hitung_dana2_upj_tahun = $this->M_chart->hitung_dana2_upj_tahun();
+		$hitung_dana_non2_upj_tahun = $this->M_chart->hitung_dana_non2_upj_tahun();
+		$hitung_dana_upj_tahun = $this->M_chart->hitung_dana_upj_tahun();
+		$hitung_dana_non_upj_tahun = $this->M_chart->hitung_dana_non_upj_tahun();
+		$hitung_jurnal_tahun = $this->M_chart->hitung_jurnal_tahun();
+		$hitung_buku_tahun = $this->M_chart->hitung_buku_tahun();
+		$hitung_prosiding_tahun = $this->M_chart->hitung_prosiding_tahun();
+		$hitung_hki_tahun = $this->M_chart->hitung_hki_tahun();
+		$hitung_luaran_tahun = $this->M_chart->hitung_luaran_tahun();
+		
+		foreach($hitung_dana2_upj_tahun as $row){ $yurika1[] =$row->ttl_thn_abdi;} 
+		foreach($hitung_dana_non2_upj_tahun as $row){ $yurika2[] =$row->ttl_thn_nonabdi;} 
+		foreach($hitung_dana_upj_tahun as $row){ $yurika3[] =$row->ttl_thn_liti;} 
+		foreach($hitung_dana_non_upj_tahun as $row){ $yurika4[] =$row->ttl_thn_nonliti;}
+ 
+		foreach($hitung_jurnal_tahun as $row){ $yurika5[] =$row->ttl_thn_jurnal;} 
+		foreach($hitung_buku_tahun as $row){ $yurika6[] =$row->ttl_thn_buku;} 
+		foreach($hitung_prosiding_tahun as $row){ $yurika7[] =$row->ttl_thn_prosiding;} 
+		foreach($hitung_hki_tahun as $row){ $yurika8[] =$row->ttl_thn_hki;} 
+		foreach($hitung_luaran_tahun as $row){ $yurika9[] =$row->ttl_thn_luaran;} 
+		
+		$cek = $this->db->count_all('tahun');
+		for ($i=0; $i < $cek ; $i++) { 
+			$g1abdi[$i] = $yurika1[$i] +$yurika2[$i];
+			$g1liti[$i] = $yurika3[$i] +$yurika4[$i];
+			$g1publi[$i] = $yurika5[$i] +$yurika6[$i] +$yurika7[$i] +$yurika8[$i] +$yurika9[$i];
+		}
+
+
+
 		$jumlah_publikasi = $this->M_dokumen->hitung_publikasi();
 		$jumlah_pemakalah = $this->M_dokumen->hitung_pemakalah();
 		$jumlah_buku = $this->M_dokumen->hitung_buku();
@@ -26,33 +72,17 @@ class Dashboard extends CI_Controller {
 		$jumlah_pengabdian = $this->M_dokumen->hitung_dana2_upj();
 		$jumlah_pengabdian_non = $this->M_dokumen->hitung_dana_non2_upj();
 
-		foreach($jumlah_publikasi as $row){
-			$john1[] =$row->total_jurnal;	
-		}
-		foreach($jumlah_pemakalah as $row){
-			$john2[] =$row->total_makalah;
-		}	
-		foreach($jumlah_buku as $row){
-			$john3[] =$row->total_buku;		
-		}	
-		foreach($jumlah_hki as $row){
-			$john4[] =$row->total_hki;		
-		}	
-		foreach($jumlah_luaran as $row){
-			$john5[] =$row->total_luaran;		
-		}
-		foreach($jumlah_penelitian as $row){
-			$cena1[] =$row->total_penelitian;		
-		}
-		foreach($jumlah_penelitian_non as $row){
-			$cena2[] =$row->total_penelitian_non;		
-		}
-		foreach($jumlah_pengabdian as $row){
-			$cena3[] =$row->total_pengabdian;		
-		}
-		foreach($jumlah_pengabdian_non as $row){
-			$cena4[] =$row->total_pengabdian_non;		
-		}
+
+
+		foreach($jumlah_publikasi as $row){ $john1[] =$row->total_jurnal;}
+		foreach($jumlah_pemakalah as $row){ $john2[] =$row->total_makalah;}
+		foreach($jumlah_buku as $row){ $john3[] =$row->total_buku;}	
+		foreach($jumlah_hki as $row){ $john4[] =$row->total_hki;}	
+		foreach($jumlah_luaran as $row){ $john5[] =$row->total_luaran;}
+		foreach($jumlah_penelitian as $row){ $cena1[] =$row->total_penelitian;}
+		foreach($jumlah_penelitian_non as $row){ $cena2[] =$row->total_penelitian_non;} 
+		foreach($jumlah_pengabdian as $row){ $cena3[] =$row->total_pengabdian;}
+		foreach($jumlah_pengabdian_non as $row){$cena4[] =$row->total_pengabdian_non;}
 
 		for($i=0;$i<=9;$i++){
 			if (empty($john1[$i])) {$john1[$i]=0;}
@@ -64,10 +94,13 @@ class Dashboard extends CI_Controller {
 			if (empty($cena2[$i])) {$cena2[$i]=0;}
 			if (empty($cena3[$i])) {$cena3[$i]=0;}
 			if (empty($cena4[$i])) {$cena4[$i]=0;}
-			$total_publikasi[$i] = $john1[$i] + $john2[$i] + $john3[$i] + $john4[$i] + $john5[$i] + $cena1[$i] + $cena2[$i] + $cena3[$i] + $cena4[$i];
+			$total_semua[$i] = $john1[$i] + $john2[$i] + $john3[$i] + $john4[$i] + $john5[$i] + $cena1[$i] + $cena2[$i] + $cena3[$i] + $cena4[$i];
+			$total_publikasi[$i] = $john1[$i] + $john2[$i] + $john3[$i] + $john4[$i] + $john5[$i];
+			$total_penelitian[$i] = $cena1[$i] + $cena2[$i];
+			$total_pengabdiana[$i] = $cena3[$i] + $cena4[$i];
 		}		
 		$jo=1;
-		foreach ($total_publikasi as $reg_dat) {			
+		foreach ($total_semua as $reg_dat) {			
 			$this->M_dokumen->update_jumlah(array ('jumlah'=>$reg_dat),$jo);
 			$jo++;
 		}
@@ -79,19 +112,23 @@ class Dashboard extends CI_Controller {
 		  'da' => $kue,
 		  'tampil_prodi'=>$tampil_prodi,
 		  'tampil_tahun'=>$tampil_tahun,
-		  'jumlah_publikasi'=>$jumlah_publikasi,		  
-		  'jumlah_pemakalah'=>$jumlah_pemakalah,
-		  'jumlah_buku'=>$jumlah_buku,
-		  'jumlah_hki'=>$jumlah_hki,
-		  'jumlah_luaran'=>$jumlah_luaran,
-		  'total'=>$total_publikasi,
+		  'g1abdi'=>$g1abdi,
+		  'g1liti'=>$g1liti,
+		  'g1publi'=>$g1publi,
+		  'jml_raise_abdi'=>$jml_raise_abdi,
+		  'jml_raise_liti'=>$jml_raise_liti,
+		  'jml_raise_publi'=>$jml_raise_publi,
+		  'total'=>$total_semua,
+		  'total_publikasi'=>$total_publikasi,
+		  'total_penelitian'=>$total_penelitian,
+		  'total_pengabdiana'=>$total_pengabdiana,
 		  'top_five'=>$top_5,
 		  'jumba'=>$total_top5
         );
 		//var_dump( $total_publikasi);
-		//print("Total semua: ");print_r( $total_publikasi);     	print("<br><br>");
-		//var_dump( $total_publikasi);   print("<br><br>");
-		//print_r( $john1);		print("<br><br>");
+		//print("Total publikasi: ");print_r( $total_pengabdiana);     	print("<br><br>");
+		//print_r($g1liti);
+		//var_dump( $ttl);		print("<br><br>");
 		//print_r( $john2);     	print("<br><br>");
 		//print_r( $john3);     	print("<br><br>");
 		//print("HKI: ");print_r( $john4);     	print("<br><br>");
@@ -100,8 +137,8 @@ class Dashboard extends CI_Controller {
 		//print("penelitian-non: ");print_r( $cena2);     	print("<br><br>");
 		//print("pengabidan: ");print_r( $cena3);     	print("<br><br>");
 		//print("pengabdian-non: ");print_r( $cena4);     	print("<br><br>");
-		//$this->load->view('dashboard/v_header',$dataHalaman);
-		//$this->load->view('dashboard/v_dashboard',$dataHalaman);
-		//$this->load->view('dashboard/v_footer2');
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('dashboard/v_dashboard',$dataHalaman);
+		$this->load->view('dashboard/v_footer2');
 	}
 }

@@ -51,7 +51,7 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->hki);
         return $query->result();
     } 
-    function listAll_luaran(){
+    function listAll_luaran(){ 
         $query = $this->db->get($this->luaran_lain);
         return $query->result();
     }   
@@ -437,7 +437,7 @@ class M_dokumen extends CI_Model{
     function hitung_dana_upj(){
         $this->db->select('prodi,COUNT(*) as total_penelitian');
         $this->db->from($this->dt_login);
-        $this->db->join($this->dana_upj, 't_login.username = t_dana_upj.kode_penelitan','RIGHT');
+        $this->db->join($this->dana_upj, 't_login.username = t_dana_upj.ketua_peneliti','RIGHT');
         $this->db->group_by('prodi'); 
         $this->db->order_by('prodi', 'ASC'); 
         return $this->db->get()->result();   
@@ -445,7 +445,7 @@ class M_dokumen extends CI_Model{
     function hitung_dana_non_upj(){
         $this->db->select('prodi,COUNT(*) as total_penelitian_non');
         $this->db->from($this->dt_login);
-        $this->db->join($this->dana_non_upj, 't_login.username = t_dana_non_upj.kode_penelitian','RIGHT');
+        $this->db->join($this->dana_non_upj, 't_login.username = t_dana_non_upj.ketua_peneliti','RIGHT');
         $this->db->group_by('prodi'); 
         $this->db->order_by('prodi', 'ASC'); 
         return $this->db->get()->result();   

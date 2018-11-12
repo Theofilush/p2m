@@ -111,6 +111,8 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="<?php echo site_url('AddYear'); ?>"> <span class=" fa fa-plus"></span>
+                    Year</a></li>
                     <li><a href="<?php echo site_url('pengguna/UbahPassword'); ?>"> Ubah Password</a></li>
                     <li>
                       <a href="<?php echo site_url('tos'); ?>">                        
