@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('Anda tidak boleh mengakses file ini secara langsung'); 
 class M_login extends CI_Model{	
-
+	var $tahun = 'tahun';
     function cek_login($table,$usn){		
 		$this->db->where("email", $usn);		
 		$this->db->or_where("NIDN",$usn);
@@ -36,12 +36,16 @@ class M_login extends CI_Model{
 		return $hasil;
 	    	}
 	}	 
-        function cek_nidn($nidn){     
-                $this->db->where("NIDN", $nidn);		
+    function cek_nidn($nidn){     
+        $this->db->where("NIDN", $nidn);		
 		$query = $this->db->get("t_login");
-                return $query->result();
-        }
-
+        return $query->result();
+	}
+	
+	public function add_year($data){
+        return $this->db->insert($this->tahun, $data);
+	} 
+	
 }
 
 ?>
