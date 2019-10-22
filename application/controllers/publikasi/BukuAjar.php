@@ -151,7 +151,7 @@ class BukuAjar extends CI_Controller {
 			}			
 			$id = $this->input->post('id', TRUE);
 			$_upload = $this->upload->data('file_name');
-			$query= $this->M_dokumen->uploadDok_publikasi($_upload,$id);
+			$query= $this->M_dokumen->uploadDok_buku_ajar($_upload,$id);
 					if ($query) {
 						redirect(site_url('publikasi/BukuAjar'));
 					}

@@ -392,6 +392,11 @@ class M_dokumen extends CI_Model{
         $this->db->where('id_luaran',$id);
         return $this->db->update($this->luaran_lain);
     }
+    function uploadDok_buku_ajar($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('id_buku_ajar',$id);
+        return $this->db->update($this->buku_ajar);
+    }
     //menghitung total 1 tabel pada publikasi untuk digabungka ke grafik
     function hitung_publikasi(){
         $this->db->select('prodi,COUNT(*) as total_jurnal');
