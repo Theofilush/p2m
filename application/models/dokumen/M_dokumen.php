@@ -11,6 +11,7 @@ class M_dokumen extends CI_Model{
     var $hki= 't_hki'; 
     var $luaran_lain= 't_luaran_lain'; 
     var $dt_login= 't_login';
+    var $kemenristek= 't_dana_kemenristek';
     //tampilkan data di halaman dashboard
     function listAll_publikasi(){
         $query = $this->db->get($this->publikasi_jurnal);
@@ -37,6 +38,10 @@ class M_dokumen extends CI_Model{
     } 
     function listAll_dana_upj(){
         $query = $this->db->get($this->dana_upj);
+        return $query->result();
+    } 
+    function listAll_kemenristek(){
+        $query = $this->db->get($this->kemenristek);
         return $query->result();
     } 
     function listAll_dana_non2_upj(){

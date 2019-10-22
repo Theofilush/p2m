@@ -6,7 +6,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>  
-                      <h4 class="">Penelitian Sumber Dana Universitas Pembangunan Jaya</h4>     
+                      <h4 class="">Penelitian Sumber Dana Kemenristek Dikti</h4>     
                       <div class=" hidden-xs hidden-sm col-md-12">
                       Urutkan :           
                       <select class="form-control select2_ok" style="width: 10%;" class="pull-right" data-placeholder="Pilih Tahun" id="dragThn6">                                            
@@ -28,12 +28,12 @@
                      if($buba == 'administrator') {
                       ?>   
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewPenelitianUPJ" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewKemenristekDikti" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                       <?php
                       }
                       ?>
-                      <a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
+                      <a href="<?php echo site_url() ?>penelitian/KemenristekDikti/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
 
                     <table id="datatableku-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
@@ -48,7 +48,6 @@
                           <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
-                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -96,7 +95,7 @@
                                 <?php
                             }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                <a href="<?php echo site_url().'fileupload/penelitian_upj/'.$row->file?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                <a href="<?php echo site_url().'fileupload/penelitian_kemenristek/'.$row->file?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                 <?php
                             }
                               }}
@@ -107,8 +106,8 @@
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
                             ?>                          
-                            <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
-                          	<a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                            <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
+                          	<a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
                             <?php
                               }}
                             ?> 
@@ -123,19 +122,17 @@
                               }
                             if($buba == 'administrator' && ($row->valid == NULL)) {
                             ?>                            
-                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+                              <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                              <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
                             <?php
                               } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
                             ?>
-                              <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                              <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                             <?php
                               }
                             ?>
                       	   </td>   
-                           <td>
-                            <b><?php echo $row->status; ?></b><br>    
-                           </td>
+                           
                         </tr>
                         <?php
                          }
@@ -157,7 +154,7 @@
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Penelitian Sumber Dana Universitas Pembangunan Jaya</h4>
+          <h4 class="modal-title" id="myModalLabel">Penelitian Sumber Dana Kemenristek Dikti</h4>
       </div>
       <div class="modal-body">
                                 <?php
@@ -166,7 +163,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open_multipart('penelitian/PenelitianDanaUPJ/uploaddok/',$atribut);
+                                        echo form_open_multipart('penelitian/KemenristekDikti/uploaddok/',$atribut);
                                         echo form_hidden('id',$rou->kode_penelitan);
                                 ?>                                                             
                                 <div class="form-group">
