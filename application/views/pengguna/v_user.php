@@ -61,6 +61,12 @@
 
 
 <?php
+} else{
+  echo '<div class="right_col" role="main">
+  <div class="row">
+  <h2>Halaman Tidak tidak ditemukan</h2>
+  </div>
+  </div>';
 }?>
 
 <?php

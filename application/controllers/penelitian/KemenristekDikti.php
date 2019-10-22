@@ -16,7 +16,7 @@ class KemenristekDikti extends CI_Controller {
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_dana_upj();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
-		$dataHalaman = array(   
+		$dataHalaman = array( 
 			'query'=>$query, 
 			'da' => $kue,
 			'tampil_tahun'=> $query_tampil_tahun,	
