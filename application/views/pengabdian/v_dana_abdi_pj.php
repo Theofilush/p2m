@@ -23,9 +23,15 @@
                   </div>
                   <div class="x_content">
                     <div class="row">
+                    <?php
+                     if($buba == 'administrator') {
+                      ?> 
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
                         <a href="<?php echo site_url() ?>databaru/NewPengabdianUPJ" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
+                      <?php
+                      }
+                      ?>
                       <a href="<?php echo site_url() ?>pengabdian/PengabdianDanaUPJ/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
            
@@ -41,6 +47,7 @@
                           <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -123,7 +130,9 @@
                             <?php
                               }
                             ?>
-                      	   </td>   
+                      	   </td>
+                           <td></td>
+
                         </tr>
                         <?php
                          }

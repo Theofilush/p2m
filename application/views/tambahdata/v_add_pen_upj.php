@@ -55,21 +55,21 @@
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">                                   
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">
-                                            <?php 
+                                            ?php 
 												foreach($tampil_skema as $skemaa){
-											?>  
-											<option><?php echo $skemaa->skema; ?></option>                      
-											<?php
+											?
+											<option>?php echo $skemaa->skema; ?</option>                      
+											?php
 												 }
-											?>
+											?
 									</select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
                                     </label>
@@ -88,13 +88,13 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Usulan</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="number" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Disetujui</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="number">
                                     </div>
                                 </div>
                                 <div class="form-group">

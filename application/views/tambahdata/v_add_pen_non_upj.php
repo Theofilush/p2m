@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Besaran Dana</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="besaran_dana" name="besaran_dana" class="form-control col-md-7 col-xs-12" type="text" required="required">
+                                    <input id="besaran_dana" name="besaran_dana" class="form-control col-md-7 col-xs-12" type="number" required="required">
                                     </div>
                                 </div> 
                                 <div class="form-group">

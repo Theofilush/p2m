@@ -62,6 +62,7 @@
 									<ul class="nav child_menu">
 										<li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ">Sumber Dana UPJ</a></li>
 										<li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaNonUPJ">Sumber Dana non-UPJ</a></li>
+										<li><a href="<?php echo site_url() ?>penelitian/KemenristekDikti">Kemenristek Dikti</a></li>
 									</ul>
 								</li>
 								<li><a><i class="fa fa-desktop"></i>Publikasi <span class="fa fa-chevron-down"></span></a>

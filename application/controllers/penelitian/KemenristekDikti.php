@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PenelitianDanaUPJ extends CI_Controller {
+class KemenristekDikti extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -51,8 +51,7 @@ class PenelitianDanaUPJ extends CI_Controller {
 		if ($this->input->post('btnUpload') == "Upload") {
 			$_tahun_kegiatan = $this->input->post('tahun_kegiatan', TRUE);
 			$_judul = $this->input->post('judul', TRUE);
-			//$_skema = $this->input->post('skema', TRUE);
-			$_status = $this->input->post('status_penelitian', TRUE);
+			$_skema = $this->input->post('skema', TRUE);				
 			$_jenis = $this->input->post('jenis', TRUE);
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
@@ -72,8 +71,7 @@ class PenelitianDanaUPJ extends CI_Controller {
 					$data = array(
 						'tahun_hibah' =>  $_tahun_kegiatan,
 						'judul_penelitian' =>  $_judul,
-						//'skema_penelitian' =>  $_skema,
-						'status' =>  $_status,
+						'skema_penelitian' =>  $_skema,
 						'jenis_penelitian' =>  $_jenis,
 						'dana_usulan' =>  $_dana_usulan,
 						'dana_disetujui' =>  $_dana_setujui,

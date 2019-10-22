@@ -24,9 +24,15 @@
                   </div>
                   <div class="x_content">
                     <div class="row">
+                     <?php
+                     if($buba == 'administrator') {
+                      ?>   
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
                         <a href="<?php echo site_url() ?>databaru/NewPenelitianUPJ" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
+                      <?php
+                      }
+                      ?>
                       <a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
 
@@ -42,6 +48,7 @@
                           <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -114,7 +121,7 @@
                             echo '<span class="font_color_red">'.$row->valid.'</span>';                            
                               } elseif ($row->valid == "YA" ) {
                             echo '<span class="font_color_green">'.$row->valid.'</span>';                          
-                              }                            
+                              }
                             if($buba == 'administrator' && ($row->valid == NULL)) {
                             ?>                            
                               <a href="<?php echo site_url(); ?>penelitian/PenelitianDanaUPJ/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
@@ -127,6 +134,9 @@
                               }
                             ?>
                       	   </td>   
+                           <td>
+                            <b><?php echo $row->status; ?></b><br>    
+                           </td>
                         </tr>
                         <?php
                          }

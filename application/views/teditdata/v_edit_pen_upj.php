@@ -1,3 +1,4 @@
+<?php foreach($da as $row){$buba= $row->author;$bubi= $row->username; }  ?>
 <div class="right_col" role="main">
           
     <div class="row">
@@ -57,28 +58,28 @@
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_penelitian; ?></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
                                     </label> 
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">                                       
-                                            <?php 
+                                            ?php 
                                           foreach($tampil_skema as $row){
-                                        ?>                          
-                                        <option <?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
+                                        ?
+                                        <option ?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
                                             echo 'selected'; 
                                           }elseif (($rou->skema_penelitian =='Penelitian Terapan') && ($row->skema =='Penelitian Terapan')) {
                                             echo 'selected'; 
                                           }
                                           echo '>'.$row->skema;
-                                          ?> 
+                                          ?
                                         </option>                   
-                                        <?php
+                                        ?php
                                           }
-                                        ?> 
+                                        ?
                                     </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
                                     </label>
@@ -99,15 +100,27 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Usulan</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->dana_usulan; ?>">
+                                    <input id="dana_usulan" name="dana_usulan" class="form-control col-md-7 col-xs-12" type="number" required="required" value="<?php echo $rou->dana_usulan; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Dana Disetujui</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="text" value="<?php echo $rou->dana_disetujui; ?>">
+                                    <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="number" value="<?php echo $rou->dana_disetujui; ?>">
                                     </div>
-                                </div>                               
+                                </div>
+                                <?php
+                                if ($buba == 'administrator') {
+                                ?>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status Penelitian</label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input id="status_penelitian" name="status_penelitian" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->status; ?>">
+                                    </div>
+                                </div>
+                                <?php
+                                }
+                                ?>
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">

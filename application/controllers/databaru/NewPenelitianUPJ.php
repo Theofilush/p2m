@@ -43,7 +43,7 @@ class NewPenelitianUPJ extends CI_Controller {
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
 			$_upload = $this->upload->data('file_name');
-			$_skema = $this->input->post('skema', TRUE);				
+			//$_skema = $this->input->post('skema', TRUE);				
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
 			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
@@ -66,7 +66,7 @@ class NewPenelitianUPJ extends CI_Controller {
 						'dana_usulan' =>  $_dana_usulan,
 						'dana_disetujui' =>  $_dana_setujui,						
 						'file'=> $_upload,
-						'skema_penelitian' =>  $_skema,
+						//'skema_penelitian' =>  $_skema,
 						'ketua_peneliti' =>  $_penulis,
 						'anggota_peneliti_1' =>  $_anggota1,
 						'anggota_peneliti_2' =>  $_anggota2
