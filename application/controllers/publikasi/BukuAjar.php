@@ -21,7 +21,7 @@ class BukuAjar extends CI_Controller {
 		  'query'=> $query,
           'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,
-    );
+    	);
  
 		$this->load->view('dashboard/v_header',$dataHalaman);
 		$this->load->view('publikasi/v_buku_ajar');
@@ -114,23 +114,51 @@ class BukuAjar extends CI_Controller {
 		}
  	} 
 	function cek_status_user(){
-				$_nidn = $this->input->post('penulis', TRUE);         
+		$_nidn = $this->input->post('penulis', TRUE);         
         $hasil_penulis = $this->M_login->cek_nidn($_nidn); 
         if(count($hasil_penulis)!=0){
           # kalau value $hasil_username tidak 0
 									# echo 1 untuk pertanda username sudah ada pada db  
-						$data = $this->db->query("SELECT username FROM t_login where NIDN = ".$_nidn);
-           foreach ($data->result_array() as $roe) {
-                echo $roe['username'];                
-					 }  
+		$data = $this->db->query("SELECT username FROM t_login where NIDN = ".$_nidn);
+        foreach ($data->result_array() as $roe) {
+            echo $roe['username'];                
+		}  
 					 //$kkk="5";
                        // echo $kkk; 
         }else IF (count($hasil_penulis)==0) {
                   # kalu value $hasil_username = 0
                   # echo 2 untuk pertanda username belum ada pada db
             echo "1";
-				}    
-				
+		} 				
+	}
+
+	public function uploaddok(){
+		if($this->input->post('btnUpload') == "Upload"){
+			$config['upload_path'] = './fileupload/bukuajar/';
+			$config['allowed_types'] = 'pdf';
+			$config['max_size'] = 5120;
+			$this->load->library('upload', $config);                
+			if ( ! $this->upload->do_upload('filepdf')){
+				$this->session->set_flashdata('notification', '<div class="alert alert-danger alert-dismissible fade in pull-right" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+				</button>
+				<strong>Gagal Melakukan Upload!</strong> 
+				</div>');
+				$error = array('error' => $this->upload->display_errors());							
+			}
+			else{
+				$data = array('upload_data' => $this->upload->data());                
+			}			
+			$id = $this->input->post('id', TRUE);
+			$_upload = $this->upload->data('file_name');
+			$query= $this->M_dokumen->uploadDok_publikasi($_upload,$id);
+					if ($query) {
+						redirect(site_url('publikasi/BukuAjar'));
+					}
+					else{
+						redirect(base_url('publikasi/BukuAjar'));
+					}
+		}					
 	}
 
 	public function exportexcel(){

@@ -98,16 +98,18 @@
                             Halaman :&nbsp;<span class="font_color_blue"><?php echo $row->halaman_awal; ?> s/d <?php echo $row->halaman_akhir; ?></span><br>
                             URL :&nbsp;<span class="font_color_blue"><a href="<?php echo $row->url; ?>" class="link_url"> <?php echo $row->url; ?></a></span><br>
                           </td>
-                          <td class="ketengah">   
-                            <?php
+                          <td class="ketengah">
+                          	<?php
                              if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                if($buba == 'administrator' || ($bubi ==  $row->penulis_publikasi || ($bubi ==  $row->penulis_anggota1) || ($bubi ==  $row->penulis_anggota2))){
-                                ?>  
-                                <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->id_publikasi;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
-                                <?php
+                                ?>
+                          	<button type="button" class="btn btn-success btn-xs btnnomargin" data-toggle="modal"
+                          		data-target="#modal-upload<?php echo $row->id_publikasi;?>"><span
+                          			class="glyphicon glyphicon-cloud-upload"></span></button>
+                          	<?php
                                   if(($row->file == NULL) || ($row->file == "")){
-                                ?>                                                                
-                                        <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                                ?>
+                          	<button class="btn btn-default btn-xs btnnomargin source" onclick="
                                           new PNotify({
                                               title: 'Terjadi Kesalahan !',
                                               text: 'Berkas Pendukung belum diunggah !',
@@ -116,23 +118,24 @@
                                               styling: 'bootstrap3'
                                             });  
                                         "><i class="fa fa-fw fa-file-text"></i></button>
-                                <?php
+                          	<?php
                                   }else if(($row->file != NULL) || ($row->file != "") ){
                                 ?>
-                                    <a href="<?php echo site_url().'fileupload/publikasi_jurnal/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
-                            <?php
+                          	<a href="<?php echo site_url().'fileupload/publikasi_jurnal/'.$row->file  ?>"
+                          		class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                          	<?php
                                  }
                                 }
                               }
-                            ?>                         	
+                            ?>
                           </td>
                           <td class="ketengah">    
                           <?php
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                             if($buba == 'administrator' || ($bubi ==  $row->penulis_publikasi || ($bubi ==  $row->penulis_anggota1) || ($bubi ==  $row->penulis_anggota2))){
                             ?>                                
-                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/editdok/<?php echo $row->id_publikasi; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a> 
-                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/editdok/<?php echo $row->id_publikasi; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil"></i></a> 
+                              <a href="<?php echo site_url(); ?>publikasi/PublikasiJurnal/deletedok/<?php echo $row->id_publikasi; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove"></i></a>
                             <?php
                             }
                               }

@@ -126,7 +126,7 @@ class PublikasiJurnal extends CI_Controller {
 		  redirect("publikasi/PublikasiJurnal");
 		}
   	} 
-	public function uploaddok(){     
+	public function uploaddok(){
 		if($this->input->post('btnUpload') == "Upload"){
 			$config['upload_path'] = './fileupload/publikasi_jurnal/';
 			$config['allowed_types'] = 'pdf';

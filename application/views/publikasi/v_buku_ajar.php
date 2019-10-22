@@ -36,6 +36,7 @@
                           <th>Nama Dosen</th>
                           <th>Judul</th> 
                           <th>Buku</th>
+                          <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
                         </tr>
@@ -81,7 +82,39 @@
                             Penerbit :&nbsp;<span class="font_color_blue"><b><?php echo $row->penerbit; ?></b></span><br>
                             ISBN :&nbsp;<span class="font_color_blue"> <?php echo $row->isbn; ?> </span><br>
                             Jml. Halaman :&nbsp;<span class="font_color_blue"> <?php echo $row->jumlah_halaman; ?> </span><br>                            
-                          </td>                          
+                          </td>         
+                          <td class="ketengah">
+                          	<?php
+                             if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
+                               if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+                            ?>
+                                <button type="button" class="btn btn-success btn-xs btnnomargin" data-toggle="modal" 
+                                    data-target="#modal-upload<?php echo $row->id_buku_ajar;?>">
+                                  <span class="glyphicon glyphicon-cloud-upload"></span>
+                                </button>
+                            <?php
+                                  if(($row->file == NULL) || ($row->file == "")){
+                            ?>
+                                     <button class="btn btn-default btn-xs btnnomargin source" onclick="
+                                              new PNotify({
+                                                  title: 'Terjadi Kesalahan !',
+                                                  text: 'Berkas Pendukung belum diunggah !',
+                                                  type: 'error',
+                                                  delay: 5000,
+                                                  styling: 'bootstrap3'
+                                                });  
+                                            "><i class="fa fa-fw fa-file-text"></i></button>
+                                <?php
+                                      }else if(($row->file != NULL) || ($row->file != "") ){
+                                    ?>
+                                <a href="<?php echo site_url().'fileupload/bukuajar/'.$row->file  ?>"
+                                  class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                              <?php
+                                      }
+                                }
+                               }
+                              ?>
+                          </td>                 
                           <td class="ketengah">    
                           <?php
                           if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
@@ -124,3 +157,43 @@
               </div>
           </div>
 </div>
+
+<?php
+    foreach ($query as $rou) {
+  ?>        
+<div class="modal fade" id="modal-upload<?php echo $rou->id_buku_ajar;?>" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Buku Ajar</h4>
+      </div>
+      <div class="modal-body">
+        <?php
+            $atribut = array(
+              'class' => 'form-horizontal form-label-left',
+              'data-parsley-validate' => '',
+              'id'=>'demo-form2'
+            );                                        
+            echo form_open_multipart('publikasi/BukuAjar/uploaddok/',$atribut);
+            echo form_hidden('id',$rou->id_buku_ajar);
+        ?>                                                             
+        <div class="form-group">
+          <input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+            Ukuran file  maksimum 5 MB
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+          <button type="submit" class="btn btn-success" name="btnUpload" value="Upload">Unggah</button>
+      </div>
+      <?php
+        echo form_close();
+      ?>
+    </div>
+  </div>
+</div>
+<?php
+  }
+?>
