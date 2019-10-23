@@ -12,12 +12,10 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                             <div class="x_title">
-                                <h2>Penelitian Sumber Dana Universitas Pembangunan Jaya</h2>
+                                <h2>Penelitian Sumber Dana Kemenristek Dikti</h2>
                                 <ul class="nav navbar-right panel_toolbox">
-                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>              
-                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                </li>
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a></li>
                                 </ul>
                                 <div class="clearfix"></div>
                             </div>
@@ -29,7 +27,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open_multipart('databaru/NewPenelitianUPJ/savedok',$atribut);
+                                        echo form_open_multipart('databaru/NewKemenristekDikti/savedok',$atribut);
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                
                                 <div class="form-group">
@@ -60,13 +58,13 @@
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">                                   
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">
-                                            ?php 
+                                            <?php 
 												foreach($tampil_skema as $skemaa){
-											?
-											<option>?php echo $skemaa->skema; ?</option>                      
-											?php
+											?>
+											<option><?php echo $skemaa->skema; ?></option>
+											<?php
 												 }
-											?
+											?>
 									</select>
                                     </div>
                                 </div>
@@ -154,7 +152,6 @@
                         </div>
                     </div>
 				</div>
-                  
             </div>
         </div>
     </div>

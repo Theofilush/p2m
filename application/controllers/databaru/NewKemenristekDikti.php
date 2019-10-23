@@ -12,23 +12,23 @@ class NewKemenristekDikti extends CI_Controller {
     
 	public function index(){
       $usan = $this->session->userdata('nama');
-      $kue = $this->M_login->hak_ak($usan); 	  
+      $kue = $this->M_login->hak_ak($usan);
 	  $query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 	  
 	  $query_tampil_jenis = $this->M_dokumen->tampil_jenis_penelitian(); 	
 	  $query_tampil_skema = $this->M_dokumen->tampil_skema_penelitian(); 	
-        $data_profil = array(           
-		  'da' => $kue,         
+        $data_profil = array(
+		  'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,
 		  'tampil_jenis'=> $query_tampil_jenis,
 		  'tampil_skema'=>$query_tampil_skema
-        );          
+        );
 		$this->load->view('dashboard/v_header',$data_profil);
-		$this->load->view('tambahdata/v_add_pen_upj');
+		$this->load->view('tambahdata/v_add_kemenristek');
 		$this->load->view('dashboard/v_footer');
 	}
-	public function savedok(){     
+	public function savedok(){
 		if($this->input->post('btnUpload') == "Upload"){
-			$config['upload_path'] = './fileupload/penelitian_upj/';
+			$config['upload_path'] = './fileupload/penelitian_kemenristek/';
 			$config['allowed_types'] = 'pdf';
 			$this->load->library('upload', $config);                
 			if ( ! $this->upload->do_upload('filepdf')){
@@ -43,7 +43,7 @@ class NewKemenristekDikti extends CI_Controller {
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
 			$_upload = $this->upload->data('file_name');
-			//$_skema = $this->input->post('skema', TRUE);				
+			$_skema = $this->input->post('skema', TRUE);				
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
 			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
@@ -66,18 +66,18 @@ class NewKemenristekDikti extends CI_Controller {
 						'dana_usulan' =>  $_dana_usulan,
 						'dana_disetujui' =>  $_dana_setujui,						
 						'file'=> $_upload,
-						//'skema_penelitian' =>  $_skema,
+						'skema_penelitian' =>  $_skema,
 						'ketua_peneliti' =>  $_penulis,
 						'anggota_peneliti_1' =>  $_anggota1,
 						'anggota_peneliti_2' =>  $_anggota2
 					);       
-					$query= $this->M_dokumen->simpanDok_dana_upj($data);
+					$query= $this->M_dokumen->simpanDok_dana_kemenristek	($data);
 					if ($query) {
-						redirect(site_url('penelitian/PenelitianDanaUPJ'));
+						redirect(site_url('penelitian/KemenristekDikti'));
 						//print_r($stan);
 					}
 					else{
-						redirect(site_url('penelitian/PenelitianDanaUPJ'));
+						redirect(site_url('penelitian/KemenristekDikti'));
 					}
 		}					
 	}

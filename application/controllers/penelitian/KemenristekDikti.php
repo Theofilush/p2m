@@ -30,7 +30,7 @@ class KemenristekDikti extends CI_Controller {
 	{ 
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listEdit_dana_upj($id);		
+		$query = $this->M_dokumen->listEdit_dana_kemenristek($id);		
 		$query_tampil_jenis = $this->M_dokumen->tampil_jenis_penelitian(); 
 		$query_tampil_skema = $this->M_dokumen->tampil_skema_penelitian(); 
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
@@ -81,44 +81,44 @@ class KemenristekDikti extends CI_Controller {
 					);              
 					$query= $this->M_dokumen->updateDok_dana_upj($data,$id);
 			if ($query) {
-				redirect("penelitian/PenelitianDanaUPJ");
+				redirect("penelitian/KemenristekDikti");
 			}
 			else{
-				redirect("penelitian/PenelitianDanaUPJ");
+				redirect("penelitian/KemenristekDikti");
 			}
 		}
 	}
 	public function deletedok($id){
 		$this->db->where('kode_penelitan', $id);
-        $query = $this->db->get('t_dana_upj');
+        $query = $this->db->get('t_dana_kemenristek');
         $row = $query->row();
-        unlink("./fileupload/penelitian_upj/$row->file");
-		$this->M_dokumen->deleteDok_dana_upj($id);
-		redirect('penelitian/PenelitianDanaUPJ');
+        unlink("./fileupload/penelitian_kemenristek/$row->file");
+		$this->M_dokumen->deleteDok_dana_kemenristek($id);
+		redirect('penelitian/KemenristekDikti');
 	} 
 	public function validasi($id){            
-		$query= $this->M_dokumen->validasi_dana_upj($id);        
+		$query= $this->M_dokumen->validasi_dana_kemenristek($id);        
 		if ($query) {
-		  redirect("penelitian/PenelitianDanaUPJ");
+		  redirect("penelitian/KemenristekDikti");
 		}
 		else{
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
-		  redirect("penelitian/PenelitianDanaUPJ");
+		  redirect("penelitian/KemenristekDikti");
 		}
 	} 
-	public function tolakvalidasi($id){            
-		$query= $this->M_dokumen->toval_dana_upj($id);        
+	public function tolakvalidasi($id){
+		$query= $this->M_dokumen->toval_dana_kemenristek($id);        
 		if ($query) {
-		  redirect("penelitian/PenelitianDanaUPJ");
+		  redirect("penelitian/KemenristekDikti");
 		}
 		else{
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
-		  redirect("penelitian/PenelitianDanaUPJ");
+		  redirect("penelitian/KemenristekDikti");
 		}
 	} 
-	  public function uploaddok(){     
+	public function uploaddok(){
 		if($this->input->post('btnUpload') == "Upload"){
-			$config['upload_path'] = './fileupload/penelitian_upj/';
+			$config['upload_path'] = './fileupload/penelitian_kemenristek/';
 			$config['allowed_types'] = 'pdf';
 			$config['max_size'] = 5120;
 			$this->load->library('upload', $config);                
@@ -135,13 +135,13 @@ class KemenristekDikti extends CI_Controller {
 			}			
 			$id = $this->input->post('id', TRUE);
 			$_upload = $this->upload->data('file_name');
-			$query= $this->M_dokumen->uploadDok_dana_upj($_upload,$id);
-					if ($query) {
-						redirect(site_url('penelitian/PenelitianDanaUPJ'));
-					}
-					else{
-						redirect(site_url('penelitian/PenelitianDanaUPJ'));
-					}
+			$query= $this->M_dokumen->uploadDok_dana_kemenristek($_upload,$id);
+			if ($query) {
+				redirect(site_url('penelitian/KemenristekDikti'));
+			}
+			else{
+				redirect(site_url('penelitian/KemenristekDikti'));
+			}
 		}					
 	}
 

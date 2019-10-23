@@ -13,7 +13,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                             <div class="x_title">
-                                <h2>Penelitian Sumber Dana Universitas Pembangunan Jaya</h2>
+                                <h2>Penelitian Sumber Dana Kemenristek Dikti</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                 </li>              
@@ -30,7 +30,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('penelitian/PenelitianDanaUPJ/updatedok',$atribut);
+                                        echo form_open('penelitian/KemenristekDikti/updatedok',$atribut);
                                         foreach ($query as $rou) {    
                                         echo form_hidden('id',$rou->kode_penelitan);
                                 ?>
@@ -63,20 +63,20 @@
                                     </label> 
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">                                       
-                                            ?php 
+                                            <?php 
                                           foreach($tampil_skema as $row){
-                                        ?
-                                        <option ?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
+                                        ?>
+                                        <option <?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
                                             echo 'selected'; 
                                           }elseif (($rou->skema_penelitian =='Penelitian Terapan') && ($row->skema =='Penelitian Terapan')) {
                                             echo 'selected'; 
                                           }
                                           echo '>'.$row->skema;
-                                          ?
+                                          ?>
                                         </option>                   
-                                        ?php
+                                        <?php
                                           }
-                                        ?
+                                        ?>
                                     </select>
                                     </div>
                                 </div>
@@ -109,18 +109,18 @@
                                     <input name="dana_setujui" id="dana_setujui" class="form-control col-md-7 col-xs-12" required="required" type="number" value="<?php echo $rou->dana_disetujui; ?>">
                                     </div>
                                 </div>
-                                <?php
+                                <!-- ?php
                                 if ($buba == 'administrator') {
-                                ?>
+                                ?
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">Status Penelitian</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input id="status_penelitian" name="status_penelitian" class="form-control col-md-7 col-xs-12" type="text" required="required" value="<?php echo $rou->status; ?>">
+                                    <input id="status_penelitian" name="status_penelitian" class="form-control col-md-7 col-xs-12" type="text" value="<?php echo $rou->status; ?>">
                                     </div>
                                 </div>
-                                <?php
+                                ?php
                                 }
-                                ?>
+                                ? -->
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">
