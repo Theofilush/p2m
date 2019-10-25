@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Okt 2019 pada 14.48
+-- Waktu pembuatan: 25 Okt 2019 pada 17.53
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -288,7 +288,8 @@ INSERT INTO `tahun` (`id_tahun`, `tahun`) VALUES
 (17, 2027),
 (18, 2028),
 (19, 2029),
-(20, 2030);
+(20, 2030),
+(21, 2031);
 
 -- --------------------------------------------------------
 
@@ -305,6 +306,7 @@ CREATE TABLE `t_buku_ajar` (
   `isbn` varchar(20) NOT NULL,
   `jumlah_halaman` int(4) NOT NULL,
   `penerbit` varchar(50) NOT NULL,
+  `file` varchar(600) DEFAULT NULL,
   `valid` varchar(5) DEFAULT NULL,
   `tahun_penerbitan` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -313,8 +315,11 @@ CREATE TABLE `t_buku_ajar` (
 -- Dumping data untuk tabel `t_buku_ajar`
 --
 
-INSERT INTO `t_buku_ajar` (`id_buku_ajar`, `nama_dosen`, `nama_dosen1`, `nama_dosen2`, `judul`, `isbn`, `jumlah_halaman`, `penerbit`, `valid`, `tahun_penerbitan`) VALUES
-(1, 'Clara Moningka', NULL, NULL, 'contoh 1', '1234', 12, 'loder d', NULL, 2018);
+INSERT INTO `t_buku_ajar` (`id_buku_ajar`, `nama_dosen`, `nama_dosen1`, `nama_dosen2`, `judul`, `isbn`, `jumlah_halaman`, `penerbit`, `file`, `valid`, `tahun_penerbitan`) VALUES
+(1, 'Clara Moningka', NULL, NULL, 'contoh 1', '1234', 12, 'loder d', '081266110052_BAB_I.pdf', NULL, 2018),
+(2, 'Dion Dewa Barata', NULL, NULL, 'buku arsitektur', '1111111111111', 12, 'detiama', NULL, NULL, 2016),
+(3, 'Desi Dwi Kristanto', NULL, NULL, 'okokokoko', '1111111111111', 8, 'detiama', NULL, NULL, 2019),
+(4, 'Teddy Mohamad Darajat', NULL, NULL, 'ikiki', '1111111111111', 12, 'detiama', NULL, NULL, 2019);
 
 -- --------------------------------------------------------
 
@@ -355,6 +360,44 @@ INSERT INTO `t_dana2_upj` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti
 (12, 'Ferdinand Fassa', NULL, NULL, 2018, 'judul 12\r\n', 'IPTEK bagi Masyarakat', 2000000, 2000000, 'Doc18.pdf', NULL),
 (13, 'Fredy Jhon Philip. S', NULL, NULL, 2018, 'jdudul 13', 'IPTEK bagi Masyarakat', 2000000, 2000000, 'Doc19.pdf', NULL),
 (14, 'Sila Wisnantiasri', NULL, NULL, 2019, 'judul 14', 'IPTEK bagi Masyarakat', 2000000, 2000000, 'Doc110.pdf', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `t_dana_kemenristek`
+--
+
+CREATE TABLE `t_dana_kemenristek` (
+  `kode_penelitan` int(3) NOT NULL,
+  `ketua_peneliti` varchar(50) NOT NULL,
+  `anggota_peneliti_1` varchar(50) DEFAULT NULL,
+  `anggota_peneliti_2` varchar(50) DEFAULT NULL,
+  `tahun_hibah` int(4) NOT NULL,
+  `judul_penelitian` varchar(500) NOT NULL,
+  `jenis_penelitian` varchar(45) NOT NULL,
+  `dana_usulan` int(9) NOT NULL,
+  `dana_disetujui` int(9) NOT NULL,
+  `file` varchar(600) DEFAULT NULL,
+  `skema_penelitian` varchar(55) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `valid` varchar(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `t_dana_kemenristek`
+--
+
+INSERT INTO `t_dana_kemenristek` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `status`, `valid`) VALUES
+(1, 'Heny Pratiwi, B.Sc, M.Sc', NULL, NULL, 2018, 'ajudul 1 penelitan', 'Penelitian Fundamental', 12345, 12345678, '1__MN-CPR-Compay_Profile-Rev6_1.pdf', 'Penelitian Dasar', NULL, 'TIDAK'),
+(2, 'Sahid', NULL, NULL, 2018, 'ajudul 2 penelitian', 'Penelitian Fundamental', 700000, 120000, NULL, 'Penelitian Dasar', NULL, 'YA'),
+(3, 'Irma Paramitha Sofia', NULL, NULL, 2018, 'ajudul 3 penelitian', 'Penelitian Dosen Pemula', 435, 5236, '1__MN-CPR-Compay_Profile-Rev6_11.pdf', 'Penelitian Terapan', NULL, 'YA'),
+(4, 'Ratno Suprapto', NULL, NULL, 2018, 'ajudul 4 penelitiannnnnnnnnnnnnnnn', 'Penelitian Fundamental', 700000, 120000, NULL, 'Penelitian Dasar', NULL, NULL),
+(5, 'Ismail Alif Siregar', NULL, NULL, 2018, 'ajudul 5', 'Penelitian Fundamental', 700000, 120000, 'Doc12.pdf', 'Penelitian Dasar', NULL, NULL),
+(6, 'Syaiful Halim', NULL, NULL, 2018, 'ajudul 6', 'Penelitian Fundamental', 700000, 120000, 'Doc13.pdf', 'Penelitian Dasar', NULL, NULL),
+(7, 'Dion Dewa Barata', NULL, NULL, 2018, 'ajudul 7', 'Penelitian Fundamental', 700000, 120000, 'Doc14.pdf', 'Penelitian Dasar', NULL, NULL),
+(8, 'Clara Moningka', NULL, NULL, 2018, 'ajudul 8', 'Penelitian Fundamental', 700000, 120000, 'Doc15.pdf', 'Penelitian Dasar', NULL, NULL),
+(10, 'Tri Nugraha', NULL, NULL, 2018, 'aaajduul 10', 'Penelitian Fundamental', 700000, 120000, 'Doc17.pdf', 'Penelitian Dasar', NULL, NULL),
+(11, 'Ferdinand Fassa', NULL, NULL, 2019, 'test 1', 'Penelitian Unggulan Perguruan Tinggi', 17000000, 15000000, '1__MN-CPR-Compay_Profile-Rev6_12.pdf', 'Penelitian Dasar', NULL, 'YA');
 
 -- --------------------------------------------------------
 
@@ -410,7 +453,8 @@ INSERT INTO `t_dana_non_upj` (`kode_penelitian`, `ketua_peneliti`, `anggota_pene
 (1, 'Muhammad Mashudi', 'Fitorio Leksono Bowo', NULL, 2018, 'judul non penelitian 1', '123456', '12345678', 'Doc1.pdf', NULL),
 (2, 'Feby Hendola Kaulara', NULL, NULL, 2018, 'judul non penelitian 2', '230000000', '600000000', 'joyokanjihyo_20101130.pdf', NULL),
 (3, 'Clara Moningka', NULL, NULL, 2018, 'jduul 2', '230000000', '600000000', 'Doc11.pdf', NULL),
-(4, 'Syaiful Halim', NULL, NULL, 2018, 'jdul 4', '230000000', '600000000', 'Doc12.pdf', NULL);
+(4, 'Syaiful Halim', NULL, NULL, 2018, 'jdul 4', '230000000', '600000000', 'Doc12.pdf', NULL),
+(5, 'Desi Dwi Kristanto', NULL, NULL, 2019, 'iiohiugu', 'lololo', '9000', '1__MN-CPR-Compay_Profile-Rev6_1.pdf', NULL);
 
 -- --------------------------------------------------------
 
@@ -429,7 +473,8 @@ CREATE TABLE `t_dana_upj` (
   `dana_usulan` int(9) NOT NULL,
   `dana_disetujui` int(9) NOT NULL,
   `file` varchar(600) DEFAULT NULL,
-  `skema_penelitian` varchar(55) NOT NULL,
+  `skema_penelitian` varchar(55) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -437,17 +482,20 @@ CREATE TABLE `t_dana_upj` (
 -- Dumping data untuk tabel `t_dana_upj`
 --
 
-INSERT INTO `t_dana_upj` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `valid`) VALUES
-(1, 'Heny Pratiwi, B.Sc, M.Sc', NULL, NULL, 2018, 'judul 1 penelitan', 'Penelitian Fundamental', 12345, 12345678, 'Doc1.pdf', 'Penelitian Dasar', 'YA'),
-(2, 'Sahid', NULL, NULL, 2018, 'judul 2 penelitian', 'Penelitian Fundamental', 700000, 120000, 'LAMPIRAN.pdf', 'Penelitian Dasar', 'YA'),
-(3, 'Irma Paramitha Sofia', NULL, NULL, 2018, 'judul 3 penelitian', 'Penelitian Dosen Pemula', 435, 5236, 'joyokanjihyo_20101130.pdf', 'Penelitian Terapan', NULL),
-(4, 'Ratno Suprapto', NULL, NULL, 2018, 'judul 4 penelitian', 'Penelitian Fundamental', 700000, 120000, 'Doc11.pdf', 'Penelitian Dasar', NULL),
-(5, 'Ismail Alif Siregar', NULL, NULL, 2018, 'judul 5', 'Penelitian Fundamental', 700000, 120000, 'Doc12.pdf', 'Penelitian Dasar', NULL),
-(6, 'Syaiful Halim', NULL, NULL, 2018, 'judul 6', 'Penelitian Fundamental', 700000, 120000, 'Doc13.pdf', 'Penelitian Dasar', NULL),
-(7, 'Dion Dewa Barata', NULL, NULL, 2018, 'judul 7', 'Penelitian Fundamental', 700000, 120000, 'Doc14.pdf', 'Penelitian Dasar', NULL),
-(8, 'Clara Moningka', NULL, NULL, 2018, 'judul 8', 'Penelitian Fundamental', 700000, 120000, 'Doc15.pdf', 'Penelitian Dasar', NULL),
-(9, 'Marcello Singadji', NULL, NULL, 2018, 'jduul 9', 'Penelitian Fundamental', 700000, 120000, 'Doc16.pdf', 'Penelitian Dasar', NULL),
-(10, 'Tri Nugraha', NULL, NULL, 2018, 'jduul 10', 'Penelitian Fundamental', 700000, 120000, 'Doc17.pdf', 'Penelitian Dasar', NULL);
+INSERT INTO `t_dana_upj` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `status`, `valid`) VALUES
+(1, 'Heny Pratiwi, B.Sc, M.Sc', NULL, NULL, 2018, 'ajudul 1 penelitan', 'Penelitian Fundamental', 12345, 12345678, '1__MN-CPR-Compay_Profile-Rev6_1.pdf', 'Penelitian Dasar', 'test', 'YA'),
+(2, 'Sahid', NULL, NULL, 2018, 'judul 2 penelitian', 'Penelitian Fundamental', 700000, 120000, 'LAMPIRAN.pdf', 'Penelitian Dasar', NULL, 'YA'),
+(3, 'Irma Paramitha Sofia', NULL, NULL, 2018, 'judul 3 penelitian', 'Penelitian Dosen Pemula', 435, 5236, 'joyokanjihyo_20101130.pdf', 'Penelitian Terapan', 'abcd', NULL),
+(4, 'Ratno Suprapto', NULL, NULL, 2018, 'ajudul 4 penelitianaaaaaaaaaa', 'Penelitian Fundamental', 700000, 120000, 'Doc11.pdf', 'Penelitian Dasar', NULL, NULL),
+(5, 'Ismail Alif Siregar', NULL, NULL, 2018, 'judul 5', 'Penelitian Fundamental', 700000, 120000, 'Doc12.pdf', 'Penelitian Dasar', NULL, NULL),
+(6, 'Syaiful Halim', NULL, NULL, 2018, 'judul 6', 'Penelitian Fundamental', 700000, 120000, 'Doc13.pdf', 'Penelitian Dasar', NULL, NULL),
+(7, 'Dion Dewa Barata', NULL, NULL, 2018, 'judul 7', 'Penelitian Fundamental', 700000, 120000, 'Doc14.pdf', 'Penelitian Dasar', NULL, NULL),
+(8, 'Clara Moningka', NULL, NULL, 2018, 'judul 8', 'Penelitian Fundamental', 700000, 120000, 'Doc15.pdf', 'Penelitian Dasar', NULL, NULL),
+(9, 'Marcello Singadji', NULL, NULL, 2018, 'jduul 9', 'Penelitian Fundamental', 700000, 120000, 'Doc16.pdf', 'Penelitian Dasar', NULL, NULL),
+(10, 'Tri Nugraha', NULL, NULL, 2018, 'jduul 10', 'Penelitian Fundamental', 700000, 120000, 'Doc17.pdf', 'Penelitian Dasar', NULL, NULL),
+(11, 'Chaerul Anwar', NULL, NULL, 2019, 'judul oktober 2019', 'Penelitian Fundamental', 1200000, 1000000, '1__MN-CPR-Compay_Profile-Rev6_11.pdf', NULL, NULL, NULL),
+(12, 'Safitri Jaya', NULL, NULL, 2019, 'judul okt 2 2019', 'Penelitian Sosial, Humaniora, dan Pendidikan', 15000000, 10000000, '1__MN-CPR-Compay_Profile-Rev6_12.pdf', NULL, NULL, NULL),
+(13, 'dosen', NULL, NULL, 2019, 'mmm', 'Penelitian Unggulan Perguruan Tinggi', 2147483647, 2147483647, '1__MN-CPR-Compay_Profile-Rev6_1.pdf', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -517,7 +565,9 @@ CREATE TABLE `t_hki` (
 --
 
 INSERT INTO `t_hki` (`id_hki`, `nama_dosen`, `nama_dosen1`, `nama_dosen2`, `judul_hki`, `jenis_hki`, `no_pendaftaran`, `status_hki`, `no_hki`, `file`, `tahun_pelaksanaan`, `valid`) VALUES
-(1, 'Agustinus Agus Setiawan', NULL, NULL, 'judul hki1', 'Paten', '098765', 'Terdaftar', '9876', '', 2018, NULL);
+(1, 'Agustinus Agus Setiawan', NULL, NULL, 'judul hki1', 'Paten', '098765', 'Terdaftar', '9876', '', 2018, NULL),
+(2, 'Agustinus Agus Setiawan', NULL, NULL, 'abcd', 'Paten Sederhana', '123456', 'Granted', '1111', 'NEWS0003007.pdf', 2019, NULL),
+(3, 'Desi Dwi Kristanto', 'Teddy Mohamad Darajat', 'Fitorio Leksono Bowo', 'iiiiiiiiiiiiiiiiiii', 'Merek Dagang', '123456', 'Granted', '1111', '', 2019, NULL);
 
 -- --------------------------------------------------------
 
@@ -543,16 +593,16 @@ INSERT INTO `t_login` (`id`, `NIDN`, `username`, `prodi`, `email`, `password`, `
 (1, '9999999998', 'admin', 'Teknik Sipil', 'admin@upj.ac.id', '$2y$12$qzCd/DZweNWvYwzu26uVl.t06q0UrSTQ/MhQgaJrszJ24vDzpEmnO', 'administrator'),
 (2, '9999999997', 'admin1', 'Teknik Sipil', 'admin1@upj.ac.id', '$2y$12$hnVN4pXpsR58wdWsbRx94.2pv/R8aseFIdBTgHGeCFNeMGPRmtn0G', 'administrator'),
 (3, '9999999999', 'dosen', 'Akuntansi', 'dosen@upj.ac.id', '$2y$12$.J2zWQHTzhrAJ1093nTfYOBjR.bZHM3nzOgp8TYKasWJ1a3738mm6', 'dosen'),
-(2001, '308117801', 'Clara Moningka', 'Psikologi', 'clara.moningka@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
+(2001, '308117801', 'Clara Moningka', 'Psikologi', 'clara.moningka@upj.ac.id', '$2y$12$.J2zWQHTzhrAJ1093nTfYOBjR.bZHM3nzOgp8TYKasWJ1a3738mm6', 'dosen'),
 (2002, '311126701', 'Syaiful Halim', 'Ilmu Komunikasi', 'syaiful.halim@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
-(2003, '317057704', 'Ratno Suprapto', 'Desain Komunikasi Visual', 'ratno.suprapto@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
+(2003, '317057704', 'Ratno Suprapto', 'Desain Komunikasi Visual', 'ratno.suprapto@upj.ac.id', '$2y$12$.J2zWQHTzhrAJ1093nTfYOBjR.bZHM3nzOgp8TYKasWJ1a3738mm6', 'dosen'),
 (2004, '318037803', 'Dion Dewa Barata', 'Manajemen', 'dion.dewa@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2005, '320017801', 'Marcello Singadji', 'Sistem Informasi', 'marcello.singadji@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2006, '323097501', 'Chaerul Anwar', 'Sistem Informasi', 'chaerul.anwar@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2007, '325067804', 'Nur Uddin', 'Informatika', 'nur.uddin@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2008, '328068404', 'Safitri Jaya', 'Informatika', 'safitri.jaya@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2009, '330108101', 'Hendi Hermawan', 'Informatika', 'hendi.hermawan@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
-(2010, '401127905', 'Ferdinand Fassa', 'Teknik Sipil', 'ferdinand.fassa@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
+(2010, '401127905', 'Ferdinand Fassa', 'Teknik Sipil', 'ferdinand.fassa@upj.ac.id', '$2y$12$.J2zWQHTzhrAJ1093nTfYOBjR.bZHM3nzOgp8TYKasWJ1a3738mm6', 'dosen'),
 (2011, '403117706', 'Adriatik Ivanti', 'Psikologi', 'adriatik.ivanti@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2012, '404027106', 'M. Nasucha', 'Informatika', 'mohammad.nasucha@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
 (2013, '404027902', 'Eka Permanasari', 'Arsitektur', 'eka.permanasari@upj.ac.id', '$2y$12$flIjmrw766qYcIusX.bTp.HS00DUOTyI070XzZ643xBdF8fT.TJ8S', 'dosen'),
@@ -630,7 +680,8 @@ CREATE TABLE `t_luaran_lain` (
 --
 
 INSERT INTO `t_luaran_lain` (`id_luaran`, `nama_dosen`, `nama_dosen1`, `nama_dosen2`, `judul_luaran`, `jenis_luaran`, `deskripsi`, `file`, `tahun_pelaksanaan`, `valid`) VALUES
-(1, 'johannes siregar', NULL, NULL, 'judul luaran 1', 'Desain', 'disini deskripsi', '', 2018, NULL);
+(1, 'johannes siregar', NULL, NULL, 'judul luaran 1', 'Desain', 'disini deskripsi', '', 2018, NULL),
+(2, 'Desi Dwi Kristanto', NULL, NULL, 'wwwwwwwwwww', 'Prototype', 'tttttt', '', 2019, NULL);
 
 -- --------------------------------------------------------
 
@@ -663,7 +714,7 @@ CREATE TABLE `t_publikasi_jurnal` (
 --
 
 INSERT INTO `t_publikasi_jurnal` (`id_publikasi`, `tahun_penerbitan`, `judul`, `nama_jurnal`, `penulis_publikasi`, `penulis_anggota1`, `penulis_anggota2`, `penulis_non_dosen`, `issn`, `volume`, `nomor`, `halaman_awal`, `halaman_akhir`, `url`, `file`, `cakupan_publikasi`, `valid`) VALUES
-(2, 2018, 'judul 2 publikasi', 'Teknologi', 'Donna Angelina Sugianto', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
+(2, 2018, 'judul 2 publikasi', 'Teknologi', 'Donna Angelina Sugianto', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', 'Tata_Tertib_Ujian_A31.pdf', 'Jurnal Internasional', NULL),
 (3, 2018, 'judul publikasi 3', 'Teknologi', 'Toufiq Panji Wisesa', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
 (4, 2018, 'judul 4', 'Teknologi', 'Retno Purwanti M', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
 (5, 2018, 'judul 6 publikasi', 'Teknologi', 'Hari Nugraha', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
@@ -672,10 +723,11 @@ INSERT INTO `t_publikasi_jurnal` (`id_publikasi`, `tahun_penerbitan`, `judul`, `
 (8, 2018, 'juduul 9', 'Teknologi', 'Syaiful Halim', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
 (9, 2018, 'judul 10 ', 'Teknologi', 'Nur Uddin', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
 (10, 2018, 'judul 11', 'Teknologi', 'Dion Dewa Barata', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
-(11, 2018, 'judul 12', 'Teknologi', 'Clara Moningka', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
+(11, 2018, 'judul 12', 'Teknologi', 'Clara Moningka', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', 'Tata_Tertib_Ujian_A3.pdf', 'Jurnal Internasional', NULL),
 (12, 2020, 'judul 12', 'Teknologi', 'Marcello Singadji', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
 (13, 2019, 'jduul 13', 'Teknologi', 'Ferdinand Fassa', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL),
-(14, 2019, 'judul 101', 'teknologi', 'Clara Moningka', NULL, NULL, NULL, '12345678', 9, 9, 12, 20, 'google.com', NULL, 'Jurnal Internasional', NULL);
+(14, 2019, 'judul 101', 'teknologi', 'Ratno Suprapto', NULL, NULL, NULL, '12345678', 9, 9, 12, 20, 'google.com', NULL, 'Jurnal Internasional', NULL),
+(15, 2018, 'judul 4', 'Teknologi', 'Desi Dwi Kristanto', NULL, NULL, NULL, '123456789', 2, 2, 12, 19, 'google.com', NULL, 'Jurnal Internasional', NULL);
 
 -- --------------------------------------------------------
 
@@ -695,15 +747,15 @@ CREATE TABLE `t_total_semua` (
 
 INSERT INTO `t_total_semua` (`no`, `prodi`, `jumlah`) VALUES
 (1, 'Akuntansi', 11),
-(2, 'Arsitektur', 6),
-(3, 'Desain Komunikasi Visual', 5),
-(4, 'Desain Produk', 7),
+(2, 'Arsitektur', 10),
+(3, 'Desain Komunikasi Visual', 8),
+(4, 'Desain Produk', 9),
 (5, 'Ilmu Komunikasi', 6),
 (6, 'Informatika', 4),
-(7, 'Manajemen', 4),
-(8, 'Psikologi', 5),
+(7, 'Manajemen', 5),
+(8, 'Psikologi', 4),
 (9, 'Sistem Informasi', 4),
-(10, 'Teknik Sipil', 6);
+(10, 'Teknik Sipil', 7);
 
 --
 -- Indexes for dumped tables
@@ -803,6 +855,12 @@ ALTER TABLE `t_buku_ajar`
 -- Indeks untuk tabel `t_dana2_upj`
 --
 ALTER TABLE `t_dana2_upj`
+  ADD PRIMARY KEY (`kode_penelitan`);
+
+--
+-- Indeks untuk tabel `t_dana_kemenristek`
+--
+ALTER TABLE `t_dana_kemenristek`
   ADD PRIMARY KEY (`kode_penelitan`);
 
 --
@@ -935,19 +993,25 @@ ALTER TABLE `status_pemakalah`
 -- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
-  MODIFY `id_tahun` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_tahun` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_buku_ajar`
 --
 ALTER TABLE `t_buku_ajar`
-  MODIFY `id_buku_ajar` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_buku_ajar` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_dana2_upj`
 --
 ALTER TABLE `t_dana2_upj`
   MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `t_dana_kemenristek`
+--
+ALTER TABLE `t_dana_kemenristek`
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_dana_non2_upj`
@@ -959,13 +1023,13 @@ ALTER TABLE `t_dana_non2_upj`
 -- AUTO_INCREMENT untuk tabel `t_dana_non_upj`
 --
 ALTER TABLE `t_dana_non_upj`
-  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_dana_upj`
 --
 ALTER TABLE `t_dana_upj`
-  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_forum_ilmiah`
@@ -977,7 +1041,7 @@ ALTER TABLE `t_forum_ilmiah`
 -- AUTO_INCREMENT untuk tabel `t_hki`
 --
 ALTER TABLE `t_hki`
-  MODIFY `id_hki` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_hki` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_login`
@@ -989,13 +1053,13 @@ ALTER TABLE `t_login`
 -- AUTO_INCREMENT untuk tabel `t_luaran_lain`
 --
 ALTER TABLE `t_luaran_lain`
-  MODIFY `id_luaran` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_luaran` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_publikasi_jurnal`
 --
 ALTER TABLE `t_publikasi_jurnal`
-  MODIFY `id_publikasi` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_publikasi` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `t_total_semua`
