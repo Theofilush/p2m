@@ -79,7 +79,7 @@ class KemenristekDikti extends CI_Controller {
 						'anggota_peneliti_1' =>  $_anggota1,
 						'anggota_peneliti_2' =>  $_anggota2
 					);              
-					$query= $this->M_dokumen->updateDok_dana_upj($data,$id);
+					$query= $this->M_dokumen->updateDok_dana_kemenristek($data,$id);
 			if ($query) {
 				redirect("penelitian/KemenristekDikti");
 			}
