@@ -21,8 +21,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->publikasi_jurnal);
         $this->db->join($this->dt_login, 't_login.username = t_publikasi_jurnal.penulis_publikasi','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -41,8 +41,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->buku_ajar);
         $this->db->join($this->dt_login, 't_login.username = t_buku_ajar.nama_dosen','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     } 
@@ -54,8 +54,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->forum_ilmiah);
         $this->db->join($this->dt_login, 't_login.username = t_forum_ilmiah.nama_dosen','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -67,8 +67,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->dana_non_upj);
         $this->db->join($this->dt_login, 't_login.username = t_dana_non_upj.ketua_peneliti','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -80,8 +80,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->dana_upj);
         $this->db->join($this->dt_login, 't_login.username = t_dana_upj.ketua_peneliti','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -93,8 +93,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->kemenristek);
         $this->db->join($this->dt_login, 't_login.username = t_dana_kemenristek.ketua_peneliti','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -106,8 +106,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->dana_non2_upj);
         $this->db->join($this->dt_login, 't_login.username = t_dana_non2_upj.ketua_peneliti','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -119,8 +119,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->dana2_upj);
         $this->db->join($this->dt_login, 't_login.username = t_dana2_upj.ketua_peneliti','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -132,8 +132,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->hki);
         $this->db->join($this->dt_login, 't_login.username = t_hki.nama_dosen','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }
@@ -145,8 +145,8 @@ class M_dokumen extends CI_Model{
         $this->db->select('*');
         $this->db->from($this->luaran_lain);
         $this->db->join($this->dt_login, 't_login.username = t_luaran_lain.nama_dosen','left');
-        $this->db->where('NIDN',$id);
-        $this->db->or_where('email',$id);
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
         $query = $this->db->get();
         return $query->result();
     }

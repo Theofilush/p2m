@@ -11,14 +11,12 @@ class PublikasiJurnal extends CI_Controller {
 		} 
 	}
 	public function index() 
-	{ 
+	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$query = $this->M_dokumen->listAll_publikasi();
-		$queryByProdi = $this->M_dokumen->listAllPublikasi_byProdi($usan);
-		// var_dump($usan);
-		// var_dump($kue);
-		//exit();
+		$byProdiName = implode((array) $kue[0]->prodi);
+		$queryByProdi = $this->M_dokumen->listAllPublikasi_byProdi($byProdiName);
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
 		$dataHalaman = array(
 			'query' =>  $query,

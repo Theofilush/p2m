@@ -14,13 +14,16 @@ class PengabdianDanaUPJ extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_dana2_upj();		
+		$query = $this->M_dokumen->listAll_dana2_upj();
+		$byProdiName = implode((array) $kue[0]->prodi);
+		$queryByProdi = $this->M_dokumen->listAlldana2Upj_byProdi($byProdiName);
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun();
 		
 		$dataHalaman = array(   
 			'query'=>$query,
-		  'da' => $kue 	,
-		  'tampil_tahun'=> $query_tampil_tahun	  
+			'queryByProdi' =>  $queryByProdi,
+		  	'da' => $kue 	,
+		  	'tampil_tahun'=> $query_tampil_tahun	  
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);

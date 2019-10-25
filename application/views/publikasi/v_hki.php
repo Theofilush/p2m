@@ -47,124 +47,263 @@
 						</thead>
 						<tbody>
 							<?php
-                        $no = 1; 
-                        foreach($query as $row){                   
-                        ?>
-							<tr>
-								<td><?php echo $no++ ?></td>
-								<td><b><?php echo $row->nama_dosen; ?></b><br>
-									NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen WHERE id_hki='.$row->id_hki);
-                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
-                                      echo $nidn1['NIDN'];                
-                                     } 
-                                    ?></span><br>
-									<?php
-                                if($row->nama_dosen1 != NULL){
-                                ?>
-									<b><?php echo $row->nama_dosen1; ?></b><br>
-									NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen1 WHERE id_hki='.$row->id_hki);
-                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
-                                      echo $nidn1['NIDN'];                
-                                     } 
-                                    ?></span><br>
-									<?php
-                                  }
-                                ?>
-									<?php
-                                if($row->nama_dosen2 != NULL){
-                                ?>
-									<b><?php echo $row->nama_dosen2; ?></b><br>
-									NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen2 WHERE id_hki='.$row->id_hki);
-                                    foreach ($query_tampil_nidn1->result_array() as $nidn1) {
-                                      echo $nidn1['NIDN'];                
-                                     } 
-                                    ?></span><br>
-									<?php
-                                  }
-                                ?>
-								</td>
-								<td>
-									<b><?php echo $row->judul_hki; ?></b><br>
-									<b hidden><?php echo $row->tahun_pelaksanaan;?></b><br>
-								</td>
-								<td>
-									Jenis :&nbsp;<span class="font_color_blue"><b><?php echo $row->jenis_hki; ?></b></span><br>
-									No. Pendaftaran :&nbsp;<span class="font_color_blue"> <?php echo $row->no_pendaftaran ; ?></span><br>
-									Status :&nbsp;<span class="font_color_blue"> <?php echo $row->status_hki; ?> </span><br>
-									No. HKI :&nbsp;<span class="font_color_blue"> <?php echo $row->no_hki; ?> </span><br>
-								</td>
-								<td class="ketengah">
-									<?php
-                          if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
-                            if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
-                            ?>
-									<button type="button" class="btn btn-success btn-xs btnnomargin" data-toggle="modal"
-										data-target="#modal-upload<?php echo $row->id_hki;?>"><span
-											class="glyphicon glyphicon-cloud-upload"></span></button>
-									<?php
-                            if(($row->file == NULL) || ($row->file == "")){
-                            ?>
-									<button class="btn btn-default btn-xs btnnomargin source" onclick="
-                              new PNotify({
-                                  title: 'Terjadi Kesalahan !',
-                                  text: 'Berkas Pendukung belum diunggah !',
-                                  type: 'error',
-                                  delay: 5000,
-                                  styling: 'bootstrap3'
-                                });  
-                              "><i class="fa fa-fw fa-file-text"></i></button>
-									<?php
-                            }else if(($row->file != NULL) || ($row->file != "") ){
-                                ?>
-									<a href="<?php echo site_url().'fileupload/hki/'.$row->file  ?>"
-										class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
-									<?php
-                            }
-                            ?>
-									<?php
-                              }}
-                            ?>
-								</td>
-								<td class="ketengah">
-									<?php
-                          if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
-                            if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
-                            ?>
-									<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/editdok/<?php echo $row->id_hki; ?>"
-										class="btn btn-primary btn-xs btnnomargin"><i class="glyphicon glyphicon-pencil  "></i></a>
-									<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/deletedok/<?php echo $row->id_hki; ?>"
-										class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i
-											class="glyphicon glyphicon-remove  "></i></a>
-									<?php
-                              }}
-                            ?>
-								</td>
-								<td class="ketengah">
-									<?php
-                            if($row->valid == "TIDAK") {
-                            echo '<span class="font_color_red">'.$row->valid.'</span>';                            
-                              } elseif ($row->valid == "YA" ) {
-                            echo '<span class="font_color_green">'.$row->valid.'</span>';                          
-                              }                            
-                            if($buba == 'administrator' && ($row->valid == NULL)) {
-                            ?>
-									<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
-										class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-									<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/tolakvalidasi/<?php echo $row->id_hki; ?>"
-										class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
-									<?php
-                              } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
-                            ?>
-									<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
-										class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-									<?php
-                              }
-                            ?>
-								</td>
-							</tr>
-							<?php
-                         }
-                        ?>
+						$no = 1;
+						if($buba == 'administrator'){
+							foreach($query as $row){
+								?>
+								<tr>
+									<td><?php echo $no++ ?></td>
+									<td><b><?php echo $row->nama_dosen; ?></b><br>
+										NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen WHERE id_hki='.$row->id_hki);
+										foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+										echo $nidn1['NIDN'];                
+										} 
+										?></span><br>
+										<?php
+										if($row->nama_dosen1 != NULL){
+											?>
+											<b><?php echo $row->nama_dosen1; ?></b><br>
+											NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen1 WHERE id_hki='.$row->id_hki);
+											foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+											echo $nidn1['NIDN'];                
+											} 
+											?></span><br>
+											<?php
+										}
+										?>
+										<?php
+										if($row->nama_dosen2 != NULL){
+											?>
+											<b><?php echo $row->nama_dosen2; ?></b><br>
+											NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen2 WHERE id_hki='.$row->id_hki);
+											foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+											echo $nidn1['NIDN'];                
+											} 
+											?></span><br>
+											<?php
+										}
+										?>
+									</td>
+									<td>
+										<b><?php echo $row->judul_hki; ?></b><br>
+										<b hidden><?php echo $row->tahun_pelaksanaan;?></b><br>
+									</td>
+									<td>
+										Jenis :&nbsp;<span
+											class="font_color_blue"><b><?php echo $row->jenis_hki; ?></b></span><br>
+										No. Pendaftaran :&nbsp;<span class="font_color_blue">
+											<?php echo $row->no_pendaftaran ; ?></span><br>
+										Status :&nbsp;<span class="font_color_blue"> <?php echo $row->status_hki; ?>
+										</span><br>
+										No. HKI :&nbsp;<span class="font_color_blue"> <?php echo $row->no_hki; ?>
+										</span><br>
+									</td>
+									<td class="ketengah">
+										<?php
+										if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
+											if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+												?>
+														<button type="button" class="btn btn-success btn-xs btnnomargin" data-toggle="modal"
+															data-target="#modal-upload<?php echo $row->id_hki;?>"><span
+																class="glyphicon glyphicon-cloud-upload"></span></button>
+														<?php
+												if(($row->file == NULL) || ($row->file == "")){
+												?>
+														<button class="btn btn-default btn-xs btnnomargin source" onclick="
+												new PNotify({
+													title: 'Terjadi Kesalahan !',
+													text: 'Berkas Pendukung belum diunggah !',
+													type: 'error',
+													delay: 5000,
+													styling: 'bootstrap3'
+													});  
+												"><i class="fa fa-fw fa-file-text"></i></button>
+												<?php
+												}else if(($row->file != NULL) || ($row->file != "") ){
+													?>
+														<a href="<?php echo site_url().'fileupload/hki/'.$row->file  ?>"
+															class="btn btn-danger btn-xs btnnomargin"><i
+																class="fa fa-fw fa-file-text"></i></a>
+												<?php
+												}
+												?>
+										<?php
+											}
+										}
+										?>
+									</td>
+									<td class="ketengah">
+										<?php
+										if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
+											if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+												?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/editdok/<?php echo $row->id_hki; ?>"
+													class="btn btn-primary btn-xs btnnomargin">
+													<i class="glyphicon glyphicon-pencil  "></i>
+												</a>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/deletedok/<?php echo $row->id_hki; ?>"
+													class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();">
+													<i class="glyphicon glyphicon-remove  "></i>
+												</a>
+												<?php
+											}
+										}
+												?>
+									</td>
+									<td class="ketengah">
+										<?php
+										if($row->valid == "TIDAK") {
+											echo '<span class="font_color_red">'.$row->valid.'</span>';                            
+										} elseif ($row->valid == "YA" ) {
+											echo '<span class="font_color_green">'.$row->valid.'</span>';                          
+										}                            
+										if($buba == 'administrator' && ($row->valid == NULL)) {
+											?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
+													class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/tolakvalidasi/<?php echo $row->id_hki; ?>"
+													class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+												<?php
+										} elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
+										?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
+													class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+												<?php
+										}
+										?>
+									</td>
+								</tr>
+								<?php
+							}
+						} else{
+							foreach($queryByProdi as $row){
+								?>
+								<tr>
+									<td><?php echo $no++ ?></td>
+									<td><b><?php echo $row->nama_dosen; ?></b><br>
+										NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen WHERE id_hki='.$row->id_hki);
+										foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+										echo $nidn1['NIDN'];                
+										} 
+										?></span><br>
+										<?php
+										if($row->nama_dosen1 != NULL){
+											?>
+											<b><?php echo $row->nama_dosen1; ?></b><br>
+											NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen1 WHERE id_hki='.$row->id_hki);
+											foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+											echo $nidn1['NIDN'];                
+											} 
+											?></span><br>
+											<?php
+										}
+										?>
+										<?php
+										if($row->nama_dosen2 != NULL){
+											?>
+											<b><?php echo $row->nama_dosen2; ?></b><br>
+											NIDN :&nbsp;<span class="font_color_blue"><?php $query_tampil_nidn1=$this->db->query('SELECT * FROM t_hki JOIN t_login ON t_login.username=t_hki.nama_dosen2 WHERE id_hki='.$row->id_hki);
+											foreach ($query_tampil_nidn1->result_array() as $nidn1) {
+											echo $nidn1['NIDN'];                
+											} 
+											?></span><br>
+											<?php
+										}
+										?>
+									</td>
+									<td>
+										<b><?php echo $row->judul_hki; ?></b><br>
+										<b hidden><?php echo $row->tahun_pelaksanaan;?></b><br>
+									</td>
+									<td>
+										Jenis :&nbsp;<span
+											class="font_color_blue"><b><?php echo $row->jenis_hki; ?></b></span><br>
+										No. Pendaftaran :&nbsp;<span class="font_color_blue">
+											<?php echo $row->no_pendaftaran ; ?></span><br>
+										Status :&nbsp;<span class="font_color_blue"> <?php echo $row->status_hki; ?>
+										</span><br>
+										No. HKI :&nbsp;<span class="font_color_blue"> <?php echo $row->no_hki; ?>
+										</span><br>
+									</td>
+									<td class="ketengah">
+										<?php
+										if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
+											if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+												?>
+														<button type="button" class="btn btn-success btn-xs btnnomargin" data-toggle="modal"
+															data-target="#modal-upload<?php echo $row->id_hki;?>"><span
+																class="glyphicon glyphicon-cloud-upload"></span></button>
+														<?php
+												if(($row->file == NULL) || ($row->file == "")){
+												?>
+														<button class="btn btn-default btn-xs btnnomargin source" onclick="
+												new PNotify({
+													title: 'Terjadi Kesalahan !',
+													text: 'Berkas Pendukung belum diunggah !',
+													type: 'error',
+													delay: 5000,
+													styling: 'bootstrap3'
+													});  
+												"><i class="fa fa-fw fa-file-text"></i></button>
+												<?php
+												}else if(($row->file != NULL) || ($row->file != "") ){
+													?>
+														<a href="<?php echo site_url().'fileupload/hki/'.$row->file  ?>"
+															class="btn btn-danger btn-xs btnnomargin"><i
+																class="fa fa-fw fa-file-text"></i></a>
+												<?php
+												}
+												?>
+										<?php
+											}
+										}
+										?>
+									</td>
+									<td class="ketengah">
+										<?php
+										if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
+											if($buba == 'administrator' || ($bubi ==  $row->nama_dosen || ($bubi ==  $row->nama_dosen1) || ($bubi ==  $row->nama_dosen2))){
+												?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/editdok/<?php echo $row->id_hki; ?>"
+													class="btn btn-primary btn-xs btnnomargin">
+													<i class="glyphicon glyphicon-pencil  "></i>
+												</a>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/deletedok/<?php echo $row->id_hki; ?>"
+													class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();">
+													<i class="glyphicon glyphicon-remove  "></i>
+												</a>
+												<?php
+											}
+										}
+												?>
+									</td>
+									<td class="ketengah">
+										<?php
+										if($row->valid == "TIDAK") {
+											echo '<span class="font_color_red">'.$row->valid.'</span>';                            
+										} elseif ($row->valid == "YA" ) {
+											echo '<span class="font_color_green">'.$row->valid.'</span>';                          
+										}                            
+										if($buba == 'administrator' && ($row->valid == NULL)) {
+											?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
+													class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/tolakvalidasi/<?php echo $row->id_hki; ?>"
+													class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+												<?php
+										} elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
+										?>
+												<a href="<?php echo site_url(); ?>publikasi/HakKekayaanIntelektual/validasi/<?php echo $row->id_hki; ?>"
+													class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+												<?php
+										}
+										?>
+									</td>
+								</tr>
+								<?php
+							}
+						}
+                        	?>
 						</tbody>
 					</table>
 
@@ -195,7 +334,8 @@
                                         echo form_hidden('id',$rou->id_hki);
                                 ?>
 				<div class="form-group">
-					<input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf" required />
+					<input type="file" class="form-control" name="filepdf" id="upload" accept="application/pdf"
+						required />
 					Ukuran file maksimum 5 MB
 				</div>
 			</div>

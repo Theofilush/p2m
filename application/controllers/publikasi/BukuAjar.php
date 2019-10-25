@@ -14,11 +14,14 @@ class BukuAjar extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_buku();	
+		$query = $this->M_dokumen->listAll_buku();
+		$byProdiName = implode((array) $kue[0]->prodi);
+		$queryByProdi = $this->M_dokumen->listAllBuku_byProdi($byProdiName);
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 
 		$dataHalaman = array(   
 		  'query'=> $query,
+		  'queryByProdi' =>  $queryByProdi,
           'da' => $kue,
 		  'tampil_tahun'=> $query_tampil_tahun,
     	);

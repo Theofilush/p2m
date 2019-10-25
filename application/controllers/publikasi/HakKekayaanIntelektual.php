@@ -14,13 +14,16 @@ class HakKekayaanIntelektual extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_hki();	
+		$query = $this->M_dokumen->listAll_hki();
+		$byProdiName = implode((array) $kue[0]->prodi);
+		$queryByProdi = $this->M_dokumen->listAllHki_byProdi($byProdiName);
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
 		
 		$dataHalaman = array(   
 		  'query'=>$query,
+		  'queryByProdi' =>  $queryByProdi,
 		  'da' => $kue,
-			'tampil_tahun'=> $query_tampil_tahun,
+		  'tampil_tahun'=> $query_tampil_tahun,
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
