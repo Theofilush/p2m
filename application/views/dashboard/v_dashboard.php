@@ -163,8 +163,8 @@
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_dana_upj'); ?></div>
 								<a href="<?php echo site_url() ?>penelitian/KemenristekDikti">
-									<h3 class="hoverku">Kemenristek Dikti</h3>
-									<p>Data penelitian yang didanai oleh Kemenristek Dikti </p>
+									<h3 class="hoverku">Hibah Dikti</h3>
+									<p>Data penelitian yang didanai oleh Hibah Dikti </p>
 								</a>
 							</div>
 						</div>

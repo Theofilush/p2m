@@ -58,11 +58,11 @@
 							<h3>Dokumen</h3>
 							<ul class="nav side-menu">
 								<li><a href="<?php echo site_url() ?>dashboard"><i class="fa fa-home"></i>Beranda</a></li>
-								<li><a><i class="fa fa-edit"></i>SumberDana Penelitian <span class="fa fa-chevron-down"></span></a>
+								<li><a><i class="fa fa-edit"></i>Penelitian <span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaUPJ">Sumber Dana UPJ</a></li>
 										<li><a href="<?php echo site_url() ?>penelitian/PenelitianDanaNonUPJ">Sumber Dana non-UPJ</a></li>
-										<li><a href="<?php echo site_url() ?>penelitian/KemenristekDikti">Kemenristek Dikti</a></li>
+										<li><a href="<?php echo site_url() ?>penelitian/KemenristekDikti">Hibah Dikti</a></li>
 									</ul>
 								</li>
 								<li><a><i class="fa fa-desktop"></i>Publikasi <span class="fa fa-chevron-down"></span></a>
@@ -75,10 +75,11 @@
 										<li><a href="<?php echo site_url() ?>publikasi/LuaranLain">Luaran Lain</a></li>
 									</ul>
 								</li>
-								<li><a><i class="fa fa-clone"></i>SumberDana Pengabdian<span class="fa fa-chevron-down"></span></a>
+								<li><a><i class="fa fa-clone"></i>Pengabdian<span class="fa fa-chevron-down"></span></a>
 									<ul class="nav child_menu">
 										<li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaUPJ">Sumber Dana UPJ</a></li>
 										<li><a href="<?php echo site_url() ?>pengabdian/PengabdianDanaNonUPJ">Sumber Dana non UPJ</a></li>
+										<li><a href="<?php echo site_url() ?>pengabdian/KemenristekDikti">Hibah Dikti</a></li>
 									</ul>
 								</li>
 								<?php

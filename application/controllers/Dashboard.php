@@ -20,16 +20,16 @@ class Dashboard extends CI_Controller {
 		//menghitung keseluruhan data pengabdian dan dimasukan ke total publikasi di halaman dashboard paling atas
 		$raise_abdi=$this->db->count_all('t_dana2_upj');
 		$raise_abdinon=$this->db->count_all('t_dana_non2_upj');
-	$jml_raise_abdi = $raise_abdi +$raise_abdinon;
+		$jml_raise_abdi = $raise_abdi +$raise_abdinon;
 		$raise_liti=$this->db->count_all('t_dana_upj');
 		$raise_litinon=$this->db->count_all('t_dana_non_upj');
-	$jml_raise_liti = $raise_liti +$raise_litinon;
+		$jml_raise_liti = $raise_liti +$raise_litinon;
 		$raise_jurnal=$this->db->count_all('t_publikasi_jurnal');
 		$raise_buku=$this->db->count_all('t_buku_ajar');
 		$raise_forum=$this->db->count_all('t_forum_ilmiah');
 		$raise_hki=$this->db->count_all('t_hki');
 		$raise_luaran=$this->db->count_all('t_luaran_lain');
-	$jml_raise_publi = $raise_jurnal + $raise_buku + $raise_forum + $raise_hki + $raise_luaran;
+		$jml_raise_publi = $raise_jurnal + $raise_buku + $raise_forum + $raise_hki + $raise_luaran;
 
 		//untuk membuat perhitungan dan membuat garis line pada dashboard grafik 1
 		$hitung_dana2_upj_tahun = $this->M_chart->hitung_dana2_upj_tahun();

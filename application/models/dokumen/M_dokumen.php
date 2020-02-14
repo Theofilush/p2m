@@ -89,7 +89,20 @@ class M_dokumen extends CI_Model{
         $query = $this->db->get($this->kemenristek);
         return $query->result();
     }
+    function listAll_kemenristek2(){
+        $query = $this->db->get($this->kemenristek);
+        return $query->result();
+    }
     function listAllKemenristek_byProdi($id){
+        $this->db->select('*');
+        $this->db->from($this->kemenristek);
+        $this->db->join($this->dt_login, 't_login.username = t_dana_kemenristek.ketua_peneliti','left');
+        $this->db->where('prodi',$id);
+        //$this->db->or_where('email',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function listAllKemenristek_byProdi2($id){
         $this->db->select('*');
         $this->db->from($this->kemenristek);
         $this->db->join($this->dt_login, 't_login.username = t_dana_kemenristek.ketua_peneliti','left');

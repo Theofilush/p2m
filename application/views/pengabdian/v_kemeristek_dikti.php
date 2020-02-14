@@ -6,7 +6,7 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <p ><?php echo $this->session->flashdata('notification')?></p>  
-                      <h4 class="">Penelitian Sumber Dana Hibah Dikti</h4>     
+                      <h4 class="">Pengabdian Sumber Dana Hibah Dikti</h4>     
                       <div class=" hidden-xs hidden-sm col-md-12">
                       Urutkan :           
                       <select class="form-control select2_ok" style="width: 10%;" class="pull-right" data-placeholder="Pilih Tahun" id="dragThn6">                                            
@@ -28,7 +28,7 @@
                      if($buba == 'administrator') {
                       ?>   
                       <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="margin-bottom: 5px;">
-                        <a href="<?php echo site_url() ?>databaru/NewKemenristekDikti" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
+                        <a href="<?php echo site_url() ?>databaru/NewKemenristekDikti2" class="btn btn-info"><span class="glyphicon glyphicon-plus"></span>  Data Baru</a>                  
                       </div>
                       <?php
                       }

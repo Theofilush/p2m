@@ -14,9 +14,9 @@ class KemenristekDikti extends CI_Controller {
 	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listAll_kemenristek();
+		$query = $this->M_dokumen->listAll_kemenristek2();
 		$byProdiName = implode((array) $kue[0]->prodi);
-		$queryByProdi = $this->M_dokumen->listAllKemenristek_byProdi($byProdiName);
+		$queryByProdi = $this->M_dokumen->listAllKemenristek_byProdi2($byProdiName);
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 		
 		$dataHalaman = array(
 			'query'=>$query,
@@ -26,7 +26,7 @@ class KemenristekDikti extends CI_Controller {
         );
 
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('penelitian/v_kemeristek_dikti');
+		$this->load->view('pengabdian/v_kemeristek_dikti');
 		$this->load->view('dashboard/v_footer');
 	}
 	public function editdok($id) 
@@ -84,10 +84,10 @@ class KemenristekDikti extends CI_Controller {
 					);              
 					$query= $this->M_dokumen->updateDok_dana_kemenristek($data,$id);
 			if ($query) {
-				redirect("penelitian/KemenristekDikti");
+				redirect("pengabdian/KemenristekDikti");
 			}
 			else{
-				redirect("penelitian/KemenristekDikti");
+				redirect("pengabdian/KemenristekDikti");
 			}
 		}
 	}
@@ -95,28 +95,28 @@ class KemenristekDikti extends CI_Controller {
 		$this->db->where('kode_penelitan', $id);
         $query = $this->db->get('t_dana_kemenristek');
         $row = $query->row();
-        unlink("./fileupload/penelitian_kemenristek/$row->file");
+        unlink("./fileupload/penelitian_kemenristek/$row->file");/**======================================change here */
 		$this->M_dokumen->deleteDok_dana_kemenristek($id);
-		redirect('penelitian/KemenristekDikti');
+		redirect('pengabdian/KemenristekDikti');
 	} 
 	public function validasi($id){            
 		$query= $this->M_dokumen->validasi_dana_kemenristek($id);        
 		if ($query) {
-		  redirect("penelitian/KemenristekDikti");
+		  redirect("pengabdian/KemenristekDikti");
 		}
 		else{
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Validasi');		  
-		  redirect("penelitian/KemenristekDikti");
+		  redirect("pengabdian/KemenristekDikti");
 		}
 	} 
 	public function tolakvalidasi($id){
 		$query= $this->M_dokumen->toval_dana_kemenristek($id);        
 		if ($query) {
-		  redirect("penelitian/KemenristekDikti");
+		  redirect("pengabdian/KemenristekDikti");
 		}
 		else{
 		  $this->session->set_flashdata('notification', 'Gagal Melakukan Penolakan Validasi');		  
-		  redirect("penelitian/KemenristekDikti");
+		  redirect("pengabdian/KemenristekDikti");
 		}
 	} 
 	public function uploaddok(){
@@ -140,10 +140,10 @@ class KemenristekDikti extends CI_Controller {
 			$_upload = $this->upload->data('file_name');
 			$query= $this->M_dokumen->uploadDok_dana_kemenristek($_upload,$id);
 			if ($query) {
-				redirect(site_url('penelitian/KemenristekDikti'));
+				redirect(site_url('pengabdian/KemenristekDikti'));
 			}
 			else{
-				redirect(site_url('penelitian/KemenristekDikti'));
+				redirect(site_url('pengabdian/KemenristekDikti'));
 			}
 		}					
 	}
