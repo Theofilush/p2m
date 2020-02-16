@@ -58,6 +58,7 @@ class KemenristekDikti extends CI_Controller {
 			$_jenis = $this->input->post('jenis', TRUE);
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
+			$_status_penelitian = $this->input->post('status_penelitian', TRUE);
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
 			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
@@ -78,6 +79,7 @@ class KemenristekDikti extends CI_Controller {
 						'jenis_penelitian' =>  $_jenis,
 						'dana_usulan' =>  $_dana_usulan,
 						'dana_disetujui' =>  $_dana_setujui,
+						'status' =>  $_status_penelitian,
 						'ketua_peneliti' =>  $_penulis,
 						'anggota_peneliti_1' =>  $_anggota1,
 						'anggota_peneliti_2' =>  $_anggota2
@@ -158,10 +160,10 @@ class KemenristekDikti extends CI_Controller {
 		// Settingan awal fil excel
 		$excel->getProperties()->setCreator('LP2M UPJ')
 							   ->setLastModifiedBy('LP2M UPJ')
-							   ->setTitle("Data Penelitian UPJ")
+							   ->setTitle("Data Penelitian Hibah Dikti")
 							   ->setSubject("Penelitian")
-							   ->setDescription("Laporan Semua Penelitian UPJ")
-							   ->setKeywords("Data Penelitian UPJ");
+							   ->setDescription("Laporan Semua Penelitian Hibah Dikti")
+							   ->setKeywords("Data Penelitian");
 
 		// Buat sebuah variabel untuk menampung pengaturan style dari header tabel
 		$style_col = array(
@@ -293,7 +295,7 @@ class KemenristekDikti extends CI_Controller {
 
 		// Proses file excel
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment; filename="Data Penelitian Kemenristek.xlsx"'); // Set nama file excel nya
+		header('Content-Disposition: attachment; filename="Data Penelitian Hibah Dikti.xlsx"'); // Set nama file excel nya
 		header('Cache-Control: max-age=0');
 
 		$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');

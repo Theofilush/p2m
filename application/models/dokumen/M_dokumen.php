@@ -12,6 +12,7 @@ class M_dokumen extends CI_Model{
     var $luaran_lain= 't_luaran_lain'; 
     var $dt_login= 't_login';
     var $kemenristek= 't_dana_kemenristek';
+    var $kemenristek2= 't_dana_kemenristek2';
     //tampilkan data di halaman dashboard
     function listAll_publikasi(){
         $query = $this->db->get($this->publikasi_jurnal);
@@ -90,7 +91,7 @@ class M_dokumen extends CI_Model{
         return $query->result();
     }
     function listAll_kemenristek2(){
-        $query = $this->db->get($this->kemenristek);
+        $query = $this->db->get($this->kemenristek2);
         return $query->result();
     }
     function listAllKemenristek_byProdi($id){
@@ -104,8 +105,8 @@ class M_dokumen extends CI_Model{
     }
     function listAllKemenristek_byProdi2($id){
         $this->db->select('*');
-        $this->db->from($this->kemenristek);
-        $this->db->join($this->dt_login, 't_login.username = t_dana_kemenristek.ketua_peneliti','left');
+        $this->db->from($this->kemenristek2);
+        $this->db->join($this->dt_login, 't_login.username = t_dana_kemenristek2.ketua_peneliti','left');
         $this->db->where('prodi',$id);
         //$this->db->or_where('email',$id);
         $query = $this->db->get();
@@ -193,6 +194,11 @@ class M_dokumen extends CI_Model{
         $this->db->where('kode_penelitan',$id);
         $query = $this->db->get($this->kemenristek);
         return $query->result();
+    }
+    function listEdit_dana_kemenristek2($id){
+        $this->db->where('kode_penelitan',$id);
+        $query = $this->db->get($this->kemenristek2);
+        return $query->result();
     } 
     function listEdit_dana_non2_upj($id){
         $this->db->where('kode_penelitian',$id);
@@ -233,6 +239,9 @@ class M_dokumen extends CI_Model{
     function simpanDok_dana_kemenristek($data){
         return $this->db->insert($this->kemenristek, $data);
     } 
+    function simpanDok_dana_kemenristek2($data){
+        return $this->db->insert($this->kemenristek2, $data);
+    }
     function simpanDok_dana_non2_upj($data){        
         return $this->db->insert($this->dana_non2_upj, $data);
     } 
@@ -326,6 +335,10 @@ class M_dokumen extends CI_Model{
         $this->db->where('kode_penelitan',$id);
         return $this->db->update($this->kemenristek,$data);
     }
+    function updateDok_dana_kemenristek2($data,$id){
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->kemenristek2,$data);
+    }
     function updateDok_dana_non2_upj($data,$id){
         $this->db->where('kode_penelitian',$id);
         return $this->db->update($this->dana_non2_upj,$data);
@@ -366,6 +379,10 @@ class M_dokumen extends CI_Model{
     function deleteDok_dana_kemenristek($id){
         $this->db->where('kode_penelitan', $id);
         $this->db->delete($this->kemenristek);
+    }
+    function deleteDok_dana_kemenristek2($id){
+        $this->db->where('kode_penelitan', $id);
+        $this->db->delete($this->kemenristek2);
     }
     function deleteDok_dana_non2_upj($id){
         $this->db->where('kode_penelitian', $id);
@@ -413,6 +430,11 @@ class M_dokumen extends CI_Model{
         $this->db->set('valid', "YA");
         $this->db->where('kode_penelitan',$id);
         return $this->db->update($this->kemenristek);
+    }
+    function validasi_dana_kemenristek2($id){
+        $this->db->set('valid', "YA");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->kemenristek2);
     }
     function validasi_dana_non2_upj($id){
         $this->db->set('valid', "YA");
@@ -465,6 +487,11 @@ class M_dokumen extends CI_Model{
         $this->db->where('kode_penelitan',$id);
         return $this->db->update($this->kemenristek);
     }
+    function toval_dana_kemenristek2($id){
+        $this->db->set('valid', "TIDAK");
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->kemenristek2);
+    }
     function toval_dana_non2_upj($id){
         $this->db->set('valid', "TIDAK");
         $this->db->where('kode_penelitian',$id);
@@ -510,6 +537,11 @@ class M_dokumen extends CI_Model{
         $this->db->set('file', $nama_file);
         $this->db->where('kode_penelitan',$id);
         return $this->db->update($this->kemenristek);
+    }
+    function uploadDok_dana_kemenristek2($nama_file,$id){
+        $this->db->set('file', $nama_file);
+        $this->db->where('kode_penelitan',$id);
+        return $this->db->update($this->kemenristek2);
     }
     function uploadDok_dana_non2_upj($nama_file,$id){
         $this->db->set('file', $nama_file);

@@ -48,6 +48,7 @@
                           <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -133,7 +134,7 @@
                                   }
                                 ?>
                               </td>   
-                              
+                              <td><?php echo $row->status; ?></td>
                             </tr>
                             <?php
                           }
@@ -217,7 +218,7 @@
                                   }
                                 ?>
                               </td>   
-                              
+                              <td><?php echo $row->status; ?></td>
                             </tr>
                             <?php
                           }

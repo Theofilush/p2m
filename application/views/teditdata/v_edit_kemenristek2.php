@@ -13,10 +13,10 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                             <div class="x_title">
-                                <h2>Penelitian Sumber Dana Hibah Dikti</h2>
+                                <h2>Pengabdian Sumber Dana Hibah Dikti</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                </li>              
+                                </li>                                
                                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                                 </li>
                                 </ul>
@@ -30,7 +30,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open('penelitian/KemenristekDikti/updatedok',$atribut);
+                                        echo form_open('pengabdian/KemenristekDikti/updatedok',$atribut);
                                         foreach ($query as $rou) {    
                                         echo form_hidden('id',$rou->kode_penelitan);
                                 ?>
@@ -40,11 +40,11 @@
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_kegiatan">
-                                    <option selected><?php echo $rou->tahun_hibah; ?></option> 
-                                            <?php 
-                                          foreach($tampil_tahun as $r){
-                                        ?>
-                                        <option><?php echo $r->tahun; ?></option>                      
+                                    <option selected><?php echo $rou->tahun_hibah; ?></option>   
+                                     <?php 
+                                          foreach($tampil_tahun as $row){
+                                        ?>  
+                                        <option><?php echo $row->tahun; ?></option>                      
                                         <?php
                                           }
                                         ?>
@@ -52,47 +52,30 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Pengabdian Masyarakat
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul_penelitian; ?></textarea>
                                     </div>
                                 </div>
-                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Skema Penelitian
-                                    </label> 
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tahun" name="skema">                                       
-                                            <?php 
-                                          foreach($tampil_skema as $row){
-                                        ?>
-                                        <option <?php if (($rou->skema_penelitian =='Penelitian Dasar') && ($row->skema =='Penelitian Dasar')) {
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Pengabdian Masyarakat
+                                    </label>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">                                   
+                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis">                                          
+                                        <?php 
+                                          foreach($tampil_jenis as $hai){
+                                        ?>                          
+                                        <option <?php if (($rou->jenis_penelitian =='IPTEK bagi Kewirausahaan') && ($hai->jenis_pengabdian =='IPTEK bagi Kewirausahaan')) {
                                             echo 'selected'; 
-                                          }elseif (($rou->skema_penelitian =='Penelitian Terapan') && ($row->skema =='Penelitian Terapan')) {
+                                          }elseif (($rou->jenis_penelitian =='IPTEK bagi Masyarakat') && ($hai->jenis_pengabdian =='IPTEK bagi Masyarakat')) {
                                             echo 'selected'; 
                                           }
-                                          echo '>'.$row->skema;
-                                          ?>
-                                        </option>                   
+                                          echo '>'.$hai->jenis_pengabdian;
+                                          ?> 
                                         <?php
                                           }
-                                        ?>
-                                    </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis Penelitian
-                                    </label>
-                                    <div class="col-md-7 col-sm-7 col-xs-12">                                    
-                                    <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenis" name="jenis">  
-                                    <option><?php echo $rou->jenis_penelitian; ?></option>                                        
-                                    <?php 
-                                            foreach($tampil_jenis as $r){ 
-                                          ?>  
-                                          <option><?php echo $r->jenis_penelitian; ?></option>                      
-                                          <?php
-                                            }
-                                          ?>
+                                        ?>                                         
                                     </select>
                                     </div>
                                 </div>
@@ -172,7 +155,7 @@
                                             ?>   
                                         </select>
                                     </div>     
-                                </div>
+                                </div>    
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -182,7 +165,7 @@
                                     </div>
                                 </div>
                                 <?php
-                                }
+                                        }
                                     echo form_close();
                                 ?>
                             </div>

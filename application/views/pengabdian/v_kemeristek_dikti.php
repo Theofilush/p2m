@@ -33,28 +33,29 @@
                       <?php
                       }
                       ?>
-                      <a href="<?php echo site_url() ?>penelitian/KemenristekDikti/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
+                      <a href="<?php echo site_url() ?>pengabdian/KemenristekDikti/exportexcel" class="btn btn-success pull-right">Excel <i class="fa fa-file-excel-o"></i> </a>
                     </div>
 
                     <table id="datatableku-dana" class="table table-striped table-bordered dt-responsive" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>Judul</th>                          
+                          <th>Judul Pengabdian Masyarakat</th>                          
                           <th>Personil</th>
-                          <th>Penelitian</th>
+                          <th>Pengabdian</th>
                           <th>Dana</th>
                           <th>Tahun Penelitian</th>
                           <th>Berkas</th>
                           <th>Edit</th>                          
                           <th>Valid</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
-                        $no = 1;
+                        $no = 1; 
                         if($buba == 'administrator'){
-                          foreach($query as $row){
+                          foreach($query as $row){                   
                             ?> 
                             <tr>
                               <td><?php echo $no++ ?></td>
@@ -65,12 +66,11 @@
                                 Anggota 2 :&nbsp;<span class="font_color_blue"> <?php echo $row->anggota_peneliti_2; ?> </span><br>
                               </td>
                               <td>                            
-                                Jenis Penelitian :&nbsp;<span class="font_color_blue"><?php echo $row->jenis_penelitian; ?></span><br>                            
-                                <b hidden><?php echo $row->cakupan_publikasi;?></b><br>
+                                Jenis Penelitian :&nbsp;<span class="font_color_blue"><?php echo $row->jenis_penelitian; ?></span><br>
                               </td>
                               <td>
-                              Dana Usulan :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_usulan,2,',','.');  ?></span><br>
-                              Dana Disetujui :&nbsp;<span class="font_color_blue"><?php echo 'Rp.'.number_format($row->dana_disetujui,2,',','.'); ?></span><br>
+                              Dana Usulan :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_usulan,2,',','.'); ?></span><br>
+                              Dana Disetujui :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_disetujui,2,',','.'); ?></span><br>
                               </td>
                               <td>                            
                                 <b><?php echo $row->tahun_hibah; ?></b><br>                          	
@@ -79,7 +79,7 @@
                               <?php
                               if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                 if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
-                                ?>  
+                                ?>
                                 <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                               <?php
                                 if(($row->file == NULL) || ($row->file == "")){
@@ -96,49 +96,50 @@
                                     <?php
                                 }else if(($row->file != NULL) || ($row->file != "") ){
                                     ?>
-                                    <a href="<?php echo site_url().'fileupload/penelitian_kemenristek/'.$row->file?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                    <a href="<?php echo site_url().'fileupload/penelitian_kemenristek2/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                     <?php
                                 }
                                   }}
                                 ?> 
+                              
                               </td>
                               <td>
-                              <?php
+                              <?php 
                               if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                 if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
-                                ?>                          
-                                <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
-                                <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                                ?>                            
+                                <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
+                                <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
                                 <?php
                                   }}
                                 ?> 
-                                
-                              </td> 
+                              </td>
                               <td class="ketengah">
                               <?php
                                 if($row->valid == "TIDAK") {
                                 echo '<span class="font_color_red">'.$row->valid.'</span>';                            
                                   } elseif ($row->valid == "YA" ) {
                                 echo '<span class="font_color_green">'.$row->valid.'</span>';                          
-                                  }
+                                  }                            
                                 if($buba == 'administrator' && ($row->valid == NULL)) {
                                 ?>                            
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
                                 <?php
                                   } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
                                 ?>
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                                 <?php
                                   }
                                 ?>
-                              </td>   
-                              
+                              </td>
+                              <td><?php echo $row->status; ?></td>
+
                             </tr>
                             <?php
                           }
                         } else{
-                          foreach($queryByProdi as $row){
+                          foreach($queryByProdi as $row){                   
                             ?> 
                             <tr>
                               <td><?php echo $no++ ?></td>
@@ -149,12 +150,11 @@
                                 Anggota 2 :&nbsp;<span class="font_color_blue"> <?php echo $row->anggota_peneliti_2; ?> </span><br>
                               </td>
                               <td>                            
-                                Jenis Penelitian :&nbsp;<span class="font_color_blue"><?php echo $row->jenis_penelitian; ?></span><br>                            
-                                <b hidden><?php echo $row->cakupan_publikasi;?></b><br>
+                                Jenis Penelitian :&nbsp;<span class="font_color_blue"><?php echo $row->jenis_penelitian; ?></span><br>
                               </td>
                               <td>
-                              Dana Usulan :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_usulan,2,',','.');  ?></span><br>
-                              Dana Disetujui :&nbsp;<span class="font_color_blue"><?php echo 'Rp.'.number_format($row->dana_disetujui,2,',','.'); ?></span><br>
+                              Dana Usulan :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_usulan,2,',','.'); ?></span><br>
+                              Dana Disetujui :&nbsp;<span class="font_color_blue"><?php echo 'Rp. '.number_format($row->dana_disetujui,2,',','.'); ?></span><br>
                               </td>
                               <td>                            
                                 <b><?php echo $row->tahun_hibah; ?></b><br>                          	
@@ -163,7 +163,7 @@
                               <?php
                               if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                 if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
-                                ?>  
+                                ?>
                                 <button type="button" class="btn btn-success btn-xs btnnomargin"  data-toggle="modal" data-target="#modal-upload<?php echo $row->kode_penelitan;?>"><span class="glyphicon glyphicon-cloud-upload"></span></button> 
                               <?php
                                 if(($row->file == NULL) || ($row->file == "")){
@@ -180,44 +180,45 @@
                                     <?php
                                 }else if(($row->file != NULL) || ($row->file != "") ){
                                     ?>
-                                    <a href="<?php echo site_url().'fileupload/penelitian_kemenristek/'.$row->file?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
+                                    <a href="<?php echo site_url().'fileupload/penelitian_kemenristek2/'.$row->file  ?>" class="btn btn-danger btn-xs btnnomargin"><i class="fa fa-fw fa-file-text"></i></a>
                                     <?php
                                 }
                                   }}
                                 ?> 
+                              
                               </td>
                               <td>
-                              <?php
+                              <?php 
                               if ($buba == 'administrator' || ($row->valid == "TIDAK" || $row->valid == NULL)) {
                                 if($buba == 'administrator' || ($bubi ==  $row->ketua_peneliti || ($bubi ==  $row->anggota_peneliti_1) || ($bubi ==  $row->anggota_peneliti_2))){
-                                ?>                          
-                                <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
-                                <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a>
+                                ?>                            
+                                <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/editdok/<?php echo $row->kode_penelitan; ?>" class="btn btn-primary btn-xs btnnomargin" ><i class="glyphicon glyphicon-pencil  "></i></a>
+                                <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/deletedok/<?php echo $row->kode_penelitan; ?>" class="btn btn-danger btn-xs btnnomargin" onClick="return doconfirm();"><i class="glyphicon glyphicon-remove  "></i></a> 
                                 <?php
                                   }}
                                 ?> 
-                                
-                              </td> 
+                              </td>
                               <td class="ketengah">
                               <?php
                                 if($row->valid == "TIDAK") {
                                 echo '<span class="font_color_red">'.$row->valid.'</span>';                            
                                   } elseif ($row->valid == "YA" ) {
                                 echo '<span class="font_color_green">'.$row->valid.'</span>';                          
-                                  }
+                                  }                            
                                 if($buba == 'administrator' && ($row->valid == NULL)) {
                                 ?>                            
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/tolakvalidasi/<?php echo $row->kode_penelitan; ?>" class="btn btn-xs btn-hitam btnnomargin"><i class="fa fa-thumbs-down"></i></a>
                                 <?php
                                   } elseif ($buba == 'administrator' && ($row->valid ==  "TIDAK") ) {
                                 ?>
-                                  <a href="<?php echo site_url(); ?>penelitian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
+                                  <a href="<?php echo site_url(); ?>pengabdian/KemenristekDikti/validasi/<?php echo $row->kode_penelitan; ?>" class="btn bg-purple btn-xs btnnomargin"><i class="fa fa-thumbs-up"></i></a>
                                 <?php
                                   }
                                 ?>
-                              </td>   
-                              
+                              </td>
+                              <td><?php echo $row->status; ?></td>
+
                             </tr>
                             <?php
                           }
@@ -240,7 +241,7 @@
       <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
           </button>
-          <h4 class="modal-title" id="myModalLabel">Penelitian Sumber Dana Hibah Dikti</h4>
+          <h4 class="modal-title" id="myModalLabel">Pengabdian Sumber Dana Hibah Dikti</h4>
       </div>
       <div class="modal-body">
                                 <?php
@@ -249,7 +250,7 @@
                                             'data-parsley-validate' => '',
                                             'id'=>'demo-form2'
                                     );                                        
-                                        echo form_open_multipart('penelitian/KemenristekDikti/uploaddok/',$atribut);
+                                        echo form_open_multipart('pengabdian/KemenristekDikti/uploaddok/',$atribut);
                                         echo form_hidden('id',$rou->kode_penelitan);
                                 ?>                                                             
                                 <div class="form-group">

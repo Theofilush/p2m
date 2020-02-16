@@ -71,7 +71,7 @@ class NewKemenristekDikti extends CI_Controller {
 						'anggota_peneliti_1' =>  $_anggota1,
 						'anggota_peneliti_2' =>  $_anggota2
 					);       
-					$query= $this->M_dokumen->simpanDok_dana_kemenristek	($data);
+					$query= $this->M_dokumen->simpanDok_dana_kemenristek($data);
 					if ($query) {
 						redirect(site_url('penelitian/KemenristekDikti'));
 						//print_r($stan);

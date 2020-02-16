@@ -29,35 +29,35 @@ class KemenristekDikti extends CI_Controller {
 		$this->load->view('pengabdian/v_kemeristek_dikti');
 		$this->load->view('dashboard/v_footer');
 	}
-	public function editdok($id) 
-	{ 
+
+	public function editdok($id)
+	{
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
-		$query = $this->M_dokumen->listEdit_dana_kemenristek($id);		
-		$query_tampil_jenis = $this->M_dokumen->tampil_jenis_penelitian(); 
-		$query_tampil_skema = $this->M_dokumen->tampil_skema_penelitian(); 
-		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
-		$query_tampil_dosen = $this->M_dokumen->tampil_dosen(); 
+		$query = $this->M_dokumen->listEdit_dana_kemenristek2($id);
+		$query_tampil_tahun = $this->M_dokumen->tampil_tahun();
+		$query_tampilJenis = $this->M_dokumen->tampil_jenis_pengabdian();
+		$query_tampil_dosen = $this->M_dokumen->tampil_dosen();
 		$dataHalaman = array( 
 			'query' =>  $query,
 			'da' => $kue,
-			'tampil_skema'=>$query_tampil_skema,
 			'tampil_tahun'=> $query_tampil_tahun,
-			'tampil_jenis'=> $query_tampil_jenis,
+			'tampil_jenis'=> $query_tampilJenis,
 			'tampil_dosen'=>$query_tampil_dosen
         );
 		$this->load->view('dashboard/v_header',$dataHalaman);
-		$this->load->view('teditdata/v_edit_kemenristek');
+		$this->load->view('teditdata/v_edit_kemenristek2');
 		$this->load->view('dashboard/v_footer');
 	}
+
 	public function updatedok(){
-		if ($this->input->post('btnUpload') == "Upload") {
+        if ($this->input->post('btnUpload') == "Upload") {
 			$_tahun_kegiatan = $this->input->post('tahun_kegiatan', TRUE);
 			$_judul = $this->input->post('judul', TRUE);
-			$_skema = $this->input->post('skema', TRUE);				
 			$_jenis = $this->input->post('jenis', TRUE);
 			$_dana_usulan = $this->input->post('dana_usulan', TRUE);
 			$_dana_setujui = $this->input->post('dana_setujui', TRUE);
+			$_status_penelitian = $this->input->post('status_penelitian', TRUE);
 			$_penulis = $this->input->post('pesan_penulis', TRUE);
 			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
@@ -71,36 +71,39 @@ class KemenristekDikti extends CI_Controller {
 			if($_anggota2 == ""){
 				$_anggota2 = NULL;
 			}
-					$data = array(
-						'tahun_hibah' =>  $_tahun_kegiatan,
-						'judul_penelitian' =>  $_judul,
-						'skema_penelitian' =>  $_skema,
-						'jenis_penelitian' =>  $_jenis,
-						'dana_usulan' =>  $_dana_usulan,
-						'dana_disetujui' =>  $_dana_setujui,
-						'ketua_peneliti' =>  $_penulis,
-						'anggota_peneliti_1' =>  $_anggota1,
-						'anggota_peneliti_2' =>  $_anggota2
-					);              
-					$query= $this->M_dokumen->updateDok_dana_kemenristek($data,$id);
-			if ($query) {
-				redirect("pengabdian/KemenristekDikti");
-			}
-			else{
-				redirect("pengabdian/KemenristekDikti");
-			}
-		}
+          
+              $data = array(
+				'tahun_hibah' =>  $_tahun_kegiatan,
+				'judul_penelitian' =>  $_judul,
+				'jenis_penelitian' =>  $_jenis,
+				'dana_usulan' =>  $_dana_usulan,
+				'dana_disetujui' =>  $_dana_setujui,
+				'status' =>  $_status_penelitian,
+				'ketua_peneliti' =>  $_penulis,
+				'anggota_peneliti_1' =>  $_anggota1,
+				'anggota_peneliti_2' =>  $_anggota2
+              );
+              $query= $this->M_dokumen->updateDok_dana_kemenristek2($data,$id);
+
+          if ($query) {
+            redirect("pengabdian/KemenristekDikti");
+          }
+          else{
+            redirect("pengabdian/KemenristekDikti");
+          }
+        }
 	}
+
 	public function deletedok($id){
 		$this->db->where('kode_penelitan', $id);
-        $query = $this->db->get('t_dana_kemenristek');
+        $query = $this->db->get('t_dana_kemenristek2');
         $row = $query->row();
-        unlink("./fileupload/penelitian_kemenristek/$row->file");/**======================================change here */
-		$this->M_dokumen->deleteDok_dana_kemenristek($id);
+        unlink("./fileupload/penelitian_kemenristek2/$row->file");/**======================================change here */
+		$this->M_dokumen->deleteDok_dana_kemenristek2($id);
 		redirect('pengabdian/KemenristekDikti');
 	} 
-	public function validasi($id){            
-		$query= $this->M_dokumen->validasi_dana_kemenristek($id);        
+	public function validasi($id){
+		$query= $this->M_dokumen->validasi_dana_kemenristek2($id);
 		if ($query) {
 		  redirect("pengabdian/KemenristekDikti");
 		}
@@ -110,7 +113,7 @@ class KemenristekDikti extends CI_Controller {
 		}
 	} 
 	public function tolakvalidasi($id){
-		$query= $this->M_dokumen->toval_dana_kemenristek($id);        
+		$query= $this->M_dokumen->toval_dana_kemenristek2($id);        
 		if ($query) {
 		  redirect("pengabdian/KemenristekDikti");
 		}
@@ -121,7 +124,7 @@ class KemenristekDikti extends CI_Controller {
 	} 
 	public function uploaddok(){
 		if($this->input->post('btnUpload') == "Upload"){
-			$config['upload_path'] = './fileupload/penelitian_kemenristek/';
+			$config['upload_path'] = './fileupload/penelitian_kemenristek2/';
 			$config['allowed_types'] = 'pdf';
 			$config['max_size'] = 5120;
 			$this->load->library('upload', $config);                
@@ -138,7 +141,7 @@ class KemenristekDikti extends CI_Controller {
 			}			
 			$id = $this->input->post('id', TRUE);
 			$_upload = $this->upload->data('file_name');
-			$query= $this->M_dokumen->uploadDok_dana_kemenristek($_upload,$id);
+			$query= $this->M_dokumen->uploadDok_dana_kemenristek2($_upload,$id);
 			if ($query) {
 				redirect(site_url('pengabdian/KemenristekDikti'));
 			}
@@ -158,10 +161,10 @@ class KemenristekDikti extends CI_Controller {
 		// Settingan awal fil excel
 		$excel->getProperties()->setCreator('LP2M UPJ')
 							   ->setLastModifiedBy('LP2M UPJ')
-							   ->setTitle("Data Penelitian UPJ")
-							   ->setSubject("Penelitian")
-							   ->setDescription("Laporan Semua Penelitian UPJ")
-							   ->setKeywords("Data Penelitian UPJ");
+							   ->setTitle("Data Pengabdian Hibah Dikti")
+							   ->setSubject("Pengabdian")
+							   ->setDescription("Laporan Semua Data Pengabdian Hibah DIkti")
+							   ->setKeywords("Data Pengabdian");
 
 		// Buat sebuah variabel untuk menampung pengaturan style dari header tabel
 		$style_col = array(
@@ -191,8 +194,8 @@ class KemenristekDikti extends CI_Controller {
 			)
 		);
 
-		$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA PENELITIAN SUMBER DANA HIBAH DIKTI"); // Set kolom A1 dengan tulisan "DATA SISWA"
-		$excel->getActiveSheet()->mergeCells('A1:L1'); // Set Merge Cell pada kolom A1 sampai E1
+		$excel->setActiveSheetIndex(0)->setCellValue('A1', "DATA PENGABDIAN SUMBER DANA HIBAH DIKTI"); // Set kolom A1 dengan tulisan "DATA SISWA"
+		$excel->getActiveSheet()->mergeCells('A1:J1'); // Set Merge Cell pada kolom A1 sampai E1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE); // Set bold kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(15); // Set font size 15 untuk kolom A1
 		$excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER); // Set text center untuk kolom A1
@@ -200,16 +203,14 @@ class KemenristekDikti extends CI_Controller {
 		// Buat header tabel nya pada baris ke 3
 		$excel->setActiveSheetIndex(0)->setCellValue('A3', "NO"); // Set kolom A3 dengan tulisan "NO"
 		$excel->setActiveSheetIndex(0)->setCellValue('B3', "Tahun Hibah"); // Set kolom B3 dengan tulisan "NIS"
-		$excel->setActiveSheetIndex(0)->setCellValue('C3', "Judul Penelitian"); // Set kolom C3 dengan tulisan "NAMA"
-		$excel->setActiveSheetIndex(0)->setCellValue('D3', "Jenis Penelitian"); // Set kolom D3 dengan tulisan "JENIS KELAMIN"
+		$excel->setActiveSheetIndex(0)->setCellValue('C3', "Judul Pengabdian"); // Set kolom C3 dengan tulisan "NAMA"
+		$excel->setActiveSheetIndex(0)->setCellValue('D3', "Jenis Pengabdian"); // Set kolom D3 dengan tulisan "JENIS KELAMIN"
 		$excel->setActiveSheetIndex(0)->setCellValue('E3', "Dana Usulan"); // Set kolom E3 dengan tulisan "ALAMAT"
 		$excel->setActiveSheetIndex(0)->setCellValue('F3', "Dana Disetujui");
-		$excel->setActiveSheetIndex(0)->setCellValue('G3', "Skema Penelitian");
-		$excel->setActiveSheetIndex(0)->setCellValue('H3', "Ketua Peneliti");
-		$excel->setActiveSheetIndex(0)->setCellValue('I3', "Anggota Peneliti 1");
-		$excel->setActiveSheetIndex(0)->setCellValue('J3', "Anggota Peneliti 2");
-		$excel->setActiveSheetIndex(0)->setCellValue('K3', "Valid");
-		$excel->setActiveSheetIndex(0)->setCellValue('L3', "Status");
+		$excel->setActiveSheetIndex(0)->setCellValue('G3', "Ketua Pengabdian");
+		$excel->setActiveSheetIndex(0)->setCellValue('H3', "Anggota 1");
+		$excel->setActiveSheetIndex(0)->setCellValue('I3', "Anggota 2");
+		$excel->setActiveSheetIndex(0)->setCellValue('J3', "valid");
 
 		// Apply style header yang telah kita buat tadi ke masing-masing kolom header
 		$excel->getActiveSheet()->getStyle('A3')->applyFromArray($style_col);
@@ -222,11 +223,9 @@ class KemenristekDikti extends CI_Controller {
 		$excel->getActiveSheet()->getStyle('H3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('I3')->applyFromArray($style_col);
 		$excel->getActiveSheet()->getStyle('J3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('K3')->applyFromArray($style_col);
-		$excel->getActiveSheet()->getStyle('L3')->applyFromArray($style_col);	
 
 		// Panggil function view yang ada di SiswaModel untuk menampilkan semua data siswanya
-		$dokumen = $this->M_dokumen->listAll_kemenristek();	
+		$dokumen = $this->M_dokumen->listAll_kemenristek2();	
 
 		$no = 1; // Untuk penomoran tabel, di awal set dengan 1
 		$numrow = 4; // Set baris pertama untuk isi tabel adalah baris ke 4
@@ -237,12 +236,10 @@ class KemenristekDikti extends CI_Controller {
 			$excel->setActiveSheetIndex(0)->setCellValue('D'.$numrow, $data->jenis_penelitian);
 			$excel->setActiveSheetIndex(0)->setCellValue('E'.$numrow, $data->dana_usulan);
 			$excel->setActiveSheetIndex(0)->setCellValue('F'.$numrow, $data->dana_disetujui);
-			$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->skema_penelitian);
-			$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->ketua_peneliti);
-			$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->anggota_peneliti_1);
-			$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->anggota_peneliti_2);
-			$excel->setActiveSheetIndex(0)->setCellValue('K'.$numrow, $data->valid);
-			$excel->setActiveSheetIndex(0)->setCellValue('L'.$numrow, $data->status);
+			$excel->setActiveSheetIndex(0)->setCellValue('G'.$numrow, $data->ketua_peneliti);
+			$excel->setActiveSheetIndex(0)->setCellValue('H'.$numrow, $data->anggota_peneliti_1);
+			$excel->setActiveSheetIndex(0)->setCellValue('I'.$numrow, $data->anggota_peneliti_2);
+			$excel->setActiveSheetIndex(0)->setCellValue('J'.$numrow, $data->valid);
 			
 			// Apply style row yang telah kita buat tadi ke masing-masing baris (isi tabel)
 			$excel->getActiveSheet()->getStyle('A'.$numrow)->applyFromArray($style_row);
@@ -255,8 +252,6 @@ class KemenristekDikti extends CI_Controller {
 			$excel->getActiveSheet()->getStyle('H'.$numrow)->applyFromArray($style_row);
 			$excel->getActiveSheet()->getStyle('I'.$numrow)->applyFromArray($style_row);
 			$excel->getActiveSheet()->getStyle('J'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('K'.$numrow)->applyFromArray($style_row);
-			$excel->getActiveSheet()->getStyle('L'.$numrow)->applyFromArray($style_row);
 			
 			$excel->getActiveSheet()->getRowDimension($numrow)->setRowHeight(30);
 			$excel->getActiveSheet()->getStyle('D5')->getAlignment()->setWrapText(true);
@@ -273,12 +268,10 @@ class KemenristekDikti extends CI_Controller {
 		$excel->getActiveSheet()->getColumnDimension('D')->setWidth(25); // Set width kolom D
 		$excel->getActiveSheet()->getColumnDimension('E')->setWidth(20); // Set width kolom E
 		$excel->getActiveSheet()->getColumnDimension('F')->setWidth(20);
-		$excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
+		$excel->getActiveSheet()->getColumnDimension('G')->setWidth(25);
 		$excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
 		$excel->getActiveSheet()->getColumnDimension('I')->setWidth(25);
-		$excel->getActiveSheet()->getColumnDimension('J')->setWidth(25);
-		$excel->getActiveSheet()->getColumnDimension('K')->setWidth(6);	
-		$excel->getActiveSheet()->getColumnDimension('L')->setWidth(10);
+		$excel->getActiveSheet()->getColumnDimension('J')->setWidth(6);	
 		
 		
 		// Set height semua kolom menjadi auto (mengikuti height isi dari kolommnya, jadi otomatis)
@@ -293,7 +286,7 @@ class KemenristekDikti extends CI_Controller {
 
 		// Proses file excel
 		header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-		header('Content-Disposition: attachment; filename="Data Penelitian Kemenristek.xlsx"'); // Set nama file excel nya
+		header('Content-Disposition: attachment; filename="Data Pengabdian Hibah Dikti.xlsx"'); // Set nama file excel nya
 		header('Cache-Control: max-age=0');
 
 		$write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
