@@ -81,6 +81,13 @@
                                     <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->deskripsi; ?></textarea>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL *
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    </div>
+                                </div>
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">

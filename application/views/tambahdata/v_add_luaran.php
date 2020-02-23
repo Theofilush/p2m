@@ -33,7 +33,7 @@
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                                    
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun">
@@ -49,14 +49,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Luaran
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Luaran *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis *
                                     </label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
@@ -71,10 +71,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Deskripsi Singkat *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="deskripsi" id="deskripsi" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL *
+                                    </label>
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

@@ -34,7 +34,7 @@
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Data Publikasi Tingkat
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Data Publikasi Tingkat *
                                     </label>
                                     <div class="col-md-7 col-sm- col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Cakupan" name="tingkat">
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan *
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
@@ -65,27 +65,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Makalah
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Makalah *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Forum
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Forum *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input type="text" id="nama_forum" name="nama_forum" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Institusi Penyelenggara</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Institusi Penyelenggara *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input id="institusi" name="institusi" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Waktu Pelaksanaan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Waktu Pelaksanaan *
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-5">                                     
                                         <div class="input-group date">
@@ -106,14 +106,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tempat Pelaksanaan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tempat Pelaksanaan *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="tempat" id="tempat" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status *
                                     </label>
                                     <div class="col-md-3 col-sm-3 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Status" name="status">

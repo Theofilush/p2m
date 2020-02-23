@@ -33,7 +33,7 @@
                                 ?>
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->                                
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Pelaksanaan *
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
@@ -49,14 +49,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul HKI
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul HKI *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Jenis *
                                     </label>
                                     <div class="col-md-4 col-sm-4 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Jenisnya" name="jenis">
@@ -71,13 +71,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">No. Pendaftaran</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">No. Pendaftaran *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input id="no_daftar" name="no_daftar" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Status *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="status">
                                             <?php 

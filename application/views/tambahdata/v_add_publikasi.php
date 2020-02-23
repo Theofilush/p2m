@@ -34,7 +34,7 @@
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Publikasi
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Publikasi *
                                     </label>
                                     <div class="col-md-5 col-sm-5 col-xs-12">                                    
                                     <select class="form-control" style="width: 100%;" data-placeholder="Pilih Tingkatan" name="tingkat">
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Publikasi
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Publikasi *
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_publikasi">
@@ -65,40 +65,40 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Jurnal
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nama Jurnal *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input type="text" id="nama_jurnal" name="nama_jurnal" required="required" class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">ISSN</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">ISSN *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input id="issn" name="issn" maxlength="30" class="form-control col-md-7 col-xs-12" type="text" required="required">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Volume *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="volume" id="volume" maxlength="20" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Nomor *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="nomor" id="nomor" maxlength="10" class=" form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Halaman
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Halaman *
                                     </label>
                                     <div class="col-md-1 col-sm-1 col-xs-3">
                                      <input name="halaman_awal" maxlength="5" id="halaman_awal" class=" form-control col-md-7 col-xs-12" required="required" type="text">
@@ -109,13 +109,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">URL *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text">
                                     </div>
                                 </div>
-                                <div class="ln_solid"></div>                                
+                                <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>

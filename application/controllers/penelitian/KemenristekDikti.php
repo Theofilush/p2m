@@ -75,7 +75,7 @@ class KemenristekDikti extends CI_Controller {
 					$data = array(
 						'tahun_hibah' =>  $_tahun_kegiatan,
 						'judul_penelitian' =>  $_judul,
-						'skema_penelitian' =>  $_skema,
+						//'skema_penelitian' =>  $_skema,
 						'jenis_penelitian' =>  $_jenis,
 						'dana_usulan' =>  $_dana_usulan,
 						'dana_disetujui' =>  $_dana_setujui,
