@@ -24,7 +24,7 @@ class NewPublikasiJurnal extends CI_Controller {
 		$this->load->view('tambahdata/v_add_publikasi');
 		$this->load->view('dashboard/v_footer');
 	}
-  public function savedok(){     
+  	public function savedok(){     
       if($this->input->post('btnUpload') == "Upload"){
             $_tingkat = $this->input->post('tingkat', TRUE);
 			$_tahun_publikasi = $this->input->post('tahun_publikasi', TRUE);
@@ -81,7 +81,6 @@ class NewPublikasiJurnal extends CI_Controller {
               redirect(site_url('publikasi/PublikasiJurnal'));
            }
       }
-            
     }
 
 

@@ -22,7 +22,7 @@ class PublikasiJurnal extends CI_Controller {
 			'query' =>  $query,
 			'queryByProdi' =>  $queryByProdi,
 			'da' => $kue,
-			'tampil_tahun'=> $query_tampil_tahun,	
+			'tampil_tahun'=> $query_tampil_tahun,
         );
 		$datacontent = array( 
 			'da' => $kue

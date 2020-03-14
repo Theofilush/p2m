@@ -24,7 +24,7 @@ class NewPenelitianNonUPJ extends CI_Controller {
 	}
   public function savedok(){     
 		if($this->input->post('btnUpload') == "Upload"){
-			$config['upload_path'] = './fileupload/penelitian_non_upj/';
+			$config['upload_path'] = './fileupload/';
 			$config['allowed_types'] = 'pdf';
 			$this->load->library('upload', $config);                
 			if ( ! $this->upload->do_upload('filepdf')){
@@ -51,7 +51,7 @@ class NewPenelitianNonUPJ extends CI_Controller {
 					if($_anggota2 == ""){
 						$_anggota2 = NULL;
 					}
-				 // $count=count($_kel_dok);
+					// $count=count($_kel_dok);
 					//for ($i=0; $i <=$count-1 ; $i++) {}				
 					$data = array(
 						'tahun_penelitian' =>  $_tahun_kegiatan,
