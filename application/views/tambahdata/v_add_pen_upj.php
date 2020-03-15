@@ -108,7 +108,7 @@
                                 <div class="ln_solid"></div>
                                 <h4>Personil Dosen</h4>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN * </label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIP * </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">
                                         <input name="penulis" id="penulis" class="form-control col-md-7 col-xs-12" maxlength="10" required="required" type="text" onkeyup='cek_nidn()'>
                                     </div>                                    

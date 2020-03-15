@@ -29,7 +29,7 @@
               <img src="<?php echo base_url() ?>asett/images/logo.png">
               <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <div>
-                <input type="text" name="username" class="form-control" placeholder="NIDN / NIM / Email" required="" />
+                <input type="text" name="username" class="form-control" placeholder="NIP / NIM / Email" required="" />
               </div>
               <div>
                 <input type="password" name="password" class="form-control" placeholder="Password" required="" />
@@ -64,7 +64,7 @@
               <h1>Create Account</h1>
               <p style="color:red;text-align:center;padding: 10px;"><?php echo $this->session->flashdata('notification')?></p>
               <div>
-                <input type="text" name="nidn" class="form-control" placeholder="NIDN" required="" />
+                <input type="text" name="nidn" class="form-control" placeholder="NIP" required="" />
               </div>
               <div>
                 <input type="email" name="email" class="form-control" placeholder="Email" required="" />

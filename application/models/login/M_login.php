@@ -37,7 +37,7 @@ class M_login extends CI_Model{
 	    	}
 	}	 
     function cek_nidn($nidn){     
-        $this->db->where("NIDN", $nidn);		
+        $this->db->where("NIDN", $nidn);
 		$query = $this->db->get("t_login");
         return $query->result();
 	}

@@ -54,6 +54,7 @@ class LuaranLain extends CI_Controller {
 			$_judul = $this->input->post('judul', TRUE);				
 			$_jenis = $this->input->post('jenis', TRUE);
 			$_deskripsi = $this->input->post('deskripsi', TRUE);
+			$_url = $this->input->post('url', TRUE);
 			$_nama_dosen = $this->input->post('pesan_penulis', TRUE);
 			$_anggota1 = $this->input->post('pesan_penulis2', TRUE);
 			$_anggota2 = $this->input->post('pesan_penulis3', TRUE);
@@ -67,22 +68,23 @@ class LuaranLain extends CI_Controller {
 			if($_anggota2 == ""){
 				$_anggota2 = NULL;
 			}
-       $data = array(
-						'tahun_pelaksanaan' =>  $_tahun,
-						'judul_luaran' =>  $_judul,
-						'jenis_luaran' =>  $_jenis,
-						'deskripsi' =>  $_deskripsi,
-						'nama_dosen' =>  $_nama_dosen,
-						'nama_dosen1' =>  $_anggota1,
-						'nama_dosen2' =>  $_anggota2
-      );              
-       $query= $this->M_dokumen->updateDok_luaran($data,$id);  
-          if ($query) {
-            redirect("publikasi/LuaranLain");
-          }
-          else{
-            redirect("publikasi/LuaranLain");
-          }
+			$data = array(
+				'tahun_pelaksanaan' =>  $_tahun,
+				'judul_luaran' =>  $_judul,
+				'jenis_luaran' =>  $_jenis,
+				'deskripsi' =>  $_deskripsi,
+				'url' =>  $_url,
+				'nama_dosen' =>  $_nama_dosen,
+				'nama_dosen1' =>  $_anggota1,
+				'nama_dosen2' =>  $_anggota2
+			);
+       		$query= $this->M_dokumen->updateDok_luaran($data,$id);  
+          	if ($query) {
+	            redirect("publikasi/LuaranLain");
+    	      }
+          	else{
+	            redirect("publikasi/LuaranLain");
+          	}
         }
 	} 
 	public function deletedok($id){

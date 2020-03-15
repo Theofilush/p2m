@@ -85,7 +85,7 @@
                                     <label class="control-label col-md-2 col-sm-2 col-xs-12">URL *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text">
+                                    <input name="url" id="url" class="form-control col-md-7 col-xs-12" required="required" type="text"  value="<?php echo $rou->url; ?>">
                                     </div>
                                 </div>
                                 <div class="ln_solid"></div>

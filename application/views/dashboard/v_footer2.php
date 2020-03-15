@@ -89,7 +89,7 @@
                   //$("#pesan_penulis").val(msg);
                     if(msg==1){
                       //$("#pesan_penulis").css("color","#59c113");
-                      $("#pesan_penulis").val("NIDN tidak ditemukan");                        
+                      $("#pesan_penulis").val("NIP tidak ditemukan");                        
                         error = 0;
                     }else {
                       $("#pesan_penulis").val(msg);  
@@ -109,7 +109,7 @@
                   //$("#pesan_penulis").val(msg);
                     if(msg==1){
                       //$("#pesan_penulis").css("color","#59c113");
-                      $("#pesan_penulis").val("NIDN tidak ditemukan");                        
+                      $("#pesan_penulis").val("NIP tidak ditemukan");                        
                         error = 0;
                     }else {
                       $("#pesan_penulis").val(msg);  
@@ -132,7 +132,7 @@
                   //$("#pesan_penulis").val(msg);
                     if(msg==1){
                       //$("#pesan_penulis").css("color","#59c113");
-                      $("#pesan_penulis2").val("NIDN tidak ditemukan");                        
+                      $("#pesan_penulis2").val("NIP tidak ditemukan");                        
                         error = 0;
                     }else {
                       $("#pesan_penulis2").val(msg);  
@@ -156,7 +156,7 @@
                   //$("#pesan_penulis").val(msg);
                     if(msg==1){
                       //$("#pesan_penulis").css("color","#59c113");
-                      $("#pesan_penulis3").val("NIDN tidak ditemukan");                        
+                      $("#pesan_penulis3").val("NIP tidak ditemukan");                        
                         error = 0;
                     }else {
                       $("#pesan_penulis3").val(msg);  

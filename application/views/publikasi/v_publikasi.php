@@ -37,7 +37,7 @@
                         <tr>
                           <th>No.</th>
                           <th>Judul</th>
-                          <th>Penulis Publikasi</th>                          
+                          <th>Penulis Publikasi</th>
                           <th>Jurnal</th>
                           <th>Berkas</th>
                           <th>Edit</th>

@@ -18,7 +18,7 @@
                       <thead>
                         <tr>
                           <th>No.</th>
-                          <th>NIDN</th>
+                          <th>NIP</th>
                           <th>Nama Dosen</th>
                           <th>Program Studi</th> 
                           <th>Email</th>
@@ -93,7 +93,7 @@
                                 ?>
                               
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIP
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="text" id="nidn" name="nidn" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->NIDN; ?>">
@@ -174,7 +174,7 @@
                                 ?>
                               
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIDN
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">NIP
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <input type="text" id="nidn" name="nidn" required="required" class="form-control col-md-7 col-xs-12">
