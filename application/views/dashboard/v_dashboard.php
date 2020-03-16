@@ -48,11 +48,11 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<h4>Please don't forget to logout after finish your work. Thanks... :)</h4>
 					</div>
-					<div class="row">
+					<!--<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 							<canvas id="lineCharta"></canvas>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
