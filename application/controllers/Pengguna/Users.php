@@ -18,7 +18,7 @@ class Users extends CI_Controller {
 		$tampil_prodi = $this->M_pengguna->tampilprodi();
  
 		$dataHalaman = array(   		
-			'query'=> $query,
+		  'query'=> $query,
 		  'da' => $kue,
 		  'tampil_prodi'=>$tampil_prodi
         );
@@ -49,8 +49,10 @@ class Users extends CI_Controller {
             if ($_password == $_cpassword) {
               //kumpulkan seua inputan kedalam array
               $data = array(
+				//'NIDN' => $_nidn,
                 'username' => $_username,
-                'email'=> $_email,
+				'email'=> $_email,
+				//'prodi' => $_prodi,
                 'password'=> get_hash($_password), 
               );              
               $query= $this->M_pengguna->simpanUpdateUser($data,$id);
