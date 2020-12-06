@@ -48,11 +48,11 @@
 					<div class="col-md-12 col-sm-12 col-xs-12">
 						<h4>Please don't forget to logout after finish your work. Thanks... :)</h4>
 					</div>
-					<!--<div class="row">
+					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 							<canvas id="lineCharta"></canvas>
 						</div>
-					</div> -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -138,7 +138,7 @@
 				<div class="x_content">
 
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_dana_upj'); ?></div>
@@ -148,7 +148,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_dana_non_upj'); ?></div>
@@ -158,17 +158,17 @@
 								</a>
 							</div>
 						</div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
-								<div class="count"><?php echo $this->db->count_all('t_dana_upj'); ?></div>
+								<div class="count"><?php echo $this->db->count_all('t_dana_kemenristek'); ?></div>
 								<a href="<?php echo site_url() ?>penelitian/KemenristekDikti">
 									<h3 class="hoverku">Hibah Dikti</h3>
 									<p>Data penelitian yang didanai oleh Hibah Dikti </p>
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_dana2_upj'); ?></div>
@@ -178,7 +178,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_dana_non2_upj'); ?></div>
@@ -188,7 +188,17 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							<div class="tile-stats">
+								<div class="icon"><i class="fa fa-check-square-o"></i></div>
+								<div class="count"><?php echo $this->db->count_all('t_dana_kemenristek2'); ?></div>
+								<a href="<?php echo site_url() ?>penelitian/KemenristekDikti">
+									<h3 class="hoverku">Hibah Dikti</h3>
+									<p>Data Pengabdian yang didanai oleh Hibah Dikti </p>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg- col-md-2 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_buku_ajar'); ?></div>
@@ -208,7 +218,7 @@
 								</a>
 							</div>
 						</div>
-						<div class=" col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"><?php echo $this->db->count_all('t_luaran_lain'); ?></div>
@@ -228,7 +238,7 @@
 								</a>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12">
 							<div class="tile-stats">
 								<div class="icon"><i class="fa fa-check-square-o"></i></div>
 								<div class="count"> <?php echo $this->db->count_all('t_publikasi_jurnal'); ?></div>

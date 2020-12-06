@@ -17,6 +17,7 @@ class PenelitianDanaNonUPJ extends CI_Controller {
 		$query = $this->M_dokumen->listAll_dana_non_upj();
 		$byProdiName = implode((array) $kue[0]->prodi);
 		$queryByProdi = $this->M_dokumen->listAllDanaNonUpj_byProdi($byProdiName);
+		// print_r($queryByProdi);exit();
 		$query_tampil_tahun = $this->M_dokumen->tampil_tahun(); 
 		$dataHalaman = array(  
 			'query'=>$query,

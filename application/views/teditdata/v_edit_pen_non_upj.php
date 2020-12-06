@@ -36,7 +36,7 @@
                                 <!--<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">-->
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Kegiatan
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Tahun Kegiatan *
                                     </label>
                                     <div class="col-md-2 col-sm-2 col-xs-12">                                    
                                     <select class="form-control select2_ok" style="width: 100%;" data-placeholder="Pilih Tahun" name="tahun_kegiatan">
@@ -52,21 +52,21 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Judul Penelitian *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">                                    
                                     <textarea name="judul" id="judul" rows="2" cols="20" required="required" style="font-family:Tahoma;height:70px;" class="form-control col-md-7 col-xs-12"><?php echo $rou->judul; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Sumber Dana/Mitra
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Sumber Dana/Mitra *
                                     </label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
-                                    <input type="number" id="sumber_dana" name="sumber_dana" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->sumber_dana; ?>">
+                                    <input type="text" id="sumber_dana" name="sumber_dana" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $rou->sumber_dana; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Besaran Dana</label>
+                                    <label class="control-label col-md-2 col-sm-2 col-xs-12">Besaran Dana *</label>
                                     <div class="col-md-7 col-sm-7 col-xs-12">
                                     <input id="besaran_dana" name="besaran_dana" class="form-control col-md-7 col-xs-12" type="number" required="required" value="<?php echo $rou->besaran_dana; ?>">
                                     </div>
