@@ -11,8 +11,97 @@ class Dashboard extends CI_Controller {
 		} 
 		$this->load->model('dokumen/M_chart');		
 	}
-	public function index()
-	{
+	
+	public function index() {
+		$usan = $this->session->userdata('nama');
+		$kue = $this->M_login->hak_ak($usan); 
+		$tampil_prodi = $this->M_login->get_prodi();
+		$tampil_tahun = $this->M_dokumen->tampil_tahun();
+		
+		//menghitung keseluruhan data pengabdian dan dimasukan ke total publikasi di halaman dashboard paling atas
+		$raise_abdi = $this->db->count_all('t_dana2_upj');
+		$raise_abdinon = $this->db->count_all('t_dana_non2_upj');
+		$raise_abdihidik = $this->db->count_all('t_dana_kemenristek2');
+		$jml_raise_abdi = $raise_abdi + $raise_abdinon + $raise_abdihidik; //jumlah pengabdian
+		$raise_liti = $this->db->count_all('t_dana_upj');
+		$raise_litinon = $this->db->count_all('t_dana_non_upj');
+		$raise_litihidik = $this->db->count_all('t_dana_kemenristek');
+		$jml_raise_liti = $raise_liti + $raise_litinon + $raise_litihidik; //jumlah penelitian
+		$raise_jurnal = $this->db->count_all('t_publikasi_jurnal');
+		$raise_buku = $this->db->count_all('t_buku_ajar');
+		$raise_forum = $this->db->count_all('t_forum_ilmiah');
+		$raise_hki = $this->db->count_all('t_hki');
+		$raise_luaran = $this->db->count_all('t_luaran_lain');
+		$jml_raise_publi = $raise_jurnal + $raise_buku + $raise_forum + $raise_hki + $raise_luaran; //jumlah publikasi
+
+		//untuk membuat perhitungan dan membuat garis line pada dashboard grafik 1
+		$hitung_dana2_upj_tahun = $this->M_chart->hitung_dana2_upj_tahun();
+		$hitung_dana_non2_upj_tahun = $this->M_chart->hitung_dana_non2_upj_tahun();
+		$hitung_hibah2_upj_tahun = $this->M_chart->hitung_hibah2_upj_tahun();
+
+		$hitung_dana_upj_tahun = $this->M_chart->hitung_dana_upj_tahun();
+		$hitung_dana_non_upj_tahun = $this->M_chart->hitung_dana_non_upj_tahun();
+		$hitung_hibah_upj_tahun = $this->M_chart->hitung_hibah_upj_tahun();
+
+		$hitung_jurnal_tahun = $this->M_chart->hitung_jurnal_tahun();
+		$hitung_buku_tahun = $this->M_chart->hitung_buku_tahun();
+		$hitung_prosiding_tahun = $this->M_chart->hitung_prosiding_tahun();
+		$hitung_hki_tahun = $this->M_chart->hitung_hki_tahun();
+		$hitung_luaran_tahun = $this->M_chart->hitung_luaran_tahun();
+		
+		foreach($hitung_dana2_upj_tahun as $row){ $tempDataGrafik1[] =$row->ttl_thn_abdi;} 
+		foreach($hitung_dana_non2_upj_tahun as $row){ $tempDataGrafik2[] =$row->ttl_thn_nonabdi;} 
+		foreach($hitung_hibah2_upj_tahun as $row){ $tempDataGrafik3[] =$row->ttl_thn_nonabdi_hibah;} 
+
+		foreach($hitung_dana_upj_tahun as $row){ $tempDataGrafik4[] =$row->ttl_thn_liti;} 
+		foreach($hitung_dana_non_upj_tahun as $row){ $tempDataGrafik5[] =$row->ttl_thn_nonliti;}
+		foreach($hitung_hibah_upj_tahun as $row){ $tempDataGrafik6[] =$row->ttl_thn_nonliti_hibah;}
+ 
+		foreach($hitung_jurnal_tahun as $row){ $tempDataGrafik7[] =$row->ttl_thn_jurnal;} 
+		foreach($hitung_buku_tahun as $row){ $tempDataGrafik8[] =$row->ttl_thn_buku;} 
+		foreach($hitung_prosiding_tahun as $row){ $tempDataGrafik9[] =$row->ttl_thn_prosiding;} 
+		foreach($hitung_hki_tahun as $row){ $tempDataGrafik10[] =$row->ttl_thn_hki;} 
+		foreach($hitung_luaran_tahun as $row){ $tempDataGrafik11[] =$row->ttl_thn_luaran;} 
+		
+		$cek = $this->db->count_all('tahun');
+		for ($i=0; $i < $cek ; $i++) { 
+			$g1abdi[$i] = $tempDataGrafik1[$i] + $tempDataGrafik2[$i] + $tempDataGrafik3[$i];
+			$g1liti[$i] = $tempDataGrafik4[$i] + $tempDataGrafik5[$i] + $tempDataGrafik6[$i];
+			$g1publi[$i] = $tempDataGrafik7[$i] + $tempDataGrafik8[$i] + $tempDataGrafik9[$i] + $tempDataGrafik10[$i] + $tempDataGrafik11[$i];
+		}
+
+		//print_r( $tempDataGrafik6 );exit();
+		// $g1abdi=[10,20,30];
+		// $g1liti=[10,20,30];
+		// $g1publi=[10,20,30];
+
+		// print_r( $g1abdi );echo "<br><br>";
+		// print_r( $g1liti );echo "<br><br>";
+		// print_r( $g1publi );exit();
+		//$total_top5 = $this->M_dokumen->tampil_jumlah_top_5();
+		 //print_r( $total_top5 );exit();
+
+		$dataHalaman = array(   		
+		  'da' => $kue,
+		  'tampil_prodi' => $tampil_prodi,
+		  'tampil_tahun' => $tampil_tahun,
+
+		  'jml_raise_abdi' => $jml_raise_abdi,
+		  'jml_raise_liti' => $jml_raise_liti,
+		  'jml_raise_publi' => $jml_raise_publi,
+
+		  'g1abdi' => $g1abdi,
+		  'g1liti' => $g1liti,
+		  'g1publi' => $g1publi,
+		  //'jumba' => $total_top5,
+        );
+		
+		$this->load->view('dashboard/v_header',$dataHalaman);
+		$this->load->view('dashboard/v_dashboard',$dataHalaman);
+		$this->load->view('dashboard/v_footer2');
+	}
+	
+	public function index2() {
 		$usan = $this->session->userdata('nama');
 		$kue = $this->M_login->hak_ak($usan); 
 		$tampil_prodi = $this->M_login->get_prodi();
@@ -61,8 +150,6 @@ class Dashboard extends CI_Controller {
 			$g1liti[$i] = $yurika3[$i] +$yurika4[$i];
 			$g1publi[$i] = $yurika5[$i] +$yurika6[$i] +$yurika7[$i] +$yurika8[$i] +$yurika9[$i];
 		}
-
-
 
 		$jumlah_publikasi = $this->M_dokumen->hitung_publikasi();
 		$jumlah_pemakalah = $this->M_dokumen->hitung_pemakalah();

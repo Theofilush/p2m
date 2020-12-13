@@ -33,12 +33,10 @@
 				<div class="x_title">
 					<h2>Welcome, <?php echo  $profile;?> </h2>
 					<h4 class="pull-right"><?php echo tanggal();?></h4>
-
 					<!--<?php
-                    foreach($total_penelitian as $rowc){ //menampilkan jumlah setiap prodi pada publikasi                    
+                    foreach($total_penelitian as $rowc){ //menampilkan jumlah setiap prodi pada publikasi
                       ?>
                       <h5><?php echo $rowc;?></h5>
-                      
                       <?php
                     }
                     ?>-->
@@ -50,14 +48,17 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-							<canvas id="lineCharta"></canvas>
+							<!-- <canvas id="lineCharta"></canvas> -->
+							<div class="x_content">
+								<canvas id="grafik_pertama"></canvas>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- <div class="row">
+	<div class="row">
 		<div class="col-md-6 col-sm-6 col-xs-12">
 			<div class="x_panel">
 				<div class="x_title">
@@ -122,11 +123,11 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="x_content">
-					<canvas id="canvasDoughnuta"></canvas>
+					<canvas id="pieCharta"></canvas>
 				</div>
 			</div>
 		</div>
-	</div> -->
+	</div>
 	<!-- top tiles -->
 	<div class="row top_tiles">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">

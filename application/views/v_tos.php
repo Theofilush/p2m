@@ -156,18 +156,6 @@ This includes:
 <h2>About these website Terms of Service</h2>
 <p>We created these website terms and conditions using the TOS/T&C generator available from <a href="http://www.PrivacyPolicyOnline.com">Privacy Policy Online</a>.
 </p>
-            
-
-            
-
-            
-
-            
-
-	     
-
-            
-
             <h2>p2m.upj.ac.id's details</h2>
 
             <p>The full name of p2m.upj.ac.id is Universitas Pembangunan jaya.</p>

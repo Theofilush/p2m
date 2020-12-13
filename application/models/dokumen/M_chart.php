@@ -11,6 +11,8 @@ class M_chart extends CI_Model{
     var $forum_ilmiah= 't_forum_ilmiah'; 
     var $hki= 't_hki'; 
     var $luaran_lain= 't_luaran_lain'; 
+    var $dana_kemenristek= 't_dana_kemenristek'; 
+    var $dana_kemenristek2= 't_dana_kemenristek2'; 
     var $dt_login= 't_login';
     var $tahun='tahun';
     //untuk menampilkan data tahunan ke grafik 1 per tahun
@@ -30,7 +32,15 @@ class M_chart extends CI_Model{
         $this->db->order_by('tahun', 'ASC'); 
         return $this->db->get()->result();   
     }
-     function hitung_dana_upj_tahun(){
+    function hitung_hibah2_upj_tahun(){
+        $this->db->select('tahun,COUNT(tahun_hibah) as ttl_thn_nonabdi_hibah');
+        $this->db->from($this->dana_kemenristek2);
+        $this->db->join($this->tahun, 't_dana_kemenristek2.tahun_hibah = tahun.tahun','RIGHT');
+        $this->db->group_by('tahun'); 
+        $this->db->order_by('tahun', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_dana_upj_tahun(){
         $this->db->select('tahun,COUNT(tahun_hibah) as ttl_thn_liti');
         $this->db->from($this->dana_upj);
         $this->db->join($this->tahun, 't_dana_upj.tahun_hibah = tahun.tahun','RIGHT');
@@ -45,6 +55,14 @@ class M_chart extends CI_Model{
         $this->db->group_by('tahun'); 
         $this->db->order_by('tahun', 'ASC'); 
         return $this->db->get()->result();   
+    }
+    function hitung_hibah_upj_tahun(){
+        $this->db->select('tahun,COUNT(tahun_hibah) as ttl_thn_nonliti_hibah');
+        $this->db->from($this->dana_kemenristek);
+        $this->db->join($this->tahun, 't_dana_kemenristek.tahun_hibah = tahun.tahun','RIGHT');
+        $this->db->group_by('tahun');
+        $this->db->order_by('tahun', 'ASC');
+        return $this->db->get()->result();
     }
     function hitung_jurnal_tahun(){
         $this->db->select('tahun,COUNT(tahun_penerbitan) as ttl_thn_jurnal');

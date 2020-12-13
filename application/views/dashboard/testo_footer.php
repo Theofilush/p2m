@@ -1,3 +1,4 @@
+
       </div>      
 
         <!-- footer content -->
@@ -17,7 +18,7 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <!--<script src="?php echo base_url() ?>asett/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <!--<script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>-->
     <script src="<?php echo base_url() ?>asett/plugins/pnotify/dist/pnotify.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins//pnotify/dist/pnotify.buttons.js"></script>
@@ -27,17 +28,33 @@
     <script src="<?php echo base_url() ?>asett/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="<?php echo base_url() ?>asett/plugins/Chart.js/dist/Chart.min.js"></script>
     <script src="<?php echo base_url() ?>asett/dist/js/custom.js"></script>
-  
-  <?php
-  foreach($tampil_prodi as $dat){   //menambpilkan kode prodi pada grafik 2, 3, dan 4         
-    $kd[] = $dat->kode_prodi;
-  }
-  //print_r($g1liti);exit();
-  foreach($tampil_tahun as $dat){
-    $thn[] = $dat->tahun;
-  }
-  ?>
-
+    <?php
+        foreach ($g1abdi as $data) {
+          $g1abd[] = $data;
+        }
+        foreach ($g1liti as $data2) { 
+          $g1lit[] = $data2;
+        }
+        foreach($tampil_prodi as $dat){   //menambpilkan kode prodi pada grafik 2, 3, dan 4         
+            $kd[] = $dat->kode_prodi;
+        }
+        foreach($tampil_tahun as $dat){            
+            $thn[] = $dat->tahun;            
+        }
+        foreach($top_five as $rowb){ //menampilkan jumlah dan nama prodi dari 5 teratas
+            $top5[] =  $rowb->jumlah;
+            $top5prodi[] = $rowb->prodi;
+        }
+        foreach($total_publikasi as $rowc){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_jurnal[] = $rowc;
+        }
+        foreach($total_penelitian as $rowd){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_penelitiana[] = $rowd;
+        }
+        foreach($total_pengabdiana as $rowe){ //menampilkan jumlah setiap prodi pada publikasi          
+          $total_pengabdianaa[] = $rowe;
+        }
+      ?>
   <script>
     $('.select2_ok').select2({
       placeholder: 'Your NULL value caption',
@@ -153,41 +170,88 @@
         }            
     }
 
-    if ($('#grafik_pertama').length) {
-      var ctx = document.getElementById("grafik_pertama");
-      var grafik_pertama = new Chart(ctx, {
-          type: 'bar',
-          data: {
-              labels: <?php echo json_encode($thn);?>,
-              datasets: [{
-                  label: 'Penelitian',
-                  backgroundColor: "#26B99A",
-                  data: <?php echo json_encode($g1liti);?>
-                  //data: [10,20,9]
-              }, {
-                  label: 'Pengabdian',
-                  backgroundColor: "#3498DB",
-                  //data: [10,20,30]
-                   data: <?php echo json_encode($g1abdi);?>
-              }, {
-                  label: 'Publikasi',
-                  backgroundColor: "#9B59B6",
-                  data: <?php echo json_encode($g1publi);?>
-                  //data: [10,20,30]
-              }
-            ]
-          },
+    if ($('#lineCharta').length ){			
+      var ctx = document.getElementById("lineCharta");
+      var lineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: <?php echo json_encode($thn);?>,
+        datasets: [{
+          label: "Penelitian",
+          backgroundColor: "rgba(38, 185, 154, 0.31)",
+          borderColor: "rgba(38, 185, 154, 0.7)",
+          pointBorderColor: "rgba(38, 185, 154, 0.7)",
+          pointBackgroundColor: "rgba(38, 185, 154, 0.7)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(220,220,220,1)",
+          pointBorderWidth: 1,
+          data: <?php echo json_encode($g1lit);?>
+        }, {
+          label: "Pengabdian",
+          backgroundColor: "rgba(3, 88, 106, 0.3)",
+          borderColor: "rgba(3, 88, 106, 0.70)",
+          pointBorderColor: "rgba(3, 88, 106, 0.70)",
+          pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(151,187,205,1)",
+          pointBorderWidth: 1,
+          data: <?php echo json_encode($g1abd);?>
+        },  {
+          label: "Publikasi",    
+          backgroundColor: "rgba(106, 59, 2, 0.3)",
+          borderColor: "rgba(106, 59, 2, 0.70)",
+          pointBorderColor: "rgba(106, 59, 2, 0.70)",
+          pointBackgroundColor: "rgba(106, 59, 2, 0.70)",
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderColor: "rgba(151,187,205,1)",
+          pointBorderWidth: 1,      
+          data: <?php echo json_encode($g1publi);?>
+        }]
+      },
+					options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            },
+						legend: {
+							display: true
+						}
+					}
+      });  
+    }
 
-          options: {
-              scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero: true
-                      }
-                  }]
-              }
-          }
-      });
+    if ($('#chart_besar').length) {
+
+        var ctx = document.getElementById("chart_besar");
+        var chart_besar = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "Julyy"],
+                datasets: [{
+                    label: '# of Votes',
+                    backgroundColor: "#26B99A",
+                    data: [51, 30, 40, 28, 92, 50, 10]
+                }, {
+                    label: '# of Votes',
+                    backgroundColor: "#03586A",
+                    data: [41, 56, 25, 48, 72, 34, 12]
+                }]
+            },
+
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
     }
 
     if ($('#mybarCharta').length ){
@@ -195,23 +259,21 @@
 			  var mybarChart = new Chart(ctx, {
 				type: 'bar',
 				data: {
-          labels: <?php echo json_encode($kd);?>,
-          //labels: [1,2,3,4],
+				  labels: <?php echo json_encode($kd);?>,
 				  datasets: [{
-            label: 'Jumlah ',
-            backgroundColor: "#26B99A",
-            data: [1,2,3,4]
-            //data: ?php echo json_encode($total_penelitiana);?>
+					label: 'Jumlah ',
+					backgroundColor: "#26B99A",
+					data: <?php echo json_encode($total_penelitiana);?>
 				  }]
 				},
 
 				options: {
 				  scales: {
-            yAxes: [{
-              ticks: {
-              beginAtZero: true
-              }
-            }]
+					yAxes: [{
+					  ticks: {
+						beginAtZero: true
+					  }
+					}]
 				  },
           legend: {
             display: false
@@ -219,7 +281,7 @@
 				}
 			  });
     }
-    
+      
     if ($('#mybarChartb').length ){
 			  var ctx = document.getElementById("mybarChartb");
 			  var mybarChart = new Chart(ctx, {
@@ -229,8 +291,7 @@
 				  datasets: [{
             label: 'Jumlah ',
             backgroundColor: "#26B99A",
-            //data: ?php echo json_encode($total_pengabdianaa);?>
-            data: [1,2,3]
+            data: <?php echo json_encode($total_pengabdianaa);?>
 				  }]
 				},
         options:{
@@ -249,8 +310,7 @@
           }				  
         }
 			  });			  
-    } 
-
+      } 
     if ($('#mybarChartc').length ){
 			  var ctx = document.getElementById("mybarChartc");        
 			  var mybarChart = new Chart(ctx, {
@@ -260,8 +320,7 @@
 				  datasets: [{
             label: 'Jumlah  ',
             backgroundColor: "#26B99A",
-            //data: ?php echo json_encode($total_jurnal);?>
-            data: [1,2,3]
+            data: <?php echo json_encode($total_jurnal);?>
 				  }]
 				},
 
@@ -278,24 +337,16 @@
           }
 				}
 			  });			  
-    }
+      }
       
     if ($('#canvasDoughnuta').length ){
         var ctx = document.getElementById("canvasDoughnuta");
         //Chart.defaults.global.legend.position = 'left';
         //Chart.defaults.global.legend.position = "left";
 			  var datap = {
-          //labels: //?php echo json_encode($top5prodi);?>,
-          labels: [
-                "Dark Greyyyyyyy",
-                "Purple Color",
-                "Gray Color",
-                "Green Color",
-                "Blue Color"
-            ],
+          labels: <?php echo json_encode($top5prodi);?>,
           datasets: [{
-            //data: ?php echo json_encode($top5);?>,
-            data: [120, 50, 140, 180, 100],
+            data: <?php echo json_encode($top5);?>,
             backgroundColor: [
             "#455C73",
             "#9B59B6",
@@ -312,61 +363,27 @@
             ]
           }]
         };
-			  var canvasDoughnuta = new Chart(ctx, {
+			  var canvasDoughnut = new Chart(ctx, {
           type: 'doughnut',
           tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: datap
-          // options: {
-          //   legend: {
-          //     display: true
-          //   },
-          //   tooltips: {
-          //     callbacks: {
-          //       label: function(tooltipItem, data) {
-          //         var label = data.labels[tooltipItem.index];
-          //         var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-          //          return label + ':' + val + ' (' + (val ?php foreach($jumba as $rowa){echo $rowa->creditTotal;} ?> * 100).toFixed(2) + '%)';
-          //       }
-          //     }
-          //   }
-				  // }
+          data: datap,
+          options: {
+            legend: {
+              display: true
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var label = data.labels[tooltipItem.index];
+                  var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                   return label + ':' + val + ' (' + (val /<?php foreach($jumba as $rowa){echo $rowa->creditTotal;} ?> * 100).toFixed(2) + '%)';
+                }
+              }
+            }
+				  }
 			  });
-    }  
-    
-    if ($('#pieCharta').length) {
-
-      var ctx = document.getElementById("pieCharta");
-      var data = {
-          datasets: [{
-              data: [120, 50, 140, 180, 100],
-              backgroundColor: [
-                  "#455C73",
-                  "#9B59B6",
-                  "#BDC3C7",
-                  "#26B99A",
-                  "#3498DB"
-              ],
-              label: 'My dataset' // for legend
-          }],
-          labels: [
-              "Dark Gray",
-              "Purple",
-              "Gray",
-              "Green",
-              "Blue"
-          ]
-      };
-
-      var pieCharta = new Chart(ctx, {
-          data: data,
-          type: 'pie',
-          otpions: {
-              legend: false
-          }
-      });
-
-    }
-
-    </script>
+        
+			}  
+  </script>
   </body>
 </html>
