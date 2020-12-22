@@ -615,8 +615,8 @@ class M_dokumen extends CI_Model{
         $this->db->from($this->dt_login);
         $this->db->join($this->dana_upj, 't_login.username = t_dana_upj.ketua_peneliti','RIGHT');
         $this->db->group_by('prodi'); 
-        $this->db->order_by('prodi', 'ASC'); 
-        return $this->db->get()->result();   
+        $this->db->order_by('prodi', 'ASC');
+        return $this->db->get()->result();
     }
     function hitung_dana_non_upj(){
         $this->db->select('prodi,COUNT(*) as total_penelitian_non');

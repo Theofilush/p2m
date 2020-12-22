@@ -104,6 +104,111 @@ class M_chart extends CI_Model{
         $this->db->order_by('tahun', 'ASC'); 
         return $this->db->get()->result();   
     }
+
+    //menghitung total PENELITIAN DAN PENGABDIAN untuk digabungka ke grafik
+    function hitung_dana_upj(){
+        $this->db->select('prodi,COUNT(id) as total_penelitian');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_upj, 't_login.username = t_dana_upj.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC');
+        return $this->db->get()->result();
+    }
+    function hitung_dana_non_upj(){
+        $this->db->select('prodi,COUNT(id) as total_penelitian_non');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_non_upj, 't_login.username = t_dana_non_upj.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_hibah_upj(){
+        $this->db->select('prodi,COUNT(id) as total_penelitian_hibah');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_kemenristek, 't_login.username = t_dana_kemenristek.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+
+    function hitung_dana2_upj(){
+        $this->db->select('prodi,COUNT(id) as total_pengabdian');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana2_upj, 't_login.username =  t_dana2_upj.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();
+    }
+    function hitung_dana_non2_upj(){
+        $this->db->select('prodi,COUNT(id) as total_pengabdian_non');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_non2_upj, 't_login.username = t_dana_non2_upj.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_hibah2_upj(){
+        $this->db->select('prodi,COUNT(id) as total_pengabdian_hibah');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->dana_kemenristek2, 't_login.username = t_dana_kemenristek2.ketua_peneliti','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+
+     //menghitung total 1 tabel pada publikasi untuk digabungka ke grafik
+     function hitung_publikasi(){
+        $this->db->select('prodi,COUNT(id) as total_jurnal');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->publikasi_jurnal, 't_login.username = t_publikasi_jurnal.penulis_publikasi','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();
+    }
+    function hitung_pemakalah(){
+        $this->db->select('prodi,COUNT(id) as total_makalah');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->forum_ilmiah, 't_login.username = t_forum_ilmiah.nama_dosen','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();        
+    }
+    function hitung_buku(){
+        $this->db->select('prodi,COUNT(id) as total_buku');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->buku_ajar, 't_login.username = t_buku_ajar.nama_dosen','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+    function hitung_hki(){
+        $this->db->select('prodi,COUNT(id) as total_hki');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->hki, 't_login.username = t_hki.nama_dosen','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();
+    }
+    function hitung_luaran(){
+        $this->db->select('prodi,COUNT(id) as total_luaran');
+        $this->db->from($this->dt_login);
+        $this->db->join($this->luaran_lain, 't_login.username = t_luaran_lain.nama_dosen','RIGHT');
+        $this->db->join('program_studi', 't_login.prodi = program_studi.program_studi','RIGHT');
+        $this->db->group_by('program_studi'); 
+        $this->db->order_by('program_studi', 'ASC'); 
+        return $this->db->get()->result();   
+    }
+
 }
 
 ?>

@@ -70,16 +70,49 @@ class Dashboard extends CI_Controller {
 			$g1publi[$i] = $tempDataGrafik7[$i] + $tempDataGrafik8[$i] + $tempDataGrafik9[$i] + $tempDataGrafik10[$i] + $tempDataGrafik11[$i];
 		}
 
-		//print_r( $tempDataGrafik6 );exit();
-		// $g1abdi=[10,20,30];
-		// $g1liti=[10,20,30];
-		// $g1publi=[10,20,30];
+		$jumlah_publikasi = $this->M_chart->hitung_publikasi();
+		$jumlah_pemakalah = $this->M_chart->hitung_pemakalah();
+		$jumlah_buku = $this->M_chart->hitung_buku();
+		$jumlah_hki = $this->M_chart->hitung_hki();
+		$jumlah_luaran = $this->M_chart->hitung_luaran();
+		$jumlah_penelitian = $this->M_chart->hitung_dana_upj();
+		$jumlah_penelitian_non = $this->M_chart->hitung_dana_non_upj();
+		$jumlah_penelitian_hibah = $this->M_chart->hitung_hibah_upj();
+		$jumlah_pengabdian = $this->M_chart->hitung_dana2_upj();
+		$jumlah_pengabdian_non = $this->M_chart->hitung_dana_non2_upj();
+		$jumlah_pengabdian_hibah = $this->M_chart->hitung_hibah2_upj();
+		
+		foreach($jumlah_publikasi as $row){ $jumpub1[] =$row->total_jurnal;}
+		foreach($jumlah_pemakalah as $row){ $jumpub2[] =$row->total_makalah;}
+		foreach($jumlah_buku as $row){ $jumpub3[] =$row->total_buku;}	
+		foreach($jumlah_hki as $row){ $jumpub4[] =$row->total_hki;}	
+		foreach($jumlah_luaran as $row){ $jumpub5[] =$row->total_luaran;}
 
-		// print_r( $g1abdi );echo "<br><br>";
-		// print_r( $g1liti );echo "<br><br>";
-		// print_r( $g1publi );exit();
-		//$total_top5 = $this->M_dokumen->tampil_jumlah_top_5();
-		 //print_r( $total_top5 );exit();
+		foreach($jumlah_penelitian as $row){ $jumpen1[] =$row->total_penelitian;}
+		foreach($jumlah_penelitian_non as $row){ $jumpen2[] =$row->total_penelitian_non;} 
+		foreach($jumlah_penelitian_hibah as $row){ $jumpen3[] =$row->total_penelitian_hibah;} 
+		foreach($jumlah_pengabdian as $row){ $jumpen4[] =$row->total_pengabdian;}
+		foreach($jumlah_pengabdian_non as $row){$jumpen5[] =$row->total_pengabdian_non;}
+		foreach($jumlah_pengabdian_hibah as $row){$jumpen6[] =$row->total_pengabdian_hibah;}
+
+		print_r($jumlah_publikasi);exit();
+
+		for($i=0;$i<=9;$i++){
+			if (empty($john1[$i])) {$jumpub1[$i]=0;}
+			if (empty($john2[$i])) {$jumpub2[$i]=0;}
+			if (empty($john3[$i])) {$jumpub3[$i]=0;}
+			if (empty($john4[$i])) {$jumpub4[$i]=0;}
+			if (empty($john5[$i])) {$jumpub5[$i]=0;}
+			if (empty($jumpen1[$i])) { $jumpen1[$i]=0; }
+			if (empty($jumpen2[$i])) { $jumpen2[$i]=0; }
+			if (empty($jumpen3[$i])) { $jumpen3[$i]=0; }
+			if (empty($jumpen4[$i])) { $jumpen4[$i]=0; }
+			if (empty($jumpen5[$i])) { $jumpen5[$i]=0; }
+			if (empty($jumpen6[$i])) { $jumpen6[$i]=0; }
+			$total_penelitian[$i] = $jumpen1[$i] + $jumpen2[$i] + $jumpen3[$i];
+			$total_pengabdiana[$i] = $jumpen4[$i] + $jumpen5[$i] + $jumpen6[$i];
+			$total_publikasi[$i] = $jumpub1[$i] + $jumpub2[$i] + $jumpub3[$i] + $jumpub4[$i] + $jumpub5[$i];
+		}
 
 		$dataHalaman = array(   		
 		  'da' => $kue,
@@ -94,6 +127,10 @@ class Dashboard extends CI_Controller {
 		  'g1liti' => $g1liti,
 		  'g1publi' => $g1publi,
 		  //'jumba' => $total_top5,
+
+		  'total_penelitian'=>$total_penelitian,
+		  'total_pengabdiana'=>$total_pengabdiana,
+		  'total_publikasi'=>$total_publikasi,
         );
 		
 		$this->load->view('dashboard/v_header',$dataHalaman);
@@ -161,8 +198,6 @@ class Dashboard extends CI_Controller {
 		$jumlah_pengabdian = $this->M_dokumen->hitung_dana2_upj();
 		$jumlah_pengabdian_non = $this->M_dokumen->hitung_dana_non2_upj();
 
-
-
 		foreach($jumlah_publikasi as $row){ $john1[] =$row->total_jurnal;}
 		foreach($jumlah_pemakalah as $row){ $john2[] =$row->total_makalah;}
 		foreach($jumlah_buku as $row){ $john3[] =$row->total_buku;}	
@@ -187,9 +222,9 @@ class Dashboard extends CI_Controller {
 			$total_publikasi[$i] = $john1[$i] + $john2[$i] + $john3[$i] + $john4[$i] + $john5[$i];
 			$total_penelitian[$i] = $cena1[$i] + $cena2[$i];
 			$total_pengabdiana[$i] = $cena3[$i] + $cena4[$i];
-		}		
+		}
 		$jo=1;
-		foreach ($total_semua as $reg_dat) {			
+		foreach ($total_semua as $reg_dat) {
 			$this->M_dokumen->update_jumlah(array ('jumlah'=>$reg_dat),$jo);
 			$jo++;
 		}

@@ -36,6 +36,8 @@
   foreach($tampil_tahun as $dat){
     $thn[] = $dat->tahun;
   }
+
+
   ?>
 
   <script>
@@ -200,8 +202,8 @@
 				  datasets: [{
             label: 'Jumlah ',
             backgroundColor: "#26B99A",
-            data: [1,2,3,4]
-            //data: ?php echo json_encode($total_penelitiana);?>
+            //data: [1,2,3,4]
+            data: <?php echo json_encode($total_penelitian);?>
 				  }]
 				},
 
@@ -229,8 +231,8 @@
 				  datasets: [{
             label: 'Jumlah ',
             backgroundColor: "#26B99A",
-            //data: ?php echo json_encode($total_pengabdianaa);?>
-            data: [1,2,3]
+            data: <?php echo json_encode($total_pengabdiana);?>
+            //data: [1,2,3]
 				  }]
 				},
         options:{
@@ -260,8 +262,8 @@
 				  datasets: [{
             label: 'Jumlah  ',
             backgroundColor: "#26B99A",
-            //data: ?php echo json_encode($total_jurnal);?>
-            data: [1,2,3]
+            data: <?php echo json_encode($total_publikasi);?>
+            //data: [1,2,3]
 				  }]
 				},
 
