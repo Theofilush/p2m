@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 02:41 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Waktu pembuatan: 02 Jan 2021 pada 18.28
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `author`
+-- Struktur dari tabel `author`
 --
 
 CREATE TABLE `author` (
@@ -34,7 +33,7 @@ CREATE TABLE `author` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `author`
+-- Dumping data untuk tabel `author`
 --
 
 INSERT INTO `author` (`id_author`, `author`) VALUES
@@ -44,7 +43,7 @@ INSERT INTO `author` (`id_author`, `author`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cakupan_forum_ilmiah`
+-- Struktur dari tabel `cakupan_forum_ilmiah`
 --
 
 CREATE TABLE `cakupan_forum_ilmiah` (
@@ -53,7 +52,7 @@ CREATE TABLE `cakupan_forum_ilmiah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cakupan_forum_ilmiah`
+-- Dumping data untuk tabel `cakupan_forum_ilmiah`
 --
 
 INSERT INTO `cakupan_forum_ilmiah` (`id_cakupan`, `cakupan_forum_ilmiah`) VALUES
@@ -64,7 +63,7 @@ INSERT INTO `cakupan_forum_ilmiah` (`id_cakupan`, `cakupan_forum_ilmiah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cakupan_publikasi_jurnal`
+-- Struktur dari tabel `cakupan_publikasi_jurnal`
 --
 
 CREATE TABLE `cakupan_publikasi_jurnal` (
@@ -73,7 +72,7 @@ CREATE TABLE `cakupan_publikasi_jurnal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cakupan_publikasi_jurnal`
+-- Dumping data untuk tabel `cakupan_publikasi_jurnal`
 --
 
 INSERT INTO `cakupan_publikasi_jurnal` (`id_cakupan`, `cakupan_publikasi`) VALUES
@@ -84,7 +83,7 @@ INSERT INTO `cakupan_publikasi_jurnal` (`id_cakupan`, `cakupan_publikasi`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_hki`
+-- Struktur dari tabel `jenis_hki`
 --
 
 CREATE TABLE `jenis_hki` (
@@ -93,7 +92,7 @@ CREATE TABLE `jenis_hki` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_hki`
+-- Dumping data untuk tabel `jenis_hki`
 --
 
 INSERT INTO `jenis_hki` (`id_jenis`, `jenis_hki`) VALUES
@@ -109,7 +108,7 @@ INSERT INTO `jenis_hki` (`id_jenis`, `jenis_hki`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_luaran_lain`
+-- Struktur dari tabel `jenis_luaran_lain`
 --
 
 CREATE TABLE `jenis_luaran_lain` (
@@ -118,7 +117,7 @@ CREATE TABLE `jenis_luaran_lain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_luaran_lain`
+-- Dumping data untuk tabel `jenis_luaran_lain`
 --
 
 INSERT INTO `jenis_luaran_lain` (`id_jenis`, `jenis_luaran`) VALUES
@@ -135,7 +134,7 @@ INSERT INTO `jenis_luaran_lain` (`id_jenis`, `jenis_luaran`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_penelitian`
+-- Struktur dari tabel `jenis_penelitian`
 --
 
 CREATE TABLE `jenis_penelitian` (
@@ -144,7 +143,7 @@ CREATE TABLE `jenis_penelitian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_penelitian`
+-- Dumping data untuk tabel `jenis_penelitian`
 --
 
 INSERT INTO `jenis_penelitian` (`id_jenis_ini`, `jenis_penelitian`) VALUES
@@ -158,7 +157,7 @@ INSERT INTO `jenis_penelitian` (`id_jenis_ini`, `jenis_penelitian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jenis_pengabdian`
+-- Struktur dari tabel `jenis_pengabdian`
 --
 
 CREATE TABLE `jenis_pengabdian` (
@@ -167,7 +166,7 @@ CREATE TABLE `jenis_pengabdian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jenis_pengabdian`
+-- Dumping data untuk tabel `jenis_pengabdian`
 --
 
 INSERT INTO `jenis_pengabdian` (`id_jenis`, `jenis_pengabdian`) VALUES
@@ -177,7 +176,7 @@ INSERT INTO `jenis_pengabdian` (`id_jenis`, `jenis_pengabdian`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `program_studi`
+-- Struktur dari tabel `program_studi`
 --
 
 CREATE TABLE `program_studi` (
@@ -187,7 +186,7 @@ CREATE TABLE `program_studi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `program_studi`
+-- Dumping data untuk tabel `program_studi`
 --
 
 INSERT INTO `program_studi` (`id_program`, `kode_prodi`, `program_studi`) VALUES
@@ -205,7 +204,7 @@ INSERT INTO `program_studi` (`id_program`, `kode_prodi`, `program_studi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `skema_penelitian`
+-- Struktur dari tabel `skema_penelitian`
 --
 
 CREATE TABLE `skema_penelitian` (
@@ -214,7 +213,7 @@ CREATE TABLE `skema_penelitian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `skema_penelitian`
+-- Dumping data untuk tabel `skema_penelitian`
 --
 
 INSERT INTO `skema_penelitian` (`id_skema`, `skema`) VALUES
@@ -224,7 +223,7 @@ INSERT INTO `skema_penelitian` (`id_skema`, `skema`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_hki`
+-- Struktur dari tabel `status_hki`
 --
 
 CREATE TABLE `status_hki` (
@@ -233,7 +232,7 @@ CREATE TABLE `status_hki` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `status_hki`
+-- Dumping data untuk tabel `status_hki`
 --
 
 INSERT INTO `status_hki` (`id_status`, `status_hki`) VALUES
@@ -243,7 +242,7 @@ INSERT INTO `status_hki` (`id_status`, `status_hki`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `status_pemakalah`
+-- Struktur dari tabel `status_pemakalah`
 --
 
 CREATE TABLE `status_pemakalah` (
@@ -252,7 +251,7 @@ CREATE TABLE `status_pemakalah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `status_pemakalah`
+-- Dumping data untuk tabel `status_pemakalah`
 --
 
 INSERT INTO `status_pemakalah` (`id_status`, `status_pemakalah`) VALUES
@@ -262,7 +261,7 @@ INSERT INTO `status_pemakalah` (`id_status`, `status_pemakalah`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tahun`
+-- Struktur dari tabel `tahun`
 --
 
 CREATE TABLE `tahun` (
@@ -271,7 +270,7 @@ CREATE TABLE `tahun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tahun`
+-- Dumping data untuk tabel `tahun`
 --
 
 INSERT INTO `tahun` (`id_tahun`, `tahun`) VALUES
@@ -296,7 +295,7 @@ INSERT INTO `tahun` (`id_tahun`, `tahun`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_buku_ajar`
+-- Struktur dari tabel `t_buku_ajar`
 --
 
 CREATE TABLE `t_buku_ajar` (
@@ -316,7 +315,7 @@ CREATE TABLE `t_buku_ajar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana2_upj`
+-- Struktur dari tabel `t_dana2_upj`
 --
 
 CREATE TABLE `t_dana2_upj` (
@@ -333,10 +332,22 @@ CREATE TABLE `t_dana2_upj` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana2_upj`
+--
+
+INSERT INTO `t_dana2_upj` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `valid`) VALUES
+(1, 'Clara Moningka', NULL, NULL, 2020, 'pengabdian 1', 'IPTEK bagi Kewirausahaan', 9090909, 9000000, '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce.pdf', NULL),
+(2, 'Clara Moningka', NULL, NULL, 2018, 'pengabdian 2', 'IPTEK bagi Masyarakat', 6, 7, '6800821132Jul2020.pdf', NULL),
+(3, 'Clara Moningka', NULL, NULL, 2020, 'pengabdian 3', 'IPTEK bagi Masyarakat', 34, 45, '6800821132Jul20201.pdf', NULL),
+(4, 'Clara Moningka', NULL, NULL, 2020, 'pengabdian 4', 'IPTEK bagi Masyarakat', 34, 4, '6800821132Aug2020.pdf', NULL),
+(5, 'Clara Moningka', NULL, NULL, 2020, 'pengabdian 5', 'IPTEK bagi Masyarakat', 2, 3, '6800821132Aug20201.pdf', NULL),
+(6, 'Clara Moningka', NULL, NULL, 2020, 'pengabdian 6', 'IPTEK bagi Masyarakat', 2, 5, '6800821132Aug20202.pdf', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana_kemenristek`
+-- Struktur dari tabel `t_dana_kemenristek`
 --
 
 CREATE TABLE `t_dana_kemenristek` (
@@ -355,10 +366,22 @@ CREATE TABLE `t_dana_kemenristek` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana_kemenristek`
+--
+
+INSERT INTO `t_dana_kemenristek` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `status`, `valid`) VALUES
+(1, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2020, 'penelitian sumber dana hiah dikti', 'Penelitian Sosial, Humaniora, dan Pendidikan', 3000000, 4000000, '2013-1-00929-IF_Bab1001.pdf', NULL, NULL, NULL),
+(2, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2020, 'Penelitian Sumber Dana Hibah Dikti', 'Penelitian Sosial, Humaniora, dan Pendidikan', 3400000, 2000000, '2013-1-00929-IF_Bab10011.pdf', NULL, NULL, NULL),
+(3, 'Endang Pitaloka', NULL, NULL, 2020, 'hibah 3', 'Penelitian Sosial, Humaniora, dan Pendidikan', 98000, 100000, '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce.pdf', NULL, NULL, NULL),
+(4, 'Issa Samichat Ismail Tafridj', NULL, NULL, 2020, 'hibah 4', 'Penelitian Unggulan Perguruan Tinggi', 1, 7, '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce1.pdf', NULL, NULL, NULL),
+(5, 'Issa Samichat Ismail Tafridj', NULL, NULL, 2020, 'hibah 5', 'Penelitian Dosen Pemula', 1, 3, '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce2.pdf', NULL, NULL, NULL),
+(6, 'Issa Samichat Ismail Tafridj', NULL, NULL, 2020, 'hibah 6', 'Penelitian Search and Share Grant', 2, 5, '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce3.pdf', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana_kemenristek2`
+-- Struktur dari tabel `t_dana_kemenristek2`
 --
 
 CREATE TABLE `t_dana_kemenristek2` (
@@ -377,10 +400,17 @@ CREATE TABLE `t_dana_kemenristek2` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana_kemenristek2`
+--
+
+INSERT INTO `t_dana_kemenristek2` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `status`, `valid`) VALUES
+(1, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2020, 'pengabdian dana di desa abcdefghij', 'IPTEK bagi Masyarakat', 4000000, 5000000, 'Jadwal_Sidang_dan_Seminar_Tugas_Akhir_Tengah_Semester_2020_2021.pdf', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana_non2_upj`
+-- Struktur dari tabel `t_dana_non2_upj`
 --
 
 CREATE TABLE `t_dana_non2_upj` (
@@ -396,10 +426,28 @@ CREATE TABLE `t_dana_non2_upj` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana_non2_upj`
+--
+
+INSERT INTO `t_dana_non2_upj` (`kode_penelitian`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_penelitian`, `judul`, `sumber_dana`, `besaran_dana`, `file`, `valid`) VALUES
+(1, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2020, 'pengabdian pertama kalai', 'merdeka daniah', '3500000', 'BAB_1.pdf', NULL),
+(2, 'Zita Nadia', NULL, NULL, 2020, 'pengabdian non upj ke 2', 'denamitha', '2300000', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce.pdf', NULL),
+(3, 'Leenawaty Limantara', NULL, NULL, 2020, 'dana non 1', 'merdeka daniah', '98', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce1.pdf', NULL),
+(4, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 2', 'merdeka daniah', '3', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce2.pdf', NULL),
+(5, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 3', 'merdeka daniah', '3', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce3.pdf', NULL),
+(6, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 4', 'merdeka daniah', '99', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce4.pdf', NULL),
+(7, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 5', 'merdeka daniah', '4', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce5.pdf', NULL),
+(8, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 6', 'merdeka daniah', '4', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce6.pdf', NULL),
+(9, 'Leenawaty Limantara', NULL, NULL, 2018, 'data non 7', 'merdeka daniah', '3', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce7.pdf', NULL),
+(10, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 8', 'merdeka daniah', '3', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce8.pdf', NULL),
+(11, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 9', 'merdeka daniah', '3', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce9.pdf', NULL),
+(12, 'Leenawaty Limantara', NULL, NULL, 2020, 'data non 10', 'merdeka daniah', '19', '2014Inti2339-210XVol3No1ImplementasiAlgoritmaBruteForce10.pdf', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana_non_upj`
+-- Struktur dari tabel `t_dana_non_upj`
 --
 
 CREATE TABLE `t_dana_non_upj` (
@@ -415,10 +463,19 @@ CREATE TABLE `t_dana_non_upj` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana_non_upj`
+--
+
+INSERT INTO `t_dana_non_upj` (`kode_penelitian`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_penelitian`, `judul`, `sumber_dana`, `besaran_dana`, `file`, `valid`) VALUES
+(1, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2020, 'penelitian pertama kali', 'aaaaa', '2000000', '2013-1-00929-IF_Bab1001.pdf', NULL),
+(2, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 2018, 'penelitian sumdan non upj ke 2', 'denamitha', '7000000', 'Jadwal_Sidang_dan_Seminar_Tugas_Akhir_Tengah_Semester_2020_2021.pdf', NULL),
+(3, 'Naurissa Biasini', NULL, NULL, 2020, 'penelitian ilmu komunikasi', 'rumah riska asih', '5000000', '2013-1-00929-IF_Bab1001.pdf', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_dana_upj`
+-- Struktur dari tabel `t_dana_upj`
 --
 
 CREATE TABLE `t_dana_upj` (
@@ -437,10 +494,18 @@ CREATE TABLE `t_dana_upj` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_dana_upj`
+--
+
+INSERT INTO `t_dana_upj` (`kode_penelitan`, `ketua_peneliti`, `anggota_peneliti_1`, `anggota_peneliti_2`, `tahun_hibah`, `judul_penelitian`, `jenis_penelitian`, `dana_usulan`, `dana_disetujui`, `file`, `skema_penelitian`, `status`, `valid`) VALUES
+(1, 'Aries Yulianto', NULL, NULL, 2020, 'penelitian psikologi 1', 'Penelitian Fundamental', 430000, 500000, 'Pengunaan_Hermeneutika_dalam_al_Quran.pdf', NULL, NULL, NULL),
+(2, 'Aries Yulianto', NULL, NULL, 2020, 'penelitian psikologi 2', 'Penelitian Fundamental', 4, 3, '6800821132Aug2020.pdf', NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_forum_ilmiah`
+-- Struktur dari tabel `t_forum_ilmiah`
 --
 
 CREATE TABLE `t_forum_ilmiah` (
@@ -464,7 +529,7 @@ CREATE TABLE `t_forum_ilmiah` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_hki`
+-- Struktur dari tabel `t_hki`
 --
 
 CREATE TABLE `t_hki` (
@@ -482,10 +547,18 @@ CREATE TABLE `t_hki` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_hki`
+--
+
+INSERT INTO `t_hki` (`id_hki`, `nama_dosen`, `nama_dosen1`, `nama_dosen2`, `judul_hki`, `jenis_hki`, `no_pendaftaran`, `status_hki`, `no_hki`, `file`, `tahun_pelaksanaan`, `valid`) VALUES
+(1, 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', 'haki pertama', 'Hak Cipta', '12345987', 'Terdaftar', '', '', 2020, NULL),
+(2, 'Zita Nadia', NULL, NULL, 'haki ke 2', 'Paten Sederhana', '123454321', 'Granted', '989898', '', 2020, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_login`
+-- Struktur dari tabel `t_login`
 --
 
 CREATE TABLE `t_login` (
@@ -499,7 +572,7 @@ CREATE TABLE `t_login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_login`
+-- Dumping data untuk tabel `t_login`
 --
 
 INSERT INTO `t_login` (`id`, `NIDN`, `username`, `prodi`, `email`, `password`, `author`) VALUES
@@ -543,7 +616,7 @@ INSERT INTO `t_login` (`id`, `NIDN`, `username`, `prodi`, `email`, `password`, `
 (38, '116036', 'Johannes Hamonangan Siregar', 'Sistem Informasi', 'johannes.siregar@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (39, '815010', 'Leenawaty Limantara', 'Teknik Sipil', 'leenawaty.limantara@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (40, '211019', 'Marcello Singadji', 'Sistem Informasi', 'marcello.singadji@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
-(41, '019040', 'Marelinda AL Dianty', 'Teknik Sipil', 'marelianda.aldianty@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
+(41, '19040', 'Marelinda AL Dianty', 'Teknik Sipil', 'marelianda.aldianty@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (42, '120005', 'Maya Rachmawaty', 'Ilmu Komunikasi', 'maya.rachmawaty@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (43, '219004', 'Michel Sutedja', 'Desain Komunikasi Visual', 'michel.sutedja@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (44, '819025', 'Mohamad Johan Budiman', 'Sistem Informasi', 'johan.budiman@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
@@ -569,7 +642,7 @@ INSERT INTO `t_login` (`id`, `NIDN`, `username`, `prodi`, `email`, `password`, `
 (64, '719019', 'Sri Wijayanti', 'Ilmu Komunikasi', 'sri.wijayanti@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (65, '818022', 'Suci Marini Novianty', 'Ilmu Komunikasi', 'suci.marini@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (66, '714003', 'Supriyanto', 'Psikologi', 'supriyanto@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
-(67, '016032', 'Teddy Mohamad Darajat', 'Desain Produk', 'teddy.darajat@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
+(67, '16032', 'Teddy Mohamad Darajat', 'Desain Produk', 'teddy.darajat@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (68, '814016', 'Teguh Prasetio', 'Manajemen', 'teguh.prasetio@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (69, '713026', 'Toufiq Panji Wisesa', 'Desain Produk', 'panji.wisesa@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (70, '711020', 'Tri Nugraha Adikesuma', 'Teknik Sipil', 'tri.nugraha@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
@@ -577,12 +650,14 @@ INSERT INTO `t_login` (`id`, `NIDN`, `username`, `prodi`, `email`, `password`, `
 (72, '818016', 'Yohannes Totok Suyoto', 'Manajemen', 'totok.suyoto@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (73, '218009', 'Yosaphat Danis Murtiharso', 'Ilmu Komunikasi', 'yosaphat.danis@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
 (74, '719017', 'Yunisa Fitri Andriani', 'Desain Komunikasi Visual', 'yunisa.fitri@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
-(75, '120001', 'Zita Nadia', 'Desain Komunikasi Visual', 'zita.nadia@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen');
+(75, '120001', 'Zita Nadia', 'Desain Komunikasi Visual', 'zita.nadia@upj.ac.id', '$2y$12$0YucAQGloc7TmLwkTIKY9O7aQn2pzviurMMum9KONmr6ymPgxOuay', 'dosen'),
+(76, '111111', 'ini uji coba', 'Akuntansi', 'ini.ujicoba@upj.ac.id', '$2y$05$RE2UIoOGAYvZ7.dPQX6AG.Qs91McOv2cy34hnrrC58KrCGjD/jmM6', 'dosen'),
+(77, '1123', 'aaa', 'Akuntansi', 'aaa@upj.ac.id', '$2y$05$vqJWUontqnr8nC2ugH.eOuJfT8IiGWZNSSo2pVdI3LNS7AQOQEhj2', 'dosen');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_luaran_lain`
+-- Struktur dari tabel `t_luaran_lain`
 --
 
 CREATE TABLE `t_luaran_lain` (
@@ -602,7 +677,7 @@ CREATE TABLE `t_luaran_lain` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_publikasi_jurnal`
+-- Struktur dari tabel `t_publikasi_jurnal`
 --
 
 CREATE TABLE `t_publikasi_jurnal` (
@@ -625,10 +700,17 @@ CREATE TABLE `t_publikasi_jurnal` (
   `valid` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_publikasi_jurnal`
+--
+
+INSERT INTO `t_publikasi_jurnal` (`id_publikasi`, `tahun_penerbitan`, `judul`, `nama_jurnal`, `penulis_publikasi`, `penulis_anggota1`, `penulis_anggota2`, `penulis_non_dosen`, `issn`, `volume`, `nomor`, `halaman_awal`, `halaman_akhir`, `url`, `file`, `cakupan_publikasi`, `valid`) VALUES
+(1, 2020, 'jurnal internasional science mengenai perhitungan abcd', 'jurnal akuntansi TYX', 'Agustine Dwianika', 'David Pangaribuan', 'Fitriyah Nurhidayah', NULL, '9203084049', 2, 2, 3, 12, 'https://www.instagram.com/aaaaaa', NULL, 'Jurnal Internasional', NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_total_semua`
+-- Struktur dari tabel `t_total_semua`
 --
 
 CREATE TABLE `t_total_semua` (
@@ -638,18 +720,18 @@ CREATE TABLE `t_total_semua` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_total_semua`
+-- Dumping data untuk tabel `t_total_semua`
 --
 
 INSERT INTO `t_total_semua` (`no`, `prodi`, `jumlah`) VALUES
-(1, 'Akuntansi', 32),
-(2, 'Arsitektur', 9),
-(3, 'Desain Komunikasi Visual', 8),
-(4, 'Desain Produk', 8),
-(5, 'Ilmu Komunikasi', 3),
-(6, 'Informatika', 3),
-(7, 'Manajemen', 3),
-(8, 'Psikologi', 3),
+(1, 'Akuntansi', 3),
+(2, 'Arsitektur', 0),
+(3, 'Desain Komunikasi Visual', 0),
+(4, 'Desain Produk', 0),
+(5, 'Ilmu Komunikasi', 0),
+(6, 'Informatika', 0),
+(7, 'Manajemen', 0),
+(8, 'Psikologi', 0),
 (9, 'Sistem Informasi', 0),
 (10, 'Teknik Sipil', 0);
 
@@ -658,311 +740,317 @@ INSERT INTO `t_total_semua` (`no`, `prodi`, `jumlah`) VALUES
 --
 
 --
--- Indexes for table `author`
+-- Indeks untuk tabel `author`
 --
 ALTER TABLE `author`
   ADD PRIMARY KEY (`id_author`),
   ADD UNIQUE KEY `author` (`author`);
 
 --
--- Indexes for table `cakupan_forum_ilmiah`
+-- Indeks untuk tabel `cakupan_forum_ilmiah`
 --
 ALTER TABLE `cakupan_forum_ilmiah`
   ADD PRIMARY KEY (`id_cakupan`),
   ADD UNIQUE KEY `cakupan_forum_ilmiah` (`cakupan_forum_ilmiah`);
 
 --
--- Indexes for table `cakupan_publikasi_jurnal`
+-- Indeks untuk tabel `cakupan_publikasi_jurnal`
 --
 ALTER TABLE `cakupan_publikasi_jurnal`
   ADD PRIMARY KEY (`id_cakupan`),
   ADD UNIQUE KEY `cakupan_publikasi` (`cakupan_publikasi`);
 
 --
--- Indexes for table `jenis_hki`
+-- Indeks untuk tabel `jenis_hki`
 --
 ALTER TABLE `jenis_hki`
   ADD PRIMARY KEY (`id_jenis`),
   ADD UNIQUE KEY `jenis_hki` (`jenis_hki`);
 
 --
--- Indexes for table `jenis_luaran_lain`
+-- Indeks untuk tabel `jenis_luaran_lain`
 --
 ALTER TABLE `jenis_luaran_lain`
   ADD PRIMARY KEY (`id_jenis`),
   ADD KEY `jenis_luaran` (`jenis_luaran`);
 
 --
--- Indexes for table `jenis_penelitian`
+-- Indeks untuk tabel `jenis_penelitian`
 --
 ALTER TABLE `jenis_penelitian`
   ADD PRIMARY KEY (`id_jenis_ini`),
   ADD UNIQUE KEY `jenis_penelitian` (`jenis_penelitian`);
 
 --
--- Indexes for table `jenis_pengabdian`
+-- Indeks untuk tabel `jenis_pengabdian`
 --
 ALTER TABLE `jenis_pengabdian`
   ADD PRIMARY KEY (`id_jenis`),
   ADD UNIQUE KEY `jenis_pengabdian` (`jenis_pengabdian`);
 
 --
--- Indexes for table `program_studi`
+-- Indeks untuk tabel `program_studi`
 --
 ALTER TABLE `program_studi`
   ADD PRIMARY KEY (`id_program`),
   ADD UNIQUE KEY `program_studi` (`program_studi`);
 
 --
--- Indexes for table `skema_penelitian`
+-- Indeks untuk tabel `skema_penelitian`
 --
 ALTER TABLE `skema_penelitian`
   ADD PRIMARY KEY (`id_skema`),
   ADD UNIQUE KEY `skema` (`skema`);
 
 --
--- Indexes for table `status_hki`
+-- Indeks untuk tabel `status_hki`
 --
 ALTER TABLE `status_hki`
   ADD PRIMARY KEY (`id_status`),
   ADD UNIQUE KEY `status_hki` (`status_hki`);
 
 --
--- Indexes for table `status_pemakalah`
+-- Indeks untuk tabel `status_pemakalah`
 --
 ALTER TABLE `status_pemakalah`
   ADD PRIMARY KEY (`id_status`),
   ADD UNIQUE KEY `status_pemakalah` (`status_pemakalah`);
 
 --
--- Indexes for table `tahun`
+-- Indeks untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
   ADD PRIMARY KEY (`id_tahun`),
   ADD UNIQUE KEY `tahun` (`tahun`);
 
 --
--- Indexes for table `t_buku_ajar`
+-- Indeks untuk tabel `t_buku_ajar`
 --
 ALTER TABLE `t_buku_ajar`
   ADD PRIMARY KEY (`id_buku_ajar`);
 
 --
--- Indexes for table `t_dana2_upj`
+-- Indeks untuk tabel `t_dana2_upj`
 --
 ALTER TABLE `t_dana2_upj`
   ADD PRIMARY KEY (`kode_penelitan`);
 
 --
--- Indexes for table `t_dana_kemenristek`
+-- Indeks untuk tabel `t_dana_kemenristek`
 --
 ALTER TABLE `t_dana_kemenristek`
   ADD PRIMARY KEY (`kode_penelitan`);
 
 --
--- Indexes for table `t_dana_kemenristek2`
+-- Indeks untuk tabel `t_dana_kemenristek2`
 --
 ALTER TABLE `t_dana_kemenristek2`
   ADD PRIMARY KEY (`kode_penelitan`);
 
 --
--- Indexes for table `t_dana_non2_upj`
+-- Indeks untuk tabel `t_dana_non2_upj`
 --
 ALTER TABLE `t_dana_non2_upj`
   ADD PRIMARY KEY (`kode_penelitian`);
 
 --
--- Indexes for table `t_dana_non_upj`
+-- Indeks untuk tabel `t_dana_non_upj`
 --
 ALTER TABLE `t_dana_non_upj`
   ADD PRIMARY KEY (`kode_penelitian`);
 
 --
--- Indexes for table `t_dana_upj`
+-- Indeks untuk tabel `t_dana_upj`
 --
 ALTER TABLE `t_dana_upj`
   ADD PRIMARY KEY (`kode_penelitan`);
 
 --
--- Indexes for table `t_forum_ilmiah`
+-- Indeks untuk tabel `t_forum_ilmiah`
 --
 ALTER TABLE `t_forum_ilmiah`
   ADD PRIMARY KEY (`id_perumi`);
 
 --
--- Indexes for table `t_hki`
+-- Indeks untuk tabel `t_hki`
 --
 ALTER TABLE `t_hki`
   ADD PRIMARY KEY (`id_hki`);
 
 --
--- Indexes for table `t_login`
+-- Indeks untuk tabel `t_login`
 --
 ALTER TABLE `t_login`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `t_luaran_lain`
+-- Indeks untuk tabel `t_luaran_lain`
 --
 ALTER TABLE `t_luaran_lain`
   ADD PRIMARY KEY (`id_luaran`);
 
 --
--- Indexes for table `t_publikasi_jurnal`
+-- Indeks untuk tabel `t_publikasi_jurnal`
 --
 ALTER TABLE `t_publikasi_jurnal`
   ADD PRIMARY KEY (`id_publikasi`);
 
 --
--- Indexes for table `t_total_semua`
+-- Indeks untuk tabel `t_total_semua`
 --
 ALTER TABLE `t_total_semua`
   ADD PRIMARY KEY (`no`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `author`
+-- AUTO_INCREMENT untuk tabel `author`
 --
 ALTER TABLE `author`
   MODIFY `id_author` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `cakupan_forum_ilmiah`
+-- AUTO_INCREMENT untuk tabel `cakupan_forum_ilmiah`
 --
 ALTER TABLE `cakupan_forum_ilmiah`
   MODIFY `id_cakupan` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `cakupan_publikasi_jurnal`
+-- AUTO_INCREMENT untuk tabel `cakupan_publikasi_jurnal`
 --
 ALTER TABLE `cakupan_publikasi_jurnal`
   MODIFY `id_cakupan` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `jenis_hki`
+-- AUTO_INCREMENT untuk tabel `jenis_hki`
 --
 ALTER TABLE `jenis_hki`
   MODIFY `id_jenis` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `jenis_luaran_lain`
+-- AUTO_INCREMENT untuk tabel `jenis_luaran_lain`
 --
 ALTER TABLE `jenis_luaran_lain`
   MODIFY `id_jenis` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `jenis_penelitian`
+-- AUTO_INCREMENT untuk tabel `jenis_penelitian`
 --
 ALTER TABLE `jenis_penelitian`
   MODIFY `id_jenis_ini` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `jenis_pengabdian`
+-- AUTO_INCREMENT untuk tabel `jenis_pengabdian`
 --
 ALTER TABLE `jenis_pengabdian`
   MODIFY `id_jenis` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `program_studi`
+-- AUTO_INCREMENT untuk tabel `program_studi`
 --
 ALTER TABLE `program_studi`
   MODIFY `id_program` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `skema_penelitian`
+-- AUTO_INCREMENT untuk tabel `skema_penelitian`
 --
 ALTER TABLE `skema_penelitian`
   MODIFY `id_skema` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `status_hki`
+-- AUTO_INCREMENT untuk tabel `status_hki`
 --
 ALTER TABLE `status_hki`
   MODIFY `id_status` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `status_pemakalah`
+-- AUTO_INCREMENT untuk tabel `status_pemakalah`
 --
 ALTER TABLE `status_pemakalah`
   MODIFY `id_status` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tahun`
+-- AUTO_INCREMENT untuk tabel `tahun`
 --
 ALTER TABLE `tahun`
   MODIFY `id_tahun` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `t_buku_ajar`
+-- AUTO_INCREMENT untuk tabel `t_buku_ajar`
 --
 ALTER TABLE `t_buku_ajar`
   MODIFY `id_buku_ajar` int(7) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `t_dana2_upj`
+-- AUTO_INCREMENT untuk tabel `t_dana2_upj`
 --
 ALTER TABLE `t_dana2_upj`
-  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `t_dana_kemenristek`
+-- AUTO_INCREMENT untuk tabel `t_dana_kemenristek`
 --
 ALTER TABLE `t_dana_kemenristek`
-  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `t_dana_kemenristek2`
+-- AUTO_INCREMENT untuk tabel `t_dana_kemenristek2`
 --
 ALTER TABLE `t_dana_kemenristek2`
-  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `t_dana_non2_upj`
+-- AUTO_INCREMENT untuk tabel `t_dana_non2_upj`
 --
 ALTER TABLE `t_dana_non2_upj`
-  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `t_dana_non_upj`
+-- AUTO_INCREMENT untuk tabel `t_dana_non_upj`
 --
 ALTER TABLE `t_dana_non_upj`
-  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitian` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `t_dana_upj`
+-- AUTO_INCREMENT untuk tabel `t_dana_upj`
 --
 ALTER TABLE `t_dana_upj`
-  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode_penelitan` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `t_forum_ilmiah`
+-- AUTO_INCREMENT untuk tabel `t_forum_ilmiah`
 --
 ALTER TABLE `t_forum_ilmiah`
   MODIFY `id_perumi` int(7) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `t_hki`
+-- AUTO_INCREMENT untuk tabel `t_hki`
 --
 ALTER TABLE `t_hki`
-  MODIFY `id_hki` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hki` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `t_luaran_lain`
+-- AUTO_INCREMENT untuk tabel `t_login`
+--
+ALTER TABLE `t_login`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT untuk tabel `t_luaran_lain`
 --
 ALTER TABLE `t_luaran_lain`
   MODIFY `id_luaran` int(7) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `t_publikasi_jurnal`
+-- AUTO_INCREMENT untuk tabel `t_publikasi_jurnal`
 --
 ALTER TABLE `t_publikasi_jurnal`
-  MODIFY `id_publikasi` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_publikasi` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `t_total_semua`
+-- AUTO_INCREMENT untuk tabel `t_total_semua`
 --
 ALTER TABLE `t_total_semua`
   MODIFY `no` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
