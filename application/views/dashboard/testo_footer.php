@@ -38,8 +38,8 @@
         foreach($tampil_prodi as $dat){   //menambpilkan kode prodi pada grafik 2, 3, dan 4         
             $kd[] = $dat->kode_prodi;
         }
-        foreach($tampil_tahun as $dat){            
-            $thn[] = $dat->tahun;            
+        foreach($tampil_tahun as $dat){
+            $thn[] = $dat->tahun;
         }
         foreach($top_five as $rowb){ //menampilkan jumlah dan nama prodi dari 5 teratas
             $top5[] =  $rowb->jumlah;

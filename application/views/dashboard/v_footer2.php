@@ -37,6 +37,10 @@
     $thn[] = $dat->tahun;
   }
 
+  foreach($total_nama_in5prodi as $key => $key_value) { //menampilkan jumlah dan nama prodi dari 5 teratas
+    $top5name[] = $key;
+    $top5total[] = $key_value;
+  }
 
   ?>
 
@@ -262,7 +266,7 @@
 				  datasets: [{
             label: 'Jumlah  ',
             backgroundColor: "#26B99A",
-            data: <?php echo json_encode($total_publikasi);?>
+            data: <?php echo json_encode($total_publikasii);?>
             //data: [1,2,3]
 				  }]
 				},
@@ -340,7 +344,9 @@
       var ctx = document.getElementById("pieCharta");
       var data = {
           datasets: [{
-              data: [120, 50, 140, 180, 100],
+              //data: [120, 50, 140, 180, 10],
+              //data: ?php echo json_encode($top5);?>,
+              data: <?php echo json_encode($top5total);?>,
               backgroundColor: [
                   "#455C73",
                   "#9B59B6",
@@ -348,22 +354,30 @@
                   "#26B99A",
                   "#3498DB"
               ],
-              label: 'My dataset' // for legend
+              label: 'My dataset' // for legend 
           }],
-          labels: [
-              "Dark Gray",
-              "Purple",
-              "Gray",
-              "Green",
-              "Blue"
-          ]
+          //labels: ["Dark Gray", "Purple", "Gray", "Green", "Blue" ]
+          labels: <?php echo json_encode($top5name);?>,
       };
 
       var pieCharta = new Chart(ctx, {
           data: data,
           type: 'pie',
-          otpions: {
-              legend: false
+          // otpions: {
+          //     legend: true,
+              
+          //     position: 'right'
+          // }
+          options: {
+              responsive: true,
+              legend: {
+                  position: "bottom",
+                  //align: "center"
+              },
+              // legendOptions = {
+              //   // options are 'start', 'end', 'center'. Default is 'start' which matches old behaviour
+              //   align: 'end' 
+              // },
           }
       });
 

@@ -34,15 +34,13 @@ class Dashboard extends CI_Controller {
 		$raise_luaran = $this->db->count_all('t_luaran_lain');
 		$jml_raise_publi = $raise_jurnal + $raise_buku + $raise_forum + $raise_hki + $raise_luaran; //jumlah publikasi
 
-		//untuk membuat perhitungan dan membuat garis line pada dashboard grafik 1
+		//untuk membuat perhitungan dan membuat garis line pada dashboard grafik 
 		$hitung_dana2_upj_tahun = $this->M_chart->hitung_dana2_upj_tahun();
 		$hitung_dana_non2_upj_tahun = $this->M_chart->hitung_dana_non2_upj_tahun();
 		$hitung_hibah2_upj_tahun = $this->M_chart->hitung_hibah2_upj_tahun();
-
 		$hitung_dana_upj_tahun = $this->M_chart->hitung_dana_upj_tahun();
 		$hitung_dana_non_upj_tahun = $this->M_chart->hitung_dana_non_upj_tahun();
 		$hitung_hibah_upj_tahun = $this->M_chart->hitung_hibah_upj_tahun();
-
 		$hitung_jurnal_tahun = $this->M_chart->hitung_jurnal_tahun();
 		$hitung_buku_tahun = $this->M_chart->hitung_buku_tahun();
 		$hitung_prosiding_tahun = $this->M_chart->hitung_prosiding_tahun();
@@ -52,11 +50,9 @@ class Dashboard extends CI_Controller {
 		foreach($hitung_dana2_upj_tahun as $row){ $tempDataGrafik1[] =$row->ttl_thn_abdi;} 
 		foreach($hitung_dana_non2_upj_tahun as $row){ $tempDataGrafik2[] =$row->ttl_thn_nonabdi;} 
 		foreach($hitung_hibah2_upj_tahun as $row){ $tempDataGrafik3[] =$row->ttl_thn_nonabdi_hibah;} 
-
 		foreach($hitung_dana_upj_tahun as $row){ $tempDataGrafik4[] =$row->ttl_thn_liti;} 
 		foreach($hitung_dana_non_upj_tahun as $row){ $tempDataGrafik5[] =$row->ttl_thn_nonliti;}
 		foreach($hitung_hibah_upj_tahun as $row){ $tempDataGrafik6[] =$row->ttl_thn_nonliti_hibah;}
- 
 		foreach($hitung_jurnal_tahun as $row){ $tempDataGrafik7[] =$row->ttl_thn_jurnal;} 
 		foreach($hitung_buku_tahun as $row){ $tempDataGrafik8[] =$row->ttl_thn_buku;} 
 		foreach($hitung_prosiding_tahun as $row){ $tempDataGrafik9[] =$row->ttl_thn_prosiding;} 
@@ -82,27 +78,24 @@ class Dashboard extends CI_Controller {
 		$jumlah_pengabdian_non = $this->M_chart->hitung_dana_non2_upj();
 		$jumlah_pengabdian_hibah = $this->M_chart->hitung_hibah2_upj();
 		
-		foreach($jumlah_publikasi as $row){ $jumpub1[] =$row->total_jurnal;}
-		foreach($jumlah_pemakalah as $row){ $jumpub2[] =$row->total_makalah;}
-		foreach($jumlah_buku as $row){ $jumpub3[] =$row->total_buku;}	
-		foreach($jumlah_hki as $row){ $jumpub4[] =$row->total_hki;}	
-		foreach($jumlah_luaran as $row){ $jumpub5[] =$row->total_luaran;}
-
-		foreach($jumlah_penelitian as $row){ $jumpen1[] =$row->total_penelitian;}
-		foreach($jumlah_penelitian_non as $row){ $jumpen2[] =$row->total_penelitian_non;} 
-		foreach($jumlah_penelitian_hibah as $row){ $jumpen3[] =$row->total_penelitian_hibah;} 
-		foreach($jumlah_pengabdian as $row){ $jumpen4[] =$row->total_pengabdian;}
-		foreach($jumlah_pengabdian_non as $row){$jumpen5[] =$row->total_pengabdian_non;}
-		foreach($jumlah_pengabdian_hibah as $row){$jumpen6[] =$row->total_pengabdian_hibah;}
-
-		print_r($jumlah_publikasi);exit();
+		foreach($jumlah_publikasi as $row){ $jumpub1[] = $row->total_jurnal;}
+		foreach($jumlah_pemakalah as $row){ $jumpub2[] = $row->total_makalah;}
+		foreach($jumlah_buku as $row){ $jumpub3[] = $row->total_buku;}	
+		foreach($jumlah_hki as $row){ $jumpub4[] = $row->total_hki;}	
+		foreach($jumlah_luaran as $row){ $jumpub5[] = $row->total_luaran;}
+		foreach($jumlah_penelitian as $row){ $jumpen1[] = $row->total_penelitian;}
+		foreach($jumlah_penelitian_non as $row){ $jumpen2[] = $row->total_penelitian_non;} 
+		foreach($jumlah_penelitian_hibah as $row){ $jumpen3[] = $row->total_penelitian_hibah;} 
+		foreach($jumlah_pengabdian as $row){ $jumpen4[] = $row->total_pengabdian;}
+		foreach($jumlah_pengabdian_non as $row){ $jumpen5[] = $row->total_pengabdian_non;}
+		foreach($jumlah_pengabdian_hibah as $row){ $jumpen6[] = $row->total_pengabdian_hibah;}
 
 		for($i=0;$i<=9;$i++){
-			if (empty($john1[$i])) {$jumpub1[$i]=0;}
-			if (empty($john2[$i])) {$jumpub2[$i]=0;}
-			if (empty($john3[$i])) {$jumpub3[$i]=0;}
-			if (empty($john4[$i])) {$jumpub4[$i]=0;}
-			if (empty($john5[$i])) {$jumpub5[$i]=0;}
+			if (empty($jumpub1[$i])) { $jumpub1[$i]=0; }
+			if (empty($jumpub2[$i])) { $jumpub2[$i]=0; }
+			if (empty($jumpub3[$i])) { $jumpub3[$i]=0; }
+			if (empty($jumpub4[$i])) { $jumpub4[$i]=0; }
+			if (empty($jumpub5[$i])) { $jumpub5[$i]=0; }
 			if (empty($jumpen1[$i])) { $jumpen1[$i]=0; }
 			if (empty($jumpen2[$i])) { $jumpen2[$i]=0; }
 			if (empty($jumpen3[$i])) { $jumpen3[$i]=0; }
@@ -111,9 +104,36 @@ class Dashboard extends CI_Controller {
 			if (empty($jumpen6[$i])) { $jumpen6[$i]=0; }
 			$total_penelitian[$i] = $jumpen1[$i] + $jumpen2[$i] + $jumpen3[$i];
 			$total_pengabdiana[$i] = $jumpen4[$i] + $jumpen5[$i] + $jumpen6[$i];
-			$total_publikasi[$i] = $jumpub1[$i] + $jumpub2[$i] + $jumpub3[$i] + $jumpub4[$i] + $jumpub5[$i];
-		}
+			$total_publikasii[$i] = $jumpub1[$i] + $jumpub2[$i] + $jumpub3[$i] + $jumpub4[$i] + $jumpub5[$i];
 
+			$total_semua[$i] = $jumpub1[$i] + $jumpub2[$i] + $jumpub3[$i] + $jumpub4[$i] + $jumpub5[$i] 
+								+ $jumpen1[$i] + $jumpen2[$i] + $jumpen3[$i] 
+								+ $jumpen4[$i] + $jumpen5[$i] + $jumpen6[$i];
+		}
+		$nama_prodi_5top = array(
+			"Akuntansi"=>$total_semua[0],
+			"Arsitektur"=>$total_semua[1], 
+			"Desain Komunikasi Visual"=>$total_semua[2],
+			"Desain Produk"=>$total_semua[3],
+			"Ilmu Komunikasi"=>$total_semua[4],
+			"Informatika"=>$total_semua[5],
+			"Manajemen"=>$total_semua[6],
+			"Psikologi"=>$total_semua[7],
+			"Sistem Informasi"=>$total_semua[8],
+			"Teknik Sipil"=>$total_semua[9]
+		);		
+		// print_r($age);
+		// print_r($total_semua);exit();
+		 arsort($nama_prodi_5top);
+		// print_r($nama_prodi_5top);
+		// echo "<br>";
+		$total_nama_in5prodi = array_slice($nama_prodi_5top,0,5);
+		// print_r($total_nama_in5prodi);
+		// exit();
+		 
+		$total_semua_in5prodi = array_slice($total_semua,0,5);
+		// print_r($total_nama_in5prodi);exit();
+		
 		$dataHalaman = array(   		
 		  'da' => $kue,
 		  'tampil_prodi' => $tampil_prodi,
@@ -126,11 +146,12 @@ class Dashboard extends CI_Controller {
 		  'g1abdi' => $g1abdi,
 		  'g1liti' => $g1liti,
 		  'g1publi' => $g1publi,
-		  //'jumba' => $total_top5,
 
 		  'total_penelitian'=>$total_penelitian,
 		  'total_pengabdiana'=>$total_pengabdiana,
-		  'total_publikasi'=>$total_publikasi,
+		  'total_publikasii'=>$total_publikasii,
+		  'total_nama_in5prodi'=>$total_nama_in5prodi,
+		  'total_semua_in5prodi'=>$total_semua_in5prodi,
         );
 		
 		$this->load->view('dashboard/v_header',$dataHalaman);
@@ -232,7 +253,7 @@ class Dashboard extends CI_Controller {
 		$total_top5=$this->M_dokumen->tampil_jumlah_top_5();
 		//hasil total penjumlahan seluruh penelitian, pengabidan, dan publikasi diinsert ke database 
 		//kemudian disort berdasarkan angka tertinggi
-		$dataHalaman = array(   		
+		$dataHalaman = array(
 		  'da' => $kue,
 		  'tampil_prodi'=>$tampil_prodi,
 		  'tampil_tahun'=>$tampil_tahun,
